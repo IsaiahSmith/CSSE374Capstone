@@ -1,5 +1,7 @@
 package project;
 
-public interface IEncoder {
+import java.util.List;
 
+public interface IEncoder {
+	public StringBuilder encode(List<ClassBuilder> Classes);
 }
