@@ -8,8 +8,8 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
-public class ClassMethodVisitor extends ClassVisitor {
-
+public class ClassMethodVisitor extends ClassVisitor{
+	
 	private ClassBuilder cls;
 	private Map<String, String> newMethod;
 	
@@ -70,5 +70,4 @@ public class ClassMethodVisitor extends ClassVisitor {
 		}
 		this.newMethod.put("AccessLevel", level);
 	}
-
 }

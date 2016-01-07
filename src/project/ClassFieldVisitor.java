@@ -8,8 +8,8 @@ import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
-public class ClassFieldVisitor extends ClassVisitor {
-
+public class ClassFieldVisitor extends ClassVisitor{
+	
 	private ClassBuilder cls;
 	private Map<String, String> newField;
 	
@@ -57,5 +57,4 @@ public class ClassFieldVisitor extends ClassVisitor {
 		this.newField.put("Type", type);
 		
 	}
-
 }

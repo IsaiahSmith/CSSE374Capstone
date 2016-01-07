@@ -6,9 +6,12 @@ import java.util.List;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
-public class ClassDeclarationVisitor extends ClassVisitor {
-	
+public class ClassDeclarationVisitor extends ClassVisitor{
 	private ClassBuilder cls;
+	
+	public ClassDeclarationVisitor(int api) {
+		super(api);
+	}
 	
 	public ClassDeclarationVisitor(int api, ClassBuilder cls) {
 		super(api);
@@ -32,5 +35,4 @@ public class ClassDeclarationVisitor extends ClassVisitor {
 		
 		super.visit(version, access, name, signature, superName, interfaces);
 	}
-
 }

@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DesignMaker {
@@ -25,12 +26,11 @@ public class DesignMaker {
 		String encodeType = in.readLine();
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
-		//TODO Parse data structure for class
+		List<ClassBuilder> Classes = design.parse(files);
 		
 		IEncoder enc = encoders.get(encodeType);
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
-		//TODO Write the ClassObject here
-		//writer.write(enc.encode(ClassObject).toString().getBytes());
+		writer.write(enc.encode(Classes).toString().getBytes());
 		writer.close();
 	}
 }
