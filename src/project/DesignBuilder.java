@@ -9,13 +9,16 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
 public class DesignBuilder {
-	public void parse(String[] files) throws IOException{
+	public List<ClassBuilder> parse(String[] files) throws IOException{
+		List<ClassBuilder> Classes = new ArrayList<ClassBuilder>();
 		for(String className: files) {
+			
+			ClassBuilder cls = new ClassBuilder();
 			
 			// ASM's ClassReader does the heavy lifting of parsing the compiled Java class
 			ClassReader reader=new ClassReader(className);
 			// make class declaration visitor to get superclass and interfaces
-			ClassVisitor decVisitor = new ClassDeclarationVisitor(Opcodes.ASM5);
+			ClassVisitor decVisitor = new ClassDeclarationVisitor(Opcodes.ASM5, cls);
 			// DECORATE declaration visitor with field visitor
 			ClassVisitor fieldVisitor = new ClassFieldVisitor(Opcodes.ASM5, decVisitor);
 			// DECORATE field visitor with method visitor
@@ -24,7 +27,9 @@ public class DesignBuilder {
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
+			Classes.add(cls);
 		}
 		
+		return Classes;
 	}
 }

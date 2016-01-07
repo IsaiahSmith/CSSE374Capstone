@@ -1,32 +1,34 @@
 package project;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.objectweb.asm.ClassVisitor;
-
-import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.Opcodes;
 
 public class ClassDeclarationVisitor extends ClassVisitor {
 	
-	public Map<String, String> classes;
+	private ClassBuilder cls;
 	
-	public ClassDeclarationVisitor(int api) {
+	public ClassDeclarationVisitor(int api, ClassBuilder cls) {
 		super(api);
-		classes = new HashMap<String, String>();
+		this.cls = cls;
 	}
 	
 	@Override
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-		// TODO: delete the line below
-		System.out.println("Class: "+name+" extends "+superName+" implements "+Arrays.toString(interfaces));
-		//TODO: construct an internal representation of the class for later use
-		// by decorators
+		this.cls.name = name;
+		if (superName != null)
+			this.cls.superName = superName;
+		if((access&Opcodes.ACC_INTERFACE)!=0){
+			this.cls.isClass=false;
+		}
+		List<String> inters = new ArrayList<String>();;
+		for (String s : interfaces) {
+			inters.add(s);
+		}
+		this.cls.inter = inters;
 		
-		classes.put("Class", name);
-		classes.put("extends", superName);
-		classes.put("implements", Arrays.toString(interfaces));
 		
 		super.visit(version, access, name, signature, superName, interfaces);
 	}
