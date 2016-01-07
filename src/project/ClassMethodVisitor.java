@@ -1,5 +1,8 @@
 package project;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -7,44 +10,53 @@ import org.objectweb.asm.Type;
 
 public class ClassMethodVisitor extends ClassVisitor {
 
+	private ClassBuilder cls;
+	private Map<String, String> newMethod;
+	
 	public ClassMethodVisitor(int api) {
 		super(api);
 	}
 	
 	public ClassMethodVisitor(int api, ClassVisitor decorated) {
 		super(api, decorated);
+		this.cls=new ClassBuilder();
+	}
+	public ClassMethodVisitor(int api, ClassVisitor decorated, ClassBuilder cls) {
+		super(api, decorated);
+		this.cls = cls;
 	}
 	
 	@Override
-	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions){
+	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor toDecorate = super.visitMethod(access, name, desc, signature, exceptions);
-		// TODO: delete the line below
-		System.out.println("method " + name);
-		// TODO: create an internal representation of the current method and pass it to the methods below
-		addAccessLevel(access);
-		addReturnType(desc);
+		this.newMethod = new HashMap<String, String>();
+		this.newMethod.put("Name", name);
 		addArguments(desc);
-		// TODO: add the current method to your internal representation of the current class
-		// What is a good way for the code to remember what the current class is?
+		addReturnType(desc);
+		addAccessLevel(access);
+		
+		cls.methods.add(this.newMethod);
+		
 		return toDecorate;
 	}
-
+	
 	private void addArguments(String desc) {
 		Type[] args = Type.getArgumentTypes(desc);
+		String arguments = "";
 		for(int i=0; i<args.length; i++){
 			String arg=args[i].getClassName();
-			System.out.println("arg "+i+": "+arg);
+			arguments += "arg"+i+": "+arg+", ";
 		}
-		
+		if(args.length > 0)
+			this.newMethod.put("args", arguments.substring(0, arguments.length() - 2));
 	}
-
+	
 	private void addReturnType(String desc) {
 		String returnType = Type.getReturnType(desc).getClassName();
-		
-		System.out.println("return type: " + returnType );
+		this.newMethod.put("ReturnType", returnType);
 		
 	}
-
+	
 	private void addAccessLevel(int access) {
 		String level="";
 		if((access&Opcodes.ACC_PUBLIC)!=0){
@@ -56,10 +68,7 @@ public class ClassMethodVisitor extends ClassVisitor {
 		}else{
 			level="default";
 		}
-		// TODO: delete the next line
-		System.out.println("access level: "+level);
-		// TODO: ADD this information to your representation of the current method.
-		
+		this.newMethod.put("AccessLevel", level);
 	}
 
 }
