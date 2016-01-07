@@ -32,5 +32,6 @@ public class DesignMaker {
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
 		writer.write(enc.encode(Classes).toString().getBytes());
 		writer.close();
+		System.out.println("Done.");
 	}
 }
