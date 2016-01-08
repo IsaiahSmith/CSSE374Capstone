@@ -9,13 +9,6 @@ so that they can see their software's design.
 Milestone 1
 
 Our design:
-	The design is broken down into two major sections, the design builder and the encoder. 
-	The DesignBuilder class uses java's asm package as visitors that gather information from the passed
-	in class names and stores that info in a class builder. The visitor given by the asm package is 
-	decorated in order to gather and store information on classes. A list of these class objects is then 
-	passed into an encoder which is using the strategy pattern to allow for more than one encoder to exist.
-	The dot encoder uses the decorator pattern when parsing the ClassBuilder object to allow for additional 
-	information to be added to the graph.
 	
 	
 
@@ -34,8 +27,7 @@ Who did what?
 	
 	
 How to use our code:
-		To use our code, first add the files you want to see in the UML diagram as arguments to the "main" class. 
-	Run the "main" class as a java application. In the console, type "dot" for the 
+		To use our code, run the "main" class as a java application. In the console, type "dot" for the 
 	encode type and anything for the output file name. Open the GVEdit program for GraphViz and open
 	the file that you just named. Click the running dude button and UML should be generated!
 
@@ -44,13 +36,6 @@ Milestone 2
 
 Evolution of Design:
 	From Milestone 1 ->
-			The design is broken down into two major sections, the design builder and the encoder. 
-	The DesignBuilder class uses java's asm package as visitors that gather information from the passed
-	in class names and stores that info in a class builder. The visitor given by the asm package is 
-	decorated in order to gather and store information on classes. A list of these class objects is then 
-	passed into an encoder which is using the strategy pattern to allow for more than one encoder to exist.
-	The dot encoder uses the decorator pattern when parsing the ClassBuilder object to allow for additional 
-	information to be added to the graph.
 		
 	To now ->
 		Our design did not really change much from the original plan. That is because of how we
@@ -70,8 +55,7 @@ Who did what?
 		
 		
 How to use our code:
-		To use our code, first add the files you want to see in the UML diagram as arguments to the "main" class. 
-	Run the "main" class as a java application. In the console, type "dot" for the 
+		To use our code, run the "main" class as a java application. In the console, type "dot" for the 
 	encode type and anything for the output file name. Open the GVEdit program for GraphViz and open
 	the file that you just named. Click the running dude button and UML should be generated!
 	
