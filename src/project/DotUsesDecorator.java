@@ -24,14 +24,10 @@ public class DotUsesDecorator extends DotDecorator {
 				for(Map<String, String> m : c.methods) {
 					if(c.arguments != null){
 						for(Map<String, List<String>> arg : c.arguments){
-							if(arg.get(m.get("Name")).contains(o)
+							List<String> listArgTypes = arg.get(m.get("Name"));
+							
 						}
 						
-					}
-					List<String> args =new ArrayList(method.values());
-					for(int j=0;j<args.size();j++){
-						
-						for(int k=0; k<)
 					}
 				}
 			}

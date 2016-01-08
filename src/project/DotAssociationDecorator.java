@@ -13,7 +13,8 @@ public class DotAssociationDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeAssociation(){
-		StringBuilder temp = new StringBuilder("");
+		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\t]\n\t");
+		
 		
 		return temp;
 	}
