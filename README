@@ -1,0 +1,25 @@
+Isaiah Smith, Daniel Lehman, Neo Tong
+
+---------------------------------------------------------------------------------------------------
+
+This tool is ultimately used to take in a software package and give the programmer some useful UML
+so that they can see their software's design.
+
+---------------------------------------------------------------------------------------------------
+Milestone 1
+
+Our design:
+
+
+Who did what?
+Daniel: Mastermind behind our design; came up with most of the ultimate design for our project.
+	Participated in pair programming working with the vistors and the class builder. Gained idea
+	on how GraphViz and dot files work.
+
+Neo: Helped in creating design. Participated in pair programming in setting up the builders and some parsing stuff.
+
+Isaiah: Helped in creating design. Participated in pair programming in general methods in ClassBuilder and 
+	ClassDelcarationVistor. Learned how to use GraphViz and what dot files are and how to make one.
+	
+	
+How to use our code:
