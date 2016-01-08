@@ -11,7 +11,7 @@ public class DotClassDecorator extends DotDecorator {
 
 	public DotClassDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
 		super(toBeDecorated);
-		this.stringBuild = this.toBeDecorated.getDot();
+		this.stringBuild = this..getDot();
 		this.classes = classes;
 		makeClasses();
 	}

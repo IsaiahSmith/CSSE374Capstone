@@ -1,19 +1,30 @@
 package project;
 
+import java.util.List;
+
 public class DotInheritanceDecorator extends DotDecorator{
 	
-	public DotInheritanceDecorator(IDot toBeDecorated){
+	private List<ClassBuilder> classes;
+	private StringBuilder stringBuild;
+
+	public DotInheritanceDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
 		super(toBeDecorated);
+		this.classes = classes;
+		this.stringBuild = new StringBuilder();
+		makeInheritance();
 	}
 	
-	public StringBuilder makeInheritance(){
-		return null;
-		
+	public void makeInheritance(){
+		stringBuild.append("edge [ arrowhead = 'empty']");
+		for(ClassBuilder c : classes){
+			if(c.superName != null){
+				stringBuild.append(" " + c.name + " -> " + c.superName);
+			}
+		}
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		// TODO Auto-generated method stub
-		return null;
+		return stringBuild;
 	}
 }
