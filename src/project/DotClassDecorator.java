@@ -5,27 +5,28 @@ import java.util.Map;
 
 public class DotClassDecorator extends DotDecorator {
 	
+	ADot toBeDecorated;
+	
 	private List<ClassBuilder> classes;
-	private String str = "";
-	private StringBuilder stringBuild;	
 
-	public DotClassDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
-		super(toBeDecorated);
-		this.stringBuild = this..getDot();
+	public DotClassDecorator(ADot toBeDecorated, List<ClassBuilder> classes){
+		this.toBeDecorated = toBeDecorated;
 		this.classes = classes;
-		makeClasses();
 	}
 	
-	public void makeClasses(){
+	public StringBuilder makeClasses(){
 		System.out.println("In make classes.");
+		StringBuilder temp = new StringBuilder("");
 		for(ClassBuilder c : classes){
 			System.out.println("Appending class: " + c.name);
-			stringBuild.append(buildString(c.name, c.fields, c.methods, c.isClass));
+			temp.append(buildString(c.name, c.fields, c.methods, c.isClass));
 		}
+		return temp;
 	}
 
 	private String buildString(String name, List<Map<String, String>> fields, List<Map<String, String>> methods, boolean isClass) {
-		this.str += name + " [ label = \"{";
+		
+		String str = name + " [ \n\t\tlabel = \"{";
 		if(!isClass){
 			str += "interface\\l";
 		}
@@ -43,13 +44,15 @@ public class DotClassDecorator extends DotDecorator {
 				str+=m.get("args");
 			str+=")";
 			str += " : "
-					+ m.get("ReturnType") + "\\l}\" ]";
+					+ m.get("ReturnType");
 		}
+		str += "\\l}\" \n\t]\n\t";
 		return str;
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		return stringBuild;
+		
+		return toBeDecorated.getDot().append(makeClasses());
 	}
 }

@@ -4,27 +4,27 @@ import java.util.List;
 
 public class DotInheritanceDecorator extends DotDecorator{
 	
+	ADot toBeDecorated;
 	private List<ClassBuilder> classes;
-	private StringBuilder stringBuild;
 
-	public DotInheritanceDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
-		super(toBeDecorated);
+	public DotInheritanceDecorator(ADot toBeDecorated, List<ClassBuilder> classes){
+		this.toBeDecorated = toBeDecorated;
 		this.classes = classes;
-		this.stringBuild = new StringBuilder();
-		makeInheritance();
 	}
 	
-	public void makeInheritance(){
-		stringBuild.append("edge [ arrowhead = 'empty']");
+	public StringBuilder makeInheritance(){
+		StringBuilder temp = new StringBuilder("edge [ arrowhead = 'empty']");
+
 		for(ClassBuilder c : classes){
 			if(c.superName != null){
-				stringBuild.append(" " + c.name + " -> " + c.superName);
+				temp.append(" " + c.name + " -> " + c.superName);
 			}
 		}
+		return temp;
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		return stringBuild;
+		return toBeDecorated.getDot().append(makeInheritance());
 	}
 }

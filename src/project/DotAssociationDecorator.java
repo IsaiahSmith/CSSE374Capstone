@@ -1,14 +1,26 @@
 package project;
 
+import java.util.List;
+
 public class DotAssociationDecorator extends DotDecorator {
 
-	public DotAssociationDecorator(IDot toBeDecorated) {
-		super(toBeDecorated);
+	ADot toBeDecorated;
+	private List<ClassBuilder> classes;
+	
+	public DotAssociationDecorator(ADot toBeDecorated, List<ClassBuilder> classes) {
+		this.toBeDecorated = toBeDecorated;
+		this.classes = classes;
+	}
+	
+	public StringBuilder makeAssociation(){
+		StringBuilder temp = new StringBuilder("");
+		
+		return temp;
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		return null;
+		return toBeDecorated.getDot().append(makeAssociation());
 	}
 
 }

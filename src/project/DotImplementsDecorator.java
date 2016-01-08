@@ -3,30 +3,29 @@ package project;
 import java.util.List;
 
 public class DotImplementsDecorator extends DotDecorator {
-	
+	ADot toBeDecorated;
 	private List<ClassBuilder> classes;
-	private StringBuilder stringBuild;
 
-	public DotImplementsDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
-		super(toBeDecorated);
+	public DotImplementsDecorator(ADot toBeDecorated, List<ClassBuilder> classes){
+		this.toBeDecorated = toBeDecorated;
 		this.classes = classes;
-		this.stringBuild = new StringBuilder();
-		makeImplements();
 	}
 	
-	public void makeImplements(){
-		stringBuild.append("edge [ arrowhead = 'empty' style= 'dashed']");
+	public StringBuilder makeImplements(){
+		StringBuilder temp = new StringBuilder("edge [ arrowhead = 'empty' style= 'dashed']");
+	
 		for(ClassBuilder c : classes){
 			if(c.inter != null){
 				for(String i : c.inter){
-					stringBuild.append(c.name + "->" + i + "\\l");
+					temp.append(c.name + "->" + i + "\\l");
 				}
 			}
 		}
+		return temp;
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		return stringBuild;
+		return toBeDecorated.getDot().append(makeImplements());
 	}
 }

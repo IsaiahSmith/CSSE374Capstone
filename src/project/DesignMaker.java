@@ -27,9 +27,10 @@ public class DesignMaker {
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
 		List<ClassBuilder> Classes = design.parse(files);
-		
+
 		IEncoder enc = encoders.get(encodeType);
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
+
 		writer.write(enc.encode(Classes).toString().getBytes());
 		writer.close();
 		System.out.println("Done.");

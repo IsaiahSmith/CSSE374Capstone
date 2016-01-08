@@ -1,0 +1,34 @@
+digraph G {
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+
+        node [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+        ]
+
+        ClassDeclarationVisitor [
+                label = "{ClassDeclarationVisitor|- cls : ClassBuilder|+ visit(int version, int access, String Name, String signature, String superName, String[] interfaces) : void\l}"
+        ]
+
+        ClassVisitor [
+                label = "{<<abstract>>\lClassVisitor|- decorated : ClassVisitor|+ visit(String name, String extends, String[] implements) : void\l+ visitField(String name, String type) : void\l}"
+        ]
+
+        edge [
+                arrowhead = "empty"
+        ]
+        ClassDeclarationVisitor -> ClassVisitor
+
+        edge [
+                arrowhead = "filled"
+        ]
+        ClassVisitor -> ClassDeclarationVisitor
+
+}

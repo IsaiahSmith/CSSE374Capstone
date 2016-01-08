@@ -4,14 +4,24 @@ import java.util.List;
 
 public class DotUsesDecorator extends DotDecorator {
 
-	public DotUsesDecorator(IDot toBeDecorated, List<ClassBuilder> classes) {
-		super(toBeDecorated);
+	ADot toBeDecorated;
+	private List<ClassBuilder> classes;
+	
+	public DotUsesDecorator(ADot toBeDecorated, List<ClassBuilder> classes) {
+		this.toBeDecorated = toBeDecorated;
+		this.classes = classes;
+	}
+	
+	public StringBuilder makeUses() {
+		StringBuilder temp = new StringBuilder("");
+		
+		return temp;
 	}
 
 	@Override
 	public StringBuilder getDot() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return toBeDecorated.getDot().append(makeUses());
 	}
 	
 

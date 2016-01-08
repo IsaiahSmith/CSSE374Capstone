@@ -1,0 +1,101 @@
+---Class---
+Name: project/ClassBuilder
+SuperName: java/lang/Object
+Field(s):
+	public name
+	public superName
+	public isClass
+	public inter
+	public fields
+	public methods
+Method(s):
+	void <init>()
+	java.lang.String toString()
+
+---Class---
+Name: project/ClassDeclarationVisitor
+SuperName: org/objectweb/asm/ClassVisitor
+Field(s):
+	private cls
+Method(s):
+	void <init>(arg0: int)
+	void <init>(arg0: int, arg1: project.ClassBuilder)
+	void visit(arg0: int, arg1: int, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String, arg5: java.lang.String[])
+
+---Class---
+Name: project/ClassFieldVisitor
+SuperName: org/objectweb/asm/ClassVisitor
+Field(s):
+	private cls
+	private newField
+Method(s):
+	void <init>(arg0: int)
+	void <init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor)
+	void <init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder)
+	org.objectweb.asm.FieldVisitor visitField(arg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.Object)
+	void addAccessLevel(arg0: int)
+	void addType(arg0: java.lang.String)
+
+---Class---
+Name: project/ClassMethodVisitor
+SuperName: org/objectweb/asm/ClassVisitor
+Field(s):
+	private cls
+	private newMethod
+Method(s):
+	void <init>(arg0: int)
+	void <init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor)
+	void <init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder)
+	org.objectweb.asm.MethodVisitor visitMethod(arg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String[])
+	void addArguments(arg0: java.lang.String)
+	void addReturnType(arg0: java.lang.String)
+	void addAccessLevel(arg0: int)
+
+---Class---
+Name: project/DesignBuilder
+SuperName: java/lang/Object
+Method(s):
+	void <init>()
+	java.util.List parse(arg0: java.lang.String[])
+
+---Class---
+Name: project/main
+SuperName: java/lang/Object
+Method(s):
+	void <init>()
+	void main(arg0: java.lang.String[])
+
+---Interface--
+Name: java/util/List
+SuperName: java/lang/Object
+interface(s): [java/util/Collection]
+Method(s):
+	int size()
+	boolean isEmpty()
+	boolean contains(arg0: java.lang.Object)
+	java.util.Iterator iterator()
+	java.lang.Object[] toArray()
+	java.lang.Object[] toArray(arg0: java.lang.Object[])
+	boolean add(arg0: java.lang.Object)
+	boolean remove(arg0: java.lang.Object)
+	boolean containsAll(arg0: java.util.Collection)
+	boolean addAll(arg0: java.util.Collection)
+	boolean addAll(arg0: int, arg1: java.util.Collection)
+	boolean removeAll(arg0: java.util.Collection)
+	boolean retainAll(arg0: java.util.Collection)
+	void replaceAll(arg0: java.util.function.UnaryOperator)
+	void sort(arg0: java.util.Comparator)
+	void clear()
+	boolean equals(arg0: java.lang.Object)
+	int hashCode()
+	java.lang.Object get(arg0: int)
+	java.lang.Object set(arg0: int, arg1: java.lang.Object)
+	void add(arg0: int, arg1: java.lang.Object)
+	java.lang.Object remove(arg0: int)
+	int indexOf(arg0: java.lang.Object)
+	int lastIndexOf(arg0: java.lang.Object)
+	java.util.ListIterator listIterator()
+	java.util.ListIterator listIterator(arg0: int)
+	java.util.List subList(arg0: int, arg1: int)
+	java.util.Spliterator spliterator()
+

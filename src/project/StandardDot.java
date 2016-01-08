@@ -1,21 +1,11 @@
 package project;
 
-public class StandardDot implements IDot{
-
-	private StringBuilder stand;
+public class StandardDot extends ADot{
 
 	public StandardDot() {
-		this.stand = new StringBuilder();
-	}
-	
-	@Override
-	public StringBuilder getDot() {
-		System.out.println("Standard getDot()");
-		stand.append("digraph G { fontname = \"Bitstream Vera Sans\" fontsize = 8 "
-				+ "node [fontname = \"Bitstream Vera Sans\" fontsize = 8 shape = \"record\"] "
-				+ "edge [fontname = \"Bitstream Vera Sans\" fontsize = 8]");
-		
-		return stand;
+		dotFile = new StringBuilder("digraph G {\n\tfontname = \"Bitstream Vera Sans\" \n\tfontsize = 8 "
+				+ "\n\tnode [\n\t\tfontname = \"Bitstream Vera Sans\" \n\t\tfontsize = 8 \n\t\tshape = \"record\"\n\t] "
+				+ "\n\tedge [\n\t\tfontname = \"Bitstream Vera Sans\" \n\t\tfontsize = 8\n\t]\n\t");
 	}
 
 }
