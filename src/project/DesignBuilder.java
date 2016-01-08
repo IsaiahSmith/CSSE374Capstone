@@ -9,7 +9,7 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
 public class DesignBuilder {
-	public List<ClassBuilder> parse(String[] files) throws IOException{
+	public static List<ClassBuilder> parse(String[] files) throws IOException{
 		List<ClassBuilder> Classes = new ArrayList<ClassBuilder>();
 		for(String className: files) {
 			
