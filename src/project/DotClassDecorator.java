@@ -6,10 +6,12 @@ import java.util.Map;
 public class DotClassDecorator extends DotDecorator {
 	
 	private List<ClassBuilder> classes;
-	private String str = "";	
+	private String str = "";
+	private StringBuilder stringBuild;	
 
 	public DotClassDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
 		super(toBeDecorated);
+		this.stringBuild = this.toBeDecorated.getDot();
 		this.classes = classes;
 		makeClasses();
 	}
@@ -18,7 +20,7 @@ public class DotClassDecorator extends DotDecorator {
 		System.out.println("In make classes.");
 		for(ClassBuilder c : classes){
 			System.out.println("Appending class: " + c.name);
-			this.toBeDecorated.getDot().append(buildString(c.name, c.fields, c.methods, c.isClass));
+			stringBuild.append(buildString(c.name, c.fields, c.methods, c.isClass));
 		}
 	}
 
@@ -44,5 +46,10 @@ public class DotClassDecorator extends DotDecorator {
 					+ m.get("ReturnType") + "\\l}\" ]";
 		}
 		return str;
+	}
+
+	@Override
+	public StringBuilder getDot() {
+		return stringBuild;
 	}
 }

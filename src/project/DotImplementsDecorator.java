@@ -10,4 +10,10 @@ public class DotImplementsDecorator extends DotDecorator {
 		String edgeSyn = "edge [ arrowhead = 'empty' style= 'dashed']";
 		return null;
 	}
+
+	@Override
+	public StringBuilder getDot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

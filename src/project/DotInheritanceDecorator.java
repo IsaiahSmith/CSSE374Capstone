@@ -10,4 +10,10 @@ public class DotInheritanceDecorator extends DotDecorator{
 		return null;
 		
 	}
+
+	@Override
+	public StringBuilder getDot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

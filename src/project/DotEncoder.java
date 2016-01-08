@@ -3,8 +3,6 @@ package project;
 import java.util.List;
 
 public class DotEncoder implements IEncoder {
-
-	StringBuilder dotStringBuilder = new StringBuilder();
 	
 	@Override
 	public StringBuilder encode(List<ClassBuilder> classes){
