@@ -9,17 +9,56 @@ so that they can see their software's design.
 Milestone 1
 
 Our design:
-
+	
+	
 
 Who did what?
-Daniel: Mastermind behind our design; came up with most of the ultimate design for our project.
-	Participated in pair programming working with the vistors and the class builder. Gained idea
-	on how GraphViz and dot files work.
 
-Neo: Helped in creating design. Participated in pair programming in setting up the builders and some parsing stuff.
+	Daniel: Mastermind behind our design; came up with most of the ultimate design for our project.
+		Participated in pair programming working with the vistors and the class builder. Gained idea
+		on how GraphViz and dot files work. Wrote tests.
 
-Isaiah: Helped in creating design. Participated in pair programming in general methods in ClassBuilder and 
-	ClassDelcarationVistor. Learned how to use GraphViz and what dot files are and how to make one.
+	Neo: Helped in creating design. Participated in pair programming in setting up the builders and
+		some parsing stuff. Set up the StandardDot that goes at the top of each dot file.
+
+	Isaiah: Wrote this README. Helped in creating design. Participated in pair programming in general methods in 
+		ClassBuilder and ClassDelcarationVistor. Learned how to use GraphViz and what dot files are 
+		and how to make one.
 	
 	
 How to use our code:
+		To use our code, run the "main" class as a java application. In the console, type "dot" for the 
+	encode type and anything for the output file name. Open the GVEdit program for GraphViz and open
+	the file that you just named. Click the running dude button and UML should be generated!
+
+---------------------------------------------------------------------------------------------------
+Milestone 2
+
+Evolution of Design:
+	From Milestone 1 ->
+		
+	To now ->
+		Our design did not really change much from the original plan. That is because of how we
+		designed it in the first place. To add new arrows, all that we had to do was create
+		the DotUsesDecorator and the DotAssocciationDecorator classes and figure out the logic
+		behind it using our ClassBuilder.
+
+
+Who did what?
+
+	Daniel: Helped with the methods that dealt with the logic behind making arrows. Wrote tests.
+	
+	Neo: Set up initial framework for the new classes that the arrows were made in with the help of Isaiah. 
+	
+	Isaiah: Wrote this README and put in manually generated UML diagrams. Wrote the methods for
+		logic behind making arrows.
+		
+		
+How to use our code:
+		To use our code, run the "main" class as a java application. In the console, type "dot" for the 
+	encode type and anything for the output file name. Open the GVEdit program for GraphViz and open
+	the file that you just named. Click the running dude button and UML should be generated!
+	
+---------------------------------------------------------------------------------------------------
+
+
