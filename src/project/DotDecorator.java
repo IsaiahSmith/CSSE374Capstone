@@ -8,6 +8,7 @@ public abstract class DotDecorator implements IDot {
 	}
 
 	public StringBuilder getDot() {
+		System.out.println("Calling super getDot()");
 		return this.toBeDecorated.getDot();
 	}
 }

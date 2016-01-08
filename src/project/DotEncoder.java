@@ -4,10 +4,12 @@ import java.util.List;
 
 public class DotEncoder implements IEncoder {
 
+	StringBuilder dotStringBuilder = new StringBuilder();
+	
 	@Override
-	public StringBuilder encode(List<ClassBuilder> Classes){
+	public StringBuilder encode(List<ClassBuilder> classes){
 		IDot dot = new StandardDot();
-		//dot = new DotClassDecorator(dot, Classes);
+		dot = new DotClassDecorator(dot, classes);
 		//dot = new DotInheritanceDecorator(dot, /*Inheritance graph*/);
 		//dot = new DotImplementsDecorator(dot, /*Implements graph*/);
 		return dot.getDot();
