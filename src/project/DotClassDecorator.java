@@ -1,12 +1,18 @@
 package project;
 
+import java.util.List;
+
 public class DotClassDecorator extends DotDecorator {
 	
-	public DotClassDecorator(IDot toBeDecorated){
+	private List<ClassBuilder> classes;
+
+	public DotClassDecorator(IDot toBeDecorated, List<ClassBuilder> classes){
 		super(toBeDecorated);
+		this.classes = classes;
 	}
 	
 	public StringBuilder makeClasses(){
+		
 		return null;
 	}
 }
