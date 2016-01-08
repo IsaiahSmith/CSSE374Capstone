@@ -27,6 +27,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 	public ClassMethodVisitor(int api, ClassVisitor decorated, ClassBuilder cls) {
 		super(api, decorated);
 		this.cls = cls;
+		this.argsMap = new HashMap<String, List<String>>();
 	}
 	
 	@Override
@@ -40,6 +41,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 		
 		
 		cls.methods.add(this.newMethod);
+		cls.arguments.add(this.argsMap);
 		
 		return toDecorate;
 	}

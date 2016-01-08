@@ -1,6 +1,10 @@
 package project;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class DotUsesDecorator extends DotDecorator {
 
@@ -17,8 +21,30 @@ public class DotUsesDecorator extends DotDecorator {
 		
 		for(ClassBuilder c : classes){
 			if(c.methods != null){
-				//TODO
+				for(Map<String, String> m : c.methods) {
+					if(c.arguments != null){
+						for(Map<String, List<String>> arg : c.arguments){
+							if(arg.get(m.get("Name")).contains(o)
+						}
+						
+					}
+					List<String> args =new ArrayList(method.values());
+					for(int j=0;j<args.size();j++){
+						
+						for(int k=0; k<)
+					}
+				}
 			}
+			
+			
+			
+//			Set<String> argTypes = new HashSet<String>();
+//			for(String s : argTypes) {
+//				String right = s;
+//				String[] rightSplit = right.split("\\.");
+//				right = rightSplit[rightSplit.length-1];
+//				temp.append(c.name + "->" + right + "\n\t");
+//			}
 		}
 		
 		return temp;
