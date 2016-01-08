@@ -13,7 +13,13 @@ public class DotUsesDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeUses() {
-		StringBuilder temp = new StringBuilder("");
+		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\t\tstyle= \"dashed\"\n\t]\n\t");
+		
+		for(ClassBuilder c : classes){
+			if(c.methods != null){
+				//TODO
+			}
+		}
 		
 		return temp;
 	}

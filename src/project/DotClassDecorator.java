@@ -29,7 +29,7 @@ public class DotClassDecorator extends DotDecorator {
 
 		String str = nameSplit[nameSplit.length-1] + " [ \n\t\tlabel = \"{";
 		if(!isClass){
-			str += "interface\\l";
+			str += "\\<\\<interface\\>\\>\\l";
 		}
 		str += nameSplit[nameSplit.length-1] + "|";
 		for(int i = 0; i < fields.size(); i++) {

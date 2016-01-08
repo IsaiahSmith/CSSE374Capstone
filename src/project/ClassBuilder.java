@@ -13,6 +13,7 @@ public class ClassBuilder {
 	
 	public List<Map<String, String>> fields;
 	public List<Map<String, String>> methods;
+	public List<Map<String, List<String>>> arguments;
 	
 	public ClassBuilder() {
 		name = "";
@@ -22,6 +23,7 @@ public class ClassBuilder {
 		
 		fields = new ArrayList<Map<String, String>>();
 		methods = new ArrayList<Map<String, String>>();
+		arguments = new ArrayList<Map<String, List<String>>>();
 	}
 	
 	@Override
