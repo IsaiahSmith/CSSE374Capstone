@@ -45,6 +45,8 @@ public class ClassMethodVisitor extends ClassVisitor{
 		String arguments = "";
 		for(int i=0; i<args.length; i++){
 			String arg=args[i].getClassName();
+			String[] argSplit = arg.split("\\.");
+			arg = argSplit[argSplit.length-1];
 			arguments += "arg"+i+": "+arg+", ";
 		}
 		if(args.length > 0)

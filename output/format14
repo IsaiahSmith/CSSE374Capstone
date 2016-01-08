@@ -1,0 +1,34 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	ClassBuilder [ 
+		label = "{ClassBuilder|public name : String\lpublic superName : String\lpublic isClass : boolean\lpublic inter : List\lpublic fields : List\lpublic methods : List\l | <init>() : voidtoString() : java.lang.String\l}" 
+	]
+	ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private cls : ClassBuilder\l | <init>(arg0: int) : void<init>(arg0: int, arg1: project.ClassBuilder) : voidvisit(arg0: int, arg1: int, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String, arg5: java.lang.String[]) : void\l}" 
+	]
+	ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private cls : ClassBuilder\lprivate newField : Map\l | <init>(arg0: int) : void<init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor) : void<init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder) : voidvisitField(arg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.Object) : org.objectweb.asm.FieldVisitoraddAccessLevel(arg0: int) : voidaddType(arg0: java.lang.String) : void\l}" 
+	]
+	ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private cls : ClassBuilder\lprivate newMethod : Map\l | <init>(arg0: int) : void<init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor) : void<init>(arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder) : voidvisitMethod(arg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String[]) : org.objectweb.asm.MethodVisitoraddArguments(arg0: java.lang.String) : voidaddReturnType(arg0: java.lang.String) : voidaddAccessLevel(arg0: int) : void\l}" 
+	]
+	DesignBuilder [ 
+		label = "{DesignBuilder| | <init>() : voidparse(arg0: java.lang.String[]) : java.util.List\l}" 
+	]
+	main [ 
+		label = "{main| | <init>() : voidmain(arg0: java.lang.String[]) : void\l}" 
+	]
+	List [ 
+		label = "{interface\lList| | size() : intisEmpty() : booleancontains(arg0: java.lang.Object) : booleaniterator() : java.util.IteratortoArray() : java.lang.Object[]toArray(arg0: java.lang.Object[]) : java.lang.Object[]add(arg0: java.lang.Object) : booleanremove(arg0: java.lang.Object) : booleancontainsAll(arg0: java.util.Collection) : booleanaddAll(arg0: java.util.Collection) : booleanaddAll(arg0: int, arg1: java.util.Collection) : booleanremoveAll(arg0: java.util.Collection) : booleanretainAll(arg0: java.util.Collection) : booleanreplaceAll(arg0: java.util.function.UnaryOperator) : voidsort(arg0: java.util.Comparator) : voidclear() : voidequals(arg0: java.lang.Object) : booleanhashCode() : intget(arg0: int) : java.lang.Objectset(arg0: int, arg1: java.lang.Object) : java.lang.Objectadd(arg0: int, arg1: java.lang.Object) : voidremove(arg0: int) : java.lang.ObjectindexOf(arg0: java.lang.Object) : intlastIndexOf(arg0: java.lang.Object) : intlistIterator() : java.util.ListIteratorlistIterator(arg0: int) : java.util.ListIteratorsubList(arg0: int, arg1: int) : java.util.Listspliterator() : java.util.Spliterator\l}" 
+	]
+	edge [ arrowhead = 'empty' style= 'dashed']java/util/List->java/util/Collection\ledge [ arrowhead = 'empty'] project/ClassBuilder -> java/lang/Object project/ClassDeclarationVisitor -> org/objectweb/asm/ClassVisitor project/ClassFieldVisitor -> org/objectweb/asm/ClassVisitor project/ClassMethodVisitor -> org/objectweb/asm/ClassVisitor project/DesignBuilder -> java/lang/Object project/main -> java/lang/Object java/util/List -> java/lang/Object

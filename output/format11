@@ -1,0 +1,34 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	ClassBuilder [ 
+		label = "{ClassBuilder|public name : String\lpublic superName : String\lpublic isClass : boolean\lpublic inter : List\lpublic fields : List\lpublic methods : List\l |  <init>) : void toString) : java.lang.String\l}" 
+	]
+	ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private cls : ClassBuilder\l |  <init>arg0: int) : void <init>arg0: int, arg1: project.ClassBuilder) : void visitarg0: int, arg1: int, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String, arg5: java.lang.String[]) : void\l}" 
+	]
+	ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private cls : ClassBuilder\lprivate newField : Map\l |  <init>arg0: int) : void <init>arg0: int, arg1: org.objectweb.asm.ClassVisitor) : void <init>arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder) : void visitFieldarg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.Object) : org.objectweb.asm.FieldVisitor addAccessLevelarg0: int) : void addTypearg0: java.lang.String) : void\l}" 
+	]
+	ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private cls : ClassBuilder\lprivate newMethod : Map\l |  <init>arg0: int) : void <init>arg0: int, arg1: org.objectweb.asm.ClassVisitor) : void <init>arg0: int, arg1: org.objectweb.asm.ClassVisitor, arg2: project.ClassBuilder) : void visitMethodarg0: int, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String[]) : org.objectweb.asm.MethodVisitor addArgumentsarg0: java.lang.String) : void addReturnTypearg0: java.lang.String) : void addAccessLevelarg0: int) : void\l}" 
+	]
+	DesignBuilder [ 
+		label = "{DesignBuilder| |  <init>) : void parsearg0: java.lang.String[]) : java.util.List\l}" 
+	]
+	main [ 
+		label = "{main| |  <init>) : void mainarg0: java.lang.String[]) : void\l}" 
+	]
+	List [ 
+		label = "{interface\lList| |  size) : int isEmpty) : boolean containsarg0: java.lang.Object) : boolean iterator) : java.util.Iterator toArray) : java.lang.Object[] toArrayarg0: java.lang.Object[]) : java.lang.Object[] addarg0: java.lang.Object) : boolean removearg0: java.lang.Object) : boolean containsAllarg0: java.util.Collection) : boolean addAllarg0: java.util.Collection) : boolean addAllarg0: int, arg1: java.util.Collection) : boolean removeAllarg0: java.util.Collection) : boolean retainAllarg0: java.util.Collection) : boolean replaceAllarg0: java.util.function.UnaryOperator) : void sortarg0: java.util.Comparator) : void clear) : void equalsarg0: java.lang.Object) : boolean hashCode) : int getarg0: int) : java.lang.Object setarg0: int, arg1: java.lang.Object) : java.lang.Object addarg0: int, arg1: java.lang.Object) : void removearg0: int) : java.lang.Object indexOfarg0: java.lang.Object) : int lastIndexOfarg0: java.lang.Object) : int listIterator) : java.util.ListIterator listIteratorarg0: int) : java.util.ListIterator subListarg0: int, arg1: int) : java.util.List spliterator) : java.util.Spliterator\l}" 
+	]
+	edge [ arrowhead = 'empty' style= 'dashed']java/util/List->java/util/Collection\ledge [ arrowhead = 'empty'] project/ClassBuilder -> java/lang/Object project/ClassDeclarationVisitor -> org/objectweb/asm/ClassVisitor project/ClassFieldVisitor -> org/objectweb/asm/ClassVisitor project/ClassMethodVisitor -> org/objectweb/asm/ClassVisitor project/DesignBuilder -> java/lang/Object project/main -> java/lang/Object java/util/List -> java/lang/Object

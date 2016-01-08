@@ -1,0 +1,35 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	ClassBuilder [ 
+		label = "{ClassBuilder|public name : String\lpublic superName : String\lpublic isClass : boolean\lpublic inter : List\lpublic fields : List\lpublic methods : List\l |  <init>() : void toString() : java.lang.String\l}" 
+	]
+	ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private cls : ClassBuilder\l |  <init>(arg0: int) : void <init>(arg0: int, arg1: ClassBuilder) : void visit(arg0: int, arg1: int, arg2: String, arg3: String, arg4: String, arg5: String[]) : void\l}" 
+	]
+	ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private cls : ClassBuilder\lprivate newField : Map\l |  <init>(arg0: int) : void <init>(arg0: int, arg1: ClassVisitor) : void <init>(arg0: int, arg1: ClassVisitor, arg2: ClassBuilder) : void visitField(arg0: int, arg1: String, arg2: String, arg3: String, arg4: Object) : org.objectweb.asm.FieldVisitor addAccessLevel(arg0: int) : void addType(arg0: String) : void\l}" 
+	]
+	ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private cls : ClassBuilder\lprivate newMethod : Map\l |  <init>(arg0: int) : void <init>(arg0: int, arg1: ClassVisitor) : void <init>(arg0: int, arg1: ClassVisitor, arg2: ClassBuilder) : void visitMethod(arg0: int, arg1: String, arg2: String, arg3: String, arg4: String[]) : org.objectweb.asm.MethodVisitor addArguments(arg0: String) : void addReturnType(arg0: String) : void addAccessLevel(arg0: int) : void\l}" 
+	]
+	DesignBuilder [ 
+		label = "{DesignBuilder| |  <init>() : void parse(arg0: String[]) : java.util.List\l}" 
+	]
+	main [ 
+		label = "{main| |  <init>() : void main(arg0: String[]) : void\l}" 
+	]
+	List [ 
+		label = "{interface\lList| |  size() : int isEmpty() : boolean contains(arg0: Object) : boolean iterator() : java.util.Iterator toArray() : java.lang.Object[] toArray(arg0: Object[]) : java.lang.Object[] add(arg0: Object) : boolean remove(arg0: Object) : boolean containsAll(arg0: Collection) : boolean addAll(arg0: Collection) : boolean addAll(arg0: int, arg1: Collection) : boolean removeAll(arg0: Collection) : boolean retainAll(arg0: Collection) : boolean replaceAll(arg0: UnaryOperator) : void sort(arg0: Comparator) : void clear() : void equals(arg0: Object) : boolean hashCode() : int get(arg0: int) : java.lang.Object set(arg0: int, arg1: Object) : java.lang.Object add(arg0: int, arg1: Object) : void remove(arg0: int) : java.lang.Object indexOf(arg0: Object) : int lastIndexOf(arg0: Object) : int listIterator() : java.util.ListIterator listIterator(arg0: int) : java.util.ListIterator subList(arg0: int, arg1: int) : java.util.List spliterator() : java.util.Spliterator\l}" 
+	]
+	
+}
