@@ -58,4 +58,18 @@ public class InterfaceNode implements Iinterface {
 		return this.Methods;
 	}
 
+	@Override
+	public String toString() {
+		String str = new String();
+		str += "<<interface>>";
+		str += "\n" + this.Name;
+		if(!this.SuperName.equals(null))
+			str += " extends " + this.SuperName;
+		if(!this.Methods.isEmpty()) {
+			str += "\n";
+			for(IMethod method:this.Methods)
+				str += "\n" + method.toString();
+		}
+		return str;
+	}
 }

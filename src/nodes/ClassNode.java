@@ -86,5 +86,31 @@ public class ClassNode implements IClass {
 	public List<Iinterface> getInterfaces() {
 		return this.Interfaces;
 	}
+	
+	@Override
+	public String toString() {
+		String str = new String();
+		str += "--"+this.Type+"--";
+		str += "\n" + this.Name;
+		if(!this.SuperName.equals(null))
+			str += " extends " + this.SuperName;
+		if(!this.Interfaces.isEmpty()) {
+			for(Iinterface inface:this.Interfaces)
+				str += inface.getName() + ", ";
+			str = str.substring(str.length()-2);
+		}
+		if(!this.Fields.isEmpty()) {
+			str += "\n";
+			for(IInnerNode field:this.Fields)
+				str += "\n" + field.toString();
+		}
+		if(!this.Methods.isEmpty()) {
+			str += "\n";
+			for(IMethod method:this.Methods)
+				str += "\n" + method.toString();
+		}
+			
+		return str;
+	}
 
 }

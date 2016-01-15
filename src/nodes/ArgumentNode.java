@@ -30,5 +30,10 @@ public class ArgumentNode implements INode {
 	public String getType() {
 		return this.Type;
 	}
+	
+	@Override
+	public String toString() {
+		return this.Type + " " + this.Name;
+	}
 
 }

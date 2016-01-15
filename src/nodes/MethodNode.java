@@ -60,4 +60,13 @@ public class MethodNode implements IMethod {
 		return this.Args;
 	}
 
+	@Override
+	public String toString() {
+		String str = new String();
+		str += this.AccessLevel + " " + this.Type + " " + this.Name + "(";
+		for(INode arg:this.Args)
+			str += arg.toString() + ", ";
+		str = str.substring(0, str.length()-2) + ")";
+		return str;
+	}
 }

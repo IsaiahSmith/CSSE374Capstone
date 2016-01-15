@@ -44,4 +44,8 @@ public class FieldNode implements IInnerNode {
 		return this.AccessLevel;
 	}
 
+	@Override
+	public String toString() {
+		return this.AccessLevel + " " + this.Type + " " + this.Name;
+	}
 }
