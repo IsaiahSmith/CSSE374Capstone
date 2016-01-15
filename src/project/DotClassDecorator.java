@@ -15,10 +15,8 @@ public class DotClassDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeClasses(){
-		System.out.println("In make classes.");
 		StringBuilder temp = new StringBuilder("");
 		for(ClassBuilder c : classes){
-			System.out.println("Appending class: " + c.name);
 			temp.append(buildString(c.name, c.fields, c.methods, c.isClass));
 		}
 		return temp;

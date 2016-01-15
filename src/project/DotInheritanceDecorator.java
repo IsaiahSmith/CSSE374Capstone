@@ -18,18 +18,23 @@ public class DotInheritanceDecorator extends DotDecorator{
 			if(c.superName != null){
 				String left = c.name;
 				String right = c.superName;
-				System.out.println("SuperName: "+ c.superName);
-				System.out.println("fileNames: "+fileNames);
-				if(fileNames.contains(c.superName)&& this.includeAll==false) {
-					String[] leftSplit = left.split("/");
-					String[] rightSplit = right.split("/");
-					left = leftSplit[leftSplit.length-1];
-					right = rightSplit[rightSplit.length-1];
-					temp.append(" " + left + " -> " + right+"\n\t");
+				if(includeAll){
+					temp.append(addArrow(left, right));
+				}else{
+					if(fileNames.contains(right))
+						temp.append(addArrow(left, right));
 				}
 			}
 		}
 		return temp;
+	}
+	
+	private String addArrow(String left, String right){
+		String[] leftSplit = left.split("/");
+		String[] rightSplit = right.split("/");
+		left = leftSplit[leftSplit.length-1];
+		right = rightSplit[rightSplit.length-1];
+		return " " + left + " -> " + right+"\n\t";
 	}
 
 	@Override

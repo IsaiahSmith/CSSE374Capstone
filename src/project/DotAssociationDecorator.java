@@ -21,27 +21,26 @@ public class DotAssociationDecorator extends DotDecorator {
 			for(Map<String, String> field : c.fields){
 				String left = c.name;
 				String right = field.get("Type");
-				if(fileNames.contains(right)&& this.includeAll==false) {
-					String[] leftSplit = left.split("/");
-					String[] rightSplit = right.split("/");
-					left = leftSplit[leftSplit.length - 1];
-					right = rightSplit[rightSplit.length - 1];
-					try {
-						Class<?> rightClass = Class.forName(right);
-						if(!rightClass.toString().split(" ")[1].split("\\.")[0].equals("java")){
-							String[] periodSplit = right.split("\\.");
-							right = periodSplit[periodSplit.length - 1];
-							temp.append(" " + left + " -> " + right+"\n\t");											
-						}
-					} catch (ClassNotFoundException e) {
-	//					e.printStackTrace();
-					}
+				right = right.replaceAll("\\.", "/");
+				if(includeAll){
+					temp.append(addArrow(left, right));
+				}else{
+					if(fileNames.contains(right))
+						temp.append(addArrow(left, right));
 				}
 			}
 		}
 		return temp;
 	}
 
+	private String addArrow(String left, String right){
+		String[] leftSplit = left.split("/");
+		String[] rightSplit = right.split("/");
+		left = leftSplit[leftSplit.length - 1];
+		right = rightSplit[rightSplit.length - 1];
+		return " " + left + " -> " + right+"\n\t";
+	}
+	
 	@Override
 	public StringBuilder getDot() {
 		return toBeDecorated.getDot().append(makeAssociation());

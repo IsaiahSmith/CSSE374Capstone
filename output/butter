@@ -35,13 +35,9 @@ digraph G {
 	edge [ 
 		arrowhead = "empty"
 	style = "filled"]
-	 AppLauncher -> Thread
-	 FileType -> Object
-	 HTMLFile -> Object
-	 TextFile -> Object
-	 WordFile -> Object
 	edge [ 
 		arrowhead = "vee" 
 	style = "filled"]
+	 AppLauncher -> FileType
 	
 }

@@ -11,7 +11,7 @@ digraph G {
 		fontsize = 8
 	]
 	AppLauncher [ 
-		label = "{AppLauncher|private watcher : Ljava/nio/file/WatchService;\lprivate dir : Ljava/nio/file/Path;\lprivate stop : Z\lprivate processes : Ljava/util/List;\ldefault fileMap : Ljava/util/Map;\ldefault fileType : Lproblem/FileType;\l | run() : void\lclearEverything() : void\lstopGracefully() : void\lisRunning() : boolean\lgetApplicationsCount() : int\lhandleDirectoryEvent(arg0 String, arg1 Path) : void\lmain(arg0 String[]) : void\l\l}" 
+		label = "{AppLauncher|private watcher : WatchService\lprivate dir : Path\lprivate stop : boolean\lprivate processes : List\ldefault fileMap : Map\ldefault fileType : FileType\l | run() : void\lclearEverything() : void\lstopGracefully() : void\lisRunning() : boolean\lgetApplicationsCount() : int\lhandleDirectoryEvent(arg0 String, arg1 Path) : void\lmain(arg0 String[]) : void\l\l}" 
 	]
 	FileType [ 
 		label = "{\<\<interface\>\>\lFileType| | getCommand() : String\l\l}" 
@@ -35,11 +35,6 @@ digraph G {
 	edge [ 
 		arrowhead = "empty"
 	style = "filled"]
-	 AppLauncher -> Thread
-	 FileType -> Object
-	 HTMLFile -> Object
-	 TextFile -> Object
-	 WordFile -> Object
 	edge [ 
 		arrowhead = "vee" 
 	style = "filled"]
