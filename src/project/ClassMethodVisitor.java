@@ -45,11 +45,10 @@ public class ClassMethodVisitor extends ClassVisitor{
 		addReturnType(desc);
 		addAccessLevel(access);
 		
+		
+		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, method);
 		node.addMethod(method);
-		
-		//MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, cls, node);
-		
-		return toDecorate;
+		return body;
 	}
 	
 	

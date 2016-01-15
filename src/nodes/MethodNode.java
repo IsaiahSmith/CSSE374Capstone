@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.IMethod;
+import model.IMethodInsn;
 import model.INode;
+import model.ITypeInsn;
 
 public class MethodNode implements IMethod {
 
@@ -13,12 +15,16 @@ public class MethodNode implements IMethod {
 	private String Type;
 	private String AccessLevel;
 	private List<INode> Args;
+	private List<IMethodInsn> MethodInsns;
+	private List<ITypeInsn> TypeInsns;
 	
 	public MethodNode() {
 		this.Name = new String();
 		this.Type = new String();
 		this.AccessLevel = new String();
 		this.Args = new ArrayList<INode>();
+		this.MethodInsns = new ArrayList<IMethodInsn>();
+		this.TypeInsns = new ArrayList<ITypeInsn>();
 	}
 	@Override
 	public void setName(String name) {
@@ -38,6 +44,15 @@ public class MethodNode implements IMethod {
 	@Override
 	public void addArg(INode arg) {
 		this.Args.add(arg);
+	}
+	
+	@Override
+	public void addMethodInsn(IMethodInsn methodInsn) {
+		this.MethodInsns.add(methodInsn);
+	}
+	@Override
+	public void addTypeInsn(ITypeInsn typeInsn) {
+		this.TypeInsns.add(typeInsn);
 	}
 
 	@Override
@@ -59,6 +74,15 @@ public class MethodNode implements IMethod {
 	public List<INode> getArgs() {
 		return this.Args;
 	}
+	
+	@Override
+	public List<IMethodInsn> getMethodInsn() {
+		return this.MethodInsns;
+	}
+	@Override
+	public List<ITypeInsn> getTypeInsn() {
+		return this.TypeInsns;
+	}
 
 	@Override
 	public String toString() {
@@ -71,6 +95,8 @@ public class MethodNode implements IMethod {
 			str = str.substring(0, str.length()-2);
 		}
 		str += ")";
+		
 		return str;
 	}
+	
 }

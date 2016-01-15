@@ -13,4 +13,5 @@ public interface IFile extends INode {
 	public List<IInnerNode> getFields();
 	public List<IFile> getInterfaces();
 	
+	
 }
