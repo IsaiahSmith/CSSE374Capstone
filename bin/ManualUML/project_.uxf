@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>9</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>414</y>
-      <w>585</w>
-      <h>153</h>
+      <x>368</x>
+      <y>368</y>
+      <w>520</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>project::ClassDeclarationVisitor
 --
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>279</x>
-      <y>630</y>
-      <w>522</w>
-      <h>180</h>
+      <x>616</x>
+      <y>560</y>
+      <w>464</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>project::ClassFieldVisitor
 --
@@ -44,10 +44,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>621</x>
-      <y>477</y>
-      <w>576</w>
-      <h>144</h>
+      <x>920</x>
+      <y>424</y>
+      <w>512</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>project::ClassMethodVisitor
 --
@@ -69,10 +69,10 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>459</x>
+      <x>776</x>
       <y>0</y>
-      <w>459</w>
-      <h>315</h>
+      <w>408</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>asm
 --
@@ -82,10 +82,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>477</x>
-      <y>36</y>
-      <w>198</w>
-      <h>63</h>
+      <x>792</x>
+      <y>32</y>
+      <w>176</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>ClassReader
 --
@@ -98,10 +98,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>477</x>
-      <y>162</y>
-      <w>324</w>
-      <h>126</h>
+      <x>792</x>
+      <y>144</y>
+      <w>288</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 ClassVisitor
@@ -119,10 +119,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>117</y>
-      <w>216</w>
-      <h>108</h>
+      <x>984</x>
+      <y>104</y>
+      <w>192</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 decorates</panel_attributes>
@@ -131,10 +131,10 @@ decorates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>549</x>
-      <y>90</y>
-      <w>27</w>
-      <h>90</h>
+      <x>856</x>
+      <y>80</y>
+      <w>24</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -142,10 +142,10 @@ decorates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>279</y>
-      <w>378</w>
-      <h>153</h>
+      <x>520</x>
+      <y>248</y>
+      <w>336</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>400.0;10.0;400.0;70.0;10.0;70.0;10.0;150.0</additional_attributes>
@@ -153,10 +153,10 @@ decorates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>594</x>
-      <y>279</y>
-      <w>27</w>
-      <h>369</h>
+      <x>896</x>
+      <y>248</y>
+      <w>24</w>
+      <h>328</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;390.0</additional_attributes>
@@ -164,10 +164,10 @@ decorates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>747</x>
-      <y>279</y>
-      <w>27</w>
-      <h>216</h>
+      <x>1032</x>
+      <y>248</y>
+      <w>24</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
@@ -175,10 +175,10 @@ decorates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1260</x>
-      <y>459</y>
-      <w>216</w>
-      <h>162</h>
+      <x>1488</x>
+      <y>408</y>
+      <w>192</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>project::ClassBuilder
 --
@@ -199,10 +199,10 @@ decorates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>972</x>
-      <y>18</y>
-      <w>234</w>
-      <h>63</h>
+      <x>1232</x>
+      <y>16</y>
+      <w>208</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>project::DesignBuilder
 --
@@ -215,10 +215,10 @@ decorates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>972</x>
-      <y>144</y>
-      <w>198</w>
-      <h>90</h>
+      <x>1232</x>
+      <y>128</y>
+      <w>176</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>project::DesignMaker
 --
@@ -233,10 +233,10 @@ decorates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1521</x>
-      <y>288</y>
-      <w>297</w>
-      <h>63</h>
+      <x>1720</x>
+      <y>256</y>
+      <w>264</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>project::DotEncoder
 --
@@ -249,10 +249,10 @@ decorates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1305</x>
-      <y>144</y>
-      <w>306</w>
-      <h>81</h>
+      <x>1528</x>
+      <y>128</y>
+      <w>272</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 project::IEncoder
@@ -264,10 +264,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>963</x>
-      <y>279</y>
-      <w>189</w>
-      <h>63</h>
+      <x>1224</x>
+      <y>248</y>
+      <w>168</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>project::main
 --
@@ -278,10 +278,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1197</x>
-      <y>288</y>
-      <w>306</w>
-      <h>63</h>
+      <x>1432</x>
+      <y>256</y>
+      <w>272</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>project::TextEncoder
 --
@@ -294,10 +294,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>36</y>
-      <w>324</w>
-      <h>27</h>
+      <x>960</x>
+      <y>32</y>
+      <w>288</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;340.0;10.0</additional_attributes>
@@ -305,10 +305,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>63</y>
-      <w>360</w>
-      <h>117</h>
+      <x>928</x>
+      <y>56</y>
+      <w>320</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;80.0;60.0;80.0;60.0;10.0;380.0;10.0</additional_attributes>
@@ -316,10 +316,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1053</x>
-      <y>72</y>
-      <w>27</w>
-      <h>90</h>
+      <x>1304</x>
+      <y>64</y>
+      <w>24</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -327,10 +327,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>162</y>
-      <w>171</w>
-      <h>27</h>
+      <x>1392</x>
+      <y>144</y>
+      <w>152</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.[String]</panel_attributes>
     <additional_attributes>170.0;10.0;20.0;10.0</additional_attributes>
@@ -338,10 +338,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1053</x>
-      <y>225</y>
-      <w>27</w>
-      <h>72</h>
+      <x>1304</x>
+      <y>200</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -349,10 +349,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1449</x>
-      <y>216</y>
-      <w>135</w>
-      <h>90</h>
+      <x>1656</x>
+      <y>192</y>
+      <w>120</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0;130.0;40.0;130.0;80.0</additional_attributes>
@@ -360,10 +360,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1332</x>
-      <y>216</y>
-      <w>144</w>
-      <h>90</h>
+      <x>1552</x>
+      <y>192</y>
+      <w>128</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>140.0;10.0;140.0;40.0;10.0;40.0;10.0;80.0</additional_attributes>
@@ -371,10 +371,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>54</x>
-      <y>558</y>
-      <w>1323</w>
-      <h>315</h>
+      <x>416</x>
+      <y>496</y>
+      <w>1176</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1450.0;70.0;1450.0;330.0;10.0;330.0;10.0;10.0</additional_attributes>
@@ -382,10 +382,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>612</y>
-      <w>765</w>
-      <h>261</h>
+      <x>912</x>
+      <y>544</y>
+      <w>680</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>830.0;10.0;830.0;270.0;10.0;270.0;10.0;220.0</additional_attributes>
@@ -393,10 +393,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>612</y>
-      <w>495</w>
-      <h>261</h>
+      <x>1152</x>
+      <y>544</y>
+      <w>440</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>530.0;10.0;530.0;270.0;10.0;270.0;10.0;10.0</additional_attributes>
@@ -404,10 +404,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1161</x>
-      <y>216</y>
-      <w>189</w>
-      <h>261</h>
+      <x>1400</x>
+      <y>192</y>
+      <w>168</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>150.0;270.0;150.0;230.0;10.0;230.0;10.0;20.0;190.0;20.0;190.0;10.0</additional_attributes>
@@ -415,10 +415,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>72</y>
-      <w>342</w>
-      <h>414</h>
+      <x>1200</x>
+      <y>64</y>
+      <w>304</w>
+      <h>368</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>360.0;440.0;10.0;440.0;10.0;40.0;60.0;40.0;60.0;10.0</additional_attributes>
@@ -426,10 +426,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1539</x>
-      <y>450</y>
-      <w>270</w>
-      <h>81</h>
+      <x>1736</x>
+      <y>400</y>
+      <w>240</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>/project::ADot/
 --
@@ -443,10 +443,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1665</x>
-      <y>342</y>
-      <w>27</w>
-      <h>126</h>
+      <x>1848</x>
+      <y>304</y>
+      <w>24</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
@@ -454,10 +454,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1476</x>
-      <y>684</y>
-      <w>135</w>
-      <h>63</h>
+      <x>1680</x>
+      <y>608</y>
+      <w>120</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>project::StandardDot
 --
@@ -470,10 +470,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1665</x>
-      <y>684</y>
-      <w>135</w>
-      <h>63</h>
+      <x>1848</x>
+      <y>608</y>
+      <w>136</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>/project::DotDecorator/
 --
@@ -486,10 +486,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1710</x>
-      <y>981</y>
-      <w>684</w>
-      <h>144</h>
+      <x>1888</x>
+      <y>872</y>
+      <w>608</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>project::DotClassDecorator
 --
@@ -507,10 +507,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>981</y>
-      <w>477</w>
-      <h>126</h>
+      <x>624</x>
+      <y>872</y>
+      <w>424</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>project::DotImplementsDecorator
 --
@@ -527,10 +527,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1908</x>
-      <y>828</y>
-      <w>468</w>
-      <h>126</h>
+      <x>2064</x>
+      <y>736</y>
+      <w>416</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>project::DotInheritanceDecorator
 --
@@ -547,10 +547,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>774</x>
-      <y>981</y>
-      <w>468</w>
-      <h>126</h>
+      <x>1056</x>
+      <y>872</y>
+      <w>416</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>project::DotAssociationDecorator
 --
@@ -567,10 +567,10 @@ project::IEncoder
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1251</x>
-      <y>981</y>
-      <w>441</w>
-      <h>126</h>
+      <x>1480</x>
+      <y>872</y>
+      <w>392</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>project::DotUsesDecorator
 --
@@ -587,10 +587,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
-      <y>738</y>
-      <w>135</w>
-      <h>261</h>
+      <x>1808</x>
+      <y>656</y>
+      <w>120</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>130.0;10.0;130.0;60.0;10.0;60.0;10.0;270.0</additional_attributes>
@@ -598,10 +598,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1728</x>
-      <y>738</y>
-      <w>27</w>
-      <h>261</h>
+      <x>1904</x>
+      <y>656</y>
+      <w>24</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
@@ -609,10 +609,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1728</x>
-      <y>738</y>
-      <w>198</w>
-      <h>162</h>
+      <x>1904</x>
+      <y>656</y>
+      <w>176</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0;130.0;60.0;130.0;160.0;200.0;160.0</additional_attributes>
@@ -620,10 +620,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1125</x>
-      <y>738</y>
-      <w>630</w>
-      <h>261</h>
+      <x>1368</x>
+      <y>656</y>
+      <w>560</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>680.0;10.0;680.0;60.0;310.0;60.0;310.0;190.0;10.0;190.0;10.0;270.0</additional_attributes>
@@ -631,10 +631,10 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>738</y>
-      <w>1089</w>
-      <h>261</h>
+      <x>960</x>
+      <y>656</y>
+      <w>968</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>1190.0;10.0;1190.0;60.0;820.0;60.0;820.0;190.0;10.0;190.0;10.0;270.0</additional_attributes>
@@ -642,21 +642,21 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1791</x>
-      <y>486</y>
-      <w>108</w>
-      <h>225</h>
+      <x>1968</x>
+      <y>432</y>
+      <w>88</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;230.0;100.0;230.0;100.0;10.0;20.0;10.0</additional_attributes>
+    <additional_attributes>20.0;230.0;90.0;230.0;90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1521</x>
-      <y>522</y>
-      <w>135</w>
-      <h>180</h>
+      <x>1720</x>
+      <y>464</y>
+      <w>120</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>130.0;10.0;130.0;60.0;10.0;60.0;10.0;180.0</additional_attributes>
@@ -664,12 +664,360 @@ project::IEncoder
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1629</x>
-      <y>522</y>
-      <w>90</w>
-      <h>180</h>
+      <x>1816</x>
+      <y>464</y>
+      <w>80</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0;80.0;60.0;80.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>1168</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+INode
+--
++addName(String name): void
++addType(String type): void
++getName(): String
++getType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>1344</y>
+      <w>224</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Iinterface
+--
++addSuperName(String superName): void
++addMethod(IMethod method): void
++getSuperName(): String
++getMethods(): List&lt;IMethod&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>1608</y>
+      <w>216</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IClass
+--
++addField(IInnerNode field): void
++addImplements(Iinterface inface): void
++getFields(): List&lt;IInnerNode&gt;
++getInterfaces(): List&lt;Iinterface&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>1432</y>
+      <w>24</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>1256</y>
+      <w>184</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>210.0;10.0;210.0;60.0;10.0;60.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>1648</y>
+      <w>232</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IInnerNode
+--
++addAccessLevel(String accessLevel): void
++getAccessLevel(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>1256</y>
+      <w>280</w>
+      <h>408</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;330.0;60.0;330.0;490.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>1360</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IMethod
+--
++addArgs(INode args): void
++getArgs(): List&lt;INode&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>1376</y>
+      <w>104</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;340.0;110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>1056</y>
+      <w>160</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;
+IModel
+--
++addNode(INode node): void
++getNodes(): List&lt;INode&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>1168</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ArgumentNode
+--
++addName(String name): void
++addType(String type): void
++getName(): String
++getType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>872</x>
+      <y>1168</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>1344</y>
+      <w>224</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>InterfaceNode
+--
++addName(String name): void
++addType(String type): void
++addSuperName(String superName): void
++addMethod(IMethod method): void
++getName(): String
++getType(): String
++getSuperName(): String
++getMethods(): List&lt;IMethod&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>1352</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>1528</y>
+      <w>224</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>ClassNode
+--
++addName(String name): void
++addType(String type): void
++addSuperName(String superName): void
++addMethod(IMethod method): void
++addField(IInnerNode field): void
++addImplements(Iinterface inface): void
++getName(): String
++getType(): String
++getSuperName(): String
++getMethods(): List&lt;IMethod&gt;
++getFields(): List&lt;IInnerNode&gt;
++getInterfaces(): List&lt;Iinterface&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>1616</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>1616</y>
+      <w>224</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>FieldNode
+--
++addName(String name): void
++addType(String type): void
++addAccessLevel(String accessLevel): void
++getName(): String
++getType(): String
++getAccessLevel(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1184</x>
+      <y>1656</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>744</x>
+      <y>1464</y>
+      <w>224</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>MethodNode
+--
++addName(String name): void
++addType(String type): void
++addAccessLevel(String accessLevel): void
++addArgs(INode args): void
++getName(): String
++getType(): String
++getAccessLevel(): String
++getArgs(): List&lt;INode&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>856</x>
+      <y>1416</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>1368</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>1432</y>
+      <w>24</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>1664</y>
+      <w>216</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>1256</y>
+      <w>24</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>1120</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
