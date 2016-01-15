@@ -43,8 +43,12 @@ public class ClassMethodVisitor extends ClassVisitor{
 		cls.methods.add(this.newMethod);
 		cls.arguments.add(this.argsMap);
 		
-		return toDecorate;
+		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, cls);
+
+		
+		return body;
 	}
+	
 	
 	private void addArguments(String desc, String name) {
 		Type[] args = Type.getArgumentTypes(desc);

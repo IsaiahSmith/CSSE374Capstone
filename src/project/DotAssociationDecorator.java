@@ -3,8 +3,6 @@ package project;
 import java.util.List;
 import java.util.Map;
 
-import org.objectweb.asm.Type;
-
 public class DotAssociationDecorator extends DotDecorator {
 
 	ADot toBeDecorated;

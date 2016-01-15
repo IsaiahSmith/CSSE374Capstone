@@ -26,7 +26,7 @@ public class DesignMaker {
 		System.out.print("Encode Type (text/dot/SDEdit): ");
 		String encodeType = in.readLine();
 		boolean includeAll = false;
-		System.out.print("Include all files not specified in args?(y/n)");
+		System.out.print("Include all files not specified in args?(y/n): ");
 		String include = in.readLine();
 		if(include.equals("y"))
 			includeAll = true;

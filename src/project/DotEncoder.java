@@ -10,7 +10,7 @@ public class DotEncoder implements IEncoder {
 		dot = new DotClassDecorator(dot, classes);
 		dot = new DotImplementsDecorator(dot, classes);
 		dot = new DotInheritanceDecorator(dot, classes);
-		//dot = new DotUsesDecorator(dot, classes, includeAll);
+		dot = new DotUsesDecorator(dot, classes);
 		dot = new DotAssociationDecorator(dot, classes);
 		return dot.getDot().append("\n}");
 	}
