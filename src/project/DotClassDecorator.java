@@ -48,6 +48,7 @@ public class DotClassDecorator extends DotDecorator {
 			String accessLevel = m.get("Accesslevel");
 			String methodName = m.get("Name");
 			String returnType = m.get("ReturnType");
+			String[] argTypes;
 			String[] returnTypeSplit = returnType.split("\\.");
 			returnType = returnTypeSplit[returnTypeSplit.length-1];
 			
@@ -63,8 +64,14 @@ public class DotClassDecorator extends DotDecorator {
 				
 				str += methodName
 						+ "(";
-				if(m.get("args")!=null)
-					str+=m.get("args");
+				
+				if(m.get("args")!=null) {
+					argTypes = m.get("args").split(";");
+					for(int i=0; i<argTypes.length;i++){
+						str+="arg"+i+" "+argTypes[i]+", ";
+					}
+					str = str.substring(0, str.length()-2);
+				}
 				str+=")";
 				str += " : "
 						+ returnType

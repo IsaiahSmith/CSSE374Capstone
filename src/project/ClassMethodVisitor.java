@@ -55,11 +55,11 @@ public class ClassMethodVisitor extends ClassVisitor{
 			String arg=args[i].getClassName();
 			String[] argSplit = arg.split("\\.");
 			arg = argSplit[argSplit.length-1];
-			arguments += "arg"+i+": "+arg+", ";
+			arguments += arg+";";
 			methodArgs.add(arg);
 		}
 		if(args.length > 0) {
-			this.newMethod.put("args", arguments.substring(0, arguments.length() - 2));
+			this.newMethod.put("args", arguments.substring(0, arguments.length()-1));
 			this.argsMap.put(name, methodArgs);
 		}
 	}

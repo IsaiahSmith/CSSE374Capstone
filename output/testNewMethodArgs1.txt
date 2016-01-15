@@ -1,0 +1,50 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	ClassBuilder [ 
+		label = "{ClassBuilder|public name : String\lpublic superName : String\lpublic isClass : boolean\lpublic inter : List\lpublic fields : List\lpublic methods : List\lpublic arguments : List\l | toString() : String\l\l}" 
+	]
+	ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private cls : ClassBuilder\l | visit(int;int;String;String;String;String[]) : void\l\l}" 
+	]
+	ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private cls : ClassBuilder\lprivate newField : Map\l | visitField(int;String;String;String;Object) : FieldVisitor\laddAccessLevel(int) : void\laddType(String) : void\l\l}" 
+	]
+	ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private cls : ClassBuilder\lprivate newMethod : Map\lprivate argsMap : Map\l | visitMethod(int;String;String;String;String[]) : MethodVisitor\laddArguments(String;String) : void\laddReturnType(String) : void\laddAccessLevel(int) : void\l\l}" 
+	]
+	DesignBuilder [ 
+		label = "{DesignBuilder| | parse(String[]) : List\l\l}" 
+	]
+	main [ 
+		label = "{main| | main(String[]) : void\l\l}" 
+	]
+	List [ 
+		label = "{\<\<interface\>\>\lList| | size() : int\lisEmpty() : boolean\lcontains(Object) : boolean\literator() : Iterator\ltoArray() : Object[]\ltoArray(Object[]) : Object[]\ladd(Object) : boolean\lremove(Object) : boolean\lcontainsAll(Collection) : boolean\laddAll(Collection) : boolean\laddAll(int;Collection) : boolean\lremoveAll(Collection) : boolean\lretainAll(Collection) : boolean\lreplaceAll(UnaryOperator) : void\lsort(Comparator) : void\lclear() : void\lequals(Object) : boolean\lhashCode() : int\lget(int) : Object\lset(int;Object) : Object\ladd(int;Object) : void\lremove(int) : Object\lindexOf(Object) : int\llastIndexOf(Object) : int\llistIterator() : ListIterator\llistIterator(int) : ListIterator\lsubList(int;int) : List\lspliterator() : Spliterator\l\l}" 
+	]
+	edge [ 
+		arrowhead = "empty" 
+		style= "dashed"
+	]
+	List->Collection
+	edge [ 
+		arrowhead = "empty"
+	]
+	 ClassBuilder -> Object
+	 ClassDeclarationVisitor -> ClassVisitor
+	 ClassFieldVisitor -> ClassVisitor
+	 ClassMethodVisitor -> ClassVisitor
+	 DesignBuilder -> Object
+	 main -> Object
+	 List -> Object
+	
+}
