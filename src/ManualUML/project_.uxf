@@ -926,7 +926,7 @@ IFile
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
+      <x>328</x>
       <y>1360</y>
       <w>168</w>
       <h>88</h>
@@ -942,5 +942,27 @@ IMethodInsn
 +getNames(): String
 +getDesc(): String</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>1376</y>
+      <w>72</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>1400</y>
+      <w>72</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
