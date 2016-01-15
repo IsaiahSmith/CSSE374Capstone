@@ -6,33 +6,55 @@ import java.util.List;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
+import model.IFile;
+import nodes.FileNode;
+
 public class ClassDeclarationVisitor extends ClassVisitor{
-	private ClassBuilder cls;
+	private IFile node;
 	
 	public ClassDeclarationVisitor(int api) {
 		super(api);
 	}
 	
-	public ClassDeclarationVisitor(int api, ClassBuilder cls) {
+	public ClassDeclarationVisitor(int api, IFile node) {
 		super(api);
-		this.cls = cls;
+		this.node = node;
 	}
 	
 	@Override
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-		this.cls.name = name;
-		if (superName != null)
-			this.cls.superName = superName;
-		if((access&Opcodes.ACC_INTERFACE)!=0){
-			this.cls.isClass=false;
+		this.node.setName(sanitize(name));
+		addType(access);
+		if (superName != null) {
+			this.node.setSuperName(sanitize(superName));
 		}
-		List<String> inters = new ArrayList<String>();;
+		List<String> inters = new ArrayList<String>();
 		for (String s : interfaces) {
 			inters.add(s);
-		}
-		this.cls.inter = inters;
-		
+			IFile inface = new FileNode();
+			inface.setName(sanitize(s));
+			node.addImplements(inface);
+		}		
 		
 		super.visit(version, access, name, signature, superName, interfaces);
+	}
+	
+	private void addType(int access) {
+		String type = "";
+		if((access&Opcodes.ACC_INTERFACE)!=0){
+			type="interface";
+		} else if((access&Opcodes.ACC_ABSTRACT)!=0){
+			type="abstract";
+		} else {
+			type = "class";
+		}
+		node.setType(type);
+	}
+	
+	private String sanitize(String input) {
+		String temp = input.replace("/", "_");
+		temp = temp.replace(".", "_");
+		
+		return temp;
 	}
 }

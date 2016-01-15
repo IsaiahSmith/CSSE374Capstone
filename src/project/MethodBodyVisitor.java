@@ -6,9 +6,12 @@ import java.util.List;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 
+import model.IFile;
+
 public class MethodBodyVisitor extends MethodVisitor{
 
 	private ClassBuilder cls;
+	private IFile node;
 
 	public MethodBodyVisitor(int api, MethodVisitor decorated) {
 		super(api, decorated);
@@ -19,6 +22,13 @@ public class MethodBodyVisitor extends MethodVisitor{
 		super(api, toDecorate);
 		this.cls= cls;
 	}
+	
+	public MethodBodyVisitor(int api, MethodVisitor toDecorate, ClassBuilder cls, IFile node) {
+		super(api, toDecorate);
+		this.cls= cls;
+		this.node = node;
+	}
+	
 	@Override
 	public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
 		super.visitMethodInsn(opcode, owner, name, desc, itf);

@@ -21,17 +21,17 @@ public class MethodNode implements IMethod {
 		this.Args = new ArrayList<INode>();
 	}
 	@Override
-	public void addName(String name) {
+	public void setName(String name) {
 		this.Name = name;
 	}
 	
 	@Override
-	public void addType(String type) {
+	public void setType(String type) {
 		this.Type = type;
 	}
 	
 	@Override
-	public void addAccessLevel(String accessLevel) {
+	public void setAccessLevel(String accessLevel) {
 		this.AccessLevel = accessLevel;
 	}
 	
@@ -63,10 +63,14 @@ public class MethodNode implements IMethod {
 	@Override
 	public String toString() {
 		String str = new String();
-		str += this.AccessLevel + " " + this.Type + " " + this.Name + "(";
-		for(INode arg:this.Args)
-			str += arg.toString() + ", ";
-		str = str.substring(0, str.length()-2) + ")";
+		String[] typeSplit = this.Type.split("_");
+		str += this.AccessLevel + " " + typeSplit[typeSplit.length-1] + " " + this.Name + "(";
+		if(this.Args.size()!=0) {
+			for(INode arg:this.Args)
+				str += arg.toString() + ", ";
+			str = str.substring(0, str.length()-2);
+		}
+		str += ")";
 		return str;
 	}
 }

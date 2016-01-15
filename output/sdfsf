@@ -1,0 +1,66 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	ArgumentNode [ 
+		label = "{ArgumentNode|private Name : String\lprivate Type : String\l | setName(arg0 String) : void\lsetType(arg0 String) : void\lgetName() : String\lgetType() : String\ltoString() : String\l\l}" 
+	]
+	FieldNode [ 
+		label = "{FieldNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\l | setName(arg0 String) : void\lsetType(arg0 String) : void\lsetAccessLevel(arg0 String) : void\lgetType() : String\lgetName() : String\lgetAccessLevel() : String\ltoString() : String\l\l}" 
+	]
+	FileNode [ 
+		label = "{FileNode|private Name : String\lprivate Type : String\lprivate SuperName : String\lprivate Methods : List\lprivate Fields : List\lprivate Interfaces : List\l | setName(arg0 String) : void\lsetType(arg0 String) : void\lsetSuperName(arg0 String) : void\laddMethod(arg0 IMethod) : void\laddField(arg0 IInnerNode) : void\laddImplements(arg0 IFile) : void\lgetName() : String\lgetType() : String\lgetSuperName() : String\lgetMethods() : List\lgetFields() : List\lgetInterfaces() : List\ltoString() : String\l\l}" 
+	]
+	MethodNode [ 
+		label = "{MethodNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\lprivate Args : List\l | setName(arg0 String) : void\lsetType(arg0 String) : void\lsetAccessLevel(arg0 String) : void\laddArg(arg0 INode) : void\lgetName() : String\lgetType() : String\lgetAccessLevel() : String\lgetArgs() : List\ltoString() : String\l\l}" 
+	]
+	Model [ 
+		label = "{Model|private Nodes : List\l | addNode(arg0 INode) : void\lgetNodes() : List\ltoString() : String\l\l}" 
+	]
+	IFile [ 
+		label = "{\<\<interface\>\>\lIFile| | setSuperName(arg0 String) : void\laddMethod(arg0 IMethod) : void\laddField(arg0 IInnerNode) : void\laddImplements(arg0 IFile) : void\lgetSuperName() : String\lgetMethods() : List\lgetFields() : List\lgetInterfaces() : List\l\l}" 
+	]
+	IInnerNode [ 
+		label = "{\<\<interface\>\>\lIInnerNode| | setAccessLevel(arg0 String) : void\lgetAccessLevel() : String\l\l}" 
+	]
+	IMethod [ 
+		label = "{\<\<interface\>\>\lIMethod| | addArg(arg0 INode) : void\lgetArgs() : List\l\l}" 
+	]
+	IModel [ 
+		label = "{\<\<interface\>\>\lIModel| | addNode(arg0 INode) : void\lgetNodes() : List\l\l}" 
+	]
+	INode [ 
+		label = "{\<\<interface\>\>\lINode| | setName(arg0 String) : void\lsetType(arg0 String) : void\lgetType() : String\lgetName() : String\l\l}" 
+	]
+	edge [ 
+		arrowhead = "empty" 
+		style= "dashed"
+	]
+	ArgumentNode->INode
+	FieldNode->IInnerNode
+	FileNode->IFile
+	MethodNode->IMethod
+	Model->IModel
+	IFile->INode
+	IInnerNode->INode
+	IMethod->IInnerNode
+	edge [ 
+		arrowhead = "empty"
+	style = "filled"]
+	edge [ 
+		arrowhead = "vee" 
+		style= "dashed"
+	]
+	edge [ 
+		arrowhead = "vee" 
+	style = "filled"]
+	
+}

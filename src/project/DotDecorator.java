@@ -3,14 +3,17 @@ package project;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.IModel;
+import model.INode;
+
 public abstract class DotDecorator extends ADot {
-	List<ClassBuilder> classes;
+	IModel model;
 	public abstract StringBuilder getDot();
 	
 	List<String> getFileNames() {
 		List<String> names = new ArrayList<String>();
-		for(ClassBuilder cls:classes){
-			names.add(cls.name);
+		for(INode node:model.getFiles()){
+			names.add(node.getName());
 		}
 		return names;
 	}

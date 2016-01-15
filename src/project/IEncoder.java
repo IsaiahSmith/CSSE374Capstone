@@ -1,7 +1,7 @@
 package project;
 
-import java.util.List;
+import model.IModel;
 
 public interface IEncoder {
-	public StringBuilder encode(List<ClassBuilder> Classes, boolean includeAll);
+	public StringBuilder encode(IModel model, boolean includeAll);
 }

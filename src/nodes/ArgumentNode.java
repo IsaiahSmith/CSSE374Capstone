@@ -12,12 +12,12 @@ public class ArgumentNode implements INode {
 	}
 	
 	@Override
-	public void addName(String name) {
+	public void setName(String name) {
 		this.Name = name;
 	}
 
 	@Override
-	public void addType(String type) {
+	public void setType(String type) {
 		this.Type = type;
 	}
 
@@ -33,7 +33,8 @@ public class ArgumentNode implements INode {
 	
 	@Override
 	public String toString() {
-		return this.Type + " " + this.Name;
+		String[] typeSplit = this.Type.split("_");
+		return typeSplit[typeSplit.length-1] + " " + this.Name;
 	}
 
 }

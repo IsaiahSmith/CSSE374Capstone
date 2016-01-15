@@ -10,11 +10,16 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+import model.IFile;
+import model.IMethod;
+import model.INode;
+import nodes.ArgumentNode;
+import nodes.MethodNode;
+
 public class ClassMethodVisitor extends ClassVisitor{
 	
-	private ClassBuilder cls;
-	private Map<String, String> newMethod;
-	private Map<String, List<String>> argsMap;
+	private IFile node;
+	private IMethod method;
 	
 	public ClassMethodVisitor(int api) {
 		super(api);
@@ -22,56 +27,53 @@ public class ClassMethodVisitor extends ClassVisitor{
 	
 	public ClassMethodVisitor(int api, ClassVisitor decorated) {
 		super(api, decorated);
-		this.cls=new ClassBuilder();
 	}
-	public ClassMethodVisitor(int api, ClassVisitor decorated, ClassBuilder cls) {
+	
+	public ClassMethodVisitor(int api, ClassVisitor decorated, IFile node) {
 		super(api, decorated);
-		this.cls = cls;
-		this.argsMap = new HashMap<String, List<String>>();
+		this.node = node;
 	}
 	
 	@Override
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor toDecorate = super.visitMethod(access, name, desc, signature, exceptions);
-		this.newMethod = new HashMap<String, String>();
-		this.newMethod.put("Name", name);
+		method = new MethodNode();
+		
+		method.setName(name);
+		
 		addArguments(desc, name);
 		addReturnType(desc);
 		addAccessLevel(access);
 		
+		node.addMethod(method);
 		
-		cls.methods.add(this.newMethod);
-		cls.arguments.add(this.argsMap);
+		//MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, cls, node);
 		
-		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, cls);
-
-		
-		return body;
+		return toDecorate;
 	}
 	
 	
 	private void addArguments(String desc, String name) {
 		Type[] args = Type.getArgumentTypes(desc);
-		String arguments = "";
 		ArrayList<String> methodArgs = new ArrayList<String>();
 		
 		for(int i=0; i<args.length; i++){
+			INode argNode = new ArgumentNode();
+			argNode.setName("arg"+i);
+			argNode.setType(sanitize(args[i].getClassName()));
+			method.addArg(argNode);
+			
 			String arg=args[i].getClassName();
 			String[] argSplit = arg.split("\\.");
 			arg = argSplit[argSplit.length-1];
-			arguments += arg+";";
 			methodArgs.add(arg);
-		}
-		if(args.length > 0) {
-			this.newMethod.put("args", arguments.substring(0, arguments.length()-1));
-			this.argsMap.put(name, methodArgs);
 		}
 	}
 	
 	private void addReturnType(String desc) {
 		String returnType = Type.getReturnType(desc).getClassName();
-		this.newMethod.put("ReturnType", returnType);
 		
+		method.setType(sanitize(returnType));
 	}
 	
 	private void addAccessLevel(int access) {
@@ -85,6 +87,12 @@ public class ClassMethodVisitor extends ClassVisitor{
 		}else{
 			level="default";
 		}
-		this.newMethod.put("AccessLevel", level);
+		this.method.setAccessLevel(level);
+	}
+	private String sanitize(String input) {
+		String temp = input.replace("/", "_");
+		temp = temp.replace(".", "_");
+		
+		return temp;
 	}
 }

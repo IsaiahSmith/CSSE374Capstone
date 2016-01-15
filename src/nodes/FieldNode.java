@@ -15,17 +15,17 @@ public class FieldNode implements IInnerNode {
 	}
 	
 	@Override
-	public void addName(String name) {
+	public void setName(String name) {
 		this.Name = name;
 	}
 
 	@Override
-	public void addType(String type) {
+	public void setType(String type) {
 		this.Type = type;
 	}
 	
 	@Override
-	public void addAccessLevel(String accessLevel) {
+	public void setAccessLevel(String accessLevel) {
 		this.AccessLevel = accessLevel;
 	}
 
@@ -46,6 +46,7 @@ public class FieldNode implements IInnerNode {
 
 	@Override
 	public String toString() {
-		return this.AccessLevel + " " + this.Type + " " + this.Name;
+		String[] typeSplit = this.Type.split("_");
+		return this.AccessLevel + " " + typeSplit[typeSplit.length-1] + " " + this.Name;
 	}
 }

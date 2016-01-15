@@ -1,11 +1,11 @@
 package project;
 
-import java.util.List;
+import model.IModel;
 
 public class SDEditEncoder implements IEncoder {
 
 	@Override
-	public StringBuilder encode(List<ClassBuilder> Classes, boolean IncludeAll) {
+	public StringBuilder encode(IModel model, boolean IncludeAll) {
 		// TODO Auto-generated method stub
 		return null;
 	}

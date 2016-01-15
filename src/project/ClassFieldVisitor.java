@@ -1,17 +1,19 @@
 package project;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
+import model.IFile;
+import model.IInnerNode;
+import nodes.FieldNode;
+
 public class ClassFieldVisitor extends ClassVisitor{
 	
-	private ClassBuilder cls;
-	private Map<String, String> newField;
+	private IFile node;
+	private IInnerNode field;
 	
 	public ClassFieldVisitor(int api) {
 		super(api);
@@ -19,23 +21,23 @@ public class ClassFieldVisitor extends ClassVisitor{
 	
 	public ClassFieldVisitor(int api, ClassVisitor decorated) {
 		super(api, decorated);
-		this.cls = new ClassBuilder();
 	}
 	
-	public ClassFieldVisitor(int api, ClassVisitor decorated, ClassBuilder cls) {
+	public ClassFieldVisitor(int api, ClassVisitor decorated, IFile node) {
 		super(api, decorated);
-		this.cls = cls;
+		this.node = node;
 	}
 	
 	public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
 		FieldVisitor toDecorate = super.visitField(access, name, desc, signature, value);
-		this.newField = new HashMap<String, String>();
+		this.field = new FieldNode();
 		
-		this.newField.put("Name", name);
+		this.field.setName(name);
+		
 		addAccessLevel(access);
 		addType(desc);
 		
-		this.cls.fields.add(this.newField);
+		this.node.addField(field);
 		
 		return toDecorate;
 	}
@@ -50,11 +52,17 @@ public class ClassFieldVisitor extends ClassVisitor{
 		}else{
 			level="default";
 		}
-		this.newField.put("AccessLevel", level);
+		this.field.setAccessLevel(level);
 	}
 	private void addType(String desc) {
 		String type = Type.getReturnType(desc).getClassName();
-		this.newField.put("Type", type);
+		this.field.setType(sanitize(type));
 		
+	}
+	private String sanitize(String input) {
+		String temp = input.replace("/", "_");
+		temp = temp.replace(".", "_");
+		
+		return temp;
 	}
 }

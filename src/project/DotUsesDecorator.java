@@ -1,32 +1,31 @@
 package project;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import model.IFile;
+import model.IMethod;
+import model.IModel;
+
 public class DotUsesDecorator extends DotDecorator {
 
 	ADot toBeDecorated;
-	private List<ClassBuilder> classes;
 	
-	public DotUsesDecorator(ADot toBeDecorated, List<ClassBuilder> classes) {
+	public DotUsesDecorator(ADot toBeDecorated, IModel model) {
 		this.toBeDecorated = toBeDecorated;
-		this.classes = classes;
+		this.model = model;
 	}
 	
 	public StringBuilder makeUses() {
 		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\t\tstyle= \"dashed\"\n\t]\n\t");
 		
-		for(ClassBuilder c : classes){
-			if(c.methods != null){
-				for(Map<String, String> m : c.methods) {
-					if(c.arguments != null){
-						for(Map<String, List<String>> arg : c.arguments){
-							List<String> listArgTypes = arg.get(m.get("Name"));
-							
-						}
+		for(IFile c : model.getFiles()){
+			if(c.getMethods() != null){
+				for(IMethod m : c.getMethods()) {
+					if(m.getArgs() != null){
+						
 						
 					}
 				}

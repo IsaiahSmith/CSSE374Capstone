@@ -2,22 +2,25 @@ package project;
 
 import java.util.List;
 
+import model.IFile;
+import model.IModel;
+
 public class DotInheritanceDecorator extends DotDecorator{
 	
 	ADot toBeDecorated;
 
-	public DotInheritanceDecorator(ADot toBeDecorated, List<ClassBuilder> classes){
+	public DotInheritanceDecorator(ADot toBeDecorated, IModel model){
 		this.toBeDecorated = toBeDecorated;
-		this.classes = classes;
+		this.model = model;
 	}
 	
 	public StringBuilder makeInheritance(){
 		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"empty\"\n\tstyle = \"filled\"]\n\t");
 		List<String> fileNames = getFileNames();
-		for(ClassBuilder c : classes){
-			if(c.superName != null){
-				String left = c.name;
-				String right = c.superName;
+		for(IFile c : model.getFiles()){
+			if(c.getSuperName() != null){
+				String left = c.getName();
+				String right = c.getSuperName();
 				if(includeAll){
 					temp.append(addArrow(left, right));
 				}else{

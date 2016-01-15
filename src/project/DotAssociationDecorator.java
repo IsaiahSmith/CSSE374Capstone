@@ -3,23 +3,26 @@ package project;
 import java.util.List;
 import java.util.Map;
 
+import model.IFile;
+import model.IInnerNode;
+import model.IModel;
+
 public class DotAssociationDecorator extends DotDecorator {
 
 	ADot toBeDecorated;
 	
-	public DotAssociationDecorator(ADot toBeDecorated, List<ClassBuilder> classes) {
+	public DotAssociationDecorator(ADot toBeDecorated, IModel model) {
 		this.toBeDecorated = toBeDecorated;
-		this.classes = classes;
+		this.model = model;
 	}
 	
 	public StringBuilder makeAssociation(){
 		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\tstyle = \"filled\"]\n\t");
 		List<String> fileNames = getFileNames();
-		for(ClassBuilder c : classes){
-			for(Map<String, String> field : c.fields){
-				String left = c.name;
-				String right = field.get("Type");
-				right = right.replaceAll("\\.", "/");
+		for(IFile c : model.getFiles()){
+			for(IInnerNode field : c.getFields()){
+				String left = c.getName();
+				String right = field.getType();
 				if(includeAll){
 					temp.append(addArrow(left, right));
 				}else{
@@ -32,8 +35,8 @@ public class DotAssociationDecorator extends DotDecorator {
 	}
 
 	private String addArrow(String left, String right){
-		String[] leftSplit = left.split("/");
-		String[] rightSplit = right.split("/");
+		String[] leftSplit = left.split("_");
+		String[] rightSplit = right.split("_");
 		left = leftSplit[leftSplit.length - 1];
 		right = rightSplit[rightSplit.length - 1];
 		return " " + left + " -> " + right+"\n\t";
