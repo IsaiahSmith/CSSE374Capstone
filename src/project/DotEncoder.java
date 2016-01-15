@@ -5,12 +5,12 @@ import java.util.List;
 public class DotEncoder implements IEncoder {
 	
 	@Override
-	public StringBuilder encode(List<ClassBuilder> classes){
-		ADot dot = new StandardDot();
+	public StringBuilder encode(List<ClassBuilder> classes, boolean includeAll){
+		ADot dot = new StandardDot(includeAll);
 		dot = new DotClassDecorator(dot, classes);
 		dot = new DotImplementsDecorator(dot, classes);
 		dot = new DotInheritanceDecorator(dot, classes);
-		//dot = new DotUsesDecorator(dot, classes);
+		//dot = new DotUsesDecorator(dot, classes, includeAll);
 		dot = new DotAssociationDecorator(dot, classes);
 		return dot.getDot().append("\n}");
 	}

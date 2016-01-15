@@ -25,6 +25,12 @@ public class DesignMaker {
 		
 		System.out.print("Encode Type (text/dot/SDEdit): ");
 		String encodeType = in.readLine();
+		boolean includeAll = false;
+		System.out.print("Include all files not specified in args?(y/n)");
+		String include = in.readLine();
+		if(include.equals("y"))
+			includeAll = true;
+		
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
 		List<ClassBuilder> Classes = design.parse(files);
@@ -32,7 +38,7 @@ public class DesignMaker {
 		IEncoder enc = encoders.get(encodeType);
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
 
-		writer.write(enc.encode(Classes).toString().getBytes());
+		writer.write(enc.encode(Classes, includeAll).toString().getBytes());
 		writer.close();
 		System.out.println("Done.");
 	}
