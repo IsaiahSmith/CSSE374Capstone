@@ -13,8 +13,7 @@ public class DotInheritanceDecorator extends DotDecorator{
 	}
 	
 	public StringBuilder makeInheritance(){
-		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"empty\"\n\t]\n\t");
-
+		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"empty\"\n\tstyle = \"filled\"]\n\t");
 		for(ClassBuilder c : classes){
 			if(c.superName != null){
 				String left = c.name;
