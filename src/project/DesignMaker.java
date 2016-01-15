@@ -16,13 +16,14 @@ public class DesignMaker {
 		this.encoders = new HashMap<String, IEncoder>();
 		encoders.put("text", new TextEncoder());
 		encoders.put("dot", new DotEncoder());
+		encoders.put("SDEdit", new SDEditEncoder());
 		this.design = new DesignBuilder();
 	}
 	
 	public void make(String[] files) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.print("Encode Type (text/dot): ");
+		System.out.print("Encode Type (text/dot/SDEdit): ");
 		String encodeType = in.readLine();
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
