@@ -14,7 +14,7 @@ import nodes.FileNode;
 import nodes.Model;
 
 public class DesignBuilder {
-	public static IModel parse(String[] files) throws IOException{
+	public static IModel parse(List<String> files) throws IOException{
 		List<ClassBuilder> Classes = new ArrayList<ClassBuilder>();
 		IModel model = new Model();
 		for(String className: files) {

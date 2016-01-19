@@ -39,20 +39,22 @@ public class DotUsesDecorator extends DotDecorator {
 						uses.add(tInsn.getType());
 					}
 				}
+				Set<String> usesSet = new HashSet<String>(uses);
+				String left = c.getName();
+				for(String use: usesSet) {
+					temp.append(addArrow(left, use));
+				}
 			}
-		Set<String> usesSet = new HashSet<String>(uses);
-			
-			
-//			Set<String> argTypes = new HashSet<String>();
-//			for(String s : argTypes) {
-//				String right = s;
-//				String[] rightSplit = right.split("\\.");
-//				right = rightSplit[rightSplit.length-1];
-//				temp.append(c.name + "->" + right + "\n\t");
-//			}
 		}
-		
 		return temp;
+	}
+	
+	private String addArrow(String left, String right){
+		String[] leftSplit = left.split("_");
+		String[] rightSplit = right.split("_");
+		left = leftSplit[leftSplit.length - 1];
+		right = rightSplit[rightSplit.length - 1];
+		return " " + left + " -> " + right+"\n\t";
 	}
 
 	@Override

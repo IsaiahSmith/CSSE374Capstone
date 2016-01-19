@@ -1,17 +1,25 @@
 package nodes;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import model.IMethod;
 import model.IMethodInsn;
+import model.INode;
 
 public class MethodInsn implements IMethodInsn{
 
+	
+	private IMethod Method;
 	private String Owner;
 	private String Name;
-	private String Desc;
+	private List<INode> args;
 	
 	public MethodInsn() {
+		this.Method = new MethodNode();
 		this.Owner = new String();
 		this.Name = new String();
-		this.Desc = new String();
+		this.args = new ArrayList<INode>();
 	}
 	
 	@Override
@@ -24,9 +32,11 @@ public class MethodInsn implements IMethodInsn{
 		this.Name = name;
 	}
 
+	public void setArgs(List<IArgument> args)
+	
 	@Override
-	public void setDesc(String desc) {
-		this.Desc = desc;
+	public void setMethod(String owner, String name, String desc) {
+		
 	}
 
 	@Override
