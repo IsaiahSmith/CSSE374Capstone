@@ -52,7 +52,7 @@ public class DesignMaker {
 	
 	/**
 	 * Takes in an input file to populate files
-	 * FORMAT: <path_to_file>\n
+	 * FORMAT: <File_Name>\n
 	 * 
 	 * @param input
 	 * @return files
@@ -60,7 +60,7 @@ public class DesignMaker {
 	 */
 	@SuppressWarnings("resource")
 	private List<String> getFiles(String input) throws IOException {
-		FileReader reader = new FileReader(input);
+		FileReader reader = new FileReader("./input" + input);
 		BufferedReader bufferedReader = new BufferedReader(reader);
 		String line = null;
 		List<String> files = new ArrayList<String>();
