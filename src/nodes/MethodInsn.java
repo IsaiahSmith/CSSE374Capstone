@@ -10,16 +10,14 @@ import model.INode;
 public class MethodInsn implements IMethodInsn{
 
 	
-	private IMethod Method;
 	private String Owner;
 	private String Name;
-	private List<INode> args;
+	private String Desc;
 	
 	public MethodInsn() {
-		this.Method = new MethodNode();
 		this.Owner = new String();
 		this.Name = new String();
-		this.args = new ArrayList<INode>();
+		this.Desc = new String();
 	}
 	
 	@Override
@@ -31,12 +29,10 @@ public class MethodInsn implements IMethodInsn{
 	public void setName(String name) {
 		this.Name = name;
 	}
-
-	public void setArgs(List<IArgument> args)
 	
 	@Override
-	public void setMethod(String owner, String name, String desc) {
-		
+	public void setDesc(String desc) {
+		this.Desc = desc;
 	}
 
 	@Override
@@ -57,5 +53,11 @@ public class MethodInsn implements IMethodInsn{
 	@Override
 	public String toString() {
 		return this.Owner+" "+this.Name+" "+this.Desc;
+	}
+
+	@Override
+	public IMethod getMethod() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

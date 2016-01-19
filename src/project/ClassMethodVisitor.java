@@ -54,18 +54,13 @@ public class ClassMethodVisitor extends ClassVisitor{
 	
 	private void addArguments(String desc, String name) {
 		Type[] args = Type.getArgumentTypes(desc);
-		ArrayList<String> methodArgs = new ArrayList<String>();
+		
 		
 		for(int i=0; i<args.length; i++){
 			INode argNode = new ArgumentNode();
 			argNode.setName("arg"+i);
 			argNode.setType(sanitize(args[i].getClassName()));
 			method.addArg(argNode);
-			
-			String arg=args[i].getClassName();
-			String[] argSplit = arg.split("\\.");
-			arg = argSplit[argSplit.length-1];
-			methodArgs.add(arg);
 		}
 	}
 	
