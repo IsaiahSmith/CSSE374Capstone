@@ -39,7 +39,7 @@ public class DotAssociationDecorator extends DotDecorator {
 //		String[] rightSplit = right.split("_");
 //		left = leftSplit[leftSplit.length - 1];
 //		right = rightSplit[rightSplit.length - 1];
-		return " " + left + " -> " + right+"[arrowhead=\"vee\" style = \"filled\" ]"+"\n\t";
+		return " " + left + " -> " + right+" [arrowhead=\"vee\" style = \"filled\" ]"+"\n\t";
 	}
 	
 	@Override

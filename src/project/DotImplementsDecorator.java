@@ -38,7 +38,7 @@ public class DotImplementsDecorator extends DotDecorator {
 //		String[] rightSplit = right.split("/");
 //		left = leftSplit[leftSplit.length-1];
 //		right = rightSplit[rightSplit.length-1];
-		return left + "->" + right + "[arrowhead=\"empty\" style = \"dashed\"]"+"\n\t";
+		return left + "->" + right + " [arrowhead=\"empty\" style = \"dashed\"]"+"\n\t";
 	}
 
 	@Override

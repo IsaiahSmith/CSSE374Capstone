@@ -1,0 +1,6 @@
+problem.AppLauncher
+problem.FileType
+problem.HTMLFile
+problem.TextFile
+problem.WordFile
+problem.Nothing
