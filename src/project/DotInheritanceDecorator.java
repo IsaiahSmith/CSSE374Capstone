@@ -15,7 +15,7 @@ public class DotInheritanceDecorator extends DotDecorator{
 	}
 	
 	public StringBuilder makeInheritance(){
-		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"empty\"\n\tstyle = \"filled\"]\n\t");
+		StringBuilder temp = new StringBuilder();
 		List<String> fileNames = getFileNames();
 		for(IFile c : model.getFiles()){
 			if(c.getSuperName() != null){
@@ -33,11 +33,11 @@ public class DotInheritanceDecorator extends DotDecorator{
 	}
 	
 	private String addArrow(String left, String right){
-		String[] leftSplit = left.split("/");
-		String[] rightSplit = right.split("/");
-		left = leftSplit[leftSplit.length-1];
-		right = rightSplit[rightSplit.length-1];
-		return " " + left + " -> " + right+"\n\t";
+//		String[] leftSplit = left.split("/");
+//		String[] rightSplit = right.split("/");
+//		left = leftSplit[leftSplit.length-1];
+//		right = rightSplit[rightSplit.length-1];
+		return " " + left + " -> " + right+"[arrowhead=\"empty\" style = \"filled\" ]"+"\n\t";
 	}
 
 	@Override

@@ -60,7 +60,7 @@ public class DesignMaker {
 	 */
 	@SuppressWarnings("resource")
 	private List<String> getFiles(String input) throws IOException {
-		FileReader reader = new FileReader("./input" + input);
+		FileReader reader = new FileReader("./input/" + input);
 		BufferedReader bufferedReader = new BufferedReader(reader);
 		String line = null;
 		List<String> files = new ArrayList<String>();

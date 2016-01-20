@@ -97,7 +97,7 @@ public class DotClassDecorator extends DotDecorator {
 					for(INode arg : args){
 						methodsBlock += arg.toString()+", ";
 					}
-					methodsBlock += methodsBlock.substring(0, methodsBlock.length()-2);
+					methodsBlock = methodsBlock.substring(0, methodsBlock.length()-2);
 				}
 				methodsBlock += ")";
 				methodsBlock += " : "

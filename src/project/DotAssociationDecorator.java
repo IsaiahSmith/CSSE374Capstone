@@ -17,7 +17,7 @@ public class DotAssociationDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeAssociation(){
-		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\tstyle = \"filled\"]\n\t");
+		StringBuilder temp = new StringBuilder();
 		List<String> fileNames = getFileNames();
 		for(IFile c : model.getFiles()){
 			for(IInnerNode field : c.getFields()){
@@ -35,11 +35,11 @@ public class DotAssociationDecorator extends DotDecorator {
 	}
 
 	private String addArrow(String left, String right){
-		String[] leftSplit = left.split("_");
-		String[] rightSplit = right.split("_");
-		left = leftSplit[leftSplit.length - 1];
-		right = rightSplit[rightSplit.length - 1];
-		return " " + left + " -> " + right+"\n\t";
+//		String[] leftSplit = left.split("_");
+//		String[] rightSplit = right.split("_");
+//		left = leftSplit[leftSplit.length - 1];
+//		right = rightSplit[rightSplit.length - 1];
+		return " " + left + " -> " + right+"[arrowhead=\"vee\" style = \"filled\" ]"+"\n\t";
 	}
 	
 	@Override

@@ -14,7 +14,7 @@ public class DotImplementsDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeImplements(){
-		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"empty\" \n\t\tstyle= \"dashed\"\n\t]\n\t");
+		StringBuilder temp = new StringBuilder();
 		List<String> fileNames = getFileNames();
 		for(IFile c : model.getFiles()){
 			if(c.getInterfaces() != null){
@@ -34,11 +34,11 @@ public class DotImplementsDecorator extends DotDecorator {
 	}
 	
 	private String addArrow(String left, String right) {
-		String[] leftSplit = left.split("/");
-		String[] rightSplit = right.split("/");
-		left = leftSplit[leftSplit.length-1];
-		right = rightSplit[rightSplit.length-1];
-		return left + "->" + right + "\n\t";
+//		String[] leftSplit = left.split("/");
+//		String[] rightSplit = right.split("/");
+//		left = leftSplit[leftSplit.length-1];
+//		right = rightSplit[rightSplit.length-1];
+		return left + "->" + right + "[arrowhead=\"empty\" style = \"dashed\"]"+"\n\t";
 	}
 
 	@Override

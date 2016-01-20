@@ -1,0 +1,690 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	model_IFile [ 
+		label = "{\<\<interface\>\>\lIFile||public setSuperName(String arg0) : void\lpublic addMethod(IMethod arg0) : void\lpublic addField(IInnerNode arg0) : void\lpublic addImplements(IFile arg0) : void\lpublic getSuperNam) : String\lpublic getMethod) : List\lpublic getField) : List\lpublic getInterface) : List\l\l}" 
+	]
+	model_IInnerNode [ 
+		label = "{\<\<interface\>\>\lIInnerNode||public setAccessLevel(String arg0) : void\lpublic getAccessLeve) : String\l\l}" 
+	]
+	model_IMethod [ 
+		label = "{\<\<interface\>\>\lIMethod||public addArg(INode arg0) : void\lpublic addMethodInsn(IMethodInsn arg0) : void\lpublic addTypeInsn(ITypeInsn arg0) : void\lpublic getArg) : List\lpublic getMethodIns) : List\lpublic getTypeIns) : List\l\l}" 
+	]
+	model_IMethodInsn [ 
+		label = "{\<\<interface\>\>\lIMethodInsn||public setOwner(String arg0) : void\lpublic setName(String arg0) : void\lpublic setDesc(String arg0) : void\lpublic getOwne) : String\lpublic getNam) : String\lpublic getDes) : String\lpublic getMetho) : IMethod\l\l}" 
+	]
+	model_IModel [ 
+		label = "{\<\<interface\>\>\lIModel||public addFile(IFile arg0) : void\lpublic getFile) : List\l\l}" 
+	]
+	model_INode [ 
+		label = "{\<\<interface\>\>\lINode||public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic getTyp) : String\lpublic getNam) : String\l\l}" 
+	]
+	model_ITypeInsn [ 
+		label = "{\<\<interface\>\>\lITypeInsn||public setType(String arg0) : void\lpublic getTyp) : String\l\l}" 
+	]
+	nodes_ArgumentNode [ 
+		label = "{ArgumentNode|private Name : String\lprivate Type : String\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic getNam) : String\lpublic getTyp) : String\lpublic toStrin) : String\l\l}" 
+	]
+	nodes_FieldNode [ 
+		label = "{FieldNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setAccessLevel(String arg0) : void\lpublic getTyp) : String\lpublic getNam) : String\lpublic getAccessLeve) : String\lpublic toStrin) : String\l\l}" 
+	]
+	nodes_FileNode [ 
+		label = "{FileNode|private Name : String\lprivate Type : String\lprivate SuperName : String\lprivate Methods : List\lprivate Fields : List\lprivate Interfaces : List\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setSuperName(String arg0) : void\lpublic addMethod(IMethod arg0) : void\lpublic addField(IInnerNode arg0) : void\lpublic addImplements(IFile arg0) : void\lpublic getNam) : String\lpublic getTyp) : String\lpublic getSuperNam) : String\lpublic getMethod) : List\lpublic getField) : List\lpublic getInterface) : List\lpublic toStrin) : String\l\l}" 
+	]
+	nodes_MethodInsn [ 
+		label = "{MethodInsn|private Owner : String\lprivate Name : String\lprivate Desc : String\l|public setOwner(String arg0) : void\lpublic setName(String arg0) : void\lpublic setDesc(String arg0) : void\lpublic getOwne) : String\lpublic getNam) : String\lpublic getDes) : String\lpublic toStrin) : String\lpublic getMetho) : IMethod\l\l}" 
+	]
+	nodes_MethodNode [ 
+		label = "{MethodNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\lprivate Args : List\lprivate MethodInsns : List\lprivate TypeInsns : List\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setAccessLevel(String arg0) : void\lpublic addArg(INode arg0) : void\lpublic addMethodInsn(IMethodInsn arg0) : void\lpublic addTypeInsn(ITypeInsn arg0) : void\lpublic getNam) : String\lpublic getTyp) : String\lpublic getAccessLeve) : String\lpublic getArg) : List\lpublic getMethodIns) : List\lpublic getTypeIns) : List\lpublic toStrin) : String\l\l}" 
+	]
+	nodes_Model [ 
+		label = "{Model|private Files : List\l|public addFile(IFile arg0) : void\lpublic getFile) : List\lpublic toStrin) : String\l\l}" 
+	]
+	nodes_TypeInsn [ 
+		label = "{TypeInsn|private Type : String\l|public setType(String arg0) : void\lpublic getTyp) : String\lpublic toStrin) : String\l\l}" 
+	]
+	project_ADot [ 
+		label = "{\<\<abstract\>\>\lADot|default includeAll : boolean\ldefault dotFile : StringBuilder\l|public getDo) : StringBuilder\l\l}" 
+	]
+	project_ClassBuilder [ 
+		label = "{ClassBuilder|public name : String\lpublic superName : String\lpublic isClass : boolean\lpublic inter : List\lpublic fields : List\lpublic methods : List\lpublic arguments : List\l|public toStrin) : String\l\l}" 
+	]
+	project_ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private node : IFile\l|public visit(int arg0, int arg1, String arg2, String arg3, String arg4, String[] arg5) : void\lprivate addType(int arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	project_ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private node : IFile\lprivate field : IInnerNode\l|public visitField(int arg0, String arg1, String arg2, String arg3, Object arg4) : FieldVisitor\lprivate addAccessLevel(int arg0) : void\lprivate addType(String arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	project_ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private node : IFile\lprivate method : IMethod\l|public visitMethod(int arg0, String arg1, String arg2, String arg3, String[] arg4) : MethodVisitor\lprivate addArguments(String arg0, String arg1) : void\lprivate addReturnType(String arg0) : void\lprivate addAccessLevel(int arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	project_DesignBuilder [ 
+		label = "{DesignBuilder||public parse(List arg0) : IModel\l\l}" 
+	]
+	project_DesignMaker [ 
+		label = "{DesignMaker|private design : DesignBuilder\lprivate encoders : Map\l|public mak) : void\lprivate getFiles(String arg0) : List\l\l}" 
+	]
+	project_DotAssociationDecorator [ 
+		label = "{DotAssociationDecorator|default toBeDecorated : ADot\l|public makeAssociatio) : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDo) : StringBuilder\l\l}" 
+	]
+	project_DotClassDecorator [ 
+		label = "{DotClassDecorator|default toBeDecorated : ADot\l|public makeClasse) : StringBuilder\lprivate composeFile(IFile arg0) : String\lprivate buildNameBlock(String arg0, String arg1) : String\lprivate buildFieldsBlock(List arg0) : String\lprivate buildMethodsBlock(List arg0) : String\lprivate buildString(String arg0, List arg1, List arg2, String arg3) : String\lpublic getDo) : StringBuilder\l\l}" 
+	]
+	project_DotDecorator [ 
+		label = "{\<\<abstract\>\>\lDotDecorator|default model : IModel\l|public getDo) : StringBuilder\ldefault getFileName) : List\l\l}" 
+	]
+	project_DotEncoder [ 
+		label = "{DotEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	project_DotImplementsDecorator [ 
+		label = "{DotImplementsDecorator|default toBeDecorated : ADot\l|public makeImplement) : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDo) : StringBuilder\l\l}" 
+	]
+	project_DotInheritanceDecorator [ 
+		label = "{DotInheritanceDecorator|default toBeDecorated : ADot\l|public makeInheritanc) : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDo) : StringBuilder\l\l}" 
+	]
+	project_DotUsesDecorator [ 
+		label = "{DotUsesDecorator|default toBeDecorated : ADot\l|public makeUse) : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDo) : StringBuilder\l\l}" 
+	]
+	project_IEncoder [ 
+		label = "{\<\<interface\>\>\lIEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	project_Main [ 
+		label = "{Main||public main(String[] arg0) : void\l\l}" 
+	]
+	project_MethodBodyVisitor [ 
+		label = "{MethodBodyVisitor|private method : IMethod\l|public visitMethodInsn(int arg0, String arg1, String arg2, String arg3, boolean arg4) : void\lpublic visitTypeInsn(int arg0, String arg1) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	project_SDEditEncoder [ 
+		label = "{SDEditEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	project_StandardDot [ 
+		label = "{StandardDot||\l}" 
+	]
+	project_TextEncoder [ 
+		label = "{TextEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	edge [ 
+		arrowhead = "empty" 
+		style= "dashed"
+	]
+	model_IFile->model_INode
+	model_IInnerNode->model_INode
+	model_IMethod->model_IInnerNode
+	nodes_ArgumentNode->model_INode
+	nodes_FieldNode->model_IInnerNode
+	nodes_FileNode->model_IFile
+	nodes_MethodInsn->model_IMethodInsn
+	nodes_MethodNode->model_IMethod
+	nodes_Model->model_IModel
+	nodes_TypeInsn->model_ITypeInsn
+	project_DotEncoder->project_IEncoder
+	project_SDEditEncoder->project_IEncoder
+	project_TextEncoder->project_IEncoder
+	edge [ 
+		arrowhead = "empty"
+	style = "filled"]
+	 project_DotAssociationDecorator -> project_DotDecorator
+	 project_DotClassDecorator -> project_DotDecorator
+	 project_DotDecorator -> project_ADot
+	 project_DotImplementsDecorator -> project_DotDecorator
+	 project_DotInheritanceDecorator -> project_DotDecorator
+	 project_DotUsesDecorator -> project_DotDecorator
+	 project_StandardDot -> project_ADot
+	edge [ 
+		arrowhead = "vee" 
+		style= "dashed"
+	]
+	 model_IFile -> model_IFile
+	 model_IFile -> model_IInnerNode
+	 model_IFile -> model_IMethod
+	 model_IInnerNode -> model_IFile
+	 model_IInnerNode -> model_IInnerNode
+	 model_IInnerNode -> model_IMethod
+	 model_IMethod -> model_ITypeInsn
+	 model_IMethod -> model_IInnerNode
+	 model_IMethod -> model_IMethod
+	 model_IMethod -> model_IFile
+	 model_IMethod -> model_INode
+	 model_IMethod -> model_IMethodInsn
+	 model_IMethodInsn -> model_ITypeInsn
+	 model_IMethodInsn -> model_IInnerNode
+	 model_IMethodInsn -> model_IMethod
+	 model_IMethodInsn -> model_IFile
+	 model_IMethodInsn -> model_INode
+	 model_IMethodInsn -> model_IMethodInsn
+	 model_IModel -> model_ITypeInsn
+	 model_IModel -> model_IInnerNode
+	 model_IModel -> model_IMethod
+	 model_IModel -> model_IFile
+	 model_IModel -> model_INode
+	 model_IModel -> model_IMethodInsn
+	 model_INode -> model_ITypeInsn
+	 model_INode -> model_IInnerNode
+	 model_INode -> model_IMethod
+	 model_INode -> model_IFile
+	 model_INode -> model_INode
+	 model_INode -> model_IMethodInsn
+	 model_ITypeInsn -> model_ITypeInsn
+	 model_ITypeInsn -> model_IInnerNode
+	 model_ITypeInsn -> model_IMethod
+	 model_ITypeInsn -> model_IFile
+	 model_ITypeInsn -> model_INode
+	 model_ITypeInsn -> model_IMethodInsn
+	 nodes_ArgumentNode -> model_IMethod
+	 nodes_ArgumentNode -> model_IMethodInsn
+	 nodes_ArgumentNode -> model_ITypeInsn
+	 nodes_ArgumentNode -> model_IInnerNode
+	 nodes_ArgumentNode -> model_IFile
+	 nodes_ArgumentNode -> model_INode
+	 nodes_FieldNode -> model_IMethod
+	 nodes_FieldNode -> model_IMethodInsn
+	 nodes_FieldNode -> model_ITypeInsn
+	 nodes_FieldNode -> model_IInnerNode
+	 nodes_FieldNode -> model_IFile
+	 nodes_FieldNode -> model_INode
+	 nodes_FileNode -> model_IMethodInsn
+	 nodes_FileNode -> model_IInnerNode
+	 nodes_FileNode -> model_INode
+	 nodes_FileNode -> model_ITypeInsn
+	 nodes_FileNode -> model_IMethod
+	 nodes_FileNode -> model_IFile
+	 nodes_MethodInsn -> model_IMethodInsn
+	 nodes_MethodInsn -> model_IInnerNode
+	 nodes_MethodInsn -> model_INode
+	 nodes_MethodInsn -> model_ITypeInsn
+	 nodes_MethodInsn -> model_IMethod
+	 nodes_MethodInsn -> model_IFile
+	 nodes_MethodNode -> model_IMethodInsn
+	 nodes_MethodNode -> model_IInnerNode
+	 nodes_MethodNode -> model_INode
+	 nodes_MethodNode -> model_ITypeInsn
+	 nodes_MethodNode -> model_IMethod
+	 nodes_MethodNode -> model_IFile
+	 nodes_Model -> model_IMethodInsn
+	 nodes_Model -> model_IInnerNode
+	 nodes_Model -> model_INode
+	 nodes_Model -> model_ITypeInsn
+	 nodes_Model -> model_IMethod
+	 nodes_Model -> model_IFile
+	 nodes_TypeInsn -> model_IMethodInsn
+	 nodes_TypeInsn -> model_IInnerNode
+	 nodes_TypeInsn -> model_INode
+	 nodes_TypeInsn -> model_ITypeInsn
+	 nodes_TypeInsn -> model_IMethod
+	 nodes_TypeInsn -> model_IFile
+	 project_ADot -> model_IMethodInsn
+	 project_ADot -> model_IInnerNode
+	 project_ADot -> model_INode
+	 project_ADot -> model_ITypeInsn
+	 project_ADot -> model_IMethod
+	 project_ADot -> model_IFile
+	 project_ClassBuilder -> model_IMethodInsn
+	 project_ClassBuilder -> model_IInnerNode
+	 project_ClassBuilder -> model_IMethod
+	 project_ClassBuilder -> model_INode
+	 project_ClassBuilder -> model_ITypeInsn
+	 project_ClassBuilder -> model_IFile
+	 project_ClassDeclarationVisitor -> model_IMethodInsn
+	 project_ClassDeclarationVisitor -> model_IInnerNode
+	 project_ClassDeclarationVisitor -> model_IMethod
+	 project_ClassDeclarationVisitor -> nodes_FileNode
+	 project_ClassDeclarationVisitor -> model_INode
+	 project_ClassDeclarationVisitor -> model_ITypeInsn
+	 project_ClassDeclarationVisitor -> model_IFile
+	 project_ClassFieldVisitor -> model_IMethodInsn
+	 project_ClassFieldVisitor -> model_IInnerNode
+	 project_ClassFieldVisitor -> model_IMethod
+	 project_ClassFieldVisitor -> nodes_FieldNode
+	 project_ClassFieldVisitor -> nodes_FileNode
+	 project_ClassFieldVisitor -> model_INode
+	 project_ClassFieldVisitor -> model_ITypeInsn
+	 project_ClassFieldVisitor -> model_IFile
+	 project_ClassMethodVisitor -> model_IMethodInsn
+	 project_ClassMethodVisitor -> model_IInnerNode
+	 project_ClassMethodVisitor -> project_MethodBodyVisitor
+	 project_ClassMethodVisitor -> nodes_MethodNode
+	 project_ClassMethodVisitor -> model_IMethod
+	 project_ClassMethodVisitor -> nodes_FieldNode
+	 project_ClassMethodVisitor -> nodes_FileNode
+	 project_ClassMethodVisitor -> nodes_ArgumentNode
+	 project_ClassMethodVisitor -> model_INode
+	 project_ClassMethodVisitor -> model_ITypeInsn
+	 project_ClassMethodVisitor -> model_IFile
+	 project_DesignBuilder -> model_IMethodInsn
+	 project_DesignBuilder -> model_IInnerNode
+	 project_DesignBuilder -> project_MethodBodyVisitor
+	 project_DesignBuilder -> nodes_MethodNode
+	 project_DesignBuilder -> model_IModel
+	 project_DesignBuilder -> model_IMethod
+	 project_DesignBuilder -> project_ClassFieldVisitor
+	 project_DesignBuilder -> project_ClassDeclarationVisitor
+	 project_DesignBuilder -> nodes_Model
+	 project_DesignBuilder -> nodes_FieldNode
+	 project_DesignBuilder -> nodes_FileNode
+	 project_DesignBuilder -> nodes_ArgumentNode
+	 project_DesignBuilder -> model_INode
+	 project_DesignBuilder -> project_ClassMethodVisitor
+	 project_DesignBuilder -> model_ITypeInsn
+	 project_DesignBuilder -> model_IFile
+	 project_DesignBuilder -> project_ClassBuilder
+	 project_DesignMaker -> model_IMethodInsn
+	 project_DesignMaker -> project_DesignBuilder
+	 project_DesignMaker -> model_IInnerNode
+	 project_DesignMaker -> project_MethodBodyVisitor
+	 project_DesignMaker -> nodes_MethodNode
+	 project_DesignMaker -> model_IModel
+	 project_DesignMaker -> model_IMethod
+	 project_DesignMaker -> project_SDEditEncoder
+	 project_DesignMaker -> project_ClassFieldVisitor
+	 project_DesignMaker -> project_IEncoder
+	 project_DesignMaker -> project_ClassDeclarationVisitor
+	 project_DesignMaker -> nodes_Model
+	 project_DesignMaker -> project_TextEncoder
+	 project_DesignMaker -> nodes_FieldNode
+	 project_DesignMaker -> nodes_FileNode
+	 project_DesignMaker -> nodes_ArgumentNode
+	 project_DesignMaker -> model_INode
+	 project_DesignMaker -> project_ClassMethodVisitor
+	 project_DesignMaker -> model_ITypeInsn
+	 project_DesignMaker -> project_DotEncoder
+	 project_DesignMaker -> model_IFile
+	 project_DesignMaker -> project_ClassBuilder
+	 project_DotAssociationDecorator -> model_IMethodInsn
+	 project_DotAssociationDecorator -> project_DesignBuilder
+	 project_DotAssociationDecorator -> model_IInnerNode
+	 project_DotAssociationDecorator -> project_MethodBodyVisitor
+	 project_DotAssociationDecorator -> nodes_MethodNode
+	 project_DotAssociationDecorator -> model_IModel
+	 project_DotAssociationDecorator -> model_IMethod
+	 project_DotAssociationDecorator -> project_SDEditEncoder
+	 project_DotAssociationDecorator -> project_ClassFieldVisitor
+	 project_DotAssociationDecorator -> project_IEncoder
+	 project_DotAssociationDecorator -> project_ADot
+	 project_DotAssociationDecorator -> project_ClassDeclarationVisitor
+	 project_DotAssociationDecorator -> nodes_Model
+	 project_DotAssociationDecorator -> project_TextEncoder
+	 project_DotAssociationDecorator -> nodes_FieldNode
+	 project_DotAssociationDecorator -> nodes_FileNode
+	 project_DotAssociationDecorator -> nodes_ArgumentNode
+	 project_DotAssociationDecorator -> model_INode
+	 project_DotAssociationDecorator -> project_ClassMethodVisitor
+	 project_DotAssociationDecorator -> model_ITypeInsn
+	 project_DotAssociationDecorator -> project_DotEncoder
+	 project_DotAssociationDecorator -> model_IFile
+	 project_DotAssociationDecorator -> project_ClassBuilder
+	 project_DotClassDecorator -> model_IInnerNode
+	 project_DotClassDecorator -> nodes_MethodNode
+	 project_DotClassDecorator -> project_SDEditEncoder
+	 project_DotClassDecorator -> project_ClassFieldVisitor
+	 project_DotClassDecorator -> project_IEncoder
+	 project_DotClassDecorator -> project_ADot
+	 project_DotClassDecorator -> project_ClassDeclarationVisitor
+	 project_DotClassDecorator -> nodes_Model
+	 project_DotClassDecorator -> project_TextEncoder
+	 project_DotClassDecorator -> nodes_FileNode
+	 project_DotClassDecorator -> nodes_ArgumentNode
+	 project_DotClassDecorator -> project_ClassBuilder
+	 project_DotClassDecorator -> model_IMethodInsn
+	 project_DotClassDecorator -> project_DesignBuilder
+	 project_DotClassDecorator -> project_MethodBodyVisitor
+	 project_DotClassDecorator -> model_IModel
+	 project_DotClassDecorator -> model_IMethod
+	 project_DotClassDecorator -> nodes_FieldNode
+	 project_DotClassDecorator -> model_INode
+	 project_DotClassDecorator -> project_ClassMethodVisitor
+	 project_DotClassDecorator -> model_ITypeInsn
+	 project_DotClassDecorator -> project_DotEncoder
+	 project_DotClassDecorator -> model_IFile
+	 project_DotDecorator -> model_IInnerNode
+	 project_DotDecorator -> nodes_MethodNode
+	 project_DotDecorator -> project_SDEditEncoder
+	 project_DotDecorator -> project_ClassFieldVisitor
+	 project_DotDecorator -> project_IEncoder
+	 project_DotDecorator -> project_ADot
+	 project_DotDecorator -> project_ClassDeclarationVisitor
+	 project_DotDecorator -> nodes_Model
+	 project_DotDecorator -> project_TextEncoder
+	 project_DotDecorator -> nodes_FileNode
+	 project_DotDecorator -> nodes_ArgumentNode
+	 project_DotDecorator -> project_ClassBuilder
+	 project_DotDecorator -> model_IMethodInsn
+	 project_DotDecorator -> project_DesignBuilder
+	 project_DotDecorator -> project_MethodBodyVisitor
+	 project_DotDecorator -> model_IModel
+	 project_DotDecorator -> model_IMethod
+	 project_DotDecorator -> nodes_FieldNode
+	 project_DotDecorator -> model_INode
+	 project_DotDecorator -> project_ClassMethodVisitor
+	 project_DotDecorator -> model_ITypeInsn
+	 project_DotDecorator -> project_DotEncoder
+	 project_DotDecorator -> model_IFile
+	 project_DotEncoder -> model_IInnerNode
+	 project_DotEncoder -> nodes_MethodNode
+	 project_DotEncoder -> project_SDEditEncoder
+	 project_DotEncoder -> project_StandardDot
+	 project_DotEncoder -> project_ClassFieldVisitor
+	 project_DotEncoder -> project_IEncoder
+	 project_DotEncoder -> project_ADot
+	 project_DotEncoder -> project_ClassDeclarationVisitor
+	 project_DotEncoder -> project_DotImplementsDecorator
+	 project_DotEncoder -> nodes_Model
+	 project_DotEncoder -> project_TextEncoder
+	 project_DotEncoder -> nodes_FileNode
+	 project_DotEncoder -> nodes_ArgumentNode
+	 project_DotEncoder -> project_DotAssociationDecorator
+	 project_DotEncoder -> project_ClassBuilder
+	 project_DotEncoder -> model_IMethodInsn
+	 project_DotEncoder -> project_DesignBuilder
+	 project_DotEncoder -> project_MethodBodyVisitor
+	 project_DotEncoder -> model_IModel
+	 project_DotEncoder -> model_IMethod
+	 project_DotEncoder -> nodes_FieldNode
+	 project_DotEncoder -> project_DotInheritanceDecorator
+	 project_DotEncoder -> model_INode
+	 project_DotEncoder -> project_ClassMethodVisitor
+	 project_DotEncoder -> model_ITypeInsn
+	 project_DotEncoder -> project_DotEncoder
+	 project_DotEncoder -> project_DotUsesDecorator
+	 project_DotEncoder -> project_DotClassDecorator
+	 project_DotEncoder -> model_IFile
+	 project_DotImplementsDecorator -> model_IInnerNode
+	 project_DotImplementsDecorator -> nodes_MethodNode
+	 project_DotImplementsDecorator -> project_SDEditEncoder
+	 project_DotImplementsDecorator -> project_StandardDot
+	 project_DotImplementsDecorator -> project_ClassFieldVisitor
+	 project_DotImplementsDecorator -> project_IEncoder
+	 project_DotImplementsDecorator -> project_ADot
+	 project_DotImplementsDecorator -> project_ClassDeclarationVisitor
+	 project_DotImplementsDecorator -> project_DotImplementsDecorator
+	 project_DotImplementsDecorator -> nodes_Model
+	 project_DotImplementsDecorator -> project_TextEncoder
+	 project_DotImplementsDecorator -> nodes_FileNode
+	 project_DotImplementsDecorator -> nodes_ArgumentNode
+	 project_DotImplementsDecorator -> project_DotAssociationDecorator
+	 project_DotImplementsDecorator -> project_ClassBuilder
+	 project_DotImplementsDecorator -> model_IMethodInsn
+	 project_DotImplementsDecorator -> project_DesignBuilder
+	 project_DotImplementsDecorator -> project_MethodBodyVisitor
+	 project_DotImplementsDecorator -> model_IModel
+	 project_DotImplementsDecorator -> model_IMethod
+	 project_DotImplementsDecorator -> nodes_FieldNode
+	 project_DotImplementsDecorator -> project_DotInheritanceDecorator
+	 project_DotImplementsDecorator -> model_INode
+	 project_DotImplementsDecorator -> project_ClassMethodVisitor
+	 project_DotImplementsDecorator -> model_ITypeInsn
+	 project_DotImplementsDecorator -> project_DotEncoder
+	 project_DotImplementsDecorator -> project_DotUsesDecorator
+	 project_DotImplementsDecorator -> project_DotClassDecorator
+	 project_DotImplementsDecorator -> model_IFile
+	 project_DotInheritanceDecorator -> model_IInnerNode
+	 project_DotInheritanceDecorator -> nodes_MethodNode
+	 project_DotInheritanceDecorator -> project_SDEditEncoder
+	 project_DotInheritanceDecorator -> project_StandardDot
+	 project_DotInheritanceDecorator -> project_ClassFieldVisitor
+	 project_DotInheritanceDecorator -> project_IEncoder
+	 project_DotInheritanceDecorator -> project_ADot
+	 project_DotInheritanceDecorator -> project_ClassDeclarationVisitor
+	 project_DotInheritanceDecorator -> project_DotImplementsDecorator
+	 project_DotInheritanceDecorator -> nodes_Model
+	 project_DotInheritanceDecorator -> project_TextEncoder
+	 project_DotInheritanceDecorator -> nodes_FileNode
+	 project_DotInheritanceDecorator -> nodes_ArgumentNode
+	 project_DotInheritanceDecorator -> project_DotAssociationDecorator
+	 project_DotInheritanceDecorator -> project_ClassBuilder
+	 project_DotInheritanceDecorator -> model_IMethodInsn
+	 project_DotInheritanceDecorator -> project_DesignBuilder
+	 project_DotInheritanceDecorator -> project_MethodBodyVisitor
+	 project_DotInheritanceDecorator -> model_IModel
+	 project_DotInheritanceDecorator -> model_IMethod
+	 project_DotInheritanceDecorator -> nodes_FieldNode
+	 project_DotInheritanceDecorator -> project_DotInheritanceDecorator
+	 project_DotInheritanceDecorator -> model_INode
+	 project_DotInheritanceDecorator -> project_ClassMethodVisitor
+	 project_DotInheritanceDecorator -> model_ITypeInsn
+	 project_DotInheritanceDecorator -> project_DotEncoder
+	 project_DotInheritanceDecorator -> project_DotUsesDecorator
+	 project_DotInheritanceDecorator -> project_DotClassDecorator
+	 project_DotInheritanceDecorator -> model_IFile
+	 project_DotUsesDecorator -> model_IInnerNode
+	 project_DotUsesDecorator -> nodes_MethodNode
+	 project_DotUsesDecorator -> project_SDEditEncoder
+	 project_DotUsesDecorator -> project_StandardDot
+	 project_DotUsesDecorator -> project_ClassFieldVisitor
+	 project_DotUsesDecorator -> project_IEncoder
+	 project_DotUsesDecorator -> project_ADot
+	 project_DotUsesDecorator -> project_ClassDeclarationVisitor
+	 project_DotUsesDecorator -> project_DotImplementsDecorator
+	 project_DotUsesDecorator -> nodes_Model
+	 project_DotUsesDecorator -> project_TextEncoder
+	 project_DotUsesDecorator -> nodes_FileNode
+	 project_DotUsesDecorator -> nodes_ArgumentNode
+	 project_DotUsesDecorator -> project_DotAssociationDecorator
+	 project_DotUsesDecorator -> project_ClassBuilder
+	 project_DotUsesDecorator -> model_IMethodInsn
+	 project_DotUsesDecorator -> project_DesignBuilder
+	 project_DotUsesDecorator -> project_MethodBodyVisitor
+	 project_DotUsesDecorator -> model_IModel
+	 project_DotUsesDecorator -> model_IMethod
+	 project_DotUsesDecorator -> nodes_FieldNode
+	 project_DotUsesDecorator -> project_DotInheritanceDecorator
+	 project_DotUsesDecorator -> model_INode
+	 project_DotUsesDecorator -> project_ClassMethodVisitor
+	 project_DotUsesDecorator -> model_ITypeInsn
+	 project_DotUsesDecorator -> project_DotEncoder
+	 project_DotUsesDecorator -> project_DotUsesDecorator
+	 project_DotUsesDecorator -> project_DotClassDecorator
+	 project_DotUsesDecorator -> model_IFile
+	 project_IEncoder -> model_IInnerNode
+	 project_IEncoder -> nodes_MethodNode
+	 project_IEncoder -> project_SDEditEncoder
+	 project_IEncoder -> project_StandardDot
+	 project_IEncoder -> project_ClassFieldVisitor
+	 project_IEncoder -> project_IEncoder
+	 project_IEncoder -> project_ADot
+	 project_IEncoder -> project_ClassDeclarationVisitor
+	 project_IEncoder -> project_DotImplementsDecorator
+	 project_IEncoder -> nodes_Model
+	 project_IEncoder -> project_TextEncoder
+	 project_IEncoder -> nodes_FileNode
+	 project_IEncoder -> nodes_ArgumentNode
+	 project_IEncoder -> project_DotAssociationDecorator
+	 project_IEncoder -> project_ClassBuilder
+	 project_IEncoder -> model_IMethodInsn
+	 project_IEncoder -> project_DesignBuilder
+	 project_IEncoder -> project_MethodBodyVisitor
+	 project_IEncoder -> model_IModel
+	 project_IEncoder -> model_IMethod
+	 project_IEncoder -> nodes_FieldNode
+	 project_IEncoder -> project_DotInheritanceDecorator
+	 project_IEncoder -> model_INode
+	 project_IEncoder -> project_ClassMethodVisitor
+	 project_IEncoder -> model_ITypeInsn
+	 project_IEncoder -> project_DotEncoder
+	 project_IEncoder -> project_DotUsesDecorator
+	 project_IEncoder -> project_DotClassDecorator
+	 project_IEncoder -> model_IFile
+	 project_Main -> model_IInnerNode
+	 project_Main -> nodes_MethodNode
+	 project_Main -> project_SDEditEncoder
+	 project_Main -> project_StandardDot
+	 project_Main -> project_ClassFieldVisitor
+	 project_Main -> project_IEncoder
+	 project_Main -> project_ADot
+	 project_Main -> project_ClassDeclarationVisitor
+	 project_Main -> project_DotImplementsDecorator
+	 project_Main -> nodes_Model
+	 project_Main -> project_TextEncoder
+	 project_Main -> nodes_FileNode
+	 project_Main -> nodes_ArgumentNode
+	 project_Main -> project_DesignMaker
+	 project_Main -> project_DotAssociationDecorator
+	 project_Main -> project_ClassBuilder
+	 project_Main -> model_IMethodInsn
+	 project_Main -> project_DesignBuilder
+	 project_Main -> project_MethodBodyVisitor
+	 project_Main -> model_IModel
+	 project_Main -> model_IMethod
+	 project_Main -> nodes_FieldNode
+	 project_Main -> project_DotInheritanceDecorator
+	 project_Main -> model_INode
+	 project_Main -> project_ClassMethodVisitor
+	 project_Main -> model_ITypeInsn
+	 project_Main -> project_DotEncoder
+	 project_Main -> project_DotUsesDecorator
+	 project_Main -> project_DotClassDecorator
+	 project_Main -> model_IFile
+	 project_MethodBodyVisitor -> model_IInnerNode
+	 project_MethodBodyVisitor -> nodes_MethodNode
+	 project_MethodBodyVisitor -> project_SDEditEncoder
+	 project_MethodBodyVisitor -> project_StandardDot
+	 project_MethodBodyVisitor -> project_ClassFieldVisitor
+	 project_MethodBodyVisitor -> project_IEncoder
+	 project_MethodBodyVisitor -> project_ADot
+	 project_MethodBodyVisitor -> project_ClassDeclarationVisitor
+	 project_MethodBodyVisitor -> project_DotImplementsDecorator
+	 project_MethodBodyVisitor -> nodes_Model
+	 project_MethodBodyVisitor -> project_TextEncoder
+	 project_MethodBodyVisitor -> nodes_FileNode
+	 project_MethodBodyVisitor -> nodes_ArgumentNode
+	 project_MethodBodyVisitor -> nodes_MethodInsn
+	 project_MethodBodyVisitor -> project_DesignMaker
+	 project_MethodBodyVisitor -> nodes_TypeInsn
+	 project_MethodBodyVisitor -> project_DotAssociationDecorator
+	 project_MethodBodyVisitor -> project_ClassBuilder
+	 project_MethodBodyVisitor -> model_IMethodInsn
+	 project_MethodBodyVisitor -> project_DesignBuilder
+	 project_MethodBodyVisitor -> project_MethodBodyVisitor
+	 project_MethodBodyVisitor -> model_IModel
+	 project_MethodBodyVisitor -> model_IMethod
+	 project_MethodBodyVisitor -> nodes_FieldNode
+	 project_MethodBodyVisitor -> project_DotInheritanceDecorator
+	 project_MethodBodyVisitor -> model_INode
+	 project_MethodBodyVisitor -> project_ClassMethodVisitor
+	 project_MethodBodyVisitor -> model_ITypeInsn
+	 project_MethodBodyVisitor -> project_DotEncoder
+	 project_MethodBodyVisitor -> project_DotUsesDecorator
+	 project_MethodBodyVisitor -> project_DotClassDecorator
+	 project_MethodBodyVisitor -> model_IFile
+	 project_SDEditEncoder -> model_IInnerNode
+	 project_SDEditEncoder -> nodes_MethodNode
+	 project_SDEditEncoder -> project_SDEditEncoder
+	 project_SDEditEncoder -> project_StandardDot
+	 project_SDEditEncoder -> project_ClassFieldVisitor
+	 project_SDEditEncoder -> project_IEncoder
+	 project_SDEditEncoder -> project_ADot
+	 project_SDEditEncoder -> project_ClassDeclarationVisitor
+	 project_SDEditEncoder -> project_DotImplementsDecorator
+	 project_SDEditEncoder -> nodes_Model
+	 project_SDEditEncoder -> project_TextEncoder
+	 project_SDEditEncoder -> nodes_FileNode
+	 project_SDEditEncoder -> nodes_ArgumentNode
+	 project_SDEditEncoder -> nodes_MethodInsn
+	 project_SDEditEncoder -> project_DesignMaker
+	 project_SDEditEncoder -> nodes_TypeInsn
+	 project_SDEditEncoder -> project_DotAssociationDecorator
+	 project_SDEditEncoder -> project_ClassBuilder
+	 project_SDEditEncoder -> model_IMethodInsn
+	 project_SDEditEncoder -> project_DesignBuilder
+	 project_SDEditEncoder -> project_MethodBodyVisitor
+	 project_SDEditEncoder -> model_IModel
+	 project_SDEditEncoder -> model_IMethod
+	 project_SDEditEncoder -> nodes_FieldNode
+	 project_SDEditEncoder -> project_DotInheritanceDecorator
+	 project_SDEditEncoder -> model_INode
+	 project_SDEditEncoder -> project_ClassMethodVisitor
+	 project_SDEditEncoder -> model_ITypeInsn
+	 project_SDEditEncoder -> project_DotEncoder
+	 project_SDEditEncoder -> project_DotUsesDecorator
+	 project_SDEditEncoder -> project_DotClassDecorator
+	 project_SDEditEncoder -> model_IFile
+	 project_StandardDot -> model_IInnerNode
+	 project_StandardDot -> nodes_MethodNode
+	 project_StandardDot -> project_SDEditEncoder
+	 project_StandardDot -> project_StandardDot
+	 project_StandardDot -> project_ClassFieldVisitor
+	 project_StandardDot -> project_IEncoder
+	 project_StandardDot -> project_ADot
+	 project_StandardDot -> project_ClassDeclarationVisitor
+	 project_StandardDot -> project_DotImplementsDecorator
+	 project_StandardDot -> nodes_Model
+	 project_StandardDot -> project_TextEncoder
+	 project_StandardDot -> nodes_FileNode
+	 project_StandardDot -> nodes_ArgumentNode
+	 project_StandardDot -> nodes_MethodInsn
+	 project_StandardDot -> project_DesignMaker
+	 project_StandardDot -> nodes_TypeInsn
+	 project_StandardDot -> project_DotAssociationDecorator
+	 project_StandardDot -> project_ClassBuilder
+	 project_StandardDot -> model_IMethodInsn
+	 project_StandardDot -> project_DesignBuilder
+	 project_StandardDot -> project_MethodBodyVisitor
+	 project_StandardDot -> model_IModel
+	 project_StandardDot -> model_IMethod
+	 project_StandardDot -> nodes_FieldNode
+	 project_StandardDot -> project_DotInheritanceDecorator
+	 project_StandardDot -> model_INode
+	 project_StandardDot -> project_ClassMethodVisitor
+	 project_StandardDot -> model_ITypeInsn
+	 project_StandardDot -> project_DotEncoder
+	 project_StandardDot -> project_DotUsesDecorator
+	 project_StandardDot -> project_DotClassDecorator
+	 project_StandardDot -> model_IFile
+	 project_TextEncoder -> model_IInnerNode
+	 project_TextEncoder -> nodes_MethodNode
+	 project_TextEncoder -> project_SDEditEncoder
+	 project_TextEncoder -> project_StandardDot
+	 project_TextEncoder -> project_ClassFieldVisitor
+	 project_TextEncoder -> project_IEncoder
+	 project_TextEncoder -> project_ADot
+	 project_TextEncoder -> project_ClassDeclarationVisitor
+	 project_TextEncoder -> project_DotImplementsDecorator
+	 project_TextEncoder -> nodes_Model
+	 project_TextEncoder -> project_TextEncoder
+	 project_TextEncoder -> nodes_FileNode
+	 project_TextEncoder -> nodes_ArgumentNode
+	 project_TextEncoder -> nodes_MethodInsn
+	 project_TextEncoder -> project_DesignMaker
+	 project_TextEncoder -> nodes_TypeInsn
+	 project_TextEncoder -> project_DotAssociationDecorator
+	 project_TextEncoder -> project_ClassBuilder
+	 project_TextEncoder -> model_IMethodInsn
+	 project_TextEncoder -> project_DesignBuilder
+	 project_TextEncoder -> project_MethodBodyVisitor
+	 project_TextEncoder -> model_IModel
+	 project_TextEncoder -> model_IMethod
+	 project_TextEncoder -> nodes_FieldNode
+	 project_TextEncoder -> project_DotInheritanceDecorator
+	 project_TextEncoder -> model_INode
+	 project_TextEncoder -> project_ClassMethodVisitor
+	 project_TextEncoder -> model_ITypeInsn
+	 project_TextEncoder -> project_DotEncoder
+	 project_TextEncoder -> project_DotUsesDecorator
+	 project_TextEncoder -> project_DotClassDecorator
+	 project_TextEncoder -> model_IFile
+	edge [ 
+		arrowhead = "vee" 
+	style = "filled"]
+	 project_ClassDeclarationVisitor -> model_IFile
+	 project_ClassFieldVisitor -> model_IFile
+	 project_ClassFieldVisitor -> model_IInnerNode
+	 project_ClassMethodVisitor -> model_IFile
+	 project_ClassMethodVisitor -> model_IMethod
+	 project_DesignMaker -> project_DesignBuilder
+	 project_DotAssociationDecorator -> project_ADot
+	 project_DotClassDecorator -> project_ADot
+	 project_DotDecorator -> model_IModel
+	 project_DotImplementsDecorator -> project_ADot
+	 project_DotInheritanceDecorator -> project_ADot
+	 project_DotUsesDecorator -> project_ADot
+	 project_MethodBodyVisitor -> model_IMethod
+	
+}

@@ -23,8 +23,9 @@ public class DotUsesDecorator extends DotDecorator {
 	}
 	
 	public StringBuilder makeUses() {
-		StringBuilder temp = new StringBuilder("edge [ \n\t\tarrowhead = \"vee\" \n\t\tstyle= \"dashed\"\n\t]\n\t");
+		StringBuilder temp = new StringBuilder();
 		List<String> uses = new ArrayList<String>();
+		List<String> fileNames = getFileNames();
 		for(IFile c : model.getFiles()){
 			if(c.getMethods() != null){
 				for(IMethod method: c.getMethods()){
@@ -42,7 +43,12 @@ public class DotUsesDecorator extends DotDecorator {
 				Set<String> usesSet = new HashSet<String>(uses);
 				String left = c.getName();
 				for(String use: usesSet) {
-					temp.append(addArrow(left, use));
+					if(includeAll){
+						temp.append(addArrow(left, use));
+					}else{
+						if(fileNames.contains(use))
+							temp.append(addArrow(left, use));
+					}
 				}
 			}
 		}
@@ -50,11 +56,11 @@ public class DotUsesDecorator extends DotDecorator {
 	}
 	
 	private String addArrow(String left, String right){
-		String[] leftSplit = left.split("_");
-		String[] rightSplit = right.split("_");
-		left = leftSplit[leftSplit.length - 1];
-		right = rightSplit[rightSplit.length - 1];
-		return " " + left + " -> " + right+"\n\t";
+//		String[] leftSplit = left.split("_");
+//		String[] rightSplit = right.split("_");
+//		left = leftSplit[leftSplit.length - 1];
+//		right = rightSplit[rightSplit.length - 1];
+		return " " + left + " -> " + right+"[arrowhead=\"vee\" style = \"dashed\" splines=\"compound\"]"+"\n\t";
 	}
 
 	@Override
