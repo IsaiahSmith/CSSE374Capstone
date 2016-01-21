@@ -34,8 +34,8 @@ public class DotUsesDecorator extends DotDecorator {
 					for(INode argument: method.getArgs()) {
 						uses.add(argument.getType());
 					}
-					for(IMethodInsn mInsn:method.getMethodInsn()) {
-						uses.add(mInsn.getDesc());
+					for(IMethod mInsn:method.getInnerMethods()) {
+						uses.add(mInsn.getType());
 					}
 					for(ITypeInsn tInsn: method.getTypeInsn()) {
 						uses.add(tInsn.getType());

@@ -14,6 +14,7 @@ import model.IFile;
 import model.IMethod;
 import model.INode;
 import nodes.ArgumentNode;
+import nodes.FileNode;
 import nodes.MethodNode;
 
 public class ClassMethodVisitor extends ClassVisitor{
@@ -27,6 +28,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 	
 	public ClassMethodVisitor(int api, ClassVisitor decorated) {
 		super(api, decorated);
+		this.node = new FileNode();
 	}
 	
 	public ClassMethodVisitor(int api, ClassVisitor decorated, IFile node) {
@@ -44,6 +46,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 		addArguments(desc, name);
 		addReturnType(desc);
 		addAccessLevel(access);
+		
 		
 		
 		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, method);

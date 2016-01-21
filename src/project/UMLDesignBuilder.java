@@ -13,29 +13,40 @@ import model.IModel;
 import nodes.FileNode;
 import nodes.Model;
 
-public class DesignBuilder {
-	public static IModel parse(List<String> files) throws IOException{
-		List<ClassBuilder> Classes = new ArrayList<ClassBuilder>();
+public class UMLDesignBuilder implements IDesignBuilder{
+	
+	private List<String> files;
+	
+	public UMLDesignBuilder(List<String> files) {
+		this.files = files;
+	}
+	
+	public IModel build(){
 		IModel model = new Model();
-		for(String className: files) {
+		for(String className: this.files) {
 			
-			ClassBuilder cls = new ClassBuilder();
 			IFile node = new FileNode();
 			
 			// ASM's ClassReader does the heavy lifting of parsing the compiled Java class
-			ClassReader reader=new ClassReader(className);
+			ClassReader reader = null;
+			try {
+				reader = new ClassReader(className);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			// make class declaration visitor to get superclass and interfaces
 			ClassVisitor decVisitor = new ClassDeclarationVisitor(Opcodes.ASM5, node);
 			// DECORATE declaration visitor with field visitor
 			ClassVisitor fieldVisitor = new ClassFieldVisitor(Opcodes.ASM5, decVisitor, node);
 			// DECORATE field visitor with method visitor
 			ClassVisitor methodVisitor = new ClassMethodVisitor(Opcodes.ASM5, fieldVisitor, node);
+			
+			//ClassVisitor innerMethodVisitor = new ClassMethodVisitor(Opcodes.ASM5, methodVisitor, node);
 			// TODO: add more DECORATORS here in later milestones to accomplish specific tasks
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
 			model.addFile(node);
-			Classes.add(cls);
 		}
 		return model;
 	}

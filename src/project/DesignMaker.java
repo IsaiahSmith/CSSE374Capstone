@@ -10,18 +10,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.IFile;
+import model.IMethod;
 import model.IModel;
+import nodes.MethodNode;
 
 public class DesignMaker {
-	private DesignBuilder design;
+	private UMLDesignBuilder design;
 	private Map<String, IEncoder> encoders;
+	private SequenceDesignBuilder seqDesign;
 	
 	public DesignMaker() {
 		this.encoders = new HashMap<String, IEncoder>();
 		encoders.put("text", new TextEncoder());
 		encoders.put("dot", new DotEncoder());
 		encoders.put("SDEdit", new SDEditEncoder());
-		this.design = new DesignBuilder();
+		
 	}
 	
 	public void make() throws IOException {
@@ -38,10 +42,10 @@ public class DesignMaker {
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
 		
-		List<String> files = this.getFiles(input);
+		IDesignBuilder design = new UMLDesignBuilder(getFiles(input));
 		
-		IModel model = design.parse(files);
-
+		IModel model = design.build();
+		
 		IEncoder enc = encoders.get(encodeType);
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
 

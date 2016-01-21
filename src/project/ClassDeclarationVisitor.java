@@ -14,6 +14,7 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 	
 	public ClassDeclarationVisitor(int api) {
 		super(api);
+		this.node = new FileNode();
 	}
 	
 	public ClassDeclarationVisitor(int api, IFile node) {

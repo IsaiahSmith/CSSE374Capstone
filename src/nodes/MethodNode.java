@@ -15,16 +15,23 @@ public class MethodNode implements IMethod {
 	private String Type;
 	private String AccessLevel;
 	private List<INode> Args;
-	private List<IMethodInsn> MethodInsns;
+	private List<IMethod> InnerMethods;
 	private List<ITypeInsn> TypeInsns;
+	
+	private String ClassName;
+	private String Signature;
+	private IMethod Parent;
 	
 	public MethodNode() {
 		this.Name = new String();
 		this.Type = new String();
 		this.AccessLevel = new String();
 		this.Args = new ArrayList<INode>();
-		this.MethodInsns = new ArrayList<IMethodInsn>();
+		this.InnerMethods = new ArrayList<IMethod>();
 		this.TypeInsns = new ArrayList<ITypeInsn>();
+		this.ClassName = new String();
+		this.Signature = new String();
+		this.Parent = null;
 	}
 	@Override
 	public void setName(String name) {
@@ -47,12 +54,27 @@ public class MethodNode implements IMethod {
 	}
 	
 	@Override
-	public void addMethodInsn(IMethodInsn methodInsn) {
-		this.MethodInsns.add(methodInsn);
+	public void addInnerMethod(IMethod method) {
+		this.InnerMethods.add(method);
 	}
 	@Override
 	public void addTypeInsn(ITypeInsn typeInsn) {
 		this.TypeInsns.add(typeInsn);
+	}
+	
+	@Override
+	public void setClassName(String className) {
+		this.ClassName = className;
+	}
+	
+	@Override
+	public void setSignature(String signature) {
+		this.Signature = signature;
+	}
+	
+	@Override
+	public void addParent(IMethod parent) {
+		this.Parent = parent;
 	}
 
 	@Override
@@ -75,13 +97,28 @@ public class MethodNode implements IMethod {
 		return this.Args;
 	}
 	
-	@Override
-	public List<IMethodInsn> getMethodInsn() {
-		return this.MethodInsns;
-	}
+//	@Override
+//	public List<IMethodInsn> getMethodInsn() {
+//		return this.MethodInsns;
+//	}
 	@Override
 	public List<ITypeInsn> getTypeInsn() {
 		return this.TypeInsns;
+	}
+	
+	@Override
+	public String getClassName() {
+		return this.ClassName;
+	}
+	
+	@Override
+	public String getSignature() {
+		return this.Signature;
+	}
+	
+	@Override
+	public IMethod getParent() {
+		return this.Parent;
 	}
 
 	@Override
@@ -97,6 +134,10 @@ public class MethodNode implements IMethod {
 		str += ")";
 		
 		return str;
+	}
+	@Override
+	public List<IMethod> getInnerMethods() {
+		return this.InnerMethods;
 	}
 	
 }
