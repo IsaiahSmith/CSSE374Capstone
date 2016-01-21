@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import project.ADot;
-import project.StandardDot;
+import encoders.dot.ADot;
+import encoders.dot.StandardDot;
 
 public class dotStandardTest {
 

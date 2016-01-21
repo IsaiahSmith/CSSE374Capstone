@@ -7,11 +7,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import project.ADot;
-import project.ClassBuilder;
-import project.UMLDesignBuilder;
-import project.DotClassDecorator;
-import project.StandardDot;
+import builders.UMLDesignBuilder;
+import encoders.dot.ADot;
+import encoders.dot.DotClassDecorator;
+import encoders.dot.StandardDot;
 
 public class DotClassTest {
 
