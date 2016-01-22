@@ -9,7 +9,7 @@ public interface IMethod extends IInnerNode{
 	public void addInnerMethod(IMethod method);
 	public void setClassName(String className);
 	public void setSignature(String signature);
-	public void addParent(IMethod parent);
+	public void setParent(IMethod parent);
 	
 	public List<INode> getArgs();
 //	public List<IMethodInsn> getMethodInsn();

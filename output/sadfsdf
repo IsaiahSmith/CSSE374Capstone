@@ -10,8 +10,8 @@ digraph G {
 		fontname = "Bitstream Vera Sans" 
 		fontsize = 8
 	]
-	nodes/Model [ 
-		label = "{nodes/Model|| addFile(model.IFile ) : \l\l}" 
+	java.lang.StringBuilder [ 
+		label = "{java.lang.StringBuilder|| append(java/lang/String ) : \l\l}" 
 	]
 	
 }

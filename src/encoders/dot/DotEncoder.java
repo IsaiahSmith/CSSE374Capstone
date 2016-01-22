@@ -8,6 +8,7 @@ import model.IModel;
 
 public class DotEncoder implements IEncoder {
 	
+	
 	@Override
 	public StringBuilder encode(IModel model, boolean includeAll){
 		ADot dot = new StandardDot(includeAll);

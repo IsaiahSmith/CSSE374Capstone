@@ -35,7 +35,9 @@ public class MethodBodyVisitor extends MethodVisitor{
 		innerMethod = addReturnType(desc, innerMethod);
 		innerMethod = addAccessLevel(opcode, innerMethod);
 		innerMethod.setName(name);
+		innerMethod.setClassName(owner);
 		
+		//System.out.println("\nName: "+name+"\nOwner: "+owner+"\nDesc: "+desc);
 		
 		this.method.addInnerMethod(innerMethod);
 	}
@@ -46,7 +48,7 @@ public class MethodBodyVisitor extends MethodVisitor{
 		super.visitTypeInsn(opcode, type);
 		if((opcode&Opcodes.NEW)!=0){
 			ITypeInsn typeInsn = new TypeInsn();
-			typeInsn.setType(sanitize(type));
+			typeInsn.setType(type);
 			this.method.addTypeInsn(typeInsn);
 		}
 	}
@@ -58,7 +60,7 @@ public class MethodBodyVisitor extends MethodVisitor{
 		for(int i=0; i<args.length; i++){
 			INode argNode = new ArgumentNode();
 			argNode.setName("arg"+i);
-			argNode.setType(sanitize(args[i].getClassName()));
+			argNode.setType(args[i].getClassName());
 			m.addArg(argNode);
 		}
 		
@@ -82,7 +84,7 @@ public class MethodBodyVisitor extends MethodVisitor{
 	private IMethod addReturnType(String desc, IMethod m) {
 		String returnType = Type.getReturnType(desc).getClassName();
 		
-		m.setType(sanitize(returnType));
+		m.setType(returnType);
 		return m;
 	}
 	

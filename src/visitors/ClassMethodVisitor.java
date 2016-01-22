@@ -47,7 +47,12 @@ public class ClassMethodVisitor extends ClassVisitor{
 		addReturnType(desc);
 		addAccessLevel(access);
 		
+		method.setClassName(this.node.getName());
 		
+		method.setSignature(signature);
+		
+		
+		//System.out.println("Name: "+name+"\nDesc: "+desc+"\nSignature: "+signature+"\n");
 		
 		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, method);
 		node.addMethod(method);
@@ -62,7 +67,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 		for(int i=0; i<args.length; i++){
 			INode argNode = new ArgumentNode();
 			argNode.setName("arg"+i);
-			argNode.setType(sanitize(args[i].getClassName()));
+			argNode.setType(args[i].getClassName());
 			method.addArg(argNode);
 		}
 	}
@@ -70,7 +75,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 	private void addReturnType(String desc) {
 		String returnType = Type.getReturnType(desc).getClassName();
 		
-		method.setType(sanitize(returnType));
+		method.setType(returnType);
 	}
 	
 	private void addAccessLevel(int access) {

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import builders.IDesignBuilder;
+import builders.SequenceDesignBuilder;
 import builders.UMLDesignBuilder;
 import encoders.IEncoder;
 import encoders.dot.DotEncoder;
@@ -48,9 +49,12 @@ public class DesignMaker {
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
 		
-		this.design = new UMLDesignBuilder(getFiles(input));
+		//Testing area for SequenceDesignBuilder
+		//this.design = new UMLDesignBuilder(getFiles(input));
+		List<String> methodArgs = new ArrayList<String>();
+		this.design = new SequenceDesignBuilder("nodes/MethodNode", "test", methodArgs, 5);
 		
-		IModel model = design.build();
+		IModel model = this.design.build();
 		
 		IEncoder enc = encoders.get(encodeType);
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);

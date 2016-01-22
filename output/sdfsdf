@@ -1,0 +1,17 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	nodes_MethodNode [ 
+		label = "{MethodNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\lprivate Args : List\lprivate InnerMethods : List\lprivate TypeInsns : List\lprivate ClassName : String\lprivate Signature : String\lprivate Parent : IMethod\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setAccessLevel(String arg0) : void\lpublic addArg(INode arg0) : void\lpublic addInnerMethod(IMethod arg0) : void\lpublic addTypeInsn(ITypeInsn arg0) : void\lpublic setClassName(String arg0) : void\lpublic setSignature(String arg0) : void\lpublic addParent(IMethod arg0) : void\lpublic getName() : String\lpublic getType() : String\lpublic getAccessLevel() : String\lpublic getArgs() : List\lpublic getTypeInsn() : List\lpublic getClassName() : String\lpublic getSignature() : String\lpublic getParent() : IMethod\lpublic getInnerMethods() : List\lpublic toString() : String\l\l}" 
+	]
+	
+}

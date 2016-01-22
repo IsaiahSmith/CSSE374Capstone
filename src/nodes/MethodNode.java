@@ -22,6 +22,7 @@ public class MethodNode implements IMethod {
 	private String Signature;
 	private IMethod Parent;
 	
+	
 	public MethodNode() {
 		this.Name = new String();
 		this.Type = new String();
@@ -73,7 +74,7 @@ public class MethodNode implements IMethod {
 	}
 	
 	@Override
-	public void addParent(IMethod parent) {
+	public void setParent(IMethod parent) {
 		this.Parent = parent;
 	}
 
@@ -138,6 +139,49 @@ public class MethodNode implements IMethod {
 		str += ")";
 		
 		return str;
+	}
+	
+	public void test() {
+		int i = foo();
+	}
+	public int foo() {
+		return 3;
+	}
+	
+	@Override
+	public boolean equals(Object method) {
+		//check first to see if method is a MethodNode object
+		if(!method.getClass().toString().equals(this.getClass().toString()))
+			return false;
+		MethodNode m = (MethodNode)method;
+		
+//		System.out.println("\nMethod ClassName: "+m.getClassName());
+//		System.out.println("This ClassName: "+this.getClassName());
+//		System.out.println(m.getClassName().equals(this.getClassName()));
+		//check if methods have the same ClassName
+		if(!m.getClassName().equals(this.getClassName()))
+			return false;
+		
+//		System.out.println("Method name: "+m.getName());
+//		System.out.println("This name: "+this.getName());
+//		System.out.println(m.getName().equals(this.getName()));
+		//check if both methods have the same name
+		if(!m.getName().equals(this.getName()))
+			return false;
+		
+//		System.out.println("Method args: "+m.getArgs().toString());
+//		System.out.println("This args: "+this.getArgs().toString());
+		//check if both methods have the same args
+		if(m.getArgs().size() != this.getArgs().size()) {
+			return false;
+		} else {
+			for(int i=0; i<m.getArgs().size(); i++) {
+				if(!m.getArgs().get(i).getType().equals(this.getArgs().get(i).getType()))
+					return false;
+			}
+		}
+		
+		return true;
 	}
 	
 }

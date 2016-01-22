@@ -33,8 +33,7 @@ public class ArgumentNode implements INode {
 	
 	@Override
 	public String toString() {
-		String[] typeSplit = this.Type.split("_");
-		return typeSplit[typeSplit.length-1] + " " + this.Name;
+		return this.Type+" "+this.Name;
 	}
 
 }

@@ -24,16 +24,16 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 	
 	@Override
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-		this.node.setName(sanitize(name));
+		this.node.setName(name);
 		addType(access);
 		if (superName != null) {
-			this.node.setSuperName(sanitize(superName));
+			this.node.setSuperName(superName);
 		}
 		List<String> inters = new ArrayList<String>();
 		for (String s : interfaces) {
 			inters.add(s);
 			IFile inface = new FileNode();
-			inface.setName(sanitize(s));
+			inface.setName(s);
 			node.addImplements(inface);
 		}		
 		

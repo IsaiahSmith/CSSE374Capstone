@@ -56,7 +56,7 @@ public class ClassFieldVisitor extends ClassVisitor{
 	}
 	private void addType(String desc) {
 		String type = Type.getReturnType(desc).getClassName();
-		this.field.setType(sanitize(type));
+		this.field.setType(type);
 		
 	}
 	private String sanitize(String input) {

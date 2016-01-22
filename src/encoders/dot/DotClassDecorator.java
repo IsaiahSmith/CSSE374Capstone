@@ -10,8 +10,6 @@ import model.IModel;
 import model.INode;
 
 public class DotClassDecorator extends DotDecorator {
-	
-	ADot toBeDecorated;
 
 	public DotClassDecorator(ADot toBeDecorated, IModel model){
 		this.toBeDecorated = toBeDecorated;
