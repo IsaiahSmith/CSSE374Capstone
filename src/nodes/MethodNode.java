@@ -141,13 +141,6 @@ public class MethodNode implements IMethod {
 		return str;
 	}
 	
-	public void test() {
-		int i = foo();
-	}
-	public int foo() {
-		return 3;
-	}
-	
 	@Override
 	public boolean equals(Object method) {
 		//check first to see if method is a MethodNode object

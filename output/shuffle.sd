@@ -1,0 +1,41 @@
+java/util/collections:java/util/Collections[a]
+java/util/random:java/util/Random[a]
+/void:java/util/List[a]
+java/util/collections:java/lang/IllegalArgumentException[a]
+java/util/list:java/util/concurrent/atomic/AtomicLong[a]
+java/util/random:sun/misc/Unsafe[a]
+java/lang/illegalargumentexception:java/util/ListIterator[a]
+
+java/util/collections:.shuffle(List, )
+java/util/random:void.new
+java/util/collections:void.shuffle(List, Random, )
+java/util/list:int.size()
+java/util/random:int.nextInt(int, )
+java/lang/illegalargumentexception:void.new
+java/util/random:int.next(int, )
+java/util/concurrent/atomic/atomiclong:long.get()
+java/util/concurrent/atomic/atomiclong:boolean.compareAndSet(long, long, )
+sun/misc/unsafe:boolean.compareAndSwapLong(Object, long, long, long, )
+java/util/random:int.next(int, )
+java/util/concurrent/atomic/atomiclong:long.get()
+java/util/concurrent/atomic/atomiclong:boolean.compareAndSet(long, long, )
+sun/misc/unsafe:boolean.compareAndSwapLong(Object, long, long, long, )
+java/util/collections:void.swap(List, int, int, )
+java/util/list:java.lang.Object.get(int, )
+java/util/list:java.lang.Object.set(int, Object, )
+java/util/list:java.lang.Object.set(int, Object, )
+java/util/list:java.lang.Object[].toArray()
+java/util/random:int.nextInt(int, )
+java/lang/illegalargumentexception:void.new
+java/util/random:int.next(int, )
+java/util/concurrent/atomic/atomiclong:long.get()
+java/util/concurrent/atomic/atomiclong:boolean.compareAndSet(long, long, )
+sun/misc/unsafe:boolean.compareAndSwapLong(Object, long, long, long, )
+java/util/random:int.next(int, )
+java/util/concurrent/atomic/atomiclong:long.get()
+java/util/concurrent/atomic/atomiclong:boolean.compareAndSet(long, long, )
+sun/misc/unsafe:boolean.compareAndSwapLong(Object, long, long, long, )
+java/util/collections:void.swap(Object[], int, int, )
+java/util/list:java.util.ListIterator.listIterator()
+java/util/listiterator:java.lang.Object.next()
+java/util/listiterator:void.set(Object, )

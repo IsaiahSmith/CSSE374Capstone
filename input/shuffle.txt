@@ -1,0 +1,4 @@
+java/util/Collections
+shuffle
+10
+java.util.List

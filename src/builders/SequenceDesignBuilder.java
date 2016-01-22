@@ -25,13 +25,26 @@ public class SequenceDesignBuilder implements IDesignBuilder{
 	private int depth;
 	private IFile file;
 	
-	public SequenceDesignBuilder(String className, String methodName, List<String>args, int depth) {
+	public SequenceDesignBuilder(List<String> lines) {
+		String className = lines.get(0);
+		String methodName = lines.get(1);
+		int d = Integer.valueOf(lines.get(2));
+		List<String> args = new ArrayList<String>();
+		
+		for(int i=3; i<lines.size(); i++){
+			args.add(lines.get(i));
+		}
+		setFields(className, methodName, args, d);
+	}
+	
+	private void setFields(String className, String methodName, List<String> args, int depth) {
 		this.depth = depth;
 		this.file = new FileNode();
 		this.file.setName(className);
 		IMethod method = new MethodNode();
 		method.setClassName(className);
 		method.setName(methodName);
+		method.setParent(method);
 		for (String arg : args) {
 			INode argNode = new ArgumentNode();
 			argNode.setType(arg);
@@ -92,7 +105,4 @@ public class SequenceDesignBuilder implements IDesignBuilder{
 		
 	}
 	
-	private String reformat(String input) {
-		return input.replaceAll("_", ".");
-	}
 }

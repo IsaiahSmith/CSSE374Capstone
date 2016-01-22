@@ -36,21 +36,11 @@ public class MethodBodyVisitor extends MethodVisitor{
 		innerMethod = addAccessLevel(opcode, innerMethod);
 		innerMethod.setName(name);
 		innerMethod.setClassName(owner);
+		innerMethod.setParent(method);
 		
 		//System.out.println("\nName: "+name+"\nOwner: "+owner+"\nDesc: "+desc);
 		
 		this.method.addInnerMethod(innerMethod);
-	}
-
-	
-	@Override
-	public void visitTypeInsn(int opcode, String type) {
-		super.visitTypeInsn(opcode, type);
-		if((opcode&Opcodes.NEW)!=0){
-			ITypeInsn typeInsn = new TypeInsn();
-			typeInsn.setType(type);
-			this.method.addTypeInsn(typeInsn);
-		}
 	}
 	
 	private IMethod addArguments(String desc, IMethod m) {

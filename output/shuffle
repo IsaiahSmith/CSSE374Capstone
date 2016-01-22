@@ -1,0 +1,40 @@
+java/util/collections:java/util/Collections[a]
+/java/util/random:java/util/Random[a]
+java/util/list:java/util/List[a]
+/java/lang/illegalargumentexception:java/lang/IllegalArgumentException[a]
+java/util/concurrent/atomic/atomiclong:java/util/concurrent/atomic/AtomicLong[a]
+sun/misc/unsafe:sun/misc/Unsafe[a]
+java/util/listiterator:java/util/ListIterator[a]
+
+java/util/collections:java/util/collections.shuffle(List)
+java/util/collections:java/util/random.new
+java/util/collections:shuffle(List, Random)
+java/util/collections:java/util/list.size()
+java/util/collections:java/util/random.nextInt(int)
+java/util/random:java/lang/illegalargumentexception.new
+java/util/random:java/util/random.next(int)
+java/util/random:java/util/concurrent/atomic/atomiclong.get()
+java/util/random:java/util/concurrent/atomic/atomiclong.compareAndSet(long, long)
+java/util/concurrent/atomic/atomiclong:sun/misc/unsafe.compareAndSwapLong(Object, long, long, long)
+java/util/random:java/util/random.next(int)
+java/util/random:java/util/concurrent/atomic/atomiclong.get()
+java/util/random:java/util/concurrent/atomic/atomiclong.compareAndSet(long, long)
+java/util/concurrent/atomic/atomiclong:sun/misc/unsafe.compareAndSwapLong(Object, long, long, long)
+java/util/collections:swap(List, int, int)
+java/util/collections:java/util/list.get(int)
+java/util/collections:java/util/list.set(int, Object)
+java/util/collections:java/util/list.set(int, Object)
+java/util/collections:java/util/list.toArray()
+java/util/collections:java/util/random.nextInt(int)
+java/util/random:java/util/random.next(int)
+java/util/random:java/util/concurrent/atomic/atomiclong.get()
+java/util/random:java/util/concurrent/atomic/atomiclong.compareAndSet(long, long)
+java/util/concurrent/atomic/atomiclong:sun/misc/unsafe.compareAndSwapLong(Object, long, long, long)
+java/util/random:java/util/random.next(int)
+java/util/random:java/util/concurrent/atomic/atomiclong.get()
+java/util/random:java/util/concurrent/atomic/atomiclong.compareAndSet(long, long)
+java/util/concurrent/atomic/atomiclong:sun/misc/unsafe.compareAndSwapLong(Object, long, long, long)
+java/util/collections:swap(Object[], int, int)
+java/util/collections:java/util/list.listIterator()
+java/util/collections:java/util/listiterator.next()
+java/util/collections:set(Object)

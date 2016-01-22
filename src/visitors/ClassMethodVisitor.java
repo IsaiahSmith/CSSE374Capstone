@@ -55,8 +55,9 @@ public class ClassMethodVisitor extends ClassVisitor{
 		//System.out.println("Name: "+name+"\nDesc: "+desc+"\nSignature: "+signature+"\n");
 		
 		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, method);
+		MethodVisitor Type = new MethodTypeVisitor(Opcodes.ASM5, body, method);
 		node.addMethod(method);
-		return body;
+		return Type;
 	}
 	
 	
