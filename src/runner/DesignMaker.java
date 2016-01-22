@@ -41,39 +41,38 @@ public class DesignMaker {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Input File: ");
 		String input = in.readLine();
-		
-		this.builders.put("dot", new UMLDesignBuilder(getFiles(input)));
-		this.builders.put("text", new UMLDesignBuilder(getFiles(input)));
-		this.builders.put("sdedit", new SequenceDesignBuilder(getFiles(input)));
+		boolean includeAll = false;
+		IModel model;
 		
 		System.out.print("Encode Type (text/dot/sdedit): ");
 		String encodeType = in.readLine();
 		
-//		if(encodeType.equals("dot") || encoderType.equals("text")) {
-//			boolean includeAll = false;
-//			System.out.print("Include all files not specified in args?(y/n): ");
-//			String include = in.readLine();
-//			if(include.equals("y"))
-//				includeAll = true;
-//			UMLDesignBuilder UML = new UMLDesignBuilder(getFiles(input));
-//			model = UML.build();
-//		} else {
-//			
-//		}
+		if(encodeType.equals("dot") || encodeType.equals("text")) {
+			
+			System.out.print("Include all files not specified in args?(y/n): ");
+			String include = in.readLine();
+			if(include.equals("y"))
+				includeAll = true;
+			UMLDesignBuilder UML = new UMLDesignBuilder(getFiles(input));
+			model = UML.build();
+		} else {
+			SequenceDesignBuilder sequenceDesign = new SequenceDesignBuilder(getFiles(input));
+			model = sequenceDesign.build();
+		}
 		
 		
-		boolean includeAll = false;
-		System.out.print("Include all files not specified in args?(y/n): ");
-		String include = in.readLine();
-		if(include.equals("y"))
-			includeAll = true;
+//		boolean includeAll = false;
+//		System.out.print("Include all files not specified in args?(y/n): ");
+//		String include = in.readLine();
+//		if(include.equals("y"))
+//			includeAll = true;
 		System.out.print("Output File Name: ");
 		String outputName = in.readLine();
 		
-		this.design = builders.get(encodeType);
+		//this.design = builders.get(encodeType);
 		IEncoder enc = this.encoders.get(encodeType);
 		
-		IModel model = design.build();
+		//IModel model = design.build();
 		
 		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
 

@@ -56,8 +56,8 @@ public class SDEditEncoder implements IEncoder {
 		String tempArgsList;
 		sig+=method.getParent().getClassName().toLowerCase();
 		sig+=":";
-		//sig+=method.getType();
-		//sig+="=";
+		sig+=method.getType();
+		sig+="=";
 		if(!method.getType().equals("void")) {
 			sig+=method.getClassName().toLowerCase();
 			sig+=".";

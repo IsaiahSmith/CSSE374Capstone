@@ -32,6 +32,4 @@ visitors.ClassDeclarationVisitor
 visitors.ClassFieldVisitor
 visitors.ClassMethodVisitor
 visitors.MethodBodyVisitor
-visitors.SequenceDesignBuilder
-visitors.SequenceMethodInsnVisitor
-visitors.SequenceMethodVisitor
+builders.SequenceDesignBuilder
