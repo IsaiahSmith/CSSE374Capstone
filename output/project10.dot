@@ -1,0 +1,252 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	builders_IDesignBuilder [ 
+		label = "{\<\<interface\>\>\lIDesignBuilder||public build() : IModel\l\l}" 
+	]
+	builders_UMLDesignBuilder [ 
+		label = "{UMLDesignBuilder|private files : List\l|public build() : IModel\l\l}" 
+	]
+	encoders_IEncoder [ 
+		label = "{\<\<interface\>\>\lIEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	encoders_dot_ADot [ 
+		label = "{\<\<abstract\>\>\lADot|default includeAll : boolean\ldefault dotFile : StringBuilder\l|public getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotAssociationDecorator [ 
+		label = "{DotAssociationDecorator|default toBeDecorated : ADot\l|public makeAssociation() : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotClassDecorator [ 
+		label = "{DotClassDecorator|default toBeDecorated : ADot\l|public makeClasses() : StringBuilder\lprivate composeFile(IFile arg0) : String\lprivate buildNameBlock(String arg0, String arg1) : String\lprivate buildFieldsBlock(List arg0) : String\lprivate buildMethodsBlock(List arg0) : String\lprivate buildString(String arg0, List arg1, List arg2, String arg3) : String\lpublic getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotDecorator [ 
+		label = "{\<\<abstract\>\>\lDotDecorator|default model : IModel\l|public getDot() : StringBuilder\ldefault getFileNames() : List\l\l}" 
+	]
+	encoders_dot_DotEncoder [ 
+		label = "{DotEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotImplementsDecorator [ 
+		label = "{DotImplementsDecorator|default toBeDecorated : ADot\l|public makeImplements() : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotInheritanceDecorator [ 
+		label = "{DotInheritanceDecorator|default toBeDecorated : ADot\l|public makeInheritance() : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_DotUsesDecorator [ 
+		label = "{DotUsesDecorator|default toBeDecorated : ADot\l|public makeUses() : StringBuilder\lprivate addArrow(String arg0, String arg1) : String\lpublic getDot() : StringBuilder\l\l}" 
+	]
+	encoders_dot_StandardDot [ 
+		label = "{StandardDot||\l}" 
+	]
+	encoders_sdedit_SDEditEncoder [ 
+		label = "{SDEditEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	encoders_text_TextEncoder [ 
+		label = "{TextEncoder||public encode(IModel arg0, boolean arg1) : StringBuilder\l\l}" 
+	]
+	model_IFile [ 
+		label = "{\<\<interface\>\>\lIFile||public setSuperName(String arg0) : void\lpublic addMethod(IMethod arg0) : void\lpublic addField(IInnerNode arg0) : void\lpublic addImplements(IFile arg0) : void\lpublic getSuperName() : String\lpublic getMethods() : List\lpublic getFields() : List\lpublic getInterfaces() : List\l\l}" 
+	]
+	model_IInnerNode [ 
+		label = "{\<\<interface\>\>\lIInnerNode||public setAccessLevel(String arg0) : void\lpublic getAccessLevel() : String\l\l}" 
+	]
+	model_IMethod [ 
+		label = "{\<\<interface\>\>\lIMethod||public addArg(INode arg0) : void\lpublic addTypeInsn(ITypeInsn arg0) : void\lpublic addInnerMethod(IMethod arg0) : void\lpublic setClassName(String arg0) : void\lpublic setSignature(String arg0) : void\lpublic addParent(IMethod arg0) : void\lpublic getArgs() : List\lpublic getTypeInsn() : List\lpublic getInnerMethods() : List\lpublic getClassName() : String\lpublic getSignature() : String\lpublic getParent() : IMethod\l\l}" 
+	]
+	model_IMethodInsn [ 
+		label = "{\<\<interface\>\>\lIMethodInsn||public setOwner(String arg0) : void\lpublic setName(String arg0) : void\lpublic setDesc(String arg0) : void\lpublic getOwner() : String\lpublic getName() : String\lpublic getDesc() : String\lpublic getMethod() : IMethod\l\l}" 
+	]
+	model_IModel [ 
+		label = "{\<\<interface\>\>\lIModel||public addFile(IFile arg0) : void\lpublic getFiles() : List\l\l}" 
+	]
+	model_INode [ 
+		label = "{\<\<interface\>\>\lINode||public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic getType() : String\lpublic getName() : String\l\l}" 
+	]
+	model_ITypeInsn [ 
+		label = "{\<\<interface\>\>\lITypeInsn||public setType(String arg0) : void\lpublic getType() : String\l\l}" 
+	]
+	nodes_ArgumentNode [ 
+		label = "{ArgumentNode|private Name : String\lprivate Type : String\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic getName() : String\lpublic getType() : String\lpublic toString() : String\l\l}" 
+	]
+	nodes_FieldNode [ 
+		label = "{FieldNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setAccessLevel(String arg0) : void\lpublic getType() : String\lpublic getName() : String\lpublic getAccessLevel() : String\lpublic toString() : String\l\l}" 
+	]
+	nodes_FileNode [ 
+		label = "{FileNode|private Name : String\lprivate Type : String\lprivate SuperName : String\lprivate Methods : List\lprivate Fields : List\lprivate Interfaces : List\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setSuperName(String arg0) : void\lpublic addMethod(IMethod arg0) : void\lpublic addField(IInnerNode arg0) : void\lpublic addImplements(IFile arg0) : void\lpublic getName() : String\lpublic getType() : String\lpublic getSuperName() : String\lpublic getMethods() : List\lpublic getFields() : List\lpublic getInterfaces() : List\lpublic toString() : String\l\l}" 
+	]
+	nodes_MethodInsn [ 
+		label = "{MethodInsn|private Owner : String\lprivate Name : String\lprivate Desc : String\l|public setOwner(String arg0) : void\lpublic setName(String arg0) : void\lpublic setDesc(String arg0) : void\lpublic getOwner() : String\lpublic getName() : String\lpublic getDesc() : String\lpublic toString() : String\lpublic getMethod() : IMethod\l\l}" 
+	]
+	nodes_MethodNode [ 
+		label = "{MethodNode|private Name : String\lprivate Type : String\lprivate AccessLevel : String\lprivate Args : List\lprivate InnerMethods : List\lprivate TypeInsns : List\lprivate ClassName : String\lprivate Signature : String\lprivate Parent : IMethod\l|public setName(String arg0) : void\lpublic setType(String arg0) : void\lpublic setAccessLevel(String arg0) : void\lpublic addArg(INode arg0) : void\lpublic addInnerMethod(IMethod arg0) : void\lpublic addTypeInsn(ITypeInsn arg0) : void\lpublic setClassName(String arg0) : void\lpublic setSignature(String arg0) : void\lpublic addParent(IMethod arg0) : void\lpublic getName() : String\lpublic getType() : String\lpublic getAccessLevel() : String\lpublic getArgs() : List\lpublic getTypeInsn() : List\lpublic getClassName() : String\lpublic getSignature() : String\lpublic getParent() : IMethod\lpublic toString() : String\lpublic getInnerMethods() : List\l\l}" 
+	]
+	nodes_Model [ 
+		label = "{Model|private Files : List\l|public addFile(IFile arg0) : void\lpublic getFiles() : List\lpublic toString() : String\l\l}" 
+	]
+	nodes_TypeInsn [ 
+		label = "{TypeInsn|private Type : String\l|public setType(String arg0) : void\lpublic getType() : String\lpublic toString() : String\l\l}" 
+	]
+	runner_DesignMaker [ 
+		label = "{DesignMaker|private design : IDesignBuilder\lprivate encoders : Map\l|public make() : void\lprivate getFiles(String arg0) : List\l\l}" 
+	]
+	runner_Main [ 
+		label = "{Main||public main(String[] arg0) : void\l\l}" 
+	]
+	visitors_ClassDeclarationVisitor [ 
+		label = "{ClassDeclarationVisitor|private node : IFile\l|public visit(int arg0, int arg1, String arg2, String arg3, String arg4, String[] arg5) : void\lprivate addType(int arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	visitors_ClassFieldVisitor [ 
+		label = "{ClassFieldVisitor|private node : IFile\lprivate field : IInnerNode\l|public visitField(int arg0, String arg1, String arg2, String arg3, Object arg4) : FieldVisitor\lprivate addAccessLevel(int arg0) : void\lprivate addType(String arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	visitors_ClassMethodVisitor [ 
+		label = "{ClassMethodVisitor|private node : IFile\lprivate method : IMethod\l|public visitMethod(int arg0, String arg1, String arg2, String arg3, String[] arg4) : MethodVisitor\lprivate addArguments(String arg0, String arg1) : void\lprivate addReturnType(String arg0) : void\lprivate addAccessLevel(int arg0) : void\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	visitors_MethodBodyVisitor [ 
+		label = "{MethodBodyVisitor|private method : IMethod\l|public visitMethodInsn(int arg0, String arg1, String arg2, String arg3, boolean arg4) : void\lpublic visitTypeInsn(int arg0, String arg1) : void\lprivate addArguments(String arg0, IMethod arg1) : IMethod\lprivate addAccessLevel(int arg0, IMethod arg1) : IMethod\lprivate addReturnType(String arg0, IMethod arg1) : IMethod\lprivate sanitize(String arg0) : String\l\l}" 
+	]
+	visitors_SequenceDesignBuilder [ 
+		label = "{SequenceDesignBuilder|private depth : int\lprivate methodCalls : List\lprivate prev : SequenceDesignBuilder\lprivate reader : ClassReader\lprivate methodSignature : IMethod\lprivate decVisitor : ClassDeclarationVisitor\lprivate methodVisitor : SequenceMethodVisitor\l|public build(ClassVisitor arg0) : List\lpublic build() : List\lpublic getVisitor() : ClassVisitor\lpublic getDepth() : int\lprivate addSignature(IMethod arg0) : void\l\l}" 
+	]
+	visitors_SequenceMethodInsnVisitor [ 
+		label = "{SequenceMethodInsnVisitor|private sequenceBuilder : SequenceDesignBuilder\l|public visitMethodInsn(int arg0, String arg1, String arg2, String arg3, boolean arg4) : void\lpublic setSequenceBuilder(SequenceDesignBuilder arg0) : void\l\l}" 
+	]
+	visitors_SequenceMethodVisitor [ 
+		label = "{SequenceMethodVisitor|private methodName : String\lprivate signature : String\lprivate methodInsnVisitors : Set\lprivate sequenceBuilder : SequenceDesignBuilder\l|public visitMethod(int arg0, String arg1, String arg2, String arg3, String[] arg4) : MethodVisitor\lpublic setParams(String arg0, String arg1, SequenceDesignBuilder arg2) : void\l\l}" 
+	]
+	builders_UMLDesignBuilder->builders_IDesignBuilder [arrowhead="empty" style = "dashed"]
+	encoders_dot_DotEncoder->encoders_IEncoder [arrowhead="empty" style = "dashed"]
+	encoders_sdedit_SDEditEncoder->encoders_IEncoder [arrowhead="empty" style = "dashed"]
+	encoders_text_TextEncoder->encoders_IEncoder [arrowhead="empty" style = "dashed"]
+	model_IFile->model_INode [arrowhead="empty" style = "dashed"]
+	model_IInnerNode->model_INode [arrowhead="empty" style = "dashed"]
+	model_IMethod->model_IInnerNode [arrowhead="empty" style = "dashed"]
+	nodes_ArgumentNode->model_INode [arrowhead="empty" style = "dashed"]
+	nodes_FieldNode->model_IInnerNode [arrowhead="empty" style = "dashed"]
+	nodes_FileNode->model_IFile [arrowhead="empty" style = "dashed"]
+	nodes_MethodInsn->model_IMethodInsn [arrowhead="empty" style = "dashed"]
+	nodes_MethodNode->model_IMethod [arrowhead="empty" style = "dashed"]
+	nodes_Model->model_IModel [arrowhead="empty" style = "dashed"]
+	nodes_TypeInsn->model_ITypeInsn [arrowhead="empty" style = "dashed"]
+	 encoders_dot_DotAssociationDecorator -> encoders_dot_DotDecorator [arrowhead="empty" style = "filled" ]
+	 encoders_dot_DotClassDecorator -> encoders_dot_DotDecorator [arrowhead="empty" style = "filled" ]
+	 encoders_dot_DotDecorator -> encoders_dot_ADot [arrowhead="empty" style = "filled" ]
+	 encoders_dot_DotImplementsDecorator -> encoders_dot_DotDecorator [arrowhead="empty" style = "filled" ]
+	 encoders_dot_DotInheritanceDecorator -> encoders_dot_DotDecorator [arrowhead="empty" style = "filled" ]
+	 encoders_dot_DotUsesDecorator -> encoders_dot_DotDecorator [arrowhead="empty" style = "filled" ]
+	 encoders_dot_StandardDot -> encoders_dot_ADot [arrowhead="empty" style = "filled" ]
+	 visitors_SequenceMethodVisitor -> visitors_ClassMethodVisitor [arrowhead="empty" style = "filled" ]
+	 builders_IDesignBuilder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> visitors_ClassMethodVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> nodes_FileNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> nodes_Model [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> visitors_ClassFieldVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 builders_UMLDesignBuilder -> visitors_ClassDeclarationVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_IEncoder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotAssociationDecorator -> model_IInnerNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotAssociationDecorator -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotAssociationDecorator -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotAssociationDecorator -> encoders_dot_ADot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> model_IInnerNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> encoders_dot_ADot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotClassDecorator -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotDecorator -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_DotAssociationDecorator [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_DotUsesDecorator [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_StandardDot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_DotInheritanceDecorator [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_DotImplementsDecorator [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotEncoder -> encoders_dot_DotClassDecorator [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotImplementsDecorator -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotImplementsDecorator -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotImplementsDecorator -> encoders_dot_ADot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotInheritanceDecorator -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotInheritanceDecorator -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotInheritanceDecorator -> encoders_dot_ADot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> encoders_dot_ADot [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> model_ITypeInsn [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotUsesDecorator -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_sdedit_SDEditEncoder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_text_TextEncoder -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IFile -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IFile -> model_IInnerNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IFile -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IMethod -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IMethod -> model_ITypeInsn [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IMethod -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IMethodInsn -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 model_IModel -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_FileNode -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_FileNode -> model_IInnerNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_FileNode -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_MethodInsn -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_MethodNode -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_MethodNode -> model_ITypeInsn [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_MethodNode -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_Model -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 nodes_Model -> model_INode [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> encoders_text_TextEncoder [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> builders_UMLDesignBuilder [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> encoders_sdedit_SDEditEncoder [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> encoders_dot_DotEncoder [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> encoders_IEncoder [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_DesignMaker -> model_IModel [arrowhead="vee" style = "dashed" splines="compound"]
+	 runner_Main -> runner_DesignMaker [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassDeclarationVisitor -> nodes_FileNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassDeclarationVisitor -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassFieldVisitor -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassFieldVisitor -> nodes_FieldNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassMethodVisitor -> nodes_FileNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassMethodVisitor -> nodes_ArgumentNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassMethodVisitor -> visitors_MethodBodyVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassMethodVisitor -> model_IFile [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_ClassMethodVisitor -> nodes_MethodNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_MethodBodyVisitor -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_MethodBodyVisitor -> nodes_ArgumentNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_MethodBodyVisitor -> nodes_TypeInsn [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_MethodBodyVisitor -> nodes_MethodNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceDesignBuilder -> model_IMethod [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceDesignBuilder -> visitors_ClassDeclarationVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceDesignBuilder -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceDesignBuilder -> visitors_SequenceMethodVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceMethodInsnVisitor -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceMethodInsnVisitor -> nodes_MethodNode [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceMethodVisitor -> visitors_SequenceMethodInsnVisitor [arrowhead="vee" style = "dashed" splines="compound"]
+	 visitors_SequenceMethodVisitor -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "dashed" splines="compound"]
+	 encoders_dot_DotAssociationDecorator -> encoders_dot_ADot [arrowhead="vee" style = "filled" ]
+	 encoders_dot_DotClassDecorator -> encoders_dot_ADot [arrowhead="vee" style = "filled" ]
+	 encoders_dot_DotDecorator -> model_IModel [arrowhead="vee" style = "filled" ]
+	 encoders_dot_DotImplementsDecorator -> encoders_dot_ADot [arrowhead="vee" style = "filled" ]
+	 encoders_dot_DotInheritanceDecorator -> encoders_dot_ADot [arrowhead="vee" style = "filled" ]
+	 encoders_dot_DotUsesDecorator -> encoders_dot_ADot [arrowhead="vee" style = "filled" ]
+	 nodes_MethodNode -> model_IMethod [arrowhead="vee" style = "filled" ]
+	 runner_DesignMaker -> builders_IDesignBuilder [arrowhead="vee" style = "filled" ]
+	 visitors_ClassDeclarationVisitor -> model_IFile [arrowhead="vee" style = "filled" ]
+	 visitors_ClassFieldVisitor -> model_IFile [arrowhead="vee" style = "filled" ]
+	 visitors_ClassFieldVisitor -> model_IInnerNode [arrowhead="vee" style = "filled" ]
+	 visitors_ClassMethodVisitor -> model_IFile [arrowhead="vee" style = "filled" ]
+	 visitors_ClassMethodVisitor -> model_IMethod [arrowhead="vee" style = "filled" ]
+	 visitors_MethodBodyVisitor -> model_IMethod [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceDesignBuilder -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceDesignBuilder -> model_IMethod [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceDesignBuilder -> visitors_ClassDeclarationVisitor [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceDesignBuilder -> visitors_SequenceMethodVisitor [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceMethodInsnVisitor -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "filled" ]
+	 visitors_SequenceMethodVisitor -> visitors_SequenceDesignBuilder [arrowhead="vee" style = "filled" ]
+	
+}

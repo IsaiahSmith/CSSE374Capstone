@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>120</y>
+      <w>270</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>ArgumentNode
+--
+- Name: String
+- Type: String
+--
++ setName(String name): void
++ setType(String type): void
+
++ getName(): String
++ getType(): String
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>120</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Model
+--
+- Files: List&lt;IFile&gt;
+--
++ addFile(IFile file): void
+
++ getFiles(): List&lt;IFile&gt;
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>270</y>
+      <w>360</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>FileNode
+--
+- Name: String
+- Type: String
+- SuperName: String
+- Methods: List&lt;IMethod&gt;
+- Fields: List&lt;IInnerNode&gt;
+- Interfaces: List&lt;IFile&gt;
+--
++ setName(String name): void
++ setType(String type): void
++ setSuperName(String superName): void
++ addMethod(IMethod method): void
++ addField(IInnerNode): void
++ addImplements(IFile): void
+
++ getName(): String
++ getType(): String
++ getSuperName(): String
++ getMethods(): List&lt;IMethod&gt;
++ getFields(): List&lt;IInnerNode&gt;
++ getInterfaces(): List&lt;IFile&gt;
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>310</y>
+      <w>290</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>FieldNode
+--
+- Name: String
+- Type: String
+- AccessLevel: String
+--
++ setName(String name): void
++ setType(String name): void
++ setAccessLevel(String accessLevel): void
+
++ getName(): String
++ getType(): String
++ getAccessLevel(): String
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>660</y>
+      <w>220</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>MethodInsn
+--
+- Owner: String
+- Name: String
+- Desc: String
+--
++ setOwner(String owner): void
++ setName(String name): void
++ setDesc(String desc): void
+
++ getOwner(): String
++ getName(): String
++ getDesc(): String
++ getMethod(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>570</y>
+      <w>290</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>MethodNode
+--
+- Name: String
+- Type: String
+- AccessLevel: String
+- Args: List&lt;INode&gt;
+- InnerMethods: List&lt;IMethod&gt;
+- TypeInsns: List&lt;ITypeInsn&gt;
+- ClassName: String
+- Signature: String
+- Parent: IMethod
+--
++ setName(String name): void
++ setType(String name): void
++ setAccessLevel(String accessLevel): void
++ addArg(INode arg): void
++ addInnerMethod(IMethod method): void
++ addTypeInsn(ITypeInsn typeInsn): void
++ setClassName(String className): void
++ setSignature(String signature): void
++ addparent(IMethod parent): void
+
++ getName(): String
++ getType(): String
++ getAccessLevel(): String
++ getArgs(): List&lt;INode&gt;
++ getTypeInsn(): List&lt;ITypeInsn&gt;
++ getClassName(): String
++ getSignature(): String
++ getParent(): IMethod
++ getInnerMethods(): List&lt;IMethod&gt;
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>1010</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>TypeInsn
+--
+- Type: String
+--
++ setType(String type): void
+
++ getType(): String
++ toString(): String
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -122,6 +122,10 @@ public class MethodNode implements IMethod {
 	}
 
 	@Override
+	public List<IMethod> getInnerMethods() {
+		return this.InnerMethods;
+	}
+	@Override
 	public String toString() {
 		String str = new String();
 		String[] typeSplit = this.Type.split("_");
@@ -134,10 +138,6 @@ public class MethodNode implements IMethod {
 		str += ")";
 		
 		return str;
-	}
-	@Override
-	public List<IMethod> getInnerMethods() {
-		return this.InnerMethods;
 	}
 	
 }
