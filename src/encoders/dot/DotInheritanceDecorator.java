@@ -7,7 +7,6 @@ import model.IModel;
 
 public class DotInheritanceDecorator extends DotDecorator{
 	
-	ADot toBeDecorated;
 
 	public DotInheritanceDecorator(ADot toBeDecorated, IModel model){
 		this.toBeDecorated = toBeDecorated;

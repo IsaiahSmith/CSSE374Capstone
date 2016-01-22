@@ -15,7 +15,6 @@ import model.ITypeInsn;
 
 public class DotUsesDecorator extends DotDecorator {
 
-	ADot toBeDecorated;
 	
 	public DotUsesDecorator(ADot toBeDecorated, IModel model) {
 		this.toBeDecorated = toBeDecorated;
