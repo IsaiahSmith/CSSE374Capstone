@@ -8,8 +8,6 @@ import model.IInnerNode;
 import model.IModel;
 
 public class DotAssociationDecorator extends DotDecorator {
-
-	ADot toBeDecorated;
 	
 	public DotAssociationDecorator(ADot toBeDecorated, IModel model) {
 		this.toBeDecorated = toBeDecorated;

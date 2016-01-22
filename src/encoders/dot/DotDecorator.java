@@ -8,6 +8,7 @@ import model.INode;
 
 public abstract class DotDecorator extends ADot {
 	IModel model;
+	ADot toBeDecorated;
 	public abstract StringBuilder getDot();
 	
 	List<String> getFileNames() {
