@@ -16,11 +16,11 @@ import visitors.ClassDeclarationVisitor;
 import visitors.ClassFieldVisitor;
 import visitors.ClassMethodVisitor;
 
-public class UMLDesignBuilder implements IDesignBuilder{
+public class ClassDesignBuilder implements IDesignBuilder{
 	
 	private List<String> files;
 	
-	public UMLDesignBuilder(List<String> files) {
+	public ClassDesignBuilder(List<String> files) {
 		this.files = files;
 	}
 	

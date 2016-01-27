@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import builders.UMLDesignBuilder;
+import builders.ClassDesignBuilder;
 import encoders.dot.ADot;
 import encoders.dot.DotClassDecorator;
 import encoders.dot.StandardDot;

@@ -12,7 +12,7 @@ import java.util.Map;
 
 import builders.IDesignBuilder;
 import builders.SequenceDesignBuilder;
-import builders.UMLDesignBuilder;
+import builders.ClassDesignBuilder;
 import encoders.IEncoder;
 import encoders.dot.DotEncoder;
 import encoders.sdedit.SDEditEncoder;
@@ -53,7 +53,7 @@ public class DesignMaker {
 			String include = in.readLine();
 			if(include.equals("y"))
 				includeAll = true;
-			UMLDesignBuilder UML = new UMLDesignBuilder(getFiles(input));
+			ClassDesignBuilder UML = new ClassDesignBuilder(getFiles(input));
 			model = UML.build();
 		} else {
 			SequenceDesignBuilder sequenceDesign = new SequenceDesignBuilder(getFiles(input));
