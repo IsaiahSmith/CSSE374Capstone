@@ -7,16 +7,16 @@ import model.IMethod;
 import model.ITypeInsn;
 import nodes.TypeInsn;
 
-public class MethodTypeVisitor extends MethodVisitor {
+public class MethodTypeInsnVisitor extends MethodVisitor {
 
 	private IMethod method;
 	
-	public MethodTypeVisitor(int api, MethodVisitor decorated) {
+	public MethodTypeInsnVisitor(int api, MethodVisitor decorated) {
 		super(api, decorated);
 	}
 
 	
-	public MethodTypeVisitor(int api, MethodVisitor toDecorate, IMethod method) {
+	public MethodTypeInsnVisitor(int api, MethodVisitor toDecorate, IMethod method) {
 		super(api, toDecorate);
 		this.method = method;
 	}

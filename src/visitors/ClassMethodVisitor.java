@@ -51,11 +51,9 @@ public class ClassMethodVisitor extends ClassVisitor{
 		
 		method.setSignature(signature);
 		
-		
-		//System.out.println("Name: "+name+"\nDesc: "+desc+"\nSignature: "+signature+"\n");
-		
-		MethodVisitor body = new MethodBodyVisitor(Opcodes.ASM5, toDecorate, method);
-		MethodVisitor Type = new MethodTypeVisitor(Opcodes.ASM5, body, method);
+				
+		MethodVisitor body = new MethodInsnVisitor(Opcodes.ASM5, toDecorate, method);
+		MethodVisitor Type = new MethodTypeInsnVisitor(Opcodes.ASM5, body, method);
 		node.addMethod(method);
 		return Type;
 	}
@@ -91,11 +89,5 @@ public class ClassMethodVisitor extends ClassVisitor{
 			level="default";
 		}
 		this.method.setAccessLevel(level);
-	}
-	private String sanitize(String input) {
-		String temp = input.replace("/", "_");
-		temp = temp.replace(".", "_");
-		
-		return temp;
 	}
 }

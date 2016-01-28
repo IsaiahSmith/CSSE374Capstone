@@ -25,60 +25,66 @@ import nodes.MethodNode;
 public class DesignMaker {
 	private IDesignBuilder design;
 	private Map<String, IEncoder> encoders;
-	private Map<String, IDesignBuilder> builders;
 	
-	
+	private DesignFactory designFactory;
 	public DesignMaker() {
 		this.encoders = new HashMap<String, IEncoder>();
 		this.encoders.put("text", new TextEncoder());
 		this.encoders.put("dot", new DotEncoder());
 		this.encoders.put("sdedit", new SDEditEncoder());
-		
-		this.builders = new HashMap<String, IDesignBuilder>();
 	}
 	
 	public void make() throws IOException {
+		String type;
+		List<String> files;
+		List<String> signatures;
+		int depth;
+		Boolean includeAll = false;
+		String output;
+		IEncoder encoder;
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Input File: ");
-		String input = in.readLine();
-		boolean includeAll = false;
-		IModel model;
+		// get type
+		System.out.print("Diagram Type (text/uml/sequence): ");
+		type = in.readLine();
 		
-		System.out.print("Encode Type (text/dot/sdedit): ");
-		String encodeType = in.readLine();
+		// get files input
+		System.out.print("Files Input: ");
+		files = getFiles(in.readLine());
 		
-		if(encodeType.equals("dot") || encodeType.equals("text")) {
-			
+		// check type
+		if(type.equals("uml")) {
+			// if dot ask for includeAll | set designFactory
 			System.out.print("Include all files not specified in args?(y/n): ");
-			String include = in.readLine();
-			if(include.equals("y"))
+			if(in.readLine().equals("y")) {
 				includeAll = true;
-			ClassDesignBuilder UML = new ClassDesignBuilder(getFiles(input));
-			model = UML.build();
+			}
+			designFactory = new UMLDesignBuilderCreator(files, includeAll);
+			encoder = encoders.get("dot");
+		} else if(type.equals("sequence")) {
+			// if sequence ask for method signature file, depth | set designFactory
+			System.out.print("File Containing Method Signatures: ");
+			signatures = getFiles(in.readLine());
+			System.out.print("Sequence Call Depth: ");
+			depth = Integer.parseInt(in.readLine());
+			
+			designFactory = new SequenceDesignBuilderCreator(files, signatures, depth);
+			encoder = encoders.get("sdedit");
 		} else {
-			SequenceDesignBuilder sequenceDesign = new SequenceDesignBuilder(getFiles(input));
-			model = sequenceDesign.build();
+			// if text ask ask for nothing | set designFactory
+			designFactory = new UMLDesignBuilderCreator(files, includeAll);
+			encoder = encoders.get("text");
 		}
-		
-		
-//		boolean includeAll = false;
-//		System.out.print("Include all files not specified in args?(y/n): ");
-//		String include = in.readLine();
-//		if(include.equals("y"))
-//			includeAll = true;
+		// ask for output file 
 		System.out.print("Output File Name: ");
-		String outputName = in.readLine();
+		output = in.readLine();
 		
-		//this.design = builders.get(encodeType);
-		IEncoder enc = this.encoders.get(encodeType);
+		DesignBuilder design = designFactory.createDesignBuilder();
+		IModel model = design.build();
 		
-		//IModel model = design.build();
-		
-		FileOutputStream writer = new FileOutputStream("./output/"+outputName);
+		FileOutputStream writer = new FileOutputStream("./output/"+output);
 
 		
-		System.out.println(enc.encode(model, includeAll).toString());
-		writer.write(enc.encode(model, includeAll).toString().getBytes());
+		writer.write(encoder.encode(model).toString().getBytes());
 		writer.close();
 		System.out.println("Done.");
 	}

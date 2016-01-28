@@ -1,46 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>9</zoom_level>
+  <zoom_level>3</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1107</x>
-      <y>99</y>
-      <w>207</w>
-      <h>126</h>
+      <x>1434</x>
+      <y>84</y>
+      <w>81</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>DesignMaker
 --
 -design: IDesignBuilder
 -encoders: Map&lt;String, IEncoder&gt;
--builders: Map&lt;String, DesignFactory&gt;
+
 --
 +DesignMaker(): ctor
 +make(): void
--getFiles(String input): List&lt;String&gt;</panel_attributes>
+-getFiles(String input): List&lt;String&gt;
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1134</x>
-      <y>0</y>
-      <w>153</w>
-      <h>45</h>
+      <x>1443</x>
+      <y>45</y>
+      <w>51</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Main
 --
+
 --
-+main(String[] args): void</panel_attributes>
++main(String[] args): void
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1197</x>
-      <y>36</y>
-      <w>27</w>
-      <h>81</h>
+      <x>1464</x>
+      <y>63</y>
+      <w>9</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -48,27 +52,28 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>387</y>
-      <w>261</w>
-      <h>81</h>
+      <x>1260</x>
+      <y>180</y>
+      <w>132</w>
+      <h>30</h>
     </coordinates>
-    <panel_attributes>ClassDesignBuilder
+    <panel_attributes>UMLDesignBuilder
 --
--files: List&lt;String&gt;
+-fileNames: List&lt;String&gt;
+-includeAll: Boolean
 --
-+ClassDesignBuilder(List&lt;String&gt; files): ctor
++UMLDesignBuilder(List&lt;String&gt; fileNames, Boolean includeAll): ctor
 +build(): IModel
-</panel_attributes>
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1503</x>
-      <y>279</y>
-      <w>153</w>
-      <h>81</h>
+      <x>1260</x>
+      <y>141</y>
+      <w>51</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 DesignBuilder
@@ -76,266 +81,1733 @@ DesignBuilder
 
 --
 +build(): IModel
-</panel_attributes>
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1116</x>
-      <y>486</y>
-      <w>540</w>
-      <h>108</h>
+      <x>1260</x>
+      <y>219</y>
+      <w>186</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>SequenceDesignBuilder
 --
+-fileNames: List&lt;String&gt;
+-methodSignatures: List&lt;String&gt;
 -depth: int
--file: IFile
 --
-+SequenceDesignBuilder(String class, String method, List&lt;String&gt; params, int depth): ctor 
-+build(): IModel</panel_attributes>
++SequenceDesignBuilder(List&lt;String&gt; fileNames, List&lt;String&gt; methodSignatures, int depth): ctor 
++build(): IModel
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>270</y>
-      <w>225</w>
-      <h>81</h>
+      <x>1581</x>
+      <y>141</y>
+      <w>75</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 DesignFactory
 --
 
 --
-+createDesignBuilder(): DesignBuilder</panel_attributes>
++createDesignBuilder(): DesignBuilder
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>378</y>
-      <w>306</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>ClassDesignBuilderCreator
---
--files: List&lt;String&gt;
---
-+ClassDesignBuilderCreator(List&lt;String&gt; files): ctor
-+createDesignBuilder(): DesignBuilder</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>648</x>
-      <y>486</y>
-      <w>360</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>SequenceDesignBuilderCreator
---
--files: List&lt;String&gt;
---
-+ClassDesignBuilderCreator(List&lt;String&gt; files): ctor
-+createDesignBuilder(): DesignBuilder</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>648</x>
-      <y>612</y>
-      <w>306</w>
-      <h>90</h>
+      <x>1509</x>
+      <y>180</y>
+      <w>147</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>UMLDesignBuilderCreator
 --
--files: List&lt;String&gt;
--IModel: model
+-fileNames: List&lt;String&gt;
+-includeAll: Boolean
 --
-+UMLDesignBuilderCreator(List&lt;String&gt; files): ctor
-+createUMLBuilder(): DesignBuilder</panel_attributes>
++UMLDesignBuilderCreator(List&lt;String&gt; fileNames, Boolean includeAll): ctor
++createDesignBuilder(): DesignBuilder
+
+bg=red</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>603</x>
-      <y>405</y>
-      <w>63</w>
-      <h>261</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;10.0;10.0;270.0;50.0;270.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>0</x>
-      <y>657</y>
-      <w>477</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>DesignFactory classDesignBuilderCreator = new ClassDesignBuilderCreator(files);
-DesignBuilder classDesignBuilder = classDesignBuilder.createDesignBuilder();
-this.model = classDesignBuilder.build(); 
-bg=yellow
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>468</x>
-      <y>666</y>
-      <w>207</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1422</x>
-      <y>612</y>
-      <w>234</w>
-      <h>81</h>
+      <x>1458</x>
+      <y>219</y>
+      <w>198</w>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>UMLDesignBuilder
+    <panel_attributes>SequenceDesignBuilderCreator
 --
--model: IModel
+-fileNames: List&lt;String&gt;
+-methodSignatures: List&lt;String&gt;
+-depth: int
 --
-+UMLDesignBuilder(IModel model): ctor
-+build():IModel
-</panel_attributes>
++SequenceDesignBuilderCreator(List&lt;String&gt; fileNames, List&lt;String&gt; methodSignatures, int depth): ctor
++createDesignBuilder(): DesignBuilder
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>153</y>
-      <w>252</w>
-      <h>180</h>
+      <x>1512</x>
+      <y>102</y>
+      <w>75</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=[String]-&gt;
 
 </panel_attributes>
-    <additional_attributes>250.0;10.0;210.0;10.0;210.0;180.0;10.0;180.0</additional_attributes>
+    <additional_attributes>20.0;10.0;60.0;10.0;60.0;180.0;230.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1197</x>
-      <y>216</y>
-      <w>324</w>
+      <x>1308</x>
+      <y>123</y>
+      <w>165</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;530.0;100.0;530.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1653</x>
+      <y>156</y>
+      <w>21</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1653</x>
+      <y>156</y>
+      <w>21</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;250.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1245</x>
+      <y>150</y>
+      <w>21</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;110.0;50.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1245</x>
+      <y>150</y>
+      <w>21</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;250.0;50.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1389</x>
+      <y>189</y>
+      <w>126</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1443</x>
+      <y>231</y>
+      <w>21</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>891</x>
+      <y>210</y>
+      <w>81</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>FileParser
+--
+-fileNames: List&lt;String&gt;
+--
++FileParser(List&lt;String&gt; fileNames): ctor
++parse(): List&lt;IFile&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>819</x>
+      <y>288</y>
+      <w>153</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>ArrowParser
+--
+-files: List&lt;IFile&gt;
+-types: List&lt;String&gt;
+-includeAll: Boolean
+--
++ArrowParser(List&lt;IFile&gt; files, List&lt;String&gt; arrowTypes, Boolean includeAll): ctor
++parse(): List&lt;IArrow&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>852</x>
+      <y>333</y>
+      <w>123</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>PatternParser
+--
+-files: List&lt;IFile&gt;
+-types: List&lt;String&gt;
+--
++PatternParser(List&lt;IFile&gt; files, List&lt;String&gt; patternTypes): ctor
++parse(): List&lt;IPattern&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>30</x>
+      <y>279</y>
+      <w>411</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>asm
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>300</y>
+      <w>66</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>ClassReader
+--
+ClassReader(String className)
+accept(:ClassVisitor)
+bg=blue
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>291</x>
+      <y>333</y>
+      <w>117</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/ClassVisitor/
+--
+-decorated: ClassVisitor 
+--
++ visit(String name, String extends, String[] implements): void
++ visitField(String name, String type): void
++ visitMethod(String name, String return, String[] args): void
+...
+bg=blue
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>363</x>
+      <y>318</y>
+      <w>78</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+decorates</panel_attributes>
+    <additional_attributes>150.0;80.0;180.0;80.0;180.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>279</x>
+      <y>309</y>
+      <w>45</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;80.0;130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>342</y>
+      <w>165</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/MethodVisitor/
+--
+-mv: MethodVisitor
+--
++visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf): void
++visitTypeInsn(int opcode, String type): void
+...
+bg=blue
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>357</y>
+      <w>93</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>330</y>
+      <w>72</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+decorates</panel_attributes>
+    <additional_attributes>120.0;70.0;160.0;70.0;160.0;10.0;10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>339</x>
+      <y>372</y>
+      <w>9</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>354</y>
+      <w>36</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;100.0;10.0;100.0;360.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>354</y>
+      <w>36</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;100.0;10.0;100.0;580.0;10.0;580.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>375</y>
+      <w>24</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;500.0;60.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>408</y>
+      <w>165</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>MethodBodyInsnVisitor
+--
+-method: IMethod
+--
++MethodBodyVisitor(int api, MethodVisitor decorated): ctor
++MethodBodyVisitor(int api, MethodVisitor toDecorate, IMethod method): ctor
++visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf): void
+-addArguments(String desc, IMethod m): IMethod
+-addAccessLevel(int access, IMethod m): IMethod
+-addReturnType(String desc, IMethod m): IMethod
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>375</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;10.0;40.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>15</x>
+      <y>465</y>
+      <w>150</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>MethodTypeInsnVisitor
+--
+-method: IMethod
+--
++MethodTypeVisitor(int api, MethodVisitor decorated): ctor
++MethodTypeVisitor(int api, MethodVisitor toDecorate, IMethod method): ctor
++visitTypeInsn(int opcode, String type): void
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>162</x>
+      <y>375</y>
+      <w>18</w>
       <h>108</h>
     </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;10.0;40.0;340.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>537</x>
+      <y>288</y>
+      <w>63</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/Linker/
+--
+-files: List&lt;IFile&gt;
+-type: String
+-includeAll: Boolean
+--
++link(): List&lt;IArrow&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>459</x>
+      <y>468</y>
+      <w>141</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>AssociationLinker
+--
+-files: List&lt;IFile&gt;
+-type: String
+-includeAll: Boolean
+--
++AssociationLinker(List&lt;IFile&gt; files, String type, Boolean includeAll): ctor
++link(): List&lt;IArrow&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>333</y>
+      <w>138</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>ImplementsLinker
+--
+-files: List&lt;IFile&gt;
+-type: String
+-includeAll: Boolean
+--
++ImplementsLinker(List&lt;IFile&gt; files, String type, Boolean includeAll): ctor
++link(): List&lt;IArrow&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>423</y>
+      <w>138</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>InheritanceLinker
+--
+-files: List&lt;IFile&gt;
+-type: String
+-includeAll: Boolean
+--
++InheritanceLinker(List&lt;IFile&gt; files, String type, Boolean includeAll): ctor
++link(): List&lt;IArrow&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>378</y>
+      <w>126</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>UsesLinker
+--
+-files: List&lt;IFile&gt;
+-type: String
+-includeAll: Boolean
+--
++UsesLinker(List&lt;IFile&gt; files, String type, Boolean includeAll): ctor
++link(): List&lt;IArrow&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1299</x>
+      <y>621</y>
+      <w>81</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>ArgumentNode
+--
+- Name: String
+- Type: String
+--
++ setName(String name): void
++ setType(String type): void
+
++ getName(): String
++ getType(): String
++ toString(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1104</x>
+      <y>534</y>
+      <w>84</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Model
+--
+- Files: List&lt;IFile&gt;
+- Patterns: List&lt;IPattern&gt;
+- Arrows: List&lt;IArrow&gt;
+--
++ Model(): ctor
+- Model(Builder builder): ctor
++ addFile(IFile file): void
++ addPattern(IPattern pattern): void
++ addArrow(IArrow arrow): void
+
++ getFiles(): List&lt;IFile&gt;
++ getPatterns(): List&lt;IPattern&gt;
++ getArrows(): List&lt;IArrows&gt;
++ toString(): String
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1077</x>
+      <y>714</y>
+      <w>108</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>FileNode
+--
+- Name: String
+- Type: String
+- SuperName: String
+- Methods: List&lt;IMethod&gt;
+- Fields: List&lt;IInnerNode&gt;
+- Interfaces: List&lt;IFile&gt;
+--
++ setName(String name): void
++ setType(String type): void
++ setSuperName(String superName): void
++ addMethod(IMethod method): void
++ addField(IInnerNode): void
++ addImplements(IFile): void
+
++ getName(): String
++ getType(): String
++ getSuperName(): String
++ getMethods(): List&lt;IMethod&gt;
++ getFields(): List&lt;IInnerNode&gt;
++ getInterfaces(): List&lt;IFile&gt;
++ toString(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1317</x>
+      <y>720</y>
+      <w>87</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>FieldNode
+--
+- Name: String
+- Type: String
+- AccessLevel: String
+--
++ setName(String name): void
++ setType(String name): void
++ setAccessLevel(String accessLevel): void
+
++ getName(): String
++ getType(): String
++ getAccessLevel(): String
++ toString(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1317</x>
+      <y>819</y>
+      <w>87</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>MethodNode
+--
+- Name: String
+- Type: String
+- AccessLevel: String
+- Args: List&lt;INode&gt;
+- InnerMethods: List&lt;IMethod&gt;
+- TypeInsns: List&lt;ITypeInsn&gt;
+- ClassName: String
+- Signature: String
+- Parent: IMethod
+--
++ setName(String name): void
++ setType(String name): void
++ setAccessLevel(String accessLevel): void
++ addArg(INode arg): void
++ addInnerMethod(IMethod method): void
++ addTypeInsn(ITypeInsn typeInsn): void
++ setClassName(String className): void
++ setSignature(String signature): void
++ addparent(IMethod parent): void
+
++ getName(): String
++ getType(): String
++ getAccessLevel(): String
++ getArgs(): List&lt;INode&gt;
++ getTypeInsn(): List&lt;ITypeInsn&gt;
++ getClassName(): String
++ getSignature(): String
++ getParent(): IMethod
++ getInnerMethods(): List&lt;IMethod&gt;
++ toString(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1500</x>
+      <y>849</y>
+      <w>63</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>TypeInsn
+--
+- Type: String
+--
++ setType(String type): void
+
++ getType(): String
++ toString(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>843</x>
+      <y>534</y>
+      <w>96</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Pattern
+--
+- name: String
+- nodes: List&lt;String&gt;
+- arrows: Map&lt;String, String&gt;
+--
++ setName(String name): void
++ addNode(IFile file): void
++ addArrow(String originNode, String end): void
+
++ getName(): String
++ getNodes(): List&lt;IFile&gt;
++ containsArrow(String origin, String end): void
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>912</x>
+      <y>609</y>
+      <w>63</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Arrow
+--
+- type: String
+- origin: String
+- end: String
+--
++setType(String type): void
++setOrigin(String origin): void
++setEnd(String end): void
+
++getType(): String
++getOrigin(): String
++getEnd(): String
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1212</x>
+      <y>720</y>
+      <w>87</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IInnerNode
+--
++ setAccessLevel(String accessLevel): void
+
++ getAccessLevel(): String
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1236</x>
+      <y>657</y>
+      <w>9</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1212</x>
+      <y>621</y>
+      <w>60</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+INode
+--
++ setName(String name): void
++ setType(String name): void
+
++ getName(): String
++ getType(): String
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1104</x>
+      <y>621</y>
+      <w>84</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IFile
+--
++ setSuperName(String superName): void
++ addMethod(IMethod method): void
++ addField(IInnerNode field): void
++ addImplements(IFile inface): void
+
++ getSuperName(): String
++ getMethods(): List&lt;String&gt;
++ getFields(): List&lt;IInnerNode&gt;
++ getInterfaces(): List&lt;IFile&gt;
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1224</x>
+      <y>771</y>
+      <w>84</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IMethod
+--
++ addArg(INode arg): void
++ addTypeInsn(ITypeInsn typeInsn): void
++ addInnerMethod(IMethod method): void
++ setClassName(String className): void
++ setSignature(String signature): void
++ addParent(IMethod parent): void
+
++ getArgs(): List&lt;INode&gt;
++ getTypeInsn(): List&lt;ITypeInsn&gt;
++ getInnerMethods(): List&lt;IMethod&gt;
++ getClassName(): String
++ getSignature(): String
++ getParent(): IMethod
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1263</x>
+      <y>750</y>
+      <w>9</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1137</x>
+      <y>678</y>
+      <w>9</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1266</x>
+      <y>846</y>
+      <w>57</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;170.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1296</x>
+      <y>729</y>
+      <w>27</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1269</x>
+      <y>624</y>
+      <w>36</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1212</x>
+      <y>534</y>
+      <w>69</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IModel
+--
++ addFile(IFile file): void
++ addPattern(IPattern pattern): void
++ addArrow(IArrow arrow): void
+
++ getFiles(): List&lt;IFile&gt;
++ getPatterns(): List&lt;IPattern&gt;
++ getArrows(): List&lt;IArrows&gt;
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1185</x>
+      <y>552</y>
+      <w>33</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>954</x>
+      <y>534</y>
+      <w>102</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IPattern
+--
++ setName(String name): void
++ addNode(IFile file): void
++ addArrow(String originNode, String endNode): void
+
++ getName(): String
++ getNodes(): List&lt;IFile&gt;
++ containsArrow(String origin, String end): Boolean
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>996</x>
+      <y>609</y>
+      <w>63</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IArrow
+--
++setType(String type): void
++setOrigin(String origin): void
++setEnd(String end): void
+
++getType(): String
++getOrigin(): String
++getEnd(): String
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>543</y>
+      <w>24</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>972</x>
+      <y>621</y>
+      <w>30</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1053</x>
+      <y>546</y>
+      <w>57</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1056</x>
+      <y>552</y>
+      <w>54</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;50.0;10.0;50.0;230.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1086</x>
+      <y>561</y>
+      <w>24</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;260.0;60.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>666</y>
+      <w>21</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;50.0;200.0;50.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>732</y>
+      <w>36</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>741</y>
+      <w>48</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;140.0;140.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1305</x>
+      <y>807</y>
+      <w>126</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>330.0;80.0;400.0;80.0;400.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>849</y>
+      <w>57</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITypeInsn
+--
++ setType(String type): void
+
++ getType(): String
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1482</x>
+      <y>855</y>
+      <w>24</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1401</x>
+      <y>852</y>
+      <w>33</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1185</x>
+      <y>627</y>
+      <w>33</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1260</x>
+      <y>597</y>
+      <w>180</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>480.0;820.0;580.0;820.0;580.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1146</x>
+      <y>504</y>
+      <w>39</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-(+)
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0;110.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>474</y>
+      <w>129</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;static&gt;&gt;
+_Builder_
+--
+-Files: List&lt;IFile&gt;
+-Patterns: List&lt;IPattern&gt;
+-Arrows: List&lt;IArrow&gt;
+--
++Builder(List&lt;String&gt; fileNames): ctor
++sequences(List&lt;String&gt; signatures, int depth): void?
++arrows(List&lt;String&gt; arrowTypes, Boolean includeAll): List&lt;IArrow&gt;
++patterns(List&lt;String&gt; patternTypes): List&lt;IPattern&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>846</x>
+      <y>477</y>
+      <w>132</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IBuilder
+--
++Builder(List&lt;String&gt; fileNames): ctor
++sequences(List&lt;String&gt; signatures, int depth): void?
++arrows(List&lt;String&gt; arrowTypes, Boolean includeAll): List&lt;IArrow&gt;
++patterns(List&lt;String&gt; patternTypes): List&lt;IPattern&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>975</x>
+      <y>486</y>
+      <w>51</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1242</x>
+      <y>192</y>
+      <w>24</w>
+      <h>348</h>
+    </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>340.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;1140.0;10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1647</x>
-      <y>315</y>
-      <w>81</w>
-      <h>135</h>
+      <x>1242</x>
+      <y>231</y>
+      <w>24</w>
+      <h>309</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1010.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>597</x>
+      <y>294</y>
+      <w>228</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>740.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1026</x>
+      <y>288</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Parser&lt;T&gt;
+--
++parse(): List&lt;T&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1086</x>
+      <y>294</y>
+      <w>45</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;600.0;130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>969</x>
+      <y>222</y>
+      <w>63</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0;70.0;130.0;10.0;130.0</additional_attributes>
+    <additional_attributes>190.0;250.0;130.0;250.0;130.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1647</x>
-      <y>315</y>
-      <w>81</w>
-      <h>243</h>
+      <x>969</x>
+      <y>294</y>
+      <w>63</w>
+      <h>9</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0;70.0;250.0;10.0;250.0</additional_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1647</x>
-      <y>315</y>
-      <w>81</w>
-      <h>351</h>
+      <x>972</x>
+      <y>294</y>
+      <w>60</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0;70.0;370.0;10.0;370.0</additional_attributes>
+    <additional_attributes>180.0;10.0;120.0;10.0;120.0;160.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>297</y>
-      <w>90</w>
-      <h>117</h>
+      <x>597</x>
+      <y>300</y>
+      <w>24</w>
+      <h>51</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0;10.0;110.0;80.0;110.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;150.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>297</y>
-      <w>90</w>
-      <h>243</h>
+      <x>597</x>
+      <y>300</y>
+      <w>24</w>
+      <h>96</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0;10.0;250.0;80.0;250.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;300.0;10.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>297</y>
-      <w>90</w>
-      <h>351</h>
+      <x>597</x>
+      <y>300</y>
+      <w>24</w>
+      <h>141</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0;10.0;370.0;80.0;370.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;450.0;10.0;450.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
+      <x>597</x>
+      <y>300</y>
+      <w>24</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;600.0;10.0;600.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>231</x>
+      <y>453</y>
+      <w>174</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>ClassFieldVisitor
+--
+-node: IFile
+-field: IInnerNode
+--
++ClassFieldVisitor(int api): ctor
++ClassFieldVisitor(int api, ClassVisitor decorated): ctor
++ClassFieldVisitor(int api, ClassVisitor decorated, IFile node): ctor
++visitField(int access, String name, String desc, String signature, Object value): FieldVisitor
+-addAccessLevel(int access): void
+-addType(String desc): void
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>516</y>
+      <w>195</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>ClassMethodVisitor
+--
+-node: IFile
+-method: IMethod
+--
++ClassMethodVisitor(int api): ctor
++ClassMethodVisitor(int api, ClassVisitor decorated): ctor
++ClassMethodVisitor(int api, ClassVisitor decorated, IFile node): ctor
++visitMethod(int access, String name, String desc, String signature, String[] exceptions): MethodVisitor
+-addArguments(String desc, String name): void
+-addReturnType(String desc): void
+-addAccessLevel(int access): void
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
       <y>405</y>
-      <w>468</w>
-      <h>27</h>
+      <w>195</w>
+      <h>39</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>500.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>ClassDeclarationVisitor
+--
+-node: IFile
+--
++ClassDeclarationVisitor(int api): ctor
++ClassDeclarationVisitor(int api, IFile node): ctor
++visit(int version, int access, String name, String signature, String superName, String[] interfaces): void
+-addType(int access): void
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>717</x>
+      <y>333</y>
+      <w>63</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/Detector/
+--
+-pattern: String
+-files: List&lt;IFile&gt;
+--
++detect(): List&lt;IPattern&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>372</y>
+      <w>108</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SingletonDetector
+--
+-pattern: String
+-files: List&lt;IFile&gt;
+--
++SingletonDetector(String pattern, List&lt;IFile&gt; files): ctor
++detect(): List&lt;IPattern&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>411</y>
+      <w>108</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>DecoratorDetector
+--
+-pattern: String
+-files: List&lt;IFile&gt;
+--
++DecoratorDetector(String pattern, List&lt;IFile&gt; files): ctor
++detect(): List&lt;IPattern&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>450</y>
+      <w>108</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>AdapterDetector
+--
+-pattern: String
+-files: List&lt;IFile&gt;
+--
++AdapterDetector(String pattern, List&lt;IFile&gt; files): ctor
++detect(): List&lt;IPattern&gt;
+
+bg=red</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>999</x>
-      <y>522</y>
-      <w>135</w>
-      <h>27</h>
+      <x>777</x>
+      <y>354</y>
+      <w>21</w>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;100.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>648</y>
-      <w>495</w>
-      <h>27</h>
+      <x>777</x>
+      <y>354</y>
+      <w>21</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;220.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>777</x>
+      <y>354</y>
+      <w>21</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;350.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>777</x>
+      <y>339</y>
+      <w>81</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>246</y>
+      <w>129</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>SequenceParser
+--
+-files: List&lt;IFile&gt;
+-signatures: List&lt;String&gt;
+-depth: int
+--
++FileParser(List&lt;IFile&gt; files, List&lt;String&gt; signatures, int depth): ctor
++parse(): List&lt;IFile&gt;
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>966</x>
+      <y>261</y>
+      <w>66</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>200.0;120.0;140.0;120.0;140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>252</y>
+      <w>504</w>
+      <h>87</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>530.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0;1660.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>246</x>
+      <y>252</y>
+      <w>600</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0;1980.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>213</y>
+      <w>555</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;400.0;10.0;10.0;1830.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>246</x>
+      <y>213</y>
+      <w>651</w>
+      <h>93</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;290.0;10.0;10.0;2150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1788</x>
+      <y>90</y>
+      <w>75</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IEncoder
+--
++encode(IModel model): StringBuilder
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1698</x>
+      <y>129</y>
+      <w>75</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>TextEncoder
+--
+
+--
++encode(IModel model): StringBuilder
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1785</x>
+      <y>129</y>
+      <w>75</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>DotEncoder
+--
+
+--
++encode(IModel model): StringBuilder
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1872</x>
+      <y>129</y>
+      <w>75</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>SequenceEncoder
+--
+
+--
++encode(IModel model): StringBuilder
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1731</x>
+      <y>108</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>310.0;10.0;310.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1821</x>
+      <y>108</y>
+      <w>9</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1821</x>
+      <y>108</y>
+      <w>96</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;300.0;40.0;300.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1512</x>
+      <y>90</y>
+      <w>282</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=[String]-&gt;
+
+</panel_attributes>
+    <additional_attributes>20.0;20.0;920.0;20.0</additional_attributes>
   </element>
 </diagram>

@@ -4,7 +4,6 @@ import java.util.List;
 
 public interface IMethod extends IInnerNode{
 	public void addArg(INode arg);
-//	public void addMethodInsn(IMethodInsn methodInsn);
 	public void addTypeInsn(ITypeInsn typeInsn);
 	public void addInnerMethod(IMethod method);
 	public void setClassName(String className);
@@ -12,7 +11,6 @@ public interface IMethod extends IInnerNode{
 	public void setParent(IMethod parent);
 	
 	public List<INode> getArgs();
-//	public List<IMethodInsn> getMethodInsn();
 	public List<ITypeInsn> getTypeInsn();
 	public List<IMethod> getInnerMethods();
 	public String getClassName();

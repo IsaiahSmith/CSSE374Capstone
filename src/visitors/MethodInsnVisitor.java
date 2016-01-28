@@ -13,15 +13,15 @@ import nodes.MethodInsn;
 import nodes.MethodNode;
 import nodes.TypeInsn;
 
-public class MethodBodyVisitor extends MethodVisitor{
+public class MethodInsnVisitor extends MethodVisitor{
 
 	private IMethod method;
 
-	public MethodBodyVisitor(int api, MethodVisitor decorated) {
+	public MethodInsnVisitor(int api, MethodVisitor decorated) {
 		super(api, decorated);
 	}
 	
-	public MethodBodyVisitor(int api, MethodVisitor toDecorate, IMethod method) {
+	public MethodInsnVisitor(int api, MethodVisitor toDecorate, IMethod method) {
 		super(api, toDecorate);
 		this.method = method;
 	}
@@ -76,12 +76,5 @@ public class MethodBodyVisitor extends MethodVisitor{
 		
 		m.setType(returnType);
 		return m;
-	}
-	
-	private String sanitize(String input) {
-		String temp = input.replace("/", "_");
-		temp = temp.replace(".", "_");
-		
-		return temp;
 	}
 }

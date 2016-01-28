@@ -59,10 +59,4 @@ public class ClassFieldVisitor extends ClassVisitor{
 		this.field.setType(type);
 		
 	}
-	private String sanitize(String input) {
-		String temp = input.replace("/", "_");
-		temp = temp.replace(".", "_");
-		
-		return temp;
-	}
 }

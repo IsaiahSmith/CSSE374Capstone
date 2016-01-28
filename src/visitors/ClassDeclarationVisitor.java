@@ -52,10 +52,4 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 		node.setType(type);
 	}
 	
-	private String sanitize(String input) {
-		String temp = input.replace("/", "_");
-		temp = temp.replace(".", "_");
-		
-		return temp;
-	}
 }
