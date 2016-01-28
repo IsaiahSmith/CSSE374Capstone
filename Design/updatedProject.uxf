@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>450</y>
-      <w>230</w>
-      <h>120</h>
+      <x>1107</x>
+      <y>99</y>
+      <w>207</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>DesignMaker
 --
 -design: IDesignBuilder
 -encoders: Map&lt;String, IEncoder&gt;
+-builders: Map&lt;String, DesignFactory&gt;
 --
 +DesignMaker(): ctor
 +make(): void
@@ -22,10 +23,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>340</y>
-      <w>170</w>
-      <h>50</h>
+      <x>1134</x>
+      <y>0</y>
+      <w>153</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -36,12 +37,305 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>380</y>
-      <w>30</w>
-      <h>90</h>
+      <x>1197</x>
+      <y>36</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1395</x>
+      <y>387</y>
+      <w>261</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>ClassDesignBuilder
+--
+-files: List&lt;String&gt;
+--
++ClassDesignBuilder(List&lt;String&gt; files): ctor
++build(): IModel
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1503</x>
+      <y>279</y>
+      <w>153</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DesignBuilder
+--
+
+--
++build(): IModel
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1116</x>
+      <y>486</y>
+      <w>540</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>SequenceDesignBuilder
+--
+-depth: int
+-file: IFile
+--
++SequenceDesignBuilder(String class, String method, List&lt;String&gt; params, int depth): ctor 
++build(): IModel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>270</y>
+      <w>225</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+DesignFactory
+--
+
+--
++createDesignBuilder(): DesignBuilder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>378</y>
+      <w>306</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>ClassDesignBuilderCreator
+--
+-files: List&lt;String&gt;
+--
++ClassDesignBuilderCreator(List&lt;String&gt; files): ctor
++createDesignBuilder(): DesignBuilder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>486</y>
+      <w>360</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>SequenceDesignBuilderCreator
+--
+-files: List&lt;String&gt;
+--
++ClassDesignBuilderCreator(List&lt;String&gt; files): ctor
++createDesignBuilder(): DesignBuilder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>612</y>
+      <w>306</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>UMLDesignBuilderCreator
+--
+-files: List&lt;String&gt;
+-IModel: model
+--
++UMLDesignBuilderCreator(List&lt;String&gt; files): ctor
++createUMLBuilder(): DesignBuilder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>405</y>
+      <w>63</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;270.0;50.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>657</y>
+      <w>477</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>DesignFactory classDesignBuilderCreator = new ClassDesignBuilderCreator(files);
+DesignBuilder classDesignBuilder = classDesignBuilder.createDesignBuilder();
+this.model = classDesignBuilder.build(); 
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>666</y>
+      <w>207</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>612</y>
+      <w>234</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>UMLDesignBuilder
+--
+-model: IModel
+--
++UMLDesignBuilder(IModel model): ctor
++build():IModel
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>153</y>
+      <w>252</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=[String]-&gt;
+
+</panel_attributes>
+    <additional_attributes>250.0;10.0;210.0;10.0;210.0;180.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1197</x>
+      <y>216</y>
+      <w>324</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>340.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1647</x>
+      <y>315</y>
+      <w>81</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1647</x>
+      <y>315</y>
+      <w>81</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;250.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1647</x>
+      <y>315</y>
+      <w>81</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;370.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>297</y>
+      <w>90</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0;10.0;110.0;80.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>297</y>
+      <w>90</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0;10.0;250.0;80.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>297</y>
+      <w>90</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0;10.0;370.0;80.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>405</y>
+      <w>468</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>500.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>522</y>
+      <w>135</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>648</y>
+      <w>495</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>530.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
