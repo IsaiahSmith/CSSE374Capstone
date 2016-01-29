@@ -1,4 +1,4 @@
-package arrowDesignBuilder;
+package parser.linker;
 
 import java.util.ArrayList;
 import java.util.List;
