@@ -1,9 +1,12 @@
 package arrowDesignBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import arrows.IArrow;
+import model.IArrow;
 import model.IFile;
+import model.IModel;
+import model.INode;
 
 public abstract class Linker {
 	List<IFile> files;
@@ -12,11 +15,11 @@ public abstract class Linker {
 	
 	public abstract List<IArrow> link();
 	
-//	List<String> getFileNames() {
-//		List<String> names = new ArrayList<String>();
-//		for(INode node:model.getFiles()){
-//			names.add(node.getName());
-//		}
-//		return names;
-//	}
+	List<String> getFileNames() {
+		List<String> names = new ArrayList<String>();
+		for(IFile file : files){
+			names.add(file.getName());
+		}
+		return names;
+	}
 }

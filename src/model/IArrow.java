@@ -1,4 +1,4 @@
-package arrows;
+package model;
 
 public interface IArrow {
 	public void setType(String type);

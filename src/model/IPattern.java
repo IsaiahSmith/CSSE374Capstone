@@ -1,8 +1,6 @@
-package pattern;
+package model;
 
 import java.util.List;
-
-import model.IFile;
 
 public interface IPattern {
 	public void setName(String name);

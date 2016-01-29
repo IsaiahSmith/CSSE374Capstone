@@ -1,4 +1,6 @@
-package arrows;
+package nodes;
+
+import model.IArrow;
 
 public class Arrow implements IArrow {
 	private String type;

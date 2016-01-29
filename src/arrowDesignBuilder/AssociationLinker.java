@@ -3,10 +3,10 @@ package arrowDesignBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import arrows.Arrow;
-import arrows.IArrow;
+import model.IArrow;
 import model.IFile;
 import model.IInnerNode;
+import nodes.Arrow;
 
 public class AssociationLinker extends Linker{
 

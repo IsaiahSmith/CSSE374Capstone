@@ -3,9 +3,9 @@ package arrowDesignBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import arrows.Arrow;
-import arrows.IArrow;
+import model.IArrow;
 import model.IFile;
+import nodes.Arrow;
 
 public class InheritanceLinker extends Linker {
 	
@@ -23,7 +23,7 @@ public class InheritanceLinker extends Linker {
 				if(includeAll){
 					addArrow(left, right, inherArrows);
 				}else{
-					if(true /*check if right is in files*/)
+					if(getFileNames().contains(right))
 						addArrow(left, right, inherArrows);
 				}
 			}

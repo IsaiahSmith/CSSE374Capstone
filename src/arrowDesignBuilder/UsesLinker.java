@@ -5,12 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import arrows.Arrow;
-import arrows.IArrow;
+import model.IArrow;
 import model.IFile;
 import model.IMethod;
 import model.INode;
 import model.ITypeInsn;
+import nodes.Arrow;
 
 public class UsesLinker extends Linker {
 
