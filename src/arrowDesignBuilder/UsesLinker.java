@@ -42,7 +42,7 @@ public class UsesLinker extends Linker {
 					if(includeAll){
 						addArrow(left, use, usesArrows);
 					}else{
-						if(true /*check if right is in files*/)
+						if(getFileNames().contains(use))
 							addArrow(left, use, usesArrows);
 					}
 				}

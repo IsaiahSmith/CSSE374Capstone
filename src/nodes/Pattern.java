@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.IArrow;
 import model.IFile;
 import model.IPattern;
 
@@ -12,11 +13,11 @@ public class Pattern implements IPattern {
 	
 	private String name;
 	private List<IFile> nodes;
-	private Map<String, String> arrows;
+	private List<IArrow> arrows;
 	
 	public Pattern(String name){
 		this.name = name;
-		this.arrows = new HashMap<String, String>();
+		this.arrows = new ArrayList<IArrow>();
 		this.nodes = new ArrayList<IFile>();
 	}
 
@@ -31,8 +32,8 @@ public class Pattern implements IPattern {
 	}
 
 	@Override
-	public void addArrow(String originNode, String endNode) {
-		this.arrows.put(originNode, endNode);
+	public void addArrow(IArrow arrow) {
+		this.arrows.add(arrow);
 	}
 
 	@Override
@@ -46,8 +47,8 @@ public class Pattern implements IPattern {
 	}
 
 	@Override
-	public boolean containsArrow(String origin, String end) {
-		return this.arrows.get(origin).equals(end);
+	public boolean containsArrow(IArrow arrow) {
+		return this.arrows.contains(arrow);
 	}
 
 }

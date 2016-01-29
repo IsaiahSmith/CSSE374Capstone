@@ -24,7 +24,7 @@ public class AssociationLinker extends Linker{
 				if(includeAll){
 					addArrow(left, right, assocArrows);
 				}else{
-					if(true/*check if right is in this.files*/){
+					if(getFileNames().contains(right)){
 						addArrow(left, right, assocArrows);
 					}
 				}

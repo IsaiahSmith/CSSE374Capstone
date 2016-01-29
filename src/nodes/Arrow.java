@@ -8,7 +8,9 @@ public class Arrow implements IArrow {
 	private String end;
 	
 	public Arrow(){
-		
+		this.type = "";
+		this.origin = "";
+		this.end = "";
 	}
 
 	@Override
@@ -39,5 +41,28 @@ public class Arrow implements IArrow {
 	@Override
 	public String getEnd() {
 		return this.end;
+	}
+
+	@Override
+	public boolean equals(IArrow arrow) {
+		if(this.origin.equals(arrow.getOrigin()) && 
+				this.end.equals(arrow.getEnd()) &&
+				this.type.equals(arrow.getType())){
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		if(this.equals(new Arrow()))
+			return "<NULL_ARROW>";
+		String str = "";
+		str += this.type;
+		str += ": ";
+		str += this.origin;
+		str += " -> ";
+		str += this.end;
+		return str;
 	}
 }
