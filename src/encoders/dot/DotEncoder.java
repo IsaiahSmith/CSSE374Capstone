@@ -10,14 +10,15 @@ public class DotEncoder implements IEncoder {
 	
 	
 	@Override
-	public StringBuilder encode(IModel model, boolean includeAll){
-		ADot dot = new StandardDot(includeAll);
-		dot = new DotClassDecorator(dot, model);
-		dot = new DotImplementsDecorator(dot, model);
-		dot = new DotInheritanceDecorator(dot, model);
-		dot = new DotUsesDecorator(dot, model);
-		dot = new DotAssociationDecorator(dot, model);
-		return dot.getDot().append("\n}");
+	public StringBuilder encode(IModel model){
+//		ADot dot = new StandardDot(includeAll);
+//		dot = new DotClassDecorator(dot, model);
+//		dot = new DotImplementsDecorator(dot, model);
+//		dot = new DotInheritanceDecorator(dot, model);
+//		dot = new DotUsesDecorator(dot, model);
+//		dot = new DotAssociationDecorator(dot, model);
+//		return dot.getDot().append("\n}");
+		return null;
 	}
 	
 	

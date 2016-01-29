@@ -18,7 +18,7 @@ public class SDEditEncoder implements IEncoder {
 	List<String> news;
 	
 	@Override
-	public StringBuilder encode(IModel model, boolean IncludeAll) {
+	public StringBuilder encode(IModel model) {
 		
 		IMethod method = model.getFiles().get(0).getMethods().get(0);
 		this.classes = new ArrayList<String>();
