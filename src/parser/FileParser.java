@@ -1,4 +1,4 @@
-package builders;
+package parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,24 +9,22 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;
 
 import model.IFile;
-import model.IModel;
 import nodes.FileNode;
-import nodes.Model;
 import parser.visitors.classvisitors.ClassDeclarationVisitor;
 import parser.visitors.classvisitors.ClassFieldVisitor;
 import parser.visitors.classvisitors.ClassMethodVisitor;
 
-public class ClassDesignBuilder implements IDesignBuilder{
+public class FileParser implements Parser<IFile> {
+	private List<String> fileNames;
 	
-	private List<String> files;
-	
-	public ClassDesignBuilder(List<String> files) {
-		this.files = files;
+	public FileParser(List<String> fileNames){
+		this.fileNames = fileNames;
 	}
 	
-	public IModel build(){
-		IModel model = new Model();
-		for(String className: this.files) {
+	@Override
+	public List<IFile> parse() {
+		List<IFile> files = new ArrayList<IFile>();
+		for(String className: this.fileNames) {
 			
 			IFile node = new FileNode();
 			
@@ -49,8 +47,9 @@ public class ClassDesignBuilder implements IDesignBuilder{
 			// Tell the Reader to use our (heavily decorated) ClassVisitor to visit the class
 			
 			reader.accept(methodVisitor, ClassReader.EXPAND_FRAMES);
-			model.addFile(node);
+			files.add(node);
 		}
-		return model;
+		return files;
 	}
+
 }

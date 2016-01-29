@@ -1,4 +1,4 @@
-package visitors;
+package parser.visitors.classvisitors;
 
 
 import org.objectweb.asm.ClassVisitor;

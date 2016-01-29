@@ -1,4 +1,4 @@
-package visitors;
+package parser.visitors.methodvisitors;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;

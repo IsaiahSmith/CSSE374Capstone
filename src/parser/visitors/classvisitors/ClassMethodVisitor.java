@@ -1,4 +1,4 @@
-package visitors;
+package parser.visitors.classvisitors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +16,8 @@ import model.INode;
 import nodes.ArgumentNode;
 import nodes.FileNode;
 import nodes.MethodNode;
+import parser.visitors.methodvisitors.MethodInsnVisitor;
+import parser.visitors.methodvisitors.MethodTypeInsnVisitor;
 
 public class ClassMethodVisitor extends ClassVisitor{
 	

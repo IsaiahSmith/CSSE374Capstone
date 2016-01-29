@@ -1,4 +1,4 @@
-package visitors;
+package parser.visitors.classvisitors;
 
 import java.util.ArrayList;
 import java.util.List;

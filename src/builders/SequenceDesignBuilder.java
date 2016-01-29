@@ -16,8 +16,8 @@ import nodes.ArgumentNode;
 import nodes.FileNode;
 import nodes.MethodNode;
 import nodes.Model;
-import visitors.ClassDeclarationVisitor;
-import visitors.ClassMethodVisitor;
+import parser.visitors.classvisitors.ClassDeclarationVisitor;
+import parser.visitors.classvisitors.ClassMethodVisitor;
 
 public class SequenceDesignBuilder implements IDesignBuilder{
 	
