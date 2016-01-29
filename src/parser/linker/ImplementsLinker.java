@@ -9,8 +9,11 @@ import nodes.Arrow;
 
 public class ImplementsLinker extends Linker{
 	
-	public ImplementsLinker(List<IFile> files, String type, boolean includeAll){
+	public static String TYPE = "Implements";
+	
+	public ImplementsLinker(List<IFile> files, boolean includeAll){
 		this.files = files;
+		this.includeAll = includeAll;
 	}
 	
 	@Override
@@ -37,7 +40,7 @@ public class ImplementsLinker extends Linker{
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(left);
 		arrow.setEnd(right);
-		arrow.setType("Implements");
+		arrow.setType(ImplementsLinker.TYPE);
 		arrows.add(arrow);		
 	}
 }

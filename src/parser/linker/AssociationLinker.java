@@ -9,9 +9,12 @@ import model.IInnerNode;
 import nodes.Arrow;
 
 public class AssociationLinker extends Linker{
-
-	public AssociationLinker(List<IFile> files, String type, boolean includeAll){
+	
+	public static String TYPE = "Association";
+	
+	public AssociationLinker(List<IFile> files, boolean includeAll){
 		this.files = files;
+		this.includeAll = includeAll;
 	}
 	
 	@Override
@@ -37,7 +40,7 @@ public class AssociationLinker extends Linker{
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(left);
 		arrow.setEnd(right);
-		arrow.setType("Association");
+		arrow.setType(AssociationLinker.TYPE);
 		arrows.add(arrow);
 		
 	}

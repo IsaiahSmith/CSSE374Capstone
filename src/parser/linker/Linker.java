@@ -5,12 +5,9 @@ import java.util.List;
 
 import model.IArrow;
 import model.IFile;
-import model.IModel;
-import model.INode;
 
 public abstract class Linker {
 	List<IFile> files;
-	String type;
 	boolean includeAll;
 	
 	public abstract List<IArrow> link();

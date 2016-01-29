@@ -9,8 +9,11 @@ import nodes.Arrow;
 
 public class InheritanceLinker extends Linker {
 	
-	public InheritanceLinker(List<IFile> files, String type, boolean includeAll){
+	public static String TYPE = "Inheritance";
+	
+	public InheritanceLinker(List<IFile> files, boolean includeAll){
 		this.files = files;
+		this.includeAll = includeAll;
 	}
 
 	@Override
@@ -35,7 +38,7 @@ public class InheritanceLinker extends Linker {
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(left);
 		arrow.setEnd(right);
-		arrow.setType("Implements");
+		arrow.setType(InheritanceLinker.TYPE);
 		arrows.add(arrow);		
 	}
 }

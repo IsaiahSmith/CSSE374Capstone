@@ -14,8 +14,11 @@ import nodes.Arrow;
 
 public class UsesLinker extends Linker {
 
-	public UsesLinker(List<IFile> files, String type, boolean includeAll){
+	public static String TYPE = "Uses";
+	
+	public UsesLinker(List<IFile> files, boolean includeAll){
 		this.files = files;
+		this.includeAll = includeAll;
 	}
 	
 	@Override
@@ -55,7 +58,7 @@ public class UsesLinker extends Linker {
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(left);
 		arrow.setEnd(right);
-		arrow.setType("Uses");
+		arrow.setType(UsesLinker.TYPE);
 		arrows.add(arrow);		
 	}
 }
