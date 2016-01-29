@@ -26,6 +26,7 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
 		this.node.setName(name);
 		addType(access);
+		addAccessLevel(access);
 		if (superName != null) {
 			this.node.setSuperName(superName);
 		}
@@ -38,6 +39,26 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 		}		
 		
 		super.visit(version, access, name, signature, superName, interfaces);
+	}
+	
+	private void addAccessLevel(int access) {
+		String level="";
+		String modifier="";
+		if((access&Opcodes.ACC_PUBLIC)!=0){
+			level="public";
+		}else if((access&Opcodes.ACC_PROTECTED)!=0){
+			level="protected";
+		}else if((access&Opcodes.ACC_PRIVATE)!=0){
+			level="private";
+		}else{
+			level="default";
+		}
+		
+		if((access&Opcodes.ACC_STATIC)!=0){
+			modifier="static";
+		}
+		this.node.setVisibility(level);
+		this.node.addModifier(modifier);
 	}
 	
 	private void addType(int access) {

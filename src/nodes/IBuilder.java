@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.IArrow;
 import model.IFile;
+import model.IModel;
 import model.IPattern;
 
 public interface IBuilder {
@@ -14,4 +15,5 @@ public interface IBuilder {
 	public List<IFile> getFiles();
 	public List<IArrow> getArrows();
 	public List<IPattern> getPatterns();
+	public IModel build();
 }

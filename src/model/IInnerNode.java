@@ -1,7 +1,11 @@
 package model;
 
+import java.util.List;
+
 public interface IInnerNode extends INode{
-	public void setAccessLevel(String accessLevel);
+	public void setVisibility(String accessLevel);
+	public void addModifier(String modifier);
 	
-	public String getAccessLevel();
+	public String getVisibility();
+	public List<String> getModifiers();
 }

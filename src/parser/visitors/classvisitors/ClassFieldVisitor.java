@@ -43,6 +43,7 @@ public class ClassFieldVisitor extends ClassVisitor{
 	}
 	private void addAccessLevel(int access) {
 		String level="";
+		String modifier="";
 		if((access&Opcodes.ACC_PUBLIC)!=0){
 			level="public";
 		}else if((access&Opcodes.ACC_PROTECTED)!=0){
@@ -52,7 +53,12 @@ public class ClassFieldVisitor extends ClassVisitor{
 		}else{
 			level="default";
 		}
-		this.field.setAccessLevel(level);
+		
+		if((access&Opcodes.ACC_STATIC)!=0){
+			modifier="static";
+		}
+		this.field.setVisibility(level);
+		this.field.addModifier(modifier);
 	}
 	private void addType(String desc) {
 		String type = Type.getReturnType(desc).getClassName();

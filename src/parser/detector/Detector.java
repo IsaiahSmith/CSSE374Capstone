@@ -10,4 +10,7 @@ public abstract class Detector {
 	List<IFile> files;
 	
 	public abstract List<IPattern> detect();
+	public static String sanitize(String input) {
+		return input.replaceAll("\\.", "_").replaceAll("/", "_");
+	}
 }

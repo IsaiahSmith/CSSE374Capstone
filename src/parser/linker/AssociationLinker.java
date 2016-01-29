@@ -20,7 +20,7 @@ public class AssociationLinker extends Linker{
 	@Override
 	public List<IArrow> link() {
 		List<IArrow> assocArrows = new ArrayList<IArrow>();
-		for(IFile file : this.files){
+		for(IFile file : this.files) {
 			for(IInnerNode field : file.getFields()){
 				String left = file.getName();
 				String right = field.getType();

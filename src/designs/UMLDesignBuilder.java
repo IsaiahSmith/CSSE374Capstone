@@ -34,10 +34,11 @@ public class UMLDesignBuilder implements DesignBuilder {
 	@Override
 	public IModel build() {
 		
-		return (IModel) new Model
+		return new Model
 				.Builder(fileNames)
 				.arrows(arrowTypes, includeAll)
-				.patterns(patternTypes);
+				.patterns(patternTypes)
+				.build();
 	}
 
 }

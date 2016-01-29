@@ -1,0 +1,18 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	java_lang_Runtime [ 
+		label = "{java_lang_Runtime\n\<\<Singleton\>\>|private currentRuntime : java_lang_Runtime\l|public getRuntime() : java_lang_Runtime\lpublic exit(int arg0) : void\lpublic addShutdownHook(java_lang_Thread arg0) : void\lpublic removeShutdownHook(java_lang_Thread arg0) : boolean\lpublic halt(int arg0) : void\lpublic runFinalizersOnExit(boolean arg0) : void\lpublic exec(java_lang_String arg0) : java_lang_Process\lpublic exec(java_lang_String arg0, java_lang_String[] arg1) : java_lang_Process\lpublic exec(java_lang_String arg0, java_lang_String[] arg1, java_io_File arg2) : java_lang_Process\lpublic exec(java_lang_String[] arg0) : java_lang_Process\lpublic exec(java_lang_String[] arg0, java_lang_String[] arg1) : java_lang_Process\lpublic exec(java_lang_String[] arg0, java_lang_String[] arg1, java_io_File arg2) : java_lang_Process\lpublic availableProcessors() : int\lpublic freeMemory() : long\lpublic totalMemory() : long\lpublic maxMemory() : long\lpublic gc() : void\lprivate runFinalization0() : void\lpublic runFinalization() : void\lpublic traceInstructions(boolean arg0) : void\lpublic traceMethodCalls(boolean arg0) : void\lpublic load(java_lang_String arg0) : void\ldefault load0(java_lang_Class arg0, java_lang_String arg1) : void\lpublic loadLibrary(java_lang_String arg0) : void\ldefault loadLibrary0(java_lang_Class arg0, java_lang_String arg1) : void\lpublic getLocalizedInputStream(java_io_InputStream arg0) : java_io_InputStream\lpublic getLocalizedOutputStream(java_io_OutputStream arg0) : java_io_OutputStream\l\l}",
+		color=blue
+	]
+	java_lang_Runtime->java_lang_Runtime [arrowhead=vee style=dashed]
+	}

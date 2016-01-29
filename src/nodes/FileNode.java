@@ -12,17 +12,21 @@ public class FileNode implements IFile {
 	private String Name;
 	private String Type;
 	private String SuperName;
+	private String visibility;
 	private List<IMethod> Methods;
 	private List<IInnerNode> Fields;
 	private List<IFile> Interfaces;
+	private List<String> Modifiers;
 	
 	public FileNode() {
 		this.Name = new String();
 		this.Type = new String();
 		this.SuperName = new String();
+		this.visibility = new String();
 		this.Methods = new ArrayList<IMethod>();
 		this.Fields = new ArrayList<IInnerNode>();
 		this.Interfaces = new ArrayList<IFile>();
+		this.Modifiers = new ArrayList<String>();
 	}
 	
 	@Override
@@ -108,6 +112,27 @@ public class FileNode implements IFile {
 		}
 			
 		return str;
+	}
+
+	@Override
+	public void setVisibility(String visibility) {
+		this.visibility = visibility;
+		
+	}
+
+	@Override
+	public String getVisibility() {
+		return this.visibility;
+	}
+
+	@Override
+	public void addModifier(String modifier) {
+		this.Modifiers.add(modifier);
+	}
+
+	@Override
+	public List<String> getModifiers() {
+		return this.Modifiers;
 	}
 
 }

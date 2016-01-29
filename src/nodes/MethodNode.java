@@ -13,10 +13,11 @@ public class MethodNode implements IMethod {
 	
 	private String Name;
 	private String Type;
-	private String AccessLevel;
+	private String Visibility;
 	private List<INode> Args;
 	private List<IMethod> InnerMethods;
 	private List<ITypeInsn> TypeInsns;
+	private List<String> Modifiers;
 	
 	private String ClassName;
 	private String Signature;
@@ -26,10 +27,11 @@ public class MethodNode implements IMethod {
 	public MethodNode() {
 		this.Name = new String();
 		this.Type = new String();
-		this.AccessLevel = new String();
+		this.Visibility = new String();
 		this.Args = new ArrayList<INode>();
 		this.InnerMethods = new ArrayList<IMethod>();
 		this.TypeInsns = new ArrayList<ITypeInsn>();
+		this.Modifiers = new ArrayList<String>();
 		this.ClassName = new String();
 		this.Signature = new String();
 		this.Parent = null;
@@ -45,8 +47,8 @@ public class MethodNode implements IMethod {
 	}
 	
 	@Override
-	public void setAccessLevel(String accessLevel) {
-		this.AccessLevel = accessLevel;
+	public void setVisibility(String accessLevel) {
+		this.Visibility = accessLevel;
 	}
 	
 	@Override
@@ -89,8 +91,8 @@ public class MethodNode implements IMethod {
 	}
 
 	@Override
-	public String getAccessLevel() {
-		return this.AccessLevel;
+	public String getVisibility() {
+		return this.Visibility;
 	}
 
 	@Override
@@ -130,7 +132,7 @@ public class MethodNode implements IMethod {
 	public String toString() {
 		String str = new String();
 		String[] typeSplit = this.Type.split("_");
-		str += this.AccessLevel + " " + typeSplit[typeSplit.length-1] + " " + this.Name + "(";
+		str += this.Visibility + " " + typeSplit[typeSplit.length-1] + " " + this.Name + "(";
 		if(this.Args.size()!=0) {
 			for(INode arg:this.Args)
 				str += arg.toString() + ", ";
@@ -175,6 +177,14 @@ public class MethodNode implements IMethod {
 		}
 		
 		return true;
+	}
+	@Override
+	public void addModifier(String modifier) {
+		this.Modifiers.add(modifier);
+	}
+	@Override
+	public List<String> getModifiers() {
+		return this.Modifiers;
 	}
 	
 }

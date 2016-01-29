@@ -21,9 +21,10 @@ public class SequenceDesignBuilder implements DesignBuilder {
 	@Override
 	public IModel build() {
 		
-		return (IModel)new Model
+		return new Model
 				.Builder(fileNames)
-				.sequences(this.methodSignatures, depth);
+				.sequences(this.methodSignatures, depth)
+				.build();
 	}
 
 }

@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public interface IFile extends INode {
+public interface IFile extends IInnerNode {
 	public void setSuperName(String superName);
 	public void addMethod(IMethod method);
 	public void addField(IInnerNode field);

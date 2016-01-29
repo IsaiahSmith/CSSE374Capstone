@@ -81,6 +81,7 @@ public class ClassMethodVisitor extends ClassVisitor{
 	
 	private void addAccessLevel(int access) {
 		String level="";
+		String modifier="";
 		if((access&Opcodes.ACC_PUBLIC)!=0){
 			level="public";
 		}else if((access&Opcodes.ACC_PROTECTED)!=0){
@@ -90,6 +91,10 @@ public class ClassMethodVisitor extends ClassVisitor{
 		}else{
 			level="default";
 		}
-		this.method.setAccessLevel(level);
+		if((access&Opcodes.ACC_STATIC)!=0){
+			modifier="static";
+		}
+		this.method.addModifier(modifier);
+		this.method.setVisibility(level);
 	}
 }

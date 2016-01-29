@@ -68,6 +68,11 @@ public class Model implements IModel {
 			return this.patterns;
 		}
 		
+		@Override
+		public IModel build() {
+			return new Model(this);
+		}
+		
 	}
 	
 	private Model(IBuilder builder) {

@@ -12,13 +12,13 @@ import model.IPattern;
 public class Pattern implements IPattern {
 	
 	private String name;
-	private List<IFile> nodes;
-	private List<IArrow> arrows;
+	private String node;
+	private IArrow arrow;
 	
 	public Pattern(String name){
 		this.name = name;
-		this.arrows = new ArrayList<IArrow>();
-		this.nodes = new ArrayList<IFile>();
+		this.arrow = new Arrow();
+		this.node = new String();
 	}
 
 	@Override
@@ -27,13 +27,13 @@ public class Pattern implements IPattern {
 	}
 
 	@Override
-	public void addNode(IFile file) {
-		this.nodes.add(file);
+	public void setNode(String file) {
+		this.node = file;
 	}
 
 	@Override
-	public void addArrow(IArrow arrow) {
-		this.arrows.add(arrow);
+	public void setArrow(IArrow arrow) {
+		this.arrow = arrow;
 	}
 
 	@Override
@@ -42,13 +42,13 @@ public class Pattern implements IPattern {
 	}
 
 	@Override
-	public List<IFile> getNodes() {
-		return this.nodes;
+	public String getNode() {
+		return this.node;
 	}
 
 	@Override
-	public boolean containsArrow(IArrow arrow) {
-		return this.arrows.contains(arrow);
+	public IArrow getArrow() {
+		return this.arrow;
 	}
 
 }

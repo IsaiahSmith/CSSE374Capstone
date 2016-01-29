@@ -38,7 +38,6 @@ public class MethodInsnVisitor extends MethodVisitor{
 		innerMethod.setClassName(owner);
 		innerMethod.setParent(method);
 		
-		//System.out.println("\nName: "+name+"\nOwner: "+owner+"\nDesc: "+desc);
 		
 		this.method.addInnerMethod(innerMethod);
 	}
@@ -67,7 +66,7 @@ public class MethodInsnVisitor extends MethodVisitor{
 		}else{
 			level="default";
 		}
-		m.setAccessLevel(level);
+		m.setVisibility(level);
 		return m;
 	}
 	

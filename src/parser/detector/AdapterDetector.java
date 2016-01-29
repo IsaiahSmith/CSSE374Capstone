@@ -19,30 +19,9 @@ public class AdapterDetector extends Detector{
 	
 	@Override
 	public List<IPattern> detect() {
-		List<IPattern> patterns = new ArrayList<IPattern>();
-		for(IFile file:this.files) {
-			if(this.isSingleton(file)) {
-				IPattern pattern = new Pattern(PATTERN);
-				pattern.addNode(file);
-				patterns.add(pattern);
-			}
-		}
-		
-		return patterns;
+		// TODO: implement this
+		return new ArrayList<IPattern>();
 	}
 	
-	private boolean isSingleton(IFile file) {
-		boolean allPrivateConstructors = true;
-		boolean hasPrivateInstance = false;
-		for(IInnerNode field:file.getFields())
-			if(field.getType().equals(file.getName()) && field.getAccessLevel().equals("private"))
-				hasPrivateInstance = true;
-		for(IMethod method:file.getMethods()) {
-			if(method.getName().equals("<init>")){
-				if(!method.getType().equals("private"))
-					allPrivateConstructors = false;
-			}
-		}
-		return allPrivateConstructors && hasPrivateInstance;
-	}
+	
 }

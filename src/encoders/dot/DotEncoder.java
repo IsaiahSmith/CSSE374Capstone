@@ -11,14 +11,10 @@ public class DotEncoder implements IEncoder {
 	
 	@Override
 	public StringBuilder encode(IModel model){
-//		ADot dot = new StandardDot(includeAll);
-//		dot = new DotClassDecorator(dot, model);
-//		dot = new DotImplementsDecorator(dot, model);
-//		dot = new DotInheritanceDecorator(dot, model);
-//		dot = new DotUsesDecorator(dot, model);
-//		dot = new DotAssociationDecorator(dot, model);
-//		return dot.getDot().append("\n}");
-		return null;
+		Dot dot = new StandardDot();
+		dot = new DotFileDecorator(dot, model);
+		dot = new DotArrowDecorator(dot, model);
+		return new StringBuilder(dot.getDot().append("}").toString().replaceAll("\\.", "_").replaceAll("/", "_"));
 	}
 	
 	

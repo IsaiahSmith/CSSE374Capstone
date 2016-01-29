@@ -24,8 +24,6 @@ public class MethodTypeInsnVisitor extends MethodVisitor {
 	@Override
 	public void visitTypeInsn(int opcode, String type) {
 		super.visitTypeInsn(opcode, type);
-		System.out.println("Method: "+method.getName());
-		System.out.println("Type: "+type);
 		if((opcode&Opcodes.NEW)!=0){
 			ITypeInsn typeInsn = new TypeInsn();
 			typeInsn.setType(type);

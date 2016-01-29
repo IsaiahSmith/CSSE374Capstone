@@ -6,10 +6,17 @@ import java.util.List;
 import model.IModel;
 import model.INode;
 
-public abstract class DotDecorator extends ADot {
-	IModel model;
-	ADot toBeDecorated;
-	public abstract StringBuilder getDot();
+public abstract class DotDecorator implements Dot {
+	protected final Dot decoratedDot;
+	protected IModel model;
+	
+	public DotDecorator(Dot dot, IModel model) {
+		this.decoratedDot = dot;
+		this.model = model;
+	}
+	public StringBuilder getDot() {
+		return this.decoratedDot.getDot();
+	}
 	
 	List<String> getFileNames() {
 		List<String> names = new ArrayList<String>();

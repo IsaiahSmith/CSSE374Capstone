@@ -1,0 +1,41 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	encoders_dot_Dot [ 
+		label = "{\<\<interface\>\>\lencoders_dot_Dot||public getDot() : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_DotArrowDecorator [ 
+		label = "{encoders_dot_DotArrowDecorator|private patternStyles : java_util_Map\lprivate arrowHeads : java_util_Map\lprivate arrowStyles : java_util_Map\l|public getDot() : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_DotDecorator [ 
+		label = "{\<\<abstract\>\>\lencoders_dot_DotDecorator|protected decoratedDot : encoders_dot_Dot\lprotected model : model_IModel\l|public getDot() : java_lang_StringBuilder\ldefault getFileNames() : java_util_List\l\l}"
+	]
+	encoders_dot_DotEncoder [ 
+		label = "{encoders_dot_DotEncoder||public encode(model_IModel arg0) : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_DotFileDecorator [ 
+		label = "{encoders_dot_DotFileDecorator|private patternDraw : java_util_Map\l|public getDot() : java_lang_StringBuilder\lprivate composeFile(model_IFile arg0) : java_lang_String\lprivate buildNameBlock(java_lang_String arg0, java_lang_String arg1) : java_lang_String\lprivate buildFieldsBlock(java_util_List arg0) : java_lang_String\lprivate buildMethodsBlock(java_util_List arg0) : java_lang_String\l\l}"
+	]
+	encoders_dot_StandardDot [ 
+		label = "{encoders_dot_StandardDot||public getDot() : java_lang_StringBuilder\l\l}"
+	]
+	parser_linker_UsesLinker [ 
+		label = "{parser_linker_UsesLinker|public TYPE : java_lang_String\l|default <clinit>() : void\lpublic link() : java_util_List\lprivate addArrow(java_lang_String arg0, java_lang_String arg1, java_util_List arg2) : void\l\l}"
+	]
+	encoders_dot_DotDecorator->encoders_dot_Dot [arrowhead=onormal style=dashed]
+	encoders_dot_StandardDot->encoders_dot_Dot [arrowhead=onormal style=dashed]
+	encoders_dot_DotArrowDecorator->encoders_dot_DotDecorator [arrowhead=normal style=normal]
+	encoders_dot_DotFileDecorator->encoders_dot_DotDecorator [arrowhead=normal style=normal]
+	encoders_dot_DotEncoder->encoders_dot_DotArrowDecorator [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->encoders_dot_DotFileDecorator [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->encoders_dot_StandardDot [arrowhead=vee style=dashed]
+	}
