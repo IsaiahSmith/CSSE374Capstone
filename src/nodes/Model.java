@@ -3,13 +3,17 @@ package nodes;
 import java.util.ArrayList;
 import java.util.List;
 
+import arrows.IArrow;
 import model.IFile;
 import model.IModel;
 import model.INode;
+import pattern.IPattern;
 
 public class Model implements IModel {
 
 	private List<IFile> Files;
+	private List<IArrow> arrows;
+	private List<IPattern> patterns;
 	
 	public Model() {
 		this.Files = new ArrayList<IFile>();
