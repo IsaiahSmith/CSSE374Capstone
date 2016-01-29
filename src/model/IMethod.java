@@ -16,4 +16,6 @@ public interface IMethod extends IInnerNode{
 	public String getClassName();
 	public String getSignature();
 	public IMethod getParent();
+	
+	public boolean equals(Object obj);
 }

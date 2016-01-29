@@ -164,7 +164,7 @@ public class MethodNode implements IMethod {
 		
 //		System.out.println("Method args: "+m.getArgs().toString());
 //		System.out.println("This args: "+this.getArgs().toString());
-		//check if both methods have the same args
+		//check if both methods have the same arg types
 		if(m.getArgs().size() != this.getArgs().size()) {
 			return false;
 		} else {
