@@ -8,6 +8,11 @@ import model.IFile;
 import model.IModel;
 import model.INode;
 import model.IPattern;
+import parser.ArrowParser;
+import parser.FileParser;
+import parser.Parser;
+import parser.PatternParser;
+import parser.SequenceParser;
 
 public class Model implements IModel {
 
@@ -17,34 +22,34 @@ public class Model implements IModel {
 	private final List<IPattern> patterns;
 	
 	public static class Builder implements IBuilder {
-		private final List<IFile> files;
+		private List<IFile> files;
 		
 		private List<IArrow> arrows = new ArrayList<IArrow>();
 		private List<IPattern> patterns = new ArrayList<IPattern>();
 		
 		public Builder(List<String> fileNames) {
-			Parser fileList = new FileParser(fileNames);
+			Parser<IFile> fileList = new FileParser(fileNames);
 			this.files = fileList.parse();
 		}
 		
 		@Override
 		public IBuilder arrows(List<String> arrowTypes, boolean includeAll) {
-			Parser arrowList = new ArrowParser(arrowTypes, includeAll);
+			Parser<IArrow> arrowList = new ArrowParser(this.files, arrowTypes, includeAll);
 			this.arrows = arrowList.parse();
 			return this;
 		}
 
 		@Override
 		public IBuilder sequences(List<String> signatures, int depth) {
-			Parser sequenceList = new SequenceParser(signatures, depth);
-			this.arrows = sequenceList.parse();
+			Parser<IFile> sequenceList = new SequenceParser(this.files, signatures, depth);
+			this.files = sequenceList.parse();
 			return this;
 		}
 
 		@Override
 		public IBuilder patterns(List<String> patternTypes) {
-			Parser patternList = new PatternParser(patternTypes);
-			this.arrows = patternList.parse();
+			Parser<IPattern> patternList = new PatternParser(this.files, patternTypes);
+			this.patterns = patternList.parse();
 			return this;
 		}
 
