@@ -10,9 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import builders.IDesignBuilder;
-import builders.SequenceDesignBuilder;
-import builders.ClassDesignBuilder;
+
+import designs.DesignBuilder;
+import designs.SequenceDesignBuilder;
+import designs.UMLDesignBuilder;
 import encoders.IEncoder;
 import encoders.dot.DotEncoder;
 import encoders.sdedit.SDEditEncoder;
@@ -23,10 +24,9 @@ import model.IModel;
 import nodes.MethodNode;
 
 public class DesignMaker {
-	private IDesignBuilder design;
+	private DesignBuilder design;
 	private Map<String, IEncoder> encoders;
 	
-	private DesignFactory designFactory;
 	public DesignMaker() {
 		this.encoders = new HashMap<String, IEncoder>();
 		this.encoders.put("text", new TextEncoder());
@@ -58,7 +58,7 @@ public class DesignMaker {
 			if(in.readLine().equals("y")) {
 				includeAll = true;
 			}
-			designFactory = new UMLDesignBuilderCreator(files, includeAll);
+			design = new UMLDesignBuilder(files, includeAll);
 			encoder = encoders.get("dot");
 		} else if(type.equals("sequence")) {
 			// if sequence ask for method signature file, depth | set designFactory
@@ -67,18 +67,17 @@ public class DesignMaker {
 			System.out.print("Sequence Call Depth: ");
 			depth = Integer.parseInt(in.readLine());
 			
-			designFactory = new SequenceDesignBuilderCreator(files, signatures, depth);
+			design = new SequenceDesignBuilder(files, signatures, depth);
 			encoder = encoders.get("sdedit");
 		} else {
 			// if text ask ask for nothing | set designFactory
-			designFactory = new UMLDesignBuilderCreator(files, includeAll);
+			design = new UMLDesignBuilder(files, includeAll);
 			encoder = encoders.get("text");
 		}
 		// ask for output file 
 		System.out.print("Output File Name: ");
 		output = in.readLine();
 		
-		DesignBuilder design = designFactory.createDesignBuilder();
 		IModel model = design.build();
 		
 		FileOutputStream writer = new FileOutputStream("./output/"+output);
