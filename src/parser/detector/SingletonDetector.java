@@ -48,7 +48,7 @@ public class SingletonDetector extends Detector{
 			}
 		}
 		for(IMethod method:file.getMethods()) {
-			System.out.println(method);
+			//System.out.println(method);
 			if(method.getName().equals("<init>")){
 				if(!method.getVisibility().equals("private")) {
 					allConstructorsArePrivate = false;

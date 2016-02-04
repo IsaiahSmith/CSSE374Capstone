@@ -100,7 +100,7 @@ public class SingletonDetectorTest {
 	}
 	
 	@Test
-	public void TestParsedSingletonInJavaLibrary() {
+	public void TestRuntime() {
 		List<String> fileNames = new ArrayList<String>();
 		List<String> singletonPattern = new ArrayList<String>();
 		singletonPattern.add("Singleton");
@@ -113,11 +113,48 @@ public class SingletonDetectorTest {
 	}
 	
 	@Test
-	public void TestParsedSingleton() {
+	public void TestDesktop() {
 		List<String> fileNames = new ArrayList<String>();
 		List<String> singletonPattern = new ArrayList<String>();
 		singletonPattern.add("Singleton");
-		fileNames.add("./test_input/Singleton.java");
+		fileNames.add("java/awt/Desktop");
+		
+		List<IFile> files = new FileParser(fileNames).parse();
+		List<IPattern> patterns = new PatternParser(files, singletonPattern).parse();
+		
+		assertTrue(!patterns.isEmpty());
+	}
+	@Test
+	public void TestCalendar() {
+		List<String> fileNames = new ArrayList<String>();
+		List<String> singletonPattern = new ArrayList<String>();
+		singletonPattern.add("Singleton");
+		fileNames.add("java/util/Calendar");
+		
+		List<IFile> files = new FileParser(fileNames).parse();
+		List<IPattern> patterns = new PatternParser(files, singletonPattern).parse();
+		
+		assertTrue(patterns.isEmpty());
+	}
+	@Test
+	public void FilterInputStream() {
+		List<String> fileNames = new ArrayList<String>();
+		List<String> singletonPattern = new ArrayList<String>();
+		singletonPattern.add("Singleton");
+		fileNames.add("java/io/FilterInputStream");
+		fileNames.add("java/io/InputStream");
+		
+		List<IFile> files = new FileParser(fileNames).parse();
+		List<IPattern> patterns = new PatternParser(files, singletonPattern).parse();
+		
+		assertTrue(patterns.isEmpty());
+	}
+	
+	@Test
+	public void TestParsedSingleton() {
+		String[] fileNames = {"test_input/Singleton.class"};
+		List<String> singletonPattern = new ArrayList<String>();
+		singletonPattern.add("Singleton");
 		
 		List<IFile> files = new FileParser(fileNames).parse();
 		List<IPattern> patterns = new PatternParser(files, singletonPattern).parse();

@@ -1,7 +1,10 @@
 package parser;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.objectweb.asm.ClassReader;
@@ -16,9 +19,16 @@ import parser.visitors.classvisitors.ClassMethodVisitor;
 
 public class FileParser implements Parser<IFile> {
 	private List<String> fileNames;
+	private boolean readOutsideSwitch;
+	
+	public FileParser(String[] files) {
+		fileNames =new ArrayList<String>(Arrays.asList(files));
+		readOutsideSwitch = true;
+	}
 	
 	public FileParser(List<String> fileNames){
 		this.fileNames = fileNames;
+		readOutsideSwitch = false;
 	}
 	
 	@Override
@@ -31,7 +41,11 @@ public class FileParser implements Parser<IFile> {
 			// ASM's ClassReader does the heavy lifting of parsing the compiled Java class
 			ClassReader reader = null;
 			try {
-				reader = new ClassReader(className);
+				if(readOutsideSwitch) {
+					reader = new ClassReader(new FileInputStream(new File(className)));
+				} else {
+					reader = new ClassReader(className);
+				}
 			} catch (IOException e) {
 				System.err.println("ERROR: "+className+" could not be found!");
 			}
