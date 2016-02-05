@@ -40,7 +40,6 @@ public class SingletonDetector extends Detector{
 		if(file.getType().equals("class")) {
 			isClass=true;
 		}
-		System.out.println("file Type: "+file.getType());
 		for(IInnerNode field:file.getFields()) {
 			if(sanitize(field.getType()).equals(sanitize(file.getName())) && field.getVisibility().equals("private") && field.getModifiers().get(0).equals("static")) {
 				
@@ -58,11 +57,6 @@ public class SingletonDetector extends Detector{
 				hasAtLeastOnePublicStaticMethodOfTypeSelf = true;
 			}
 		}
-		
-		System.out.println("Check 1: "+isClass);
-		System.out.println("Check 2: "+hasAPrivateStaticFieldOfTypeSelf);
-		System.out.println("Check 3: "+allConstructorsArePrivate);
-		System.out.println("Check 4: "+hasAtLeastOnePublicStaticMethodOfTypeSelf);
 		return hasAPrivateStaticFieldOfTypeSelf && allConstructorsArePrivate && hasAtLeastOnePublicStaticMethodOfTypeSelf && isClass;
 	}
 

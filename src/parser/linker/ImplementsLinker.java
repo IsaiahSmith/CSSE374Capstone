@@ -27,7 +27,7 @@ public class ImplementsLinker extends Linker{
 					if(includeAll) {
 						addArrow(left, right, implemArrows);
 					} else {
-						if(getFileNames().contains(right))
+						if(getFileNames().contains(sanitize(right)))
 							addArrow(left, right, implemArrows);
 					}
 				}
@@ -38,8 +38,8 @@ public class ImplementsLinker extends Linker{
 
 	private void addArrow(String left, String right, List<IArrow> arrows) {
 		IArrow arrow = new Arrow();
-		arrow.setOrigin(left);
-		arrow.setEnd(right);
+		arrow.setOrigin(sanitize(left));
+		arrow.setEnd(sanitize(right));
 		arrow.setType(ImplementsLinker.TYPE);
 		arrows.add(arrow);		
 	}

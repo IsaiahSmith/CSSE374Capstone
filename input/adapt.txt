@@ -1,0 +1,3 @@
+java/util/Enumeration
+java/util/Iterator
+problem.client.IteratorToEnumerationAdapter

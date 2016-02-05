@@ -19,6 +19,11 @@ public class DotFileDecorator extends DotDecorator{
 		super(dot, model);
 		this.patternDraw = new HashMap<String, String>();
 		this.patternDraw.put("Singleton", "color=blue");
+		this.patternDraw.put("Decorator", "color=green, style=filled");
+		this.patternDraw.put("Decorator:Component", "color=green, style=filled");
+		this.patternDraw.put("Adapter", "color=red, style=filled");
+		this.patternDraw.put("Adapter:Adaptee", "color=red, style=filled");
+		this.patternDraw.put("Adapter:Target", "color=red, style=filled");
 	}
 	
 	public StringBuilder getDot() {
@@ -41,6 +46,7 @@ public class DotFileDecorator extends DotDecorator{
 				+ methodsBlock
 				+ "\\l}\"";
 		for(IPattern pattern:model.getPatterns()) {
+			
 			if(pattern.getNode().equals(node.getName()))
 			{
 				composedStr+=",\n\t\t"
@@ -63,7 +69,8 @@ public class DotFileDecorator extends DotDecorator{
 		nameBlock += nameSplit[nameSplit.length-1];
 		for(IPattern pattern:this.model.getPatterns()){
 			if(name.equals(pattern.getNode())) {
-				nameBlock += "\\n\\<\\<"+pattern.getName()+"\\>\\>";
+				String[] patternNameSplit = pattern.getName().split(":");
+				nameBlock += "\\n\\<\\<"+patternNameSplit[patternNameSplit.length-1]+"\\>\\>";
 			}
 		}
 		

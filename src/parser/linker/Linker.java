@@ -15,8 +15,11 @@ public abstract class Linker {
 	List<String> getFileNames() {
 		List<String> names = new ArrayList<String>();
 		for(IFile file : files){
-			names.add(file.getName());
+			names.add(sanitize(file.getName()));
 		}
 		return names;
+	}
+	public static String sanitize(String input) {
+		return input.replaceAll("\\.", "_").replaceAll("/", "_");
 	}
 }

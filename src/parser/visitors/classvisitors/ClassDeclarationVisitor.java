@@ -30,13 +30,17 @@ public class ClassDeclarationVisitor extends ClassVisitor{
 		if (superName != null) {
 			this.node.setSuperName(superName);
 		}
+		System.out.println("Interfaces of "+name);
 		List<String> inters = new ArrayList<String>();
 		for (String s : interfaces) {
 			inters.add(s);
 			IFile inface = new FileNode();
 			inface.setName(s);
 			node.addImplements(inface);
+			System.out.println(s);
+			
 		}		
+		System.out.println("\n");
 		
 		super.visit(version, access, name, signature, superName, interfaces);
 	}

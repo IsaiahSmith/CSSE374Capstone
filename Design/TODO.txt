@@ -1,0 +1,4 @@
+things that should be fixed but dont have to be.
+
+-> make sure sequence diagrams work.
+-> change how interfaces are stored in a file object to being just a string.

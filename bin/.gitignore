@@ -1,14 +1,1 @@
-/builders/
-/encoders/
-/model/
-/nodes/
-/runner/
 /testing/
-/visitors/
-/arrowDesignBuilder/
-/arrows/
-/pattern/
-/parser/
-/designs/
-/test_files/
-/Singleton.class

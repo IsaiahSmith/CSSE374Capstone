@@ -26,7 +26,7 @@ public class InheritanceLinker extends Linker {
 				if(includeAll){
 					addArrow(left, right, inherArrows);
 				}else{
-					if(getFileNames().contains(right))
+					if(getFileNames().contains(sanitize(right)))
 						addArrow(left, right, inherArrows);
 				}
 			}
@@ -36,8 +36,8 @@ public class InheritanceLinker extends Linker {
 	
 	private void addArrow(String left, String right, List<IArrow> arrows) {
 		IArrow arrow = new Arrow();
-		arrow.setOrigin(left);
-		arrow.setEnd(right);
+		arrow.setOrigin(sanitize(left));
+		arrow.setEnd(sanitize(right));
 		arrow.setType(InheritanceLinker.TYPE);
 		arrows.add(arrow);		
 	}

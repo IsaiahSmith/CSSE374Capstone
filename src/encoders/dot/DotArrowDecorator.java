@@ -16,6 +16,8 @@ public class DotArrowDecorator extends DotDecorator{
 	public DotArrowDecorator(Dot dot, IModel model) {
 		super(dot, model);
 		this.patternStyles = new HashMap<String, String>();
+		this.patternStyles.put("Decorator", "\\<\\<decorates\\>\\>");
+		this.patternStyles.put("Adapter", "\\<\\<adapts\\>\\>");
 		//add fancy words to arrows here
 		this.arrowHeads = new HashMap<String, String>();
 		this.arrowHeads.put("Association", "vee");
@@ -27,10 +29,12 @@ public class DotArrowDecorator extends DotDecorator{
 		this.arrowStyles.put("Implements", "dashed");
 		this.arrowStyles.put("Inheritance", "normal");
 		this.arrowStyles.put("Uses", "dashed");
+		
 	}
 	
 	public StringBuilder getDot() {
 		String str = new String();
+		System.out.println("checking arrow names");
 		for(IArrow arrow:model.getArrows()) {
 			str+=arrow.getOrigin()+"->"+arrow.getEnd()
 				+" [arrowhead="
@@ -39,7 +43,7 @@ public class DotArrowDecorator extends DotDecorator{
 			
 			for(IPattern pattern:model.getPatterns()) {
 				if(pattern.getArrow().equals(arrow))
-					str+=" "+patternStyles.get(pattern.getName());
+					str+=" label=\""+patternStyles.get(pattern.getName())+"\"";
 			}
 			str+="]\n\t";
 			

@@ -45,7 +45,7 @@ public class UsesLinker extends Linker {
 					if(includeAll){
 						addArrow(left, use, usesArrows);
 					}else{
-						if(getFileNames().contains(use))
+						if(getFileNames().contains(sanitize(use)))
 							addArrow(left, use, usesArrows);
 					}
 				}
@@ -56,8 +56,8 @@ public class UsesLinker extends Linker {
 	
 	private void addArrow(String left, String right, List<IArrow> arrows) {
 		IArrow arrow = new Arrow();
-		arrow.setOrigin(left);
-		arrow.setEnd(right);
+		arrow.setOrigin(sanitize(left));
+		arrow.setEnd(sanitize(right));
 		arrow.setType(UsesLinker.TYPE);
 		arrows.add(arrow);		
 	}
