@@ -1,0 +1,85 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	problem_client_AnimatorApp [ 
+		label = "{problem_client_AnimatorApp||public main(java_lang_String[] arg0) : void\l\l}"
+	]
+	problem_graphics_AnimationPanel [ 
+		label = "{problem_graphics_AnimationPanel|private serialVersionUID : long\lprivate sprites : java_util_List\lprivate animating : boolean\lprivate sleepTime : long\l|public add(problem_sprites_ISprite arg0) : void\lpublic getSize() : java_awt_Dimension\lpublic animate() : void\lpublic reset() : void\lprotected paintComponent(java_awt_Graphics arg0) : void\ldefault access$0(problem_graphics_AnimationPanel arg0) : boolean\ldefault access$1(problem_graphics_AnimationPanel arg0) : java_util_List\ldefault access$2(problem_graphics_AnimationPanel arg0) : long\l\l}"
+	]
+	problem_graphics_MainWindow [ 
+		label = "{problem_graphics_MainWindow|private frame : javax_swing_JFrame\lprivate actionPanel : javax_swing_JPanel\lprivate animationPanel : problem_graphics_AnimationPanel\lprivate moveButton : javax_swing_JButton\lprivate createButton : javax_swing_JButton\lprivate resetButton : javax_swing_JButton\l|private createWidgets(java_lang_String arg0, long arg1) : void\lprivate assignActions() : void\lpublic show() : void\ldefault access$0(problem_graphics_MainWindow arg0) : problem_graphics_AnimationPanel\ldefault access$1(problem_graphics_MainWindow arg0) : javax_swing_JButton\ldefault access$2(problem_graphics_MainWindow arg0) : javax_swing_JButton\l\l}"
+	]
+	problem_sprites_AbstractSprite [ 
+		label = "{\<\<abstract\>\>\nproblem_sprites_AbstractSprite\n\<\<Component\>\>|protected dx : double\lprotected dy : double\lprotected shape : java_awt_Shape\l|protected computeNewBoundsAfterMoving(java_awt_Dimension arg0) : java_awt_geom_Rectangle2D\lpublic getShape() : java_awt_Shape\lpublic add(problem_sprites_ISprite arg0) : void\lpublic getChild(int arg0) : problem_sprites_ISprite\lpublic move(java_awt_Dimension arg0) : void\lpublic iterator() : java_util_Iterator\l\l}",
+		color=yellow, style=filled
+	]
+	problem_sprites_CircleSprite [ 
+		label = "{problem_sprites_CircleSprite\n\<\<Leaf\>\>||public move(java_awt_Dimension arg0) : void\l\l}",
+		color=yellow, style=filled
+	]
+	problem_sprites_CompositeSprite [ 
+		label = "{problem_sprites_CompositeSprite\n\<\<Composite\>\>|default children : java_util_List\l|public iterator() : java_util_Iterator\lpublic add(problem_sprites_ISprite arg0) : void\lpublic getChild(int arg0) : problem_sprites_ISprite\lpublic move(java_awt_Dimension arg0) : void\l\l}",
+		color=yellow, style=filled
+	]
+	problem_sprites_CompositeSpriteIterator [ 
+		label = "{problem_sprites_CompositeSpriteIterator|private stack : java_util_Stack\l|public next() : problem_sprites_ISprite\lpublic hasNext() : boolean\lpublic remove() : void\lpublic next() : java_lang_Object\l\l}"
+	]
+	problem_sprites_EmptyIterator [ 
+		label = "{problem_sprites_EmptyIterator||public hasNext() : boolean\lpublic next() : problem_sprites_ISprite\lpublic remove() : void\lpublic next() : java_lang_Object\l\l}"
+	]
+	problem_sprites_ISprite [ 
+		label = "{\<\<interface\>\>\nproblem_sprites_ISprite||public move(java_awt_Dimension arg0) : void\lpublic getShape() : java_awt_Shape\lpublic add(problem_sprites_ISprite arg0) : void\lpublic getChild(int arg0) : problem_sprites_ISprite\l\l}"
+	]
+	problem_sprites_RectangleSprite [ 
+		label = "{problem_sprites_RectangleSprite\n\<\<Leaf\>\>||public move(java_awt_Dimension arg0) : void\l\l}",
+		color=yellow, style=filled
+	]
+	problem_sprites_SpriteFactory [ 
+		label = "{problem_sprites_SpriteFactory|public DX : double\lpublic DY : double\lpublic WIDTH : double\lpublic HEIGHT : double\lprivate random : java_util_Random\lprivate sprites : java_util_List\l|public computeRandomLocation(java_awt_Dimension arg0) : java_awt_geom_Point2D\lpublic createRandomSprite(java_awt_Dimension arg0) : problem_sprites_ISprite\l\l}"
+	]
+	problem_sprites_SquaredCircle [ 
+		label = "{problem_sprites_SquaredCircle||\l}"
+	]
+	problem_sprites_Tower [ 
+		label = "{problem_sprites_Tower||\l}"
+	]
+	problem_graphics_MainWindow->problem_graphics_AnimationPanel [arrowhead=vee style=normal]
+	problem_sprites_AbstractSprite->problem_sprites_ISprite [arrowhead=onormal style=dashed]
+	problem_sprites_CircleSprite->problem_sprites_AbstractSprite [arrowhead=normal style=normal]
+	problem_sprites_CompositeSprite->problem_sprites_AbstractSprite [arrowhead=normal style=normal]
+	problem_sprites_RectangleSprite->problem_sprites_AbstractSprite [arrowhead=normal style=normal]
+	problem_sprites_SquaredCircle->problem_sprites_CompositeSprite [arrowhead=normal style=normal]
+	problem_sprites_Tower->problem_sprites_CompositeSprite [arrowhead=normal style=normal]
+	problem_client_AnimatorApp->problem_graphics_MainWindow [arrowhead=vee style=dashed]
+	problem_graphics_AnimationPanel->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_graphics_AnimationPanel->problem_sprites_CompositeSpriteIterator [arrowhead=vee style=dashed]
+	problem_graphics_AnimationPanel->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_graphics_AnimationPanel->problem_graphics_AnimationPanel [arrowhead=vee style=dashed]
+	problem_graphics_MainWindow->problem_graphics_AnimationPanel [arrowhead=vee style=dashed]
+	problem_graphics_MainWindow->problem_graphics_AnimationPanel [arrowhead=vee style=dashed]
+	problem_graphics_MainWindow->problem_graphics_MainWindow [arrowhead=vee style=dashed]
+	problem_sprites_AbstractSprite->problem_sprites_EmptyIterator [arrowhead=vee style=dashed]
+	problem_sprites_AbstractSprite->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_CompositeSprite->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_CompositeSprite->problem_sprites_CompositeSpriteIterator [arrowhead=vee style=dashed]
+	problem_sprites_CompositeSprite->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_CompositeSpriteIterator->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_CompositeSpriteIterator->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_EmptyIterator->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_ISprite->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_SpriteFactory->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_SpriteFactory->problem_sprites_ISprite [arrowhead=vee style=dashed]
+	problem_sprites_SquaredCircle->problem_sprites_RectangleSprite [arrowhead=vee style=dashed]
+	problem_sprites_SquaredCircle->problem_sprites_CircleSprite [arrowhead=vee style=dashed]
+	problem_sprites_Tower->problem_sprites_RectangleSprite [arrowhead=vee style=dashed]
+	}

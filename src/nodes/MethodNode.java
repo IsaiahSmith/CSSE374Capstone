@@ -3,6 +3,7 @@ package nodes;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.IArrow;
 import model.IMethod;
 import model.IMethodInsn;
 import model.INode;
@@ -185,6 +186,26 @@ public class MethodNode implements IMethod {
 	@Override
 	public List<String> getModifiers() {
 		return this.Modifiers;
+	}
+	@Override
+	public void setSig(String type) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getSig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean equals(IMethod method) {
+		if(this.Name.equals(method.getName())
+				&& this.Args.equals(method.getArgs())
+				&& this.Type.equals(method.getType())){
+			return true;
+		}
+		return false;
 	}
 	
 }

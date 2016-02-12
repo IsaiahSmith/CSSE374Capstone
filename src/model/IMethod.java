@@ -18,4 +18,5 @@ public interface IMethod extends IInnerNode{
 	public IMethod getParent();
 	
 	public boolean equals(Object obj);
+	boolean equals(IMethod method);
 }

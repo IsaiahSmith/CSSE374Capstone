@@ -29,6 +29,7 @@ public class UMLDesignBuilder implements DesignBuilder {
 		this.patternTypes.add("Singleton");
 		this.patternTypes.add("Decorator");
 		this.patternTypes.add("Adapter");
+		this.patternTypes.add("Composite");
 	}
 	
 	@Override

@@ -61,7 +61,7 @@ public class DecoratorDetector extends Detector{
 								
 							}
 							if(isDecorator) {
-								System.out.println("Stop, what is going on");
+//								System.out.println("Stop, what is going on");
 								//run function that adds components and decorators and all that stuff
 								
 								IPattern decorator = new Pattern("Decorator");
@@ -80,7 +80,6 @@ public class DecoratorDetector extends Detector{
 								
 								for(IFile child : files) {
 									if(sanitize(child.getSuperName()).equals(sanitize(file.getName()))) {
-										System.out.println("Child: "+child.getName());
 										//screw it I'm just adding all children.
 										IPattern childDecorator = new Pattern("Decorator");
 										childDecorator.setNode(child.getName());

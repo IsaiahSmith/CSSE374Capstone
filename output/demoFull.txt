@@ -1,0 +1,393 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	designs_DesignBuilder [ 
+		label = "{\<\<interface\>\>\ndesigns_DesignBuilder||public build() : model_IModel\l\l}"
+	]
+	designs_DesignFactory [ 
+		label = "{\<\<interface\>\>\ndesigns_DesignFactory||public createDesignBuilder() : designs_DesignBuilder\l\l}"
+	]
+	designs_SequenceDesignBuilder [ 
+		label = "{designs_SequenceDesignBuilder|private fileNames : java_util_List\lprivate methodSignatures : java_util_List\lprivate depth : int\l|public build() : model_IModel\l\l}"
+	]
+	designs_UMLDesignBuilder [ 
+		label = "{designs_UMLDesignBuilder|private fileNames : java_util_List\lprivate includeAll : boolean\lprivate arrowTypes : java_util_List\lprivate patternTypes : java_util_List\l|public build() : model_IModel\l\l}"
+	]
+	designs_UMLDesignBuilderCreator [ 
+		label = "{designs_UMLDesignBuilderCreator||public build() : model_IModel\l\l}"
+	]
+	encoders_IEncoder [ 
+		label = "{\<\<interface\>\>\nencoders_IEncoder||public encode(model_IModel arg0) : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_ADot [ 
+		label = "{\<\<abstract\>\>\nencoders_dot_ADot|default includeAll : boolean\ldefault dotFile : java_lang_StringBuilder\l|public getDot() : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_Dot [ 
+		label = "{\<\<interface\>\>\nencoders_dot_Dot\n\<\<Component\>\>||public getDot() : java_lang_StringBuilder\l\l}",
+		color=green, style=filled
+	]
+	encoders_dot_DotArrowDecorator [ 
+		label = "{encoders_dot_DotArrowDecorator\n\<\<Decorator\>\>\n\<\<Composite\>\>\n\<\<Composite\>\>\n\<\<Composite\>\>|private patternStyles : java_util_Map\lprivate arrowHeads : java_util_Map\lprivate arrowStyles : java_util_Map\l|public getDot() : java_lang_StringBuilder\l\l}",
+		color=green, style=filled,
+		color=yellow, style=filled,
+		color=yellow, style=filled,
+		color=yellow, style=filled
+	]
+	encoders_dot_DotDecorator [ 
+		label = "{\<\<abstract\>\>\nencoders_dot_DotDecorator\n\<\<Decorator\>\>\n\<\<Component\>\>\n\<\<Component\>\>\n\<\<Component\>\>\n\<\<Component\>\>|protected decoratedDot : encoders_dot_Dot\lprotected model : model_IModel\l|public getDot() : java_lang_StringBuilder\ldefault getFileNames() : java_util_List\l\l}",
+		color=green, style=filled,
+		color=yellow, style=filled,
+		color=yellow, style=filled,
+		color=yellow, style=filled,
+		color=yellow, style=filled
+	]
+	encoders_dot_DotEncoder [ 
+		label = "{encoders_dot_DotEncoder||public encode(model_IModel arg0) : java_lang_StringBuilder\l\l}"
+	]
+	encoders_dot_DotFileDecorator [ 
+		label = "{encoders_dot_DotFileDecorator\n\<\<Decorator\>\>\n\<\<Composite\>\>|private patternDraw : java_util_Map\l|public getDot() : java_lang_StringBuilder\lprivate composeFile(model_IFile arg0) : java_lang_String\lprivate buildNameBlock(java_lang_String arg0, java_lang_String arg1) : java_lang_String\lprivate buildFieldsBlock(java_util_List arg0) : java_lang_String\lprivate buildMethodsBlock(java_util_List arg0) : java_lang_String\l\l}",
+		color=green, style=filled,
+		color=yellow, style=filled
+	]
+	encoders_dot_StandardDot [ 
+		label = "{encoders_dot_StandardDot||public getDot() : java_lang_StringBuilder\l\l}"
+	]
+	encoders_sdedit_SDEditEncoder [ 
+		label = "{encoders_sdedit_SDEditEncoder|default classes : java_util_List\ldefault madeClasses : java_util_List\ldefault signatures : java_util_List\ldefault news : java_util_List\l|public encode(model_IModel arg0) : java_lang_StringBuilder\lprivate getClasses(model_IMethod arg0) : void\lprivate getSignatures(model_IMethod arg0) : void\lprivate compose() : java_lang_String\l\l}"
+	]
+	encoders_text_TextEncoder [ 
+		label = "{encoders_text_TextEncoder||public encode(model_IModel arg0) : java_lang_StringBuilder\l\l}"
+	]
+	model_IArrow [ 
+		label = "{\<\<interface\>\>\nmodel_IArrow||public setType(java_lang_String arg0) : void\lpublic setOrigin(java_lang_String arg0) : void\lpublic setEnd(java_lang_String arg0) : void\lpublic getType() : java_lang_String\lpublic getOrigin() : java_lang_String\lpublic getEnd() : java_lang_String\lpublic equals(model_IArrow arg0) : boolean\lpublic toString() : java_lang_String\l\l}"
+	]
+	model_IFile [ 
+		label = "{\<\<interface\>\>\nmodel_IFile||public setSuperName(java_lang_String arg0) : void\lpublic addMethod(model_IMethod arg0) : void\lpublic addField(model_IInnerNode arg0) : void\lpublic addImplements(model_IFile arg0) : void\lpublic getSuperName() : java_lang_String\lpublic getMethods() : java_util_List\lpublic getFields() : java_util_List\lpublic getInterfaces() : java_util_List\l\l}"
+	]
+	model_IInnerNode [ 
+		label = "{\<\<interface\>\>\nmodel_IInnerNode||public setVisibility(java_lang_String arg0) : void\lpublic addModifier(java_lang_String arg0) : void\lpublic setSig(java_lang_String arg0) : void\lpublic getVisibility() : java_lang_String\lpublic getModifiers() : java_util_List\lpublic getSig() : java_lang_String\l\l}"
+	]
+	model_IMethod [ 
+		label = "{\<\<interface\>\>\nmodel_IMethod\n\<\<Component\>\>\n\<\<Component\>\>\n\<\<Component\>\>||public addArg(model_INode arg0) : void\lpublic addTypeInsn(model_ITypeInsn arg0) : void\lpublic addInnerMethod(model_IMethod arg0) : void\lpublic setClassName(java_lang_String arg0) : void\lpublic setSignature(java_lang_String arg0) : void\lpublic setParent(model_IMethod arg0) : void\lpublic getArgs() : java_util_List\lpublic getTypeInsn() : java_util_List\lpublic getInnerMethods() : java_util_List\lpublic getClassName() : java_lang_String\lpublic getSignature() : java_lang_String\lpublic getParent() : model_IMethod\lpublic equals(java_lang_Object arg0) : boolean\lpublic equals(model_IMethod arg0) : boolean\l\l}",
+		color=green, style=filled,
+		color=green, style=filled,
+		color=green, style=filled
+	]
+	model_IMethodInsn [ 
+		label = "{\<\<interface\>\>\nmodel_IMethodInsn||public setOwner(java_lang_String arg0) : void\lpublic setName(java_lang_String arg0) : void\lpublic setDesc(java_lang_String arg0) : void\lpublic getOwner() : java_lang_String\lpublic getName() : java_lang_String\lpublic getDesc() : java_lang_String\lpublic getMethod() : model_IMethod\l\l}"
+	]
+	model_IModel [ 
+		label = "{\<\<interface\>\>\nmodel_IModel||public getFiles() : java_util_List\lpublic getArrows() : java_util_List\lpublic getPatterns() : java_util_List\l\l}"
+	]
+	model_INode [ 
+		label = "{\<\<interface\>\>\nmodel_INode||public setName(java_lang_String arg0) : void\lpublic setType(java_lang_String arg0) : void\lpublic getName() : java_lang_String\lpublic getType() : java_lang_String\l\l}"
+	]
+	model_IPattern [ 
+		label = "{\<\<interface\>\>\nmodel_IPattern||public setName(java_lang_String arg0) : void\lpublic setNode(java_lang_String arg0) : void\lpublic setArrow(model_IArrow arg0) : void\lpublic getName() : java_lang_String\lpublic getNode() : java_lang_String\lpublic getArrow() : model_IArrow\l\l}"
+	]
+	model_ITypeInsn [ 
+		label = "{\<\<interface\>\>\nmodel_ITypeInsn||public setType(java_lang_String arg0) : void\lpublic getType() : java_lang_String\l\l}"
+	]
+	nodes_ArgumentNode [ 
+		label = "{nodes_ArgumentNode|private Name : java_lang_String\lprivate Type : java_lang_String\l|public setName(java_lang_String arg0) : void\lpublic setType(java_lang_String arg0) : void\lpublic getName() : java_lang_String\lpublic getType() : java_lang_String\lpublic toString() : java_lang_String\l\l}"
+	]
+	nodes_Arrow [ 
+		label = "{nodes_Arrow|private type : java_lang_String\lprivate origin : java_lang_String\lprivate end : java_lang_String\l|public setType(java_lang_String arg0) : void\lpublic setOrigin(java_lang_String arg0) : void\lpublic setEnd(java_lang_String arg0) : void\lpublic getType() : java_lang_String\lpublic getOrigin() : java_lang_String\lpublic getEnd() : java_lang_String\lpublic equals(model_IArrow arg0) : boolean\lpublic toString() : java_lang_String\l\l}"
+	]
+	nodes_FieldNode [ 
+		label = "{nodes_FieldNode|private Name : java_lang_String\lprivate Type : java_lang_String\lprivate Visibility : java_lang_String\lprivate Modifiers : java_util_List\lprivate value : java_lang_Object\lprivate signature : java_lang_String\l|public setName(java_lang_String arg0) : void\lpublic setType(java_lang_String arg0) : void\lpublic setVisibility(java_lang_String arg0) : void\lpublic getType() : java_lang_String\lpublic getName() : java_lang_String\lpublic getVisibility() : java_lang_String\lpublic toString() : java_lang_String\lpublic addModifier(java_lang_String arg0) : void\lpublic getModifiers() : java_util_List\lpublic setSig(java_lang_String arg0) : void\lpublic getSig() : java_lang_String\l\l}"
+	]
+	nodes_FileNode [ 
+		label = "{nodes_FileNode|private Name : java_lang_String\lprivate Type : java_lang_String\lprivate SuperName : java_lang_String\lprivate visibility : java_lang_String\lprivate Methods : java_util_List\lprivate Fields : java_util_List\lprivate Interfaces : java_util_List\lprivate Modifiers : java_util_List\l|public setName(java_lang_String arg0) : void\lpublic setType(java_lang_String arg0) : void\lpublic setSuperName(java_lang_String arg0) : void\lpublic addMethod(model_IMethod arg0) : void\lpublic addField(model_IInnerNode arg0) : void\lpublic addImplements(model_IFile arg0) : void\lpublic getName() : java_lang_String\lpublic getType() : java_lang_String\lpublic getSuperName() : java_lang_String\lpublic getMethods() : java_util_List\lpublic getFields() : java_util_List\lpublic getInterfaces() : java_util_List\lpublic toString() : java_lang_String\lpublic setVisibility(java_lang_String arg0) : void\lpublic getVisibility() : java_lang_String\lpublic addModifier(java_lang_String arg0) : void\lpublic getModifiers() : java_util_List\lpublic setSig(java_lang_String arg0) : void\lpublic getSig() : java_lang_String\l\l}"
+	]
+	nodes_IBuilder [ 
+		label = "{\<\<interface\>\>\nnodes_IBuilder||public arrows(java_util_List arg0, boolean arg1) : nodes_IBuilder\lpublic sequences(java_util_List arg0, int arg1) : nodes_IBuilder\lpublic patterns(java_util_List arg0) : nodes_IBuilder\lpublic getFiles() : java_util_List\lpublic getArrows() : java_util_List\lpublic getPatterns() : java_util_List\lpublic build() : model_IModel\l\l}"
+	]
+	nodes_MethodInsn [ 
+		label = "{nodes_MethodInsn|private Owner : java_lang_String\lprivate Name : java_lang_String\lprivate Desc : java_lang_String\l|public setOwner(java_lang_String arg0) : void\lpublic setName(java_lang_String arg0) : void\lpublic setDesc(java_lang_String arg0) : void\lpublic getOwner() : java_lang_String\lpublic getName() : java_lang_String\lpublic getDesc() : java_lang_String\lpublic toString() : java_lang_String\lpublic getMethod() : model_IMethod\l\l}"
+	]
+	nodes_MethodNode [ 
+		label = "{nodes_MethodNode\n\<\<Decorator\>\>\n\<\<Decorator\>\>\n\<\<Decorator\>\>|private Name : java_lang_String\lprivate Type : java_lang_String\lprivate Visibility : java_lang_String\lprivate Args : java_util_List\lprivate InnerMethods : java_util_List\lprivate TypeInsns : java_util_List\lprivate Modifiers : java_util_List\lprivate ClassName : java_lang_String\lprivate Signature : java_lang_String\lprivate Parent : model_IMethod\l|public setName(java_lang_String arg0) : void\lpublic setType(java_lang_String arg0) : void\lpublic setVisibility(java_lang_String arg0) : void\lpublic addArg(model_INode arg0) : void\lpublic addInnerMethod(model_IMethod arg0) : void\lpublic addTypeInsn(model_ITypeInsn arg0) : void\lpublic setClassName(java_lang_String arg0) : void\lpublic setSignature(java_lang_String arg0) : void\lpublic setParent(model_IMethod arg0) : void\lpublic getName() : java_lang_String\lpublic getType() : java_lang_String\lpublic getVisibility() : java_lang_String\lpublic getArgs() : java_util_List\lpublic getTypeInsn() : java_util_List\lpublic getClassName() : java_lang_String\lpublic getSignature() : java_lang_String\lpublic getParent() : model_IMethod\lpublic getInnerMethods() : java_util_List\lpublic toString() : java_lang_String\lpublic equals(java_lang_Object arg0) : boolean\lpublic addModifier(java_lang_String arg0) : void\lpublic getModifiers() : java_util_List\lpublic setSig(java_lang_String arg0) : void\lpublic getSig() : java_lang_String\lpublic equals(model_IMethod arg0) : boolean\l\l}",
+		color=green, style=filled,
+		color=green, style=filled,
+		color=green, style=filled
+	]
+	nodes_Model [ 
+		label = "{nodes_Model|private files : java_util_List\lprivate arrows : java_util_List\lprivate patterns : java_util_List\l|public getFiles() : java_util_List\lpublic toString() : java_lang_String\lpublic getArrows() : java_util_List\lpublic getPatterns() : java_util_List\l\l}"
+	]
+	nodes_Pattern [ 
+		label = "{nodes_Pattern|private name : java_lang_String\lprivate node : java_lang_String\lprivate arrow : model_IArrow\l|public setName(java_lang_String arg0) : void\lpublic setNode(java_lang_String arg0) : void\lpublic setArrow(model_IArrow arg0) : void\lpublic getName() : java_lang_String\lpublic getNode() : java_lang_String\lpublic getArrow() : model_IArrow\l\l}"
+	]
+	nodes_TypeInsn [ 
+		label = "{nodes_TypeInsn|private Type : java_lang_String\l|public setType(java_lang_String arg0) : void\lpublic getType() : java_lang_String\lpublic toString() : java_lang_String\l\l}"
+	]
+	parser_ArrowParser [ 
+		label = "{parser_ArrowParser|private arrowTypes : java_util_List\lprivate linkers : java_util_Map\l|public parse() : java_util_List\l\l}"
+	]
+	parser_FileParser [ 
+		label = "{parser_FileParser|private fileNames : java_util_List\lprivate readOutsideSwitch : boolean\l|public parse() : java_util_List\l\l}"
+	]
+	parser_Parser [ 
+		label = "{\<\<interface\>\>\nparser_Parser||public parse() : java_util_List\l\l}"
+	]
+	parser_PatternParser [ 
+		label = "{parser_PatternParser|private detectors : java_util_Map\lprivate patternTypes : java_util_List\l|public parse() : java_util_List\l\l}"
+	]
+	parser_SequenceParser [ 
+		label = "{parser_SequenceParser|private depth : int\lprivate files : java_util_List\lprivate signatures : java_util_List\l|public parse() : java_util_List\lprivate addSignature(model_IMethod arg0, int arg1) : void\lprivate findMethod(java_lang_String arg0) : model_IMethod\lprivate getSignatureClassName(java_lang_String arg0) : java_lang_String\lprivate getSignatureMethodName(java_lang_String arg0) : java_lang_String\lprivate getSignatureArguments(java_lang_String arg0) : java_util_List\l\l}"
+	]
+	parser_detector_AdapterDetector [ 
+		label = "{parser_detector_AdapterDetector|public PATTERN : java_lang_String\lprivate patterns : java_util_List\l|public detect() : java_util_List\lpublic detectAdapter() : void\lprivate findTarget(model_IFile arg0, model_IFile arg1, boolean arg2) : model_IFile\l\l}"
+	]
+	parser_detector_CompositeDetector [ 
+		label = "{parser_detector_CompositeDetector|public PATTERN : java_lang_String\lprivate patterns : java_util_ArrayList\l|public detect() : java_util_List\lprivate findComposite() : void\lprivate getSuperInterfaces(java_lang_String arg0) : java_util_List\lprivate addLeafs(java_lang_String arg0, model_IFile arg1, java_util_List arg2) : void\lprivate checkDelegated(model_IFile arg0, java_util_List arg1) : boolean\lprivate checkKeyOperations(model_IFile arg0, java_util_List arg1) : boolean\lprivate holds(model_IMethod arg0, java_util_List arg1) : boolean\l\l}"
+	]
+	parser_detector_DecoratorDetector [ 
+		label = "{parser_detector_DecoratorDetector|public PATTERN : java_lang_String\lprivate decorators : java_util_List\l|public detect() : java_util_List\lprivate findDecorator() : void\lprivate checkComponent(model_IFile arg0, model_IFile arg1) : boolean\l\l}"
+	]
+	parser_detector_Detector [ 
+		label = "{\<\<abstract\>\>\nparser_detector_Detector|default files : java_util_List\l|public detect() : java_util_List\lpublic sanitize(java_lang_String arg0) : java_lang_String\l\l}"
+	]
+	parser_detector_SingletonDetector [ 
+		label = "{parser_detector_SingletonDetector|public PATTERN : java_lang_String\l|public detect() : java_util_List\lprivate isSingleton(model_IFile arg0) : boolean\l\l}"
+	]
+	parser_linker_AssociationLinker [ 
+		label = "{parser_linker_AssociationLinker|public TYPE : java_lang_String\l|public link() : java_util_List\lprivate addArrow(java_lang_String arg0, java_lang_String arg1, java_util_List arg2) : void\l\l}"
+	]
+	parser_linker_ImplementsLinker [ 
+		label = "{parser_linker_ImplementsLinker|public TYPE : java_lang_String\l|public link() : java_util_List\lprivate addArrow(java_lang_String arg0, java_lang_String arg1, java_util_List arg2) : void\l\l}"
+	]
+	parser_linker_InheritanceLinker [ 
+		label = "{parser_linker_InheritanceLinker|public TYPE : java_lang_String\l|public link() : java_util_List\lprivate addArrow(java_lang_String arg0, java_lang_String arg1, java_util_List arg2) : void\l\l}"
+	]
+	parser_linker_Linker [ 
+		label = "{\<\<abstract\>\>\nparser_linker_Linker|default files : java_util_List\ldefault includeAll : boolean\l|public link() : java_util_List\ldefault getFileNames() : java_util_List\lpublic sanitize(java_lang_String arg0) : java_lang_String\l\l}"
+	]
+	parser_linker_UsesLinker [ 
+		label = "{parser_linker_UsesLinker|public TYPE : java_lang_String\l|public link() : java_util_List\lprivate addArrow(java_lang_String arg0, java_lang_String arg1, java_util_List arg2) : void\l\l}"
+	]
+	parser_visitors_classvisitors_ClassDeclarationVisitor [ 
+		label = "{parser_visitors_classvisitors_ClassDeclarationVisitor|private node : model_IFile\l|public visit(int arg0, int arg1, java_lang_String arg2, java_lang_String arg3, java_lang_String arg4, java_lang_String[] arg5) : void\lprivate addAccessLevel(int arg0) : void\lprivate addType(int arg0) : void\l\l}"
+	]
+	parser_visitors_classvisitors_ClassFieldVisitor [ 
+		label = "{parser_visitors_classvisitors_ClassFieldVisitor|private node : model_IFile\lprivate field : model_IInnerNode\l|public visitField(int arg0, java_lang_String arg1, java_lang_String arg2, java_lang_String arg3, java_lang_Object arg4) : org_objectweb_asm_FieldVisitor\lprivate addAccessLevel(int arg0) : void\lprivate addType(java_lang_String arg0) : void\l\l}"
+	]
+	parser_visitors_classvisitors_ClassMethodVisitor [ 
+		label = "{parser_visitors_classvisitors_ClassMethodVisitor|private node : model_IFile\lprivate method : model_IMethod\l|public visitMethod(int arg0, java_lang_String arg1, java_lang_String arg2, java_lang_String arg3, java_lang_String[] arg4) : org_objectweb_asm_MethodVisitor\lprivate addArguments(java_lang_String arg0, java_lang_String arg1) : void\lprivate addReturnType(java_lang_String arg0) : void\lprivate addAccessLevel(int arg0) : void\l\l}"
+	]
+	parser_visitors_methodvisitors_MethodInsnVisitor [ 
+		label = "{parser_visitors_methodvisitors_MethodInsnVisitor|private method : model_IMethod\l|public visitMethodInsn(int arg0, java_lang_String arg1, java_lang_String arg2, java_lang_String arg3, boolean arg4) : void\lprivate addArguments(java_lang_String arg0, model_IMethod arg1) : model_IMethod\lprivate addAccessLevel(int arg0, model_IMethod arg1) : model_IMethod\lprivate addReturnType(java_lang_String arg0, model_IMethod arg1) : model_IMethod\l\l}"
+	]
+	parser_visitors_methodvisitors_MethodTypeInsnVisitor [ 
+		label = "{parser_visitors_methodvisitors_MethodTypeInsnVisitor|private method : model_IMethod\l|public visitTypeInsn(int arg0, java_lang_String arg1) : void\l\l}"
+	]
+	runner_DesignMaker [ 
+		label = "{runner_DesignMaker|private design : designs_DesignBuilder\lprivate encoders : java_util_Map\l|public make() : void\lprivate getFiles(java_lang_String arg0) : java_util_List\l\l}"
+	]
+	runner_Main [ 
+		label = "{runner_Main||public main(java_lang_String[] arg0) : void\l\l}"
+	]
+	encoders_dot_DotDecorator->encoders_dot_Dot [arrowhead=vee style=normal label="\<\<decorates\>\>"]
+	encoders_dot_DotDecorator->model_IModel [arrowhead=vee style=normal]
+	nodes_MethodNode->model_IMethod [arrowhead=vee style=normal label="\<\<decorates\>\>" label="\<\<decorates\>\>" label="\<\<decorates\>\>"]
+	nodes_Pattern->model_IArrow [arrowhead=vee style=normal]
+	parser_visitors_classvisitors_ClassDeclarationVisitor->model_IFile [arrowhead=vee style=normal]
+	parser_visitors_classvisitors_ClassFieldVisitor->model_IFile [arrowhead=vee style=normal]
+	parser_visitors_classvisitors_ClassFieldVisitor->model_IInnerNode [arrowhead=vee style=normal]
+	parser_visitors_classvisitors_ClassMethodVisitor->model_IFile [arrowhead=vee style=normal]
+	parser_visitors_classvisitors_ClassMethodVisitor->model_IMethod [arrowhead=vee style=normal]
+	parser_visitors_methodvisitors_MethodInsnVisitor->model_IMethod [arrowhead=vee style=normal]
+	parser_visitors_methodvisitors_MethodTypeInsnVisitor->model_IMethod [arrowhead=vee style=normal]
+	runner_DesignMaker->designs_DesignBuilder [arrowhead=vee style=normal]
+	designs_SequenceDesignBuilder->designs_DesignBuilder [arrowhead=onormal style=dashed]
+	designs_UMLDesignBuilder->designs_DesignBuilder [arrowhead=onormal style=dashed]
+	designs_UMLDesignBuilderCreator->designs_DesignBuilder [arrowhead=onormal style=dashed]
+	encoders_dot_DotDecorator->encoders_dot_Dot [arrowhead=onormal style=dashed]
+	encoders_dot_DotEncoder->encoders_IEncoder [arrowhead=onormal style=dashed]
+	encoders_dot_StandardDot->encoders_dot_Dot [arrowhead=onormal style=dashed]
+	encoders_sdedit_SDEditEncoder->encoders_IEncoder [arrowhead=onormal style=dashed]
+	encoders_text_TextEncoder->encoders_IEncoder [arrowhead=onormal style=dashed]
+	model_IFile->model_IInnerNode [arrowhead=onormal style=dashed]
+	model_IInnerNode->model_INode [arrowhead=onormal style=dashed]
+	model_IMethod->model_IInnerNode [arrowhead=onormal style=dashed]
+	nodes_ArgumentNode->model_INode [arrowhead=onormal style=dashed]
+	nodes_Arrow->model_IArrow [arrowhead=onormal style=dashed]
+	nodes_FieldNode->model_IInnerNode [arrowhead=onormal style=dashed]
+	nodes_FileNode->model_IFile [arrowhead=onormal style=dashed]
+	nodes_MethodInsn->model_IMethodInsn [arrowhead=onormal style=dashed]
+	nodes_MethodNode->model_IMethod [arrowhead=onormal style=dashed]
+	nodes_Model->model_IModel [arrowhead=onormal style=dashed]
+	nodes_Pattern->model_IPattern [arrowhead=onormal style=dashed]
+	nodes_TypeInsn->model_ITypeInsn [arrowhead=onormal style=dashed]
+	parser_ArrowParser->parser_Parser [arrowhead=onormal style=dashed]
+	parser_FileParser->parser_Parser [arrowhead=onormal style=dashed]
+	parser_PatternParser->parser_Parser [arrowhead=onormal style=dashed]
+	parser_SequenceParser->parser_Parser [arrowhead=onormal style=dashed]
+	encoders_dot_DotArrowDecorator->encoders_dot_DotDecorator [arrowhead=normal style=normal]
+	encoders_dot_DotFileDecorator->encoders_dot_DotDecorator [arrowhead=normal style=normal]
+	parser_detector_AdapterDetector->parser_detector_Detector [arrowhead=normal style=normal]
+	parser_detector_CompositeDetector->parser_detector_Detector [arrowhead=normal style=normal]
+	parser_detector_DecoratorDetector->parser_detector_Detector [arrowhead=normal style=normal]
+	parser_detector_SingletonDetector->parser_detector_Detector [arrowhead=normal style=normal]
+	parser_linker_AssociationLinker->parser_linker_Linker [arrowhead=normal style=normal]
+	parser_linker_ImplementsLinker->parser_linker_Linker [arrowhead=normal style=normal]
+	parser_linker_InheritanceLinker->parser_linker_Linker [arrowhead=normal style=normal]
+	parser_linker_UsesLinker->parser_linker_Linker [arrowhead=normal style=normal]
+	designs_DesignBuilder->model_IModel [arrowhead=vee style=dashed]
+	designs_DesignFactory->designs_DesignBuilder [arrowhead=vee style=dashed]
+	designs_SequenceDesignBuilder->model_IModel [arrowhead=vee style=dashed]
+	designs_SequenceDesignBuilder->nodes_IBuilder [arrowhead=vee style=dashed]
+	designs_UMLDesignBuilder->model_IModel [arrowhead=vee style=dashed]
+	designs_UMLDesignBuilder->nodes_IBuilder [arrowhead=vee style=dashed]
+	designs_UMLDesignBuilderCreator->model_IModel [arrowhead=vee style=dashed]
+	encoders_IEncoder->model_IModel [arrowhead=vee style=dashed]
+	encoders_dot_DotArrowDecorator->model_IArrow [arrowhead=vee style=dashed]
+	encoders_dot_DotArrowDecorator->model_IModel [arrowhead=vee style=dashed]
+	encoders_dot_DotArrowDecorator->model_IPattern [arrowhead=vee style=dashed]
+	encoders_dot_DotArrowDecorator->encoders_dot_Dot [arrowhead=vee style=dashed]
+	encoders_dot_DotArrowDecorator->model_IArrow [arrowhead=vee style=dashed]
+	encoders_dot_DotDecorator->model_INode [arrowhead=vee style=dashed]
+	encoders_dot_DotDecorator->encoders_dot_Dot [arrowhead=vee style=dashed]
+	encoders_dot_DotDecorator->model_IModel [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->encoders_dot_DotArrowDecorator [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->encoders_dot_DotFileDecorator [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->model_IModel [arrowhead=vee style=dashed]
+	encoders_dot_DotEncoder->encoders_dot_StandardDot [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IModel [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->encoders_dot_Dot [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IMethod [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IPattern [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IFile [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IInnerNode [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_INode [arrowhead=vee style=dashed]
+	encoders_dot_DotFileDecorator->model_IFile [arrowhead=vee style=dashed]
+	encoders_sdedit_SDEditEncoder->model_IModel [arrowhead=vee style=dashed]
+	encoders_sdedit_SDEditEncoder->model_IMethod [arrowhead=vee style=dashed]
+	encoders_sdedit_SDEditEncoder->model_INode [arrowhead=vee style=dashed]
+	encoders_sdedit_SDEditEncoder->model_IMethod [arrowhead=vee style=dashed]
+	encoders_sdedit_SDEditEncoder->model_IFile [arrowhead=vee style=dashed]
+	encoders_text_TextEncoder->model_IModel [arrowhead=vee style=dashed]
+	model_IArrow->model_IArrow [arrowhead=vee style=dashed]
+	model_IFile->model_IMethod [arrowhead=vee style=dashed]
+	model_IFile->model_IFile [arrowhead=vee style=dashed]
+	model_IFile->model_IInnerNode [arrowhead=vee style=dashed]
+	model_IMethod->model_IMethod [arrowhead=vee style=dashed]
+	model_IMethod->model_ITypeInsn [arrowhead=vee style=dashed]
+	model_IMethod->model_INode [arrowhead=vee style=dashed]
+	model_IMethodInsn->model_IMethod [arrowhead=vee style=dashed]
+	model_IPattern->model_IArrow [arrowhead=vee style=dashed]
+	nodes_Arrow->model_IArrow [arrowhead=vee style=dashed]
+	nodes_Arrow->nodes_Arrow [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IMethod [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IMethod [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IInnerNode [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IFile [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IInnerNode [arrowhead=vee style=dashed]
+	nodes_FileNode->model_IFile [arrowhead=vee style=dashed]
+	nodes_IBuilder->nodes_IBuilder [arrowhead=vee style=dashed]
+	nodes_IBuilder->model_IModel [arrowhead=vee style=dashed]
+	nodes_MethodInsn->model_IMethod [arrowhead=vee style=dashed]
+	nodes_MethodNode->nodes_MethodNode [arrowhead=vee style=dashed]
+	nodes_MethodNode->model_INode [arrowhead=vee style=dashed]
+	nodes_MethodNode->model_IMethod [arrowhead=vee style=dashed]
+	nodes_MethodNode->model_INode [arrowhead=vee style=dashed]
+	nodes_MethodNode->model_ITypeInsn [arrowhead=vee style=dashed]
+	nodes_Model->nodes_Model [arrowhead=vee style=dashed]
+	nodes_Model->model_INode [arrowhead=vee style=dashed]
+	nodes_Model->nodes_IBuilder [arrowhead=vee style=dashed]
+	nodes_Pattern->model_IArrow [arrowhead=vee style=dashed]
+	nodes_Pattern->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_ArrowParser->parser_linker_Linker [arrowhead=vee style=dashed]
+	parser_ArrowParser->parser_linker_InheritanceLinker [arrowhead=vee style=dashed]
+	parser_ArrowParser->parser_linker_AssociationLinker [arrowhead=vee style=dashed]
+	parser_ArrowParser->parser_linker_ImplementsLinker [arrowhead=vee style=dashed]
+	parser_ArrowParser->parser_linker_UsesLinker [arrowhead=vee style=dashed]
+	parser_FileParser->parser_visitors_classvisitors_ClassFieldVisitor [arrowhead=vee style=dashed]
+	parser_FileParser->parser_visitors_classvisitors_ClassMethodVisitor [arrowhead=vee style=dashed]
+	parser_FileParser->nodes_FileNode [arrowhead=vee style=dashed]
+	parser_FileParser->parser_visitors_classvisitors_ClassDeclarationVisitor [arrowhead=vee style=dashed]
+	parser_PatternParser->parser_detector_SingletonDetector [arrowhead=vee style=dashed]
+	parser_PatternParser->parser_detector_CompositeDetector [arrowhead=vee style=dashed]
+	parser_PatternParser->parser_detector_Detector [arrowhead=vee style=dashed]
+	parser_PatternParser->parser_detector_AdapterDetector [arrowhead=vee style=dashed]
+	parser_PatternParser->parser_detector_DecoratorDetector [arrowhead=vee style=dashed]
+	parser_SequenceParser->parser_visitors_classvisitors_ClassMethodVisitor [arrowhead=vee style=dashed]
+	parser_SequenceParser->nodes_FileNode [arrowhead=vee style=dashed]
+	parser_SequenceParser->nodes_ArgumentNode [arrowhead=vee style=dashed]
+	parser_SequenceParser->nodes_MethodNode [arrowhead=vee style=dashed]
+	parser_SequenceParser->model_IMethod [arrowhead=vee style=dashed]
+	parser_SequenceParser->model_IMethod [arrowhead=vee style=dashed]
+	parser_SequenceParser->parser_visitors_classvisitors_ClassDeclarationVisitor [arrowhead=vee style=dashed]
+	parser_SequenceParser->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->model_IMethod [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->model_IInnerNode [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->model_INode [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->nodes_Pattern [arrowhead=vee style=dashed]
+	parser_detector_AdapterDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_IMethod [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_IInnerNode [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_INode [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_IMethod [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->nodes_Pattern [arrowhead=vee style=dashed]
+	parser_detector_CompositeDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->model_IInnerNode [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->model_INode [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->model_IMethod [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->nodes_Pattern [arrowhead=vee style=dashed]
+	parser_detector_DecoratorDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_SingletonDetector->model_IMethod [arrowhead=vee style=dashed]
+	parser_detector_SingletonDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_detector_SingletonDetector->model_IInnerNode [arrowhead=vee style=dashed]
+	parser_detector_SingletonDetector->nodes_Pattern [arrowhead=vee style=dashed]
+	parser_detector_SingletonDetector->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_AssociationLinker->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_linker_AssociationLinker->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_AssociationLinker->model_IInnerNode [arrowhead=vee style=dashed]
+	parser_linker_ImplementsLinker->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_linker_ImplementsLinker->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_InheritanceLinker->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_linker_InheritanceLinker->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_Linker->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_UsesLinker->model_IMethod [arrowhead=vee style=dashed]
+	parser_linker_UsesLinker->nodes_Arrow [arrowhead=vee style=dashed]
+	parser_linker_UsesLinker->model_IFile [arrowhead=vee style=dashed]
+	parser_linker_UsesLinker->model_ITypeInsn [arrowhead=vee style=dashed]
+	parser_linker_UsesLinker->model_INode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassDeclarationVisitor->nodes_FileNode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassDeclarationVisitor->model_IFile [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassFieldVisitor->nodes_FieldNode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassFieldVisitor->model_IFile [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->nodes_FileNode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->parser_visitors_methodvisitors_MethodInsnVisitor [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->nodes_ArgumentNode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->nodes_MethodNode [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->parser_visitors_methodvisitors_MethodTypeInsnVisitor [arrowhead=vee style=dashed]
+	parser_visitors_classvisitors_ClassMethodVisitor->model_IFile [arrowhead=vee style=dashed]
+	parser_visitors_methodvisitors_MethodInsnVisitor->model_IMethod [arrowhead=vee style=dashed]
+	parser_visitors_methodvisitors_MethodInsnVisitor->nodes_ArgumentNode [arrowhead=vee style=dashed]
+	parser_visitors_methodvisitors_MethodInsnVisitor->nodes_MethodNode [arrowhead=vee style=dashed]
+	parser_visitors_methodvisitors_MethodTypeInsnVisitor->model_IMethod [arrowhead=vee style=dashed]
+	parser_visitors_methodvisitors_MethodTypeInsnVisitor->nodes_TypeInsn [arrowhead=vee style=dashed]
+	runner_DesignMaker->encoders_dot_DotEncoder [arrowhead=vee style=dashed]
+	runner_DesignMaker->designs_SequenceDesignBuilder [arrowhead=vee style=dashed]
+	runner_DesignMaker->model_IModel [arrowhead=vee style=dashed]
+	runner_DesignMaker->encoders_IEncoder [arrowhead=vee style=dashed]
+	runner_DesignMaker->designs_UMLDesignBuilder [arrowhead=vee style=dashed]
+	runner_DesignMaker->encoders_text_TextEncoder [arrowhead=vee style=dashed]
+	runner_DesignMaker->encoders_sdedit_SDEditEncoder [arrowhead=vee style=dashed]
+	runner_Main->runner_DesignMaker [arrowhead=vee style=dashed]
+	}

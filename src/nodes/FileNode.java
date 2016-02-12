@@ -135,4 +135,16 @@ public class FileNode implements IFile {
 		return this.Modifiers;
 	}
 
+	@Override
+	public void setSig(String type) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getSig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

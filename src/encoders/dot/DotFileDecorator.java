@@ -24,6 +24,9 @@ public class DotFileDecorator extends DotDecorator{
 		this.patternDraw.put("Adapter", "color=red, style=filled");
 		this.patternDraw.put("Adapter:Adaptee", "color=red, style=filled");
 		this.patternDraw.put("Adapter:Target", "color=red, style=filled");
+		this.patternDraw.put("Composite", "color=yellow, style=filled");
+		this.patternDraw.put("Composite:Component", "color=yellow, style=filled");
+		this.patternDraw.put("Composite:Leaf", "color=yellow, style=filled");
 	}
 	
 	public StringBuilder getDot() {

@@ -24,7 +24,7 @@ public class AdapterDetector extends Detector{
 	@Override
 	public List<IPattern> detect() {
 		detectAdapter();
-		System.out.println("check patterns");
+//		System.out.println("check patterns");
 		return patterns;
 	}
 	
@@ -50,7 +50,7 @@ public class AdapterDetector extends Detector{
 							
 							if(adaptee != null && file != null) {
 								
-								System.out.println("Adaptee: "+adaptee.getName()+"\nAdapter: "+file.getName()+"\n");
+//								System.out.println("Adaptee: "+adaptee.getName()+"\nAdapter: "+file.getName()+"\n");
 								target = findTarget(file, adaptee, true);
 								//System.out.println("Target: "+target.getName());
 								
@@ -80,14 +80,14 @@ public class AdapterDetector extends Detector{
 								}
 							}
 							
-							System.out.println("EItotal: "+EItotal);
-							System.out.println("Atotal: "+Atotal);
+//							System.out.println("EItotal: "+EItotal);
+//							System.out.println("Atotal: "+Atotal);
 							
 							boolean checkTwo = false;
 							
 							if(checkOne) {
 								
-								System.out.println(file.getName()+" Has made it past check one!");
+//								System.out.println(file.getName()+" Has made it past check one!");
 								
 								for(IMethod m:file.getMethods()) {
 									if(!m.getName().equals("init")) {
@@ -102,7 +102,7 @@ public class AdapterDetector extends Detector{
 							}
 							
 							if(checkTwo) {
-								System.out.println(file.getName()+" Has made it past check two!");
+//								System.out.println(file.getName()+" Has made it past check two!");
 								
 								IPattern pAdapter = new Pattern("Adapter");
 								IPattern pAdaptee = new Pattern("Adapter:Adaptee");

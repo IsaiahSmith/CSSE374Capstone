@@ -31,6 +31,10 @@ public class ClassFieldVisitor extends ClassVisitor{
 	public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
 		FieldVisitor toDecorate = super.visitField(access, name, desc, signature, value);
 		this.field = new FieldNode();
+		if(signature != null){
+			String type = Type.getReturnType(signature).getClassName();
+			this.field.setSig(type);
+		}
 		
 		this.field.setName(name);
 		

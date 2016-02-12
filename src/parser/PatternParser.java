@@ -8,6 +8,7 @@ import java.util.Map;
 import model.IFile;
 import model.IPattern;
 import parser.detector.AdapterDetector;
+import parser.detector.CompositeDetector;
 import parser.detector.DecoratorDetector;
 import parser.detector.Detector;
 import parser.detector.SingletonDetector;
@@ -22,6 +23,7 @@ public class PatternParser implements Parser<IPattern> {
 		this.detectors.put(SingletonDetector.PATTERN, new SingletonDetector(files));
 		this.detectors.put(DecoratorDetector.PATTERN, new DecoratorDetector(files));
 		this.detectors.put(AdapterDetector.PATTERN, new AdapterDetector(files));
+		this.detectors.put(CompositeDetector.PATTERN, new CompositeDetector(files));
 	}
 
 	@Override

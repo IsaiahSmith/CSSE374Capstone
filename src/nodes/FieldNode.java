@@ -11,10 +11,13 @@ public class FieldNode implements IInnerNode {
 	private String Type;
 	private String Visibility;
 	private List<String> Modifiers;
+	private Object value;
+	private String signature;
 	
 	public FieldNode() {
 		this.Name = new String();
 		this.Type = new String();
+		this.signature = new String();
 		this.Visibility = new String();
 		this.Modifiers = new ArrayList<String>();
 	}
@@ -64,5 +67,15 @@ public class FieldNode implements IInnerNode {
 	@Override
 	public List<String> getModifiers() {
 		return this.Modifiers;
+	}
+
+	@Override
+	public void setSig(String type) {
+		this.signature = type;
+	}
+
+	@Override
+	public String getSig() {
+		return this.signature;
 	}
 }

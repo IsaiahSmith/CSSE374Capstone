@@ -1,0 +1,5 @@
+compProblem/Component
+compProblem/Composite
+compProblem/Leaf
+compProblem/Leaf2
+compProblem/Leaf3
