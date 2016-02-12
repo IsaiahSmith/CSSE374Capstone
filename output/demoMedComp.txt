@@ -1,0 +1,39 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	compProblemMed_Component [ 
+		label = "{\<\<abstract\>\>\ncompProblemMed_Component\n\<\<Component\>\>||public add(compProblemMed_Component arg0) : void\lpublic remove(compProblemMed_Component arg0) : void\lpublic getChild(int arg0) : compProblemMed_Component\l\l}",
+		color=yellow, style=filled
+	]
+	compProblemMed_Composite2 [ 
+		label = "{compProblemMed_Composite2\n\<\<Composite\>\>|default comps : java_util_ArrayList\l|public add(compProblemMed_Component arg0) : void\lpublic remove(compProblemMed_Component arg0) : void\lpublic getChild(int arg0) : compProblemMed_Component\l\l}",
+		color=yellow, style=filled
+	]
+	compProblemMed_Leaf [ 
+		label = "{compProblemMed_Leaf\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemMed_Leaf2 [ 
+		label = "{compProblemMed_Leaf2\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemMed_Leaf3 [ 
+		label = "{compProblemMed_Leaf3\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemMed_Composite2->compProblemMed_Component [arrowhead=normal style=normal]
+	compProblemMed_Leaf->compProblemMed_Component [arrowhead=normal style=normal]
+	compProblemMed_Leaf2->compProblemMed_Component [arrowhead=normal style=normal]
+	compProblemMed_Leaf3->compProblemMed_Component [arrowhead=normal style=normal]
+	compProblemMed_Component->compProblemMed_Component [arrowhead=vee style=dashed]
+	compProblemMed_Composite2->compProblemMed_Component [arrowhead=vee style=dashed]
+	}

@@ -1,5 +1,5 @@
-compProblem/Component
-compProblem/Composite
-compProblem/Leaf
-compProblem/Leaf2
-compProblem/Leaf3
+compProblemEasy/Component
+compProblemEasy/Composite
+compProblemEasy/Leaf
+compProblemEasy/Leaf2
+compProblemEasy/Leaf3
