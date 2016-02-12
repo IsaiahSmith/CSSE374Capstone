@@ -1,6 +1,9 @@
 javax.swing.JButton
-javax.swing.AbstractButton
+java.awt.Button
 javax.swing.JPanel
+java.awt.Panel
 javax.swing.JFrame
 java.awt.Frame
+java.awt.Container
 javax.swing.JComponent
+java.awt.Component

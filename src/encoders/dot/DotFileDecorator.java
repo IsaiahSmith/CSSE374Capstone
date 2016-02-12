@@ -19,14 +19,14 @@ public class DotFileDecorator extends DotDecorator{
 		super(dot, model);
 		this.patternDraw = new HashMap<String, String>();
 		this.patternDraw.put("Singleton", "color=blue");
-		this.patternDraw.put("Decorator", "color=green, style=filled");
-		this.patternDraw.put("Decorator:Component", "color=green, style=filled");
-		this.patternDraw.put("Adapter", "color=red, style=filled");
-		this.patternDraw.put("Adapter:Adaptee", "color=red, style=filled");
-		this.patternDraw.put("Adapter:Target", "color=red, style=filled");
-		this.patternDraw.put("Composite", "color=yellow, style=filled");
-		this.patternDraw.put("Composite:Component", "color=yellow, style=filled");
-		this.patternDraw.put("Composite:Leaf", "color=yellow, style=filled");
+		this.patternDraw.put("Decorator", "fillcolor=green, style=filled");
+		this.patternDraw.put("Decorator:Component", "fillcolor=green, style=filled");
+		this.patternDraw.put("Adapter", "fillcolor=red, style=filled");
+		this.patternDraw.put("Adapter:Adaptee", "fillcolor=red, style=filled");
+		this.patternDraw.put("Adapter:Target", "fillcolor=red, style=filled");
+		this.patternDraw.put("Composite", "fillcolor=yellow, style=filled");
+		this.patternDraw.put("Composite:Component", "fillcolor=yellow, style=filled");
+		this.patternDraw.put("Composite:Leaf", "fillcolor=yellow, style=filled");
 	}
 	
 	public StringBuilder getDot() {
