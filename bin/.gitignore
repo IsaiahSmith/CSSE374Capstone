@@ -1,6 +1,3 @@
 /parser/
-/designs/
-/model/
-/nodes/
-/encoders/
+/runner/
 /testing/
