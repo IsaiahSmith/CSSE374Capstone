@@ -23,5 +23,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab7-1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab7-2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pizzafactory"/>
+	<classpathentry kind="lib" path="miglayout-4.0-swing.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
