@@ -8,9 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import nodes.Model;
+
 public class AnalyzeButton extends JButton {
 	private JPanel mainpanel;
 	private JFrame mainframe;
+	Model model;
 	
 	public AnalyzeButton(JFrame mainframe, JPanel mainpanel) {
 		this.mainframe = mainframe;
@@ -33,6 +36,6 @@ public class AnalyzeButton extends JButton {
 	}
 
 	protected void populatePanel() {
-		new ResultGUI(this.mainframe, this.mainpanel);
+		new ResultGUI(this.mainframe, this.mainpanel, this.model);
 	}
 }

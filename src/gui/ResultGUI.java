@@ -1,53 +1,105 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.lang.ProcessBuilder.Redirect;
+import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+import nodes.Model;
 
 public class ResultGUI {
 
 	private JFrame mainframe;
 	private JPanel mainpanel;
+	private List<Class<? extends Model>> classes;
 
-	public ResultGUI(JFrame mainframe, JPanel mainpanel) {
+	public ResultGUI(JFrame mainframe, JPanel mainpanel, Model model) {
 		this.mainframe = mainframe;
 		this.mainpanel = mainpanel;
 		this.mainframe.setTitle("Design Parser - Results");
 		this.mainframe.setSize(1200, 800);
-		populatePanel();
+		populatePanel(model);
 	}
 
-	private void populatePanel() {
+	private void populatePanel(Model model) {
+//		this.classes = model.getClasses();
+		String filepath = ".\\output\\testGUI.dot";
 		createMenuBar();
 		createCheckboxTree();
-		createGraphViz("./output/demoFull.txt");
+//		makeFile(this.classes.encodeToDot(), filepath);
+		createGraphViz(filepath, "C:\\Program Files (x86)\\Graphviz2.38\\bin\\gvedit.exe");
 	}
 	
-	private void createGraphViz(String filepath) {
-//		String outPath = this.outputDir + "\\out.png";
-//		ProcessBuilder pb = new ProcessBuilder(this.dotPath, "-Tpng", tempPath, "-o", outPath);
-		Process process;
+	private void makeFile(String digraph, String resultPath) {
+		PrintWriter writer;
 		try {
-			process = new ProcessBuilder(
-			"C:\\Program Files (x86)\\Graphviz2.38\\bin\\gvedit.exe",filepath).start();
+			writer = new PrintWriter(resultPath, "UTF-8");
+			writer.print(digraph);
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void createGraphViz(String filepath, String exepath) {
+		String outPath = ".\\output\\out.png";
+		ProcessBuilder pb = new ProcessBuilder(exepath, "-Tpng", filepath, "-o", outPath);
+
+		try {
+			String logPath = ".\\output" + "\\errorLog.txt";
+			File log = new File(logPath);
+			pb.redirectErrorStream(true);
+			pb.redirectOutput(Redirect.appendTo(log));
+			pb.start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		showImage();
+	}
 
+	private void showImage() {
+		ImageIcon image = new ImageIcon(".\\output\\out.png");
+		
+		JPanel graphPanel = new JPanel();
+		JScrollPane scrollPanel = new JScrollPane(new JLabel(image),
+				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPanel.setPreferredSize(new Dimension(779, 722));
+		scrollPanel.setVisible(true);
+		graphPanel.add(scrollPanel);
+		this.mainpanel.add(graphPanel, "dock east, h 790!, w 790!");
 	}
 
 	private void createCheckboxTree() {
 		JPanel treePanel = new JPanel();
-		treePanel.setBackground(Color.black);
-		this.mainpanel.add(treePanel, "dock west, h 800!, w 400! ");
+		
+		JScrollPane scrollPanel = new JScrollPane(new CheckBoxTree(),
+				ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPanel.setPreferredSize(new Dimension(400, 727));
+		scrollPanel.setVisible(true);
+		
+		treePanel.add(scrollPanel);
+		this.mainpanel.add(treePanel, "dock west, h 801!, w 400!");
 	}
 
 	private void createMenuBar() {

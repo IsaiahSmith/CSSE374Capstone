@@ -1,0 +1,39 @@
+digraph G {
+	fontname = "Bitstream Vera Sans" 
+	fontsize = 8 
+	node [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8 
+		shape = "record"
+	] 
+	edge [
+		fontname = "Bitstream Vera Sans" 
+		fontsize = 8
+	]
+	compProblemEasy_Component [ 
+		label = "{\<\<abstract\>\>\ncompProblemEasy_Component\n\<\<Component\>\>||public add(compProblemEasy_Component arg0) : void\lpublic remove(compProblemEasy_Component arg0) : void\lpublic getChild(int arg0) : compProblemEasy_Component\l\l}",
+		color=yellow, style=filled
+	]
+	compProblemEasy_Composite [ 
+		label = "{compProblemEasy_Composite\n\<\<Composite\>\>|default comps : java_util_ArrayList\l|public add(compProblemEasy_Component arg0) : void\lpublic remove(compProblemEasy_Component arg0) : void\lpublic getChild(int arg0) : compProblemEasy_Component\l\l}",
+		color=yellow, style=filled
+	]
+	compProblemEasy_Leaf [ 
+		label = "{compProblemEasy_Leaf\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemEasy_Leaf2 [ 
+		label = "{compProblemEasy_Leaf2\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemEasy_Leaf3 [ 
+		label = "{compProblemEasy_Leaf3\n\<\<Leaf\>\>||\l}",
+		color=yellow, style=filled
+	]
+	compProblemEasy_Composite->compProblemEasy_Component [arrowhead=normal style=normal]
+	compProblemEasy_Leaf->compProblemEasy_Component [arrowhead=normal style=normal]
+	compProblemEasy_Leaf2->compProblemEasy_Component [arrowhead=normal style=normal]
+	compProblemEasy_Leaf3->compProblemEasy_Component [arrowhead=normal style=normal]
+	compProblemEasy_Component->compProblemEasy_Component [arrowhead=vee style=dashed]
+	compProblemEasy_Composite->compProblemEasy_Component [arrowhead=vee style=dashed]
+	}
