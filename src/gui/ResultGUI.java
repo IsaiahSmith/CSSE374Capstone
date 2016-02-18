@@ -67,7 +67,7 @@ public class ResultGUI {
 		String command = exepath + " -Tpng " + filepath + " -o " + outPath;
 		Runtime.getRuntime().exec(command);
 		
-		showImage();
+//		showImage();
 	}
 
 	private void showImage() {
