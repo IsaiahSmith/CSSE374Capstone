@@ -31,7 +31,7 @@ public class ResultGUI {
 	private JPanel mainpanel;
 	private List<Class<? extends Model>> classes;
 
-	public ResultGUI(JFrame mainframe, JPanel mainpanel, Model model) {
+	public ResultGUI(JFrame mainframe, JPanel mainpanel, Model model) throws IOException {
 		this.mainframe = mainframe;
 		this.mainpanel = mainpanel;
 		this.mainframe.setTitle("Design Parser - Results");
@@ -39,15 +39,15 @@ public class ResultGUI {
 		populatePanel(model);
 	}
 
-	private void populatePanel(Model model) {
-//		this.classes = model.getClasses();
-		String filepath = ".\\output\\testGUI.dot";
+	private void populatePanel(Model model) throws IOException {
+		// this.classes = model.getClasses();
+		String filepath = "./output/testGUI.dot";
 		createMenuBar();
 		createCheckboxTree();
-//		makeFile(this.classes.encodeToDot(), filepath);
-		createGraphViz(filepath, "C:\\Program Files (x86)\\Graphviz2.38\\bin\\gvedit.exe");
+		// makeFile(this.classes.encodeToDot(), filepath);
+		createGraphViz(filepath, "\"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot\"");
 	}
-	
+
 	private void makeFile(String digraph, String resultPath) {
 		PrintWriter writer;
 		try {
@@ -61,30 +61,22 @@ public class ResultGUI {
 		}
 	}
 
-	private void createGraphViz(String filepath, String exepath) {
-		String outPath = ".\\output\\out.png";
-		ProcessBuilder pb = new ProcessBuilder(exepath, "-Tpng", filepath, "-o", outPath);
+	private void createGraphViz(String filepath, String exepath) throws IOException {
+		String outPath = "./output/out.png";
 
-		try {
-			String logPath = ".\\output" + "\\errorLog.txt";
-			File log = new File(logPath);
-			pb.redirectErrorStream(true);
-			pb.redirectOutput(Redirect.appendTo(log));
-			pb.start();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String command = exepath + " -Tpng " + filepath + " -o " + outPath;
+		Runtime.getRuntime().exec(command);
 		
 		showImage();
 	}
 
 	private void showImage() {
-		ImageIcon image = new ImageIcon(".\\output\\out.png");
-		
+		ImageIcon image = new ImageIcon("./output/out.png");
+
 		JPanel graphPanel = new JPanel();
-		JScrollPane scrollPanel = new JScrollPane(new JLabel(image),
-				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		
+		JScrollPane scrollPanel = new JScrollPane(new JLabel(image), ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 		scrollPanel.setPreferredSize(new Dimension(779, 722));
 		scrollPanel.setVisible(true);
 		graphPanel.add(scrollPanel);
@@ -93,74 +85,73 @@ public class ResultGUI {
 
 	private void createCheckboxTree() {
 		JPanel treePanel = new JPanel();
-		
-		JScrollPane scrollPanel = new JScrollPane(new CheckBoxTree(),
-				ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+		JScrollPane scrollPanel = new JScrollPane(new CheckBoxTree(), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPanel.setPreferredSize(new Dimension(400, 727));
 		scrollPanel.setVisible(true);
-		
+
 		treePanel.add(scrollPanel);
 		this.mainpanel.add(treePanel, "dock west, h 801!, w 400!");
 	}
 
 	private void createMenuBar() {
-        JMenuBar menubar = new JMenuBar();
+		JMenuBar menubar = new JMenuBar();
 
-        JMenu file = new JMenu("File");
-        file.setMnemonic(KeyEvent.VK_F);
-        
+		JMenu file = new JMenu("File");
+		file.setMnemonic(KeyEvent.VK_F);
 
-        JMenuItem loadMenuItem = new JMenuItem("Load new");
-        loadMenuItem.setMnemonic(KeyEvent.VK_E);
-        loadMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.out.println("Load new");
-            }
-        });
-        
-        JMenuItem exportMenuItem = new JMenuItem("Export");
-        exportMenuItem.setMnemonic(KeyEvent.VK_E);
-        exportMenuItem.setToolTipText("Export to pdf");
-        exportMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.out.println("Export");
-            }
-        });
+		JMenuItem loadMenuItem = new JMenuItem("Load new");
+		loadMenuItem.setMnemonic(KeyEvent.VK_E);
+		loadMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("Load new");
+			}
+		});
 
-        file.add(loadMenuItem);
-        file.add(exportMenuItem);
-        
-        JMenu help = new JMenu("Help");
-        file.setMnemonic(KeyEvent.VK_F);
-        
-        JMenuItem instMenuItem = new JMenuItem("Instructions");
-        instMenuItem.setMnemonic(KeyEvent.VK_E);
-        instMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.out.println("Instruction");
-            }
-        });
-        
-        JMenuItem aboutMenuItem = new JMenuItem("About");
-        aboutMenuItem.setMnemonic(KeyEvent.VK_E);
-        aboutMenuItem.setToolTipText("Learn about this application");
-        aboutMenuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.out.println("About");
-            }
-        });
-        
-        help.add(instMenuItem);
-        help.add(aboutMenuItem);
-        
-        menubar.add(file);
-        menubar.add(help);
+		JMenuItem exportMenuItem = new JMenuItem("Export");
+		exportMenuItem.setMnemonic(KeyEvent.VK_E);
+		exportMenuItem.setToolTipText("Export to pdf");
+		exportMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("Export");
+			}
+		});
 
-        this.mainframe.setJMenuBar(menubar);
-    }
+		file.add(loadMenuItem);
+		file.add(exportMenuItem);
+
+		JMenu help = new JMenu("Help");
+		file.setMnemonic(KeyEvent.VK_F);
+
+		JMenuItem instMenuItem = new JMenuItem("Instructions");
+		instMenuItem.setMnemonic(KeyEvent.VK_E);
+		instMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("Instruction");
+			}
+		});
+
+		JMenuItem aboutMenuItem = new JMenuItem("About");
+		aboutMenuItem.setMnemonic(KeyEvent.VK_E);
+		aboutMenuItem.setToolTipText("Learn about this application");
+		aboutMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("About");
+			}
+		});
+
+		help.add(instMenuItem);
+		help.add(aboutMenuItem);
+
+		menubar.add(file);
+		menubar.add(help);
+
+		this.mainframe.setJMenuBar(menubar);
+	}
 
 }

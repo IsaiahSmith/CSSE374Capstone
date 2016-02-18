@@ -3,6 +3,7 @@ package gui;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,12 +31,17 @@ public class AnalyzeButton extends JButton {
 				AnalyzeButton.this.mainframe.setBackground(Color.BLACK);
 				AnalyzeButton.this.mainframe.add(AnalyzeButton.this.mainpanel);
 				
-				AnalyzeButton.this.populatePanel();
+				try {
+					AnalyzeButton.this.populatePanel();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
 
-	protected void populatePanel() {
+	protected void populatePanel() throws IOException {
 		new ResultGUI(this.mainframe, this.mainpanel, this.model);
 	}
 }
