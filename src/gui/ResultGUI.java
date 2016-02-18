@@ -84,6 +84,7 @@ public class ResultGUI {
 		JPanel graphPanel = new JPanel();
 		JScrollPane scrollPanel = new JScrollPane(new JLabel(image),
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
 		scrollPanel.setPreferredSize(new Dimension(779, 722));
 		scrollPanel.setVisible(true);
 		graphPanel.add(scrollPanel);

@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,10 +21,10 @@ public class LandingPage {
 	public LandingPage() {
 		this.mainframe = new JFrame();
 		this.mainframe.setTitle("Design Parser");
-        this.mainframe.setSize(600, 400);
+        this.mainframe.setMinimumSize(new Dimension(600, 400));
         this.mainframe.setVisible(true);
         this.mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.mainframe.setResizable(false);
+        this.mainframe.setResizable(false);
 		this.mainframe.setBackground(Color.BLACK);
         
 		MigLayout layout = new MigLayout();
@@ -46,5 +47,6 @@ public class LandingPage {
         mainPanel.add(progressPanel, "dock south");
         
         this.mainframe.getContentPane().add(mainPanel);
+        this.mainframe.pack();
 	}
 }

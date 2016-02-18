@@ -93,3 +93,25 @@ C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -g unrecognized - ig
 Could not open attribute name file "../share/graphviz/gvedit/attributes.txt" for reading
 
 (gvedit.exe:13496): Pango-WARNING **: couldn't load font "Bitstream Vera Sans Not-Rotated 8", falling back to "Sans Not-Rotated 8", expect ugly output.
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'T'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -T unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'p'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -p unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'n'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -n unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'g'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -g unrecognized - ignored
+Could not open attribute name file "../share/graphviz/gvedit/attributes.txt" for reading
+
+(gvedit.exe:7808): Pango-WARNING **: couldn't load font "Bitstream Vera Sans Not-Rotated 8", falling back to "Sans Not-Rotated 8", expect ugly output.
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'T'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -T unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'p'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -p unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'n'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -n unrecognized - ignored
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe: illegal option -- 'g'
+C:\Program Files (x86)\Graphviz2.38\bin\gvedit.exe : option -g unrecognized - ignored
+Could not open attribute name file "../share/graphviz/gvedit/attributes.txt" for reading
+
+(gvedit.exe:9812): Pango-WARNING **: couldn't load font "Bitstream Vera Sans Not-Rotated 8", falling back to "Sans Not-Rotated 8", expect ugly output.
