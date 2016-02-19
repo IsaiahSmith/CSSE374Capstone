@@ -11,14 +11,16 @@ import model.IPattern;
 
 public class Pattern implements IPattern {
 	
+	private String type;
 	private String name;
 	private String node;
 	private IArrow arrow;
 	private int instance;
 	private boolean root;
 	
-	public Pattern(String name){
-		this.name = name;
+	public Pattern(String type){
+		this.type = type;
+		this.name = new String();
 		this.arrow = new Arrow();
 		this.node = new String();
 		this.root= false;
@@ -75,6 +77,16 @@ public class Pattern implements IPattern {
 	@Override
 	public boolean isRoot() {
 		return this.root;
+	}
+
+	@Override
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Override
+	public String getType() {
+		return this.type;
 	}
 
 }

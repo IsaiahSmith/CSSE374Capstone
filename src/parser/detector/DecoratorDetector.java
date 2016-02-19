@@ -67,10 +67,14 @@ public class DecoratorDetector extends Detector{
 //								System.out.println("Stop, what is going on");
 								//run function that adds components and decorators and all that stuff
 								
-								IPattern decorator = new Pattern("Decorator");
+								IPattern decorator = new Pattern(PATTERN);
 								// guess we are adding duplicates?
-								IPattern decorated = new Pattern("Decorator:Component");
+								IPattern decorated = new Pattern(PATTERN);
 								IArrow decorates = new Arrow();
+								
+								decorator.setName("Decorator");
+								decorated.setName("Decorator:Component");
+								
 								decorates.setOrigin(sanitize(file.getName()));
 								decorates.setEnd(sanitize(component.getName()));
 								decorates.setType("Association"); // Don't know if this is the right type, it is the one depicted on the milestone page
@@ -89,7 +93,8 @@ public class DecoratorDetector extends Detector{
 								for(IFile child : files) {
 									if(sanitize(child.getSuperName()).equals(sanitize(file.getName()))) {
 										//screw it I'm just adding all children.
-										IPattern childDecorator = new Pattern("Decorator");
+										IPattern childDecorator = new Pattern(PATTERN);
+										childDecorator.setName("Decorator");
 										childDecorator.setNode(child.getName());
 										childDecorator.setInstance(this.instance);
 										this.decorators.add(childDecorator);
@@ -111,8 +116,12 @@ public class DecoratorDetector extends Detector{
 		} else if (sanitize(dec.getSuperName()).equals("")) { // statement for the standard decorator
 			for(IFile infaze : dec.getInterfaces()) {
 				if(sanitize(infaze.getName()).equals(sanitize(component.getName()))) {
-					IPattern decorator = new Pattern("Decorator");
-					IPattern decorated = new Pattern("Decorator:Component");
+					IPattern decorator = new Pattern(PATTERN);
+					IPattern decorated = new Pattern(PATTERN);
+					
+					decorator.setName("Decorator");
+					decorated.setName("Decorator:Component");
+					
 					IArrow decorates = new Arrow();
 					decorates.setOrigin(sanitize(dec.getName()));
 					decorates.setEnd(sanitize(component.getName()));
@@ -144,9 +153,13 @@ public class DecoratorDetector extends Detector{
 				
 				if(nextDec != null) {
 					if(checkComponent(nextDec, component)) {
-						IPattern decorator = new Pattern("Decorator");
+						IPattern decorator = new Pattern(PATTERN);
 						// guess we are adding duplicates?
-						IPattern decorated = new Pattern("Decorator:Component");
+						IPattern decorated = new Pattern(PATTERN);
+						
+						decorator.setName("Decorator");
+						decorated.setName("Decorator:Component");
+						
 						IArrow decorates = new Arrow();
 						decorates.setOrigin(sanitize(nextDec.getName()));
 						decorates.setEnd(sanitize(component.getName()));
@@ -181,9 +194,13 @@ public class DecoratorDetector extends Detector{
 				
 				if(superClass != null) {
 					if(checkComponent(superClass, component)) {
-						IPattern decorator = new Pattern("Decorator");
+						IPattern decorator = new Pattern(PATTERN);
 						// guess we are adding duplicates?
-						IPattern decorated = new Pattern("Decorator:Component");
+						IPattern decorated = new Pattern(PATTERN);
+						
+						decorator.setName("Decorator");
+						decorated.setName("Decorator:Component");
+						
 						IArrow decorates = new Arrow();
 						decorates.setOrigin(sanitize(superClass.getName()));
 						decorates.setEnd(sanitize(component.getName()));
@@ -217,9 +234,13 @@ public class DecoratorDetector extends Detector{
 				
 				if(superClass != null) {
 					if(checkComponent(superClass, component)) {
-						IPattern decorator = new Pattern("Decorator");
+						IPattern decorator = new Pattern(PATTERN);
 						// guess we are adding duplicates?
-						IPattern decorated = new Pattern("Decorator:Component");
+						IPattern decorated = new Pattern(PATTERN);
+						
+						decorator.setName("Decorator");
+						decorated.setName("Decorator:Component");
+						
 						IArrow decorates = new Arrow();
 						decorates.setOrigin(sanitize(superClass.getName()));
 						decorates.setEnd(sanitize(component.getName()));
@@ -258,9 +279,13 @@ public class DecoratorDetector extends Detector{
 				if(nextDec != null){
 					if(checkComponent(nextDec, component)) {
 						
-						IPattern decorator = new Pattern("Decorator");
+						IPattern decorator = new Pattern(PATTERN);
 						// guess we are adding duplicates?
-						IPattern decorated = new Pattern("Decorator:Component");
+						IPattern decorated = new Pattern(PATTERN);
+						
+						decorator.setName("Decorator");
+						decorated.setName("Decorator:Component");
+						
 						IArrow decorates = new Arrow();
 						decorates.setOrigin(sanitize(nextDec.getName()));
 						decorates.setEnd(sanitize(component.getName()));

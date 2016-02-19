@@ -52,13 +52,15 @@ public class CompositeDetector extends Detector {
 									|| (checkDelegated(file, superIntfNames)
 									&& checkKeyOperations(file, superIntfNames))) {
 								// check if methods are delegated
-								IPattern composite = new Pattern("Composite");
+								IPattern composite = new Pattern(PATTERN);
+								composite.setName("Composite");
 								composite.setNode(file.getName());
 								composite.setRoot();
 								composite.setInstance(this.instance);
 								this.patterns.add(composite);
 
-								IPattern component = new Pattern("Composite:Component");
+								IPattern component = new Pattern(PATTERN);
+								component.setName("Composite:Component");
 								component.setNode(file.getSuperName());
 								component.setInstance(this.instance);
 								this.patterns.add(component);
@@ -79,13 +81,15 @@ public class CompositeDetector extends Detector {
 									&& checkDelegated(file, null)
 									&& checkKeyOperations(file, null)) {
 								// check if methods are delegated
-								IPattern composite = new Pattern("Composite");
+								IPattern composite = new Pattern(PATTERN);
+								composite.setName("Composite");
 								composite.setNode(file.getName());
 								composite.setInstance(this.instance);
 								composite.setRoot();
 								this.patterns.add(composite);
 								
-								IPattern component = new Pattern("Composite:Component");
+								IPattern component = new Pattern(PATTERN);
+								component.setName("Composite:Component");
 								component.setNode(file.getSuperName());
 								component.setInstance(this.instance);
 								this.patterns.add(component);
@@ -131,7 +135,8 @@ public class CompositeDetector extends Detector {
 					&& !checkDelegated(potentialLeaf, intfNames)
 					&& checkKeyOperations(potentialLeaf, intfNames))
 					|| potentialLeaf.getSuperName().equals(sanitize(file.getSuperName()))) {
-				IPattern leaf = new Pattern("Composite:Leaf");
+				IPattern leaf = new Pattern(PATTERN);
+				leaf.setName("Composite:Leaf");
 				leaf.setNode(potentialLeaf.getName());
 				leaf.setInstance(this.instance);
 				this.patterns.add(leaf);

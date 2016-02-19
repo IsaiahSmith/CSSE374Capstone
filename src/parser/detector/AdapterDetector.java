@@ -107,10 +107,14 @@ public class AdapterDetector extends Detector{
 							if(checkTwo) {
 //								System.out.println(file.getName()+" Has made it past check two!");
 								
-								IPattern pAdapter = new Pattern("Adapter");
-								IPattern pAdaptee = new Pattern("Adapter:Adaptee");
-								IPattern pTarget = new Pattern("Adapter:Target");
+								IPattern pAdapter = new Pattern(PATTERN);
+								IPattern pAdaptee = new Pattern(PATTERN);
+								IPattern pTarget = new Pattern(PATTERN);
 								IArrow adapts =  new Arrow();
+								
+								pAdapter.setName("Adapter");
+								pAdaptee.setName("Adapter:Adaptee");
+								pTarget.setName("Adapter:Target");
 								
 								pAdapter.setRoot();
 								
