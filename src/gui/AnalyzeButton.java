@@ -46,12 +46,13 @@ public class AnalyzeButton extends JButton {
 					AnalyzeButton.this.setText("Analyzing...");
 					AnalyzeButton.this.setEnabled(false);
 					AnalyzeButton.this.loadButton.setEnabled(false);
+					AnalyzeButton.this.api.buildModel();
 					// wait for pbar to finish then go to result
-//					 try {
-//						 goToResult();
-//					} catch (IOException e1) {
-//						e1.printStackTrace();
-//					}					
+					 try {
+						 goToResult();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}					
 				}
 				
 			}

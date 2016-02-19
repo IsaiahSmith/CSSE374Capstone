@@ -30,30 +30,30 @@ public class CheckBoxTree extends JPanel {
 	private JLabel spacer = new JLabel();
 
 	public CheckBoxTree(UmlGeneratorApi api) {		
-		this.patterns = new ArrayList<String>();
-		this.patterns.add("Decorator");
-		this.patterns.add("Composite");
-		this.patterns.add("Singleton");
-		
-		this.dinstances = new ArrayList<String>();
-		this.dinstances.add("Class 1");
-		this.dinstances.add("Class a");
-		this.dinstances.add("Class b");
-		
-		this.cinstances = new ArrayList<String>();
-		this.cinstances.add("Class 2");
-		
-		this.sinstances = new ArrayList<String>();
-		this.sinstances.add("Class 3");
-
-		strMap = new HashMap<String, List<String>>();
-		
-		strMap.put(this.patterns.get(0), dinstances);
-		strMap.put(this.patterns.get(1), cinstances);
-		strMap.put(this.patterns.get(2), sinstances);
+//		this.patterns = new ArrayList<String>();
+//		this.patterns.add("Decorator");
+//		this.patterns.add("Composite");
+//		this.patterns.add("Singleton");
+//		
+//		this.dinstances = new ArrayList<String>();
+//		this.dinstances.add("Class 1");
+//		this.dinstances.add("Class a");
+//		this.dinstances.add("Class b");
+//		
+//		this.cinstances = new ArrayList<String>();
+//		this.cinstances.add("Class 2");
+//		
+//		this.sinstances = new ArrayList<String>();
+//		this.sinstances.add("Class 3");
+//
+//		strMap = new HashMap<String, List<String>>();
+//		
+//		strMap.put(this.patterns.get(0), dinstances);
+//		strMap.put(this.patterns.get(1), cinstances);
+//		strMap.put(this.patterns.get(2), sinstances);
 		
 		// TODO: uncomment this when you're ready to use the real thing
-//		strMap = api.getPatternRoots();
+		strMap = api.getPatternRoots();
 		
 		
 		this.setPreferredSize(new Dimension(380, 710));

@@ -23,8 +23,7 @@ public class LoadConfigButton extends JButton {
 				JFileChooser fchooser = new JFileChooser();
 				fchooser.showOpenDialog(mainframe);
 				File chosen = fchooser.getSelectedFile();
-				// TODO: give api the file
-				LoadConfigButton.this.api.readConfigFile();
+				LoadConfigButton.this.api.loadConfig(chosen);
 			}
 		});
 	}

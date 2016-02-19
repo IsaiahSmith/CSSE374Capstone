@@ -58,7 +58,7 @@ public class DesignMaker {
 			if(in.readLine().equals("y")) {
 				includeAll = true;
 			}
-			design = new UMLDesignBuilder(files, includeAll);
+			//design = new UMLDesignBuilder(files, includeAll);
 			encoder = encoders.get("dot");
 		} else if(type.equals("sequence")) {
 			// if sequence ask for method signature file, depth | set designFactory
@@ -71,7 +71,7 @@ public class DesignMaker {
 			encoder = encoders.get("sdedit");
 		} else {
 			// if text ask ask for nothing | set designFactory
-			design = new UMLDesignBuilder(files, includeAll);
+			//design = new UMLDesignBuilder(files, includeAll);
 			encoder = encoders.get("text");
 		}
 		// ask for output file 

@@ -23,6 +23,7 @@ public class LandingPage implements Observer {
      * 
      */
 	public LandingPage() {
+				
 		this.mainframe = new JFrame();
 		this.mainframe.setTitle("Design Parser");
         this.mainframe.setMinimumSize(new Dimension(600, 400));
@@ -31,6 +32,8 @@ public class LandingPage implements Observer {
         this.mainframe.setResizable(false);
 		this.mainframe.setBackground(Color.BLACK);
         
+		this.loadingText = new JLabel();
+		
 		MigLayout layout = new MigLayout();
         
         JPanel mainPanel = new JPanel();
@@ -40,9 +43,12 @@ public class LandingPage implements Observer {
         buttonPanel.setPreferredSize(new Dimension(600, 100));
         JPanel progressPanel = new JPanel();
         progressPanel.setPreferredSize(new Dimension(600, 100));
+        progressPanel.add(this.loadingText);
         
         
         UmlGeneratorApi api = new UmlGeneratorApi();
+        
+        api.subscribeToBuild(this);
         
         LoadConfigButton loadButton = new LoadConfigButton(mainframe, api);
         AnalyzeButton analyzeButton = new AnalyzeButton(mainframe, mainPanel ,progressPanel, loadButton, api);

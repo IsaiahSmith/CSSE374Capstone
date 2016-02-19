@@ -1,6 +1,5 @@
 package api;
 
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,17 +19,12 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import designs.DesignBuilder;
 import designs.UMLDesignBuilder;
 import encoders.EncoderBuilder;
 import encoders.IEncoder;
@@ -237,6 +231,7 @@ public class UmlGeneratorApi extends Observable implements api{
 	}
 	
 	private void updateImage(String tempPngPath) {
+		//TODO need to update the image field in here too
 		ImageIcon image = new ImageIcon(tempPngPath);
 		setChanged();
 		this.notifyObservers(image);
@@ -272,11 +267,6 @@ public class UmlGeneratorApi extends Observable implements api{
 	public boolean hasConfigFile() {
 		// TODO check to see if there's a config file ready to go
 		return true;
-	}
-
-	public void readConfigFile() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

@@ -7,18 +7,14 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/lab5-1-solution"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab2-1"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Composite"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/csse230-project"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Exam1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Exam2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Exam3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab1-1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab1-2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab1-3"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Lab10-1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab2-2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab3-1"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Lab3-1-solution"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab4-1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab5-1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Lab7-1"/>

@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -29,7 +31,7 @@ import javax.swing.ScrollPaneConstants;
 import api.UmlGeneratorApi;
 import nodes.Model;
 
-public class ResultGUI {
+public class ResultGUI implements Observer{
 
 	private JFrame mainframe;
 	private JPanel mainpanel;
@@ -55,36 +57,12 @@ public class ResultGUI {
 //		String filepath = "./output/testGUI.dot";
 //		makeFile(this.classes.encodeToDot(), filepath);
 //		createGraphViz(filepath, "\"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot\"");
-		
-		// TODO: find out when you want to call this
-		showImage();
 	}
 
-	private void makeFile(String digraph, String resultPath) {
-		PrintWriter writer;
-		try {
-			writer = new PrintWriter(resultPath, "UTF-8");
-			writer.print(digraph);
-			writer.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void createGraphViz(String filepath, String exepath) throws IOException {
-		String outPath = "./output/out.png";
-
-		String command = exepath + " -Tpng " + filepath + " -o " + outPath;
-		Runtime.getRuntime().exec(command);
-	}
-
-	public void showImage() {
-		ImageIcon image = new ImageIcon("./output/out.png");
+	public void showImage(ImageIcon img) {
 		
 		this.graphPanel.removeAll();
-		JScrollPane scrollPanel = new JScrollPane(new JLabel(image), ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+		JScrollPane scrollPanel = new JScrollPane(new JLabel(img), ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 		scrollPanel.setPreferredSize(new Dimension(779, 722));
@@ -129,7 +107,7 @@ public class ResultGUI {
 				fchooser.showOpenDialog(mainframe);
 				File chosen = fchooser.getSelectedFile();
 				// TODO: give api the file
-				ResultGUI.this.api.readConfigFile();
+				//ResultGUI.this.api.readConfigFile();
 			}
 		});
 
@@ -201,6 +179,12 @@ public class ResultGUI {
 		menubar.add(help);
 
 		this.mainframe.setJMenuBar(menubar);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		ImageIcon UMLimage = (ImageIcon) arg;
+		showImage(UMLimage);
 	}
 
 }

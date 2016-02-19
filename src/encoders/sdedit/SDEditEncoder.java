@@ -18,13 +18,13 @@ public class SDEditEncoder implements IEncoder {
 	@Override
 	public StringBuilder encode(IModel model) {
 		
-		IMethod method = model.getFiles().get(0).getMethods().get(0);
-		this.classes = new ArrayList<String>();
-		this.madeClasses = new ArrayList<String>();
-		this.signatures = new ArrayList<String>();
-		this.news = new ArrayList<String>();
-		getClasses(method);
-		getSignatures(method);
+//		IMethod method = model.getFiles().get(0).getMethods().get(0);
+//		this.classes = new ArrayList<String>();
+//		this.madeClasses = new ArrayList<String>();
+//		this.signatures = new ArrayList<String>();
+//		this.news = new ArrayList<String>();
+//		getClasses(method);
+//		getSignatures(method);
 		StringBuilder str = new StringBuilder();
 		return str.append(compose());
 	}
