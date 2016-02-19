@@ -1,23 +1,11 @@
 package testing;
 
-import static org.junit.Assert.*;
 
-import java.io.IOException;
-import java.util.List;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import encoders.dot.ADot;
-import encoders.dot.Dot;
-import encoders.dot.DotFileDecorator;
-import encoders.dot.StandardDot;
 import model.IFile;
-import model.IInnerNode;
-import model.IModel;
-import nodes.FieldNode;
 import nodes.FileNode;
-import nodes.Model;
 
 public class DotClassTest {
 

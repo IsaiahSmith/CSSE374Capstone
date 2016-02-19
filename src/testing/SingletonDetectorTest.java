@@ -15,7 +15,6 @@ import nodes.FieldNode;
 import nodes.FileNode;
 import nodes.MethodNode;
 import parser.FileParser;
-import parser.Parser;
 import parser.PatternParser;
 import parser.detector.Detector;
 import parser.detector.SingletonDetector;

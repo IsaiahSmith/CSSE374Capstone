@@ -14,10 +14,12 @@ import nodes.Pattern;
 public class CompositeDetector extends Detector {
 	public static String PATTERN = "Composite";
 	private ArrayList<IPattern> patterns;
+	private int instance;
 
 	public CompositeDetector(List<IFile> files) {
 		this.files = files;
 		this.patterns = new ArrayList<IPattern>();
+		this.instance = -1;
 	}
 
 	@Override
@@ -28,6 +30,7 @@ public class CompositeDetector extends Detector {
 
 	private void findComposite() {
 		for (IFile file : this.files) {
+			this.instance++;
 			if (!file.getSuperName().equals("java/lang/Object")) {
 				// file has a super, check if it has a field with collection of
 				// that super
@@ -51,10 +54,13 @@ public class CompositeDetector extends Detector {
 								// check if methods are delegated
 								IPattern composite = new Pattern("Composite");
 								composite.setNode(file.getName());
+								composite.setRoot();
+								composite.setInstance(this.instance);
 								this.patterns.add(composite);
 
 								IPattern component = new Pattern("Composite:Component");
 								component.setNode(file.getSuperName());
+								component.setInstance(this.instance);
 								this.patterns.add(component);
 
 								addLeafs(file.getSuperName(), file, superIntfNames);
@@ -75,10 +81,13 @@ public class CompositeDetector extends Detector {
 								// check if methods are delegated
 								IPattern composite = new Pattern("Composite");
 								composite.setNode(file.getName());
+								composite.setInstance(this.instance);
+								composite.setRoot();
 								this.patterns.add(composite);
 								
 								IPattern component = new Pattern("Composite:Component");
 								component.setNode(file.getSuperName());
+								component.setInstance(this.instance);
 								this.patterns.add(component);
 								
 								addLeafs(file.getSuperName(), file, null);
@@ -124,6 +133,7 @@ public class CompositeDetector extends Detector {
 					|| potentialLeaf.getSuperName().equals(sanitize(file.getSuperName()))) {
 				IPattern leaf = new Pattern("Composite:Leaf");
 				leaf.setNode(potentialLeaf.getName());
+				leaf.setInstance(this.instance);
 				this.patterns.add(leaf);
 			}
 		}

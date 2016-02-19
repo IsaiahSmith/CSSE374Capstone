@@ -16,10 +16,12 @@ import nodes.Pattern;
 public class DecoratorDetector extends Detector{
 	public static String PATTERN = "Decorator";
 	private List<IPattern> decorators;
+	private int instance;
 	
 	public DecoratorDetector(List<IFile> files) {
 		this.files = files;
 		this.decorators = new ArrayList<IPattern>();
+		this.instance = -1;
 	}
 	
 	@Override
@@ -43,6 +45,7 @@ public class DecoratorDetector extends Detector{
 
 	private void findDecorator() {
 		for(IFile file : this.files) {
+			this.instance++;
 			for(IMethod method : file.getMethods()) {
 				for(INode arg:method.getArgs()){
 					for(IInnerNode field : file.getFields()) {
@@ -75,6 +78,11 @@ public class DecoratorDetector extends Detector{
 								decorator.setNode(file.getName());
 								decorated.setNode(component.getName());
 								
+								decorator.setRoot();
+								
+								decorator.setInstance(this.instance);
+								decorated.setInstance(this.instance);
+								
 								this.decorators.add(decorated);
 								this.decorators.add(decorator);
 								
@@ -83,6 +91,7 @@ public class DecoratorDetector extends Detector{
 										//screw it I'm just adding all children.
 										IPattern childDecorator = new Pattern("Decorator");
 										childDecorator.setNode(child.getName());
+										childDecorator.setInstance(this.instance);
 										this.decorators.add(childDecorator);
 									}
 								}
@@ -112,6 +121,11 @@ public class DecoratorDetector extends Detector{
 					decorator.setNode(dec.getName());
 					decorated.setNode(component.getName());
 					
+					decorator.setRoot();
+					
+					decorator.setInstance(this.instance);
+					decorated.setInstance(this.instance);
+					
 					this.decorators.add(decorated);
 					this.decorators.add(decorator);
 					
@@ -140,6 +154,11 @@ public class DecoratorDetector extends Detector{
 						decorator.setArrow(decorates);
 						decorator.setNode(nextDec.getName());
 						decorated.setNode(component.getName());
+						
+						decorator.setRoot();
+						
+						decorator.setInstance(this.instance);
+						decorated.setInstance(this.instance);
 						
 						this.decorators.add(decorated);
 						this.decorators.add(decorator);
@@ -173,6 +192,11 @@ public class DecoratorDetector extends Detector{
 						decorator.setNode(superClass.getName());
 						decorated.setNode(component.getName());
 						
+						decorator.setRoot();
+						
+						decorator.setInstance(this.instance);
+						decorated.setInstance(this.instance);
+						
 						this.decorators.add(decorated);
 						this.decorators.add(decorator);
 						
@@ -203,6 +227,11 @@ public class DecoratorDetector extends Detector{
 						decorator.setArrow(decorates);
 						decorator.setNode(superClass.getName());
 						decorated.setNode(component.getName());
+						
+						decorator.setRoot();
+						
+						decorator.setInstance(this.instance);
+						decorated.setInstance(this.instance);
 						
 						this.decorators.add(decorated);
 						this.decorators.add(decorator);
@@ -239,6 +268,11 @@ public class DecoratorDetector extends Detector{
 						decorator.setArrow(decorates);
 						decorator.setNode(nextDec.getName());
 						decorated.setNode(component.getName());
+						
+						decorator.setRoot();
+						
+						decorator.setInstance(this.instance);
+						decorated.setInstance(this.instance);
 						
 						this.decorators.add(decorated);
 						this.decorators.add(decorator);

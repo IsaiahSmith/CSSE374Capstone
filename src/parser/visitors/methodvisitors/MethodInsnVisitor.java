@@ -5,13 +5,9 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 
 import model.IMethod;
-import model.IMethodInsn;
 import model.INode;
-import model.ITypeInsn;
 import nodes.ArgumentNode;
-import nodes.MethodInsn;
 import nodes.MethodNode;
-import nodes.TypeInsn;
 
 public class MethodInsnVisitor extends MethodVisitor{
 

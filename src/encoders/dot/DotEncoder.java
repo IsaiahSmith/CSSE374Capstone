@@ -1,7 +1,5 @@
 package encoders.dot;
 
-import java.util.List;
-
 import encoders.IEncoder;
 import model.IModel;
 

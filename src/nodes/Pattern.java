@@ -14,11 +14,15 @@ public class Pattern implements IPattern {
 	private String name;
 	private String node;
 	private IArrow arrow;
+	private int instance;
+	private boolean root;
 	
 	public Pattern(String name){
 		this.name = name;
 		this.arrow = new Arrow();
 		this.node = new String();
+		this.root= false;
+		this.instance = -1;
 	}
 
 	@Override
@@ -49,6 +53,28 @@ public class Pattern implements IPattern {
 	@Override
 	public IArrow getArrow() {
 		return this.arrow;
+	}
+
+	@Override
+	public void setInstance(int instance) {
+		this.instance = instance;
+		
+	}
+
+	@Override
+	public void setRoot() {
+		this.root = true;
+		
+	}
+
+	@Override
+	public int getInstance() {
+		return this.instance;
+	}
+
+	@Override
+	public boolean isRoot() {
+		return this.root;
 	}
 
 }

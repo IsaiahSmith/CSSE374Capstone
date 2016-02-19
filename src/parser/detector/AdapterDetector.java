@@ -15,10 +15,12 @@ import nodes.Pattern;
 public class AdapterDetector extends Detector{
 	public static String PATTERN = "Adapter";
 	private List<IPattern> patterns;
+	private int instance;
 	
 	public AdapterDetector(List<IFile> files) {
 		this.files = files;
 		this.patterns = new ArrayList<IPattern>();
+		this.instance = -1;
 	}
 	
 	@Override
@@ -30,6 +32,7 @@ public class AdapterDetector extends Detector{
 	
 	public void detectAdapter() {
 		for(IFile file : this.files) {
+			this.instance++;
 			for(IMethod method : file.getMethods()) {
 				for(INode arg:method.getArgs()) {
 					for(IInnerNode field : file.getFields()) {
@@ -108,6 +111,12 @@ public class AdapterDetector extends Detector{
 								IPattern pAdaptee = new Pattern("Adapter:Adaptee");
 								IPattern pTarget = new Pattern("Adapter:Target");
 								IArrow adapts =  new Arrow();
+								
+								pAdapter.setRoot();
+								
+								pAdapter.setInstance(this.instance);
+								pAdaptee.setInstance(this.instance);
+								pTarget.setInstance(this.instance);
 								
 								pAdapter.setNode(file.getName());
 								adapts.setOrigin(sanitize(file.getName()));

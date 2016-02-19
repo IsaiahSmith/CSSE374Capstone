@@ -12,19 +12,24 @@ import nodes.Pattern;
 public class SingletonDetector extends Detector{
 
 	public static String PATTERN = "Singleton";
+	private int instance;
 	
 	public SingletonDetector(List<IFile> files) {
 		this.files = files;
+		this.instance = -1;
 	}
 	
 	@Override
 	public List<IPattern> detect() {
 		List<IPattern> patterns = new ArrayList<IPattern>();
 		for(IFile file:this.files) {
+			this.instance++;
 			if(this.isSingleton(file)) {
 				IPattern pattern = new Pattern(PATTERN);
 				pattern.setName(PATTERN);
 				pattern.setNode(file.getName());
+				pattern.setRoot();
+				pattern.setInstance(this.instance);
 				patterns.add(pattern);
 			}
 		}
