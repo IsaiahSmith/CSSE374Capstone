@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Observable;
+import java.util.Set;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -17,24 +20,28 @@ import parser.visitors.classvisitors.ClassDeclarationVisitor;
 import parser.visitors.classvisitors.ClassFieldVisitor;
 import parser.visitors.classvisitors.ClassMethodVisitor;
 
-public class FileParser implements Parser<IFile> {
-	private List<String> fileNames;
+public class FileParser extends Observable implements Parser<IFile> {
+	private Set<String> fileNames;
 	private boolean readOutsideSwitch;
 	
-	public FileParser(String[] files) {
-		fileNames =new ArrayList<String>(Arrays.asList(files));
-		readOutsideSwitch = true;
-	}
+	//left over functionality that is no longer neede
+//	public FileParser(String[] files) {
+//		fileNames =new Set<String>(Arrays.asList(files));
+//		readOutsideSwitch = true;
+//	}
 	
-	public FileParser(List<String> fileNames){
+	public FileParser(Set<String> fileNames){
 		this.fileNames = fileNames;
 		readOutsideSwitch = false;
 	}
 	
 	@Override
-	public List<IFile> parse() {
-		List<IFile> files = new ArrayList<IFile>();
+	public Set<IFile> parse() {
+		Set<IFile> files = new HashSet<IFile>();
 		for(String className: this.fileNames) {
+			
+			setChanged();
+			this.notifyObservers("Analyzing: "+ className);
 			
 			IFile node = new FileNode();
 			

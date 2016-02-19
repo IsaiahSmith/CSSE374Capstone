@@ -44,13 +44,25 @@ public class Arrow implements IArrow {
 	}
 
 	@Override
-	public boolean equals(IArrow arrow) {
-		if(this.origin.equals(arrow.getOrigin()) && 
-				this.end.equals(arrow.getEnd()) &&
-				this.type.equals(arrow.getType())){
+	public boolean equals(Object o) {
+		if(!(o instanceof IArrow)){
+			return false;
+		}
+		IArrow other=(IArrow)o;
+		
+		if(this.origin.equals(other.getOrigin()) && 
+				this.end.equals(other.getEnd()) &&
+				this.type.equals(other.getType())){
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return origin.hashCode() +
+				end.hashCode() +
+				type.hashCode();
 	}
 	
 	@Override
@@ -65,4 +77,5 @@ public class Arrow implements IArrow {
 		str += this.end;
 		return str;
 	}
+
 }

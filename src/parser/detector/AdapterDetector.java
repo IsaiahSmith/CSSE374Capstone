@@ -1,7 +1,9 @@
 package parser.detector;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
@@ -14,17 +16,17 @@ import nodes.Pattern;
 
 public class AdapterDetector extends Detector{
 	public static String PATTERN = "Adapter";
-	private List<IPattern> patterns;
+	private Set<IPattern> patterns;
 	private int instance;
 	
-	public AdapterDetector(List<IFile> files) {
+	public AdapterDetector(Set<IFile> files) {
 		this.files = files;
-		this.patterns = new ArrayList<IPattern>();
+		this.patterns = new HashSet<IPattern>();
 		this.instance = -1;
 	}
 	
 	@Override
-	public List<IPattern> detect() {
+	public Set<IPattern> detect() {
 		detectAdapter();
 //		System.out.println("check patterns");
 		return patterns;

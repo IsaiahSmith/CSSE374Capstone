@@ -1,7 +1,9 @@
 package parser.linker;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
@@ -11,14 +13,14 @@ public class ImplementsLinker extends Linker{
 	
 	public static String TYPE = "Implements";
 	
-	public ImplementsLinker(List<IFile> files, boolean includeAll){
+	public ImplementsLinker(Set<IFile> files, boolean includeAll){
 		this.files = files;
 		this.includeAll = includeAll;
 	}
 	
 	@Override
-	public List<IArrow> link() {
-		List<IArrow> implemArrows = new ArrayList<IArrow>();
+	public Set<IArrow> link() {
+		Set<IArrow> implemArrows = new HashSet<IArrow>();
 		for(IFile file : this.files){
 			if(file.getInterfaces() != null){
 				for(IFile interf : file.getInterfaces()){
@@ -36,7 +38,7 @@ public class ImplementsLinker extends Linker{
 		return implemArrows;
 	}
 
-	private void addArrow(String left, String right, List<IArrow> arrows) {
+	private void addArrow(String left, String right, Set<IArrow> arrows) {
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(sanitize(left));
 		arrow.setEnd(sanitize(right));

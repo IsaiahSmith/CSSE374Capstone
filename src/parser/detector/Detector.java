@@ -1,15 +1,15 @@
 package parser.detector;
 
-import java.util.List;
+import java.util.Set;
 
 import model.IFile;
 import model.IPattern;
 
 public abstract class Detector {
 	
-	List<IFile> files;
+	Set<IFile> files;
 	
-	public abstract List<IPattern> detect();
+	public abstract Set<IPattern> detect();
 	public static String sanitize(String input) {
 		return input.replaceAll("\\.", "_").replaceAll("/", "_");
 	}

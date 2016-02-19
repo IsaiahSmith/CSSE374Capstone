@@ -1,9 +1,10 @@
 package parser;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
@@ -13,12 +14,12 @@ import parser.linker.InheritanceLinker;
 import parser.linker.Linker;
 import parser.linker.UsesLinker;
 
-public class ArrowParser implements Parser<IArrow> {
+public class ArrowParser extends Observable implements Parser<IArrow> {
 
-	private List<String> arrowTypes;
+	private Set<String> arrowTypes;
 	private Map<String, Linker> linkers;
 
-	public ArrowParser(List<IFile> files, List<String> arrowTypes, Boolean includeAll) {
+	public ArrowParser(Set<IFile> files, Set<String> arrowTypes, Boolean includeAll) {
 		this.arrowTypes = arrowTypes;
 		
 		this.linkers = new HashMap<String, Linker>();
@@ -29,9 +30,11 @@ public class ArrowParser implements Parser<IArrow> {
 	}
 	
 	@Override
-	public List<IArrow> parse() {
-		List<IArrow> arrowList = new ArrayList<IArrow>();
+	public Set<IArrow> parse() {
+		Set<IArrow> arrowList = new HashSet<IArrow>();
 		for(String type : arrowTypes) {
+			setChanged();
+			this.notifyObservers("Linking: "+type);
 			arrowList.addAll(linkers.get(type).link());
 		}
 		return arrowList;

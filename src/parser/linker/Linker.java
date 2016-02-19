@@ -2,15 +2,16 @@ package parser.linker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
 
 public abstract class Linker {
-	List<IFile> files;
+	Set<IFile> files;
 	boolean includeAll;
 	
-	public abstract List<IArrow> link();
+	public abstract Set<IArrow> link();
 	
 	List<String> getFileNames() {
 		List<String> names = new ArrayList<String>();

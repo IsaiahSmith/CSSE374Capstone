@@ -1,7 +1,7 @@
 package parser;
 
-import java.util.List;
+import java.util.Set;
 
 public interface Parser<T> {
-	public List<T> parse();
+	public Set<T> parse();
 }

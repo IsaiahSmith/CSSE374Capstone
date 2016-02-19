@@ -146,5 +146,29 @@ public class FileNode implements IFile {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof IFile)){
+			return false;
+		}
+		IFile other=(IFile)o;
+		
+		if(this.Name.equals(other.getName()) &&
+			this.Type.equals(other.getType()) &&
+			this.SuperName.equals(other.getSuperName()) &&
+			this.visibility.equals(other.getVisibility())) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Name.hashCode() +
+				Type.hashCode() +
+				SuperName.hashCode() +
+				visibility.hashCode();
+	}
 
 }

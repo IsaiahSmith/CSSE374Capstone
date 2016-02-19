@@ -6,7 +6,6 @@ import model.IModel;
 
 public class DotEncoder implements IEncoder {
 	
-	
 	@Override
 	public StringBuilder encode(IModel model){
 		Dot dot = new StandardDot();

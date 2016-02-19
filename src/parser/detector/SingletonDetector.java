@@ -1,7 +1,9 @@
 package parser.detector;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.IFile;
 import model.IInnerNode;
@@ -14,14 +16,14 @@ public class SingletonDetector extends Detector{
 	public static String PATTERN = "Singleton";
 	private int instance;
 	
-	public SingletonDetector(List<IFile> files) {
+	public SingletonDetector(Set<IFile> files) {
 		this.files = files;
 		this.instance = -1;
 	}
 	
 	@Override
-	public List<IPattern> detect() {
-		List<IPattern> patterns = new ArrayList<IPattern>();
+	public Set<IPattern> detect() {
+		Set<IPattern> patterns = new HashSet<IPattern>();
 		for(IFile file:this.files) {
 			this.instance++;
 			if(this.isSingleton(file)) {

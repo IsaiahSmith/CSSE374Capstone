@@ -3,6 +3,8 @@ package parser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Set;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -19,19 +21,19 @@ import nodes.Model;
 import parser.visitors.classvisitors.ClassDeclarationVisitor;
 import parser.visitors.classvisitors.ClassMethodVisitor;
 
-public class SequenceParser implements Parser<IFile> {
+public class SequenceParser extends Observable implements Parser<IFile> {
 	private int depth;
-	private List<IFile> files ;
-	private List<String> signatures;
+	private Set<IFile> files ;
+	private Set<String> signatures;
 	
 	
-	public SequenceParser(List<IFile> files, List<String> signatures, int depth) {
+	public SequenceParser(Set<IFile> files, Set<String> signatures, int depth) {
 		this.files=files;
 		this.signatures=signatures;
 		this.depth=depth;
 	}
 
-	public List<IFile> parse() {
+	public Set<IFile> parse() {
 		for(String signature : this.signatures) {
 			this.addSignature(this.findMethod(signature), this.depth);
 		}

@@ -3,6 +3,8 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,9 +12,10 @@ import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 
-public class LandingPage {
+public class LandingPage implements Observer {
 	
 	private JFrame mainframe;
+	private JLabel loadingText;
 
 	/**
      * Constructs the Start up screen.
@@ -42,11 +45,20 @@ public class LandingPage {
         buttonPanel.add(analyzeButton);
         
         JPanel progressPanel = new JPanel();
+        this.loadingText= new JLabel("");
+        progressPanel.add(this.loadingText);
+        
         
         mainPanel.add(buttonPanel, "dock north");
         mainPanel.add(progressPanel, "dock south");
         
         this.mainframe.getContentPane().add(mainPanel);
         this.mainframe.pack();
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		String label = (String) arg;
+		this.loadingText.setText(label);
 	}
 }

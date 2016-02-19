@@ -16,14 +16,14 @@ public class UsesLinker extends Linker {
 
 	public static String TYPE = "Uses";
 	
-	public UsesLinker(List<IFile> files, boolean includeAll){
+	public UsesLinker(Set<IFile> files, boolean includeAll){
 		this.files = files;
 		this.includeAll = includeAll;
 	}
 	
 	@Override
-	public List<IArrow> link() {
-		List<IArrow> usesArrows = new ArrayList<IArrow>();
+	public Set<IArrow> link() {
+		Set<IArrow> usesArrows = new HashSet<IArrow>();
 		for(IFile c : this.files){
 			List<String> uses = new ArrayList<String>();
 			if(c.getMethods() != null){
@@ -54,7 +54,7 @@ public class UsesLinker extends Linker {
 		return usesArrows;
 	}
 	
-	private void addArrow(String left, String right, List<IArrow> arrows) {
+	private void addArrow(String left, String right, Set<IArrow> arrows) {
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(sanitize(left));
 		arrow.setEnd(sanitize(right));

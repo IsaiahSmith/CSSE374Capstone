@@ -1,9 +1,10 @@
 package parser;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Set;
 
 import model.IFile;
 import model.IPattern;
@@ -13,11 +14,11 @@ import parser.detector.DecoratorDetector;
 import parser.detector.Detector;
 import parser.detector.SingletonDetector;
 
-public class PatternParser implements Parser<IPattern> {
+public class PatternParser extends Observable implements Parser<IPattern> {
 	private Map<String, Detector> detectors;
-	private List<String> patternTypes;
+	private Set<String> patternTypes;
 	
-	public PatternParser(List<IFile> files, List<String> patternTypes) {
+	public PatternParser(Set<IFile> files, Set<String> patternTypes) {
 		this.patternTypes = patternTypes;
 		this.detectors = new HashMap<String, Detector>();
 		this.detectors.put(SingletonDetector.PATTERN, new SingletonDetector(files));
@@ -27,9 +28,11 @@ public class PatternParser implements Parser<IPattern> {
 	}
 
 	@Override
-	public List<IPattern> parse() {
-		List<IPattern> patterns = new ArrayList<IPattern>();
+	public Set<IPattern> parse() {
+		Set<IPattern> patterns = new HashSet<IPattern>();
 		for(String type : this.patternTypes){
+			setChanged();
+			this.notifyObservers("Detecting: "+type);
 			patterns.addAll(this.detectors.get(type).detect());
 		}
 		return patterns;

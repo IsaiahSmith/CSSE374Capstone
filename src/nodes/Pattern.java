@@ -15,8 +15,8 @@ public class Pattern implements IPattern {
 	private String name;
 	private String node;
 	private IArrow arrow;
-	private int instance;
-	private boolean root;
+	private Integer instance;
+	private Boolean root;
 	
 	public Pattern(String type){
 		this.type = type;
@@ -87,6 +87,35 @@ public class Pattern implements IPattern {
 	@Override
 	public String getType() {
 		return this.type;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if(!(o instanceof IPattern)){
+			return false;
+		}
+		IPattern other=(IPattern)o;
+		
+		if(this.type.equals(other.getType()) &&
+				(this.root == other.isRoot()) &&
+				this.name.equals(other.getName()) &&
+				this.node.equals(other.getNode()) &&
+				this.arrow.equals(other.getArrow()) &&
+				(this.instance == other.getInstance())) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return type.hashCode() +
+				root.hashCode() +
+				name.hashCode() +
+				node.hashCode() +
+				arrow.hashCode() +
+				instance.hashCode();
 	}
 
 }

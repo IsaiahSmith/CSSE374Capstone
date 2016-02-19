@@ -1,7 +1,8 @@
 package parser.linker;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
@@ -12,14 +13,14 @@ public class AssociationLinker extends Linker{
 	
 	public static String TYPE = "Association";
 	
-	public AssociationLinker(List<IFile> files, boolean includeAll){
+	public AssociationLinker(Set<IFile> files, boolean includeAll){
 		this.files = files;
 		this.includeAll = includeAll;
 	}
 	
 	@Override
-	public List<IArrow> link() {
-		List<IArrow> assocArrows = new ArrayList<IArrow>();
+	public Set<IArrow> link() {
+		Set<IArrow> assocArrows = new HashSet<IArrow>();
 		for(IFile file : this.files) {
 			for(IInnerNode field : file.getFields()){
 				String left = file.getName();
@@ -36,7 +37,7 @@ public class AssociationLinker extends Linker{
 		return assocArrows;
 	}
 
-	private void addArrow(String left, String right, List<IArrow> arrows) {
+	private void addArrow(String left, String right, Set<IArrow> arrows) {
 		IArrow arrow = new Arrow();
 		arrow.setOrigin(sanitize(left));
 		arrow.setEnd(sanitize(right));

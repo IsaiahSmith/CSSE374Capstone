@@ -2,7 +2,9 @@ package parser.detector;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.IFile;
 import model.IInnerNode;
@@ -13,17 +15,17 @@ import nodes.Pattern;
 
 public class CompositeDetector extends Detector {
 	public static String PATTERN = "Composite";
-	private ArrayList<IPattern> patterns;
+	private Set<IPattern> patterns;
 	private int instance;
 
-	public CompositeDetector(List<IFile> files) {
+	public CompositeDetector(Set<IFile> files) {
 		this.files = files;
-		this.patterns = new ArrayList<IPattern>();
+		this.patterns = new HashSet<IPattern>();
 		this.instance = -1;
 	}
 
 	@Override
-	public List<IPattern> detect() {
+	public Set<IPattern> detect() {
 		findComposite();
 		return this.patterns;
 	}

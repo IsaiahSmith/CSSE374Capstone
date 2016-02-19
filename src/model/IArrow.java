@@ -8,6 +8,5 @@ public interface IArrow {
 	public String getType();
 	public String getOrigin();
 	public String getEnd();
-	public boolean equals(IArrow arrow);
 	public String toString();
 }

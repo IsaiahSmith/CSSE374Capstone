@@ -1,7 +1,9 @@
 package parser.detector;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.IArrow;
 import model.IFile;
@@ -15,17 +17,17 @@ import nodes.Pattern;
 
 public class DecoratorDetector extends Detector{
 	public static String PATTERN = "Decorator";
-	private List<IPattern> decorators;
+	private Set<IPattern> decorators;
 	private int instance;
 	
-	public DecoratorDetector(List<IFile> files) {
+	public DecoratorDetector(Set<IFile> files) {
 		this.files = files;
-		this.decorators = new ArrayList<IPattern>();
+		this.decorators = new HashSet<IPattern>();
 		this.instance = -1;
 	}
 	
 	@Override
-	public List<IPattern> detect() {
+	public Set<IPattern> detect() {
 		findDecorator();		
 		
 		return this.decorators;
