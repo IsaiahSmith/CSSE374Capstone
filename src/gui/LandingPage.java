@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import api.UmlGeneratorApi;
 import net.miginfocom.swing.MigLayout;
 
 public class LandingPage implements Observer {
@@ -36,21 +37,23 @@ public class LandingPage implements Observer {
         mainPanel.setLayout(layout);
         
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setPreferredSize(new Dimension(600, 100));
+        JPanel progressPanel = new JPanel();
+        progressPanel.setPreferredSize(new Dimension(600, 100));
         
-        LoadConfigButton loadButton = new LoadConfigButton();
-        AnalyzeButton analyzeButton = new AnalyzeButton(mainframe, mainPanel);
+        
+        UmlGeneratorApi api = new UmlGeneratorApi();
+        
+        LoadConfigButton loadButton = new LoadConfigButton(mainframe, api);
+        AnalyzeButton analyzeButton = new AnalyzeButton(mainframe, mainPanel ,progressPanel, loadButton, api);
         
         buttonPanel.add(loadButton);
         buttonPanel.add(new JLabel("  "));
         buttonPanel.add(analyzeButton);
         
-        JPanel progressPanel = new JPanel();
-        this.loadingText= new JLabel("");
-        progressPanel.add(this.loadingText);
-        
-        
-        mainPanel.add(buttonPanel, "dock north");
-        mainPanel.add(progressPanel, "dock south");
+        progressPanel.revalidate();
+        mainPanel.add(buttonPanel, "span");
+        mainPanel.add(progressPanel, "span");
         
         this.mainframe.getContentPane().add(mainPanel);
         this.mainframe.pack();

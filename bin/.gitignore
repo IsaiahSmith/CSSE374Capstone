@@ -1,7 +1,10 @@
-/gui/
+/api/
 /designs/
+/encoders/
+/gui/
+/jsonloader/
 /model/
 /nodes/
 /parser/
+/runner/
 /testing/
-/encoders/

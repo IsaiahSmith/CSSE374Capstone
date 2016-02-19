@@ -14,38 +14,50 @@ import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import api.UmlGeneratorApi;
 import nodes.Model;
 
 public class ResultGUI {
 
 	private JFrame mainframe;
 	private JPanel mainpanel;
+	private JPanel graphPanel;
+	private UmlGeneratorApi api;
 	private List<Class<? extends Model>> classes;
 
-	public ResultGUI(JFrame mainframe, JPanel mainpanel, Model model) throws IOException {
+	public ResultGUI(JFrame mainframe, JPanel mainpanel, UmlGeneratorApi api) throws IOException {
+		this.graphPanel = new JPanel();
 		this.mainframe = mainframe;
 		this.mainpanel = mainpanel;
-		this.mainframe.setTitle("Design Parser - Results");
+		this.mainframe.setTitle("Design Parser - Results for "+api.getInputFileName());
 		this.mainframe.setSize(1200, 800);
-		populatePanel(model);
+		
+		this.api = api;
+		
+		populatePanel();
 	}
 
-	private void populatePanel(Model model) throws IOException {
-		// this.classes = model.getClasses();
-		String filepath = "./output/testGUI.dot";
+	private void populatePanel() throws IOException {
 		createMenuBar();
 		createCheckboxTree();
-		// makeFile(this.classes.encodeToDot(), filepath);
-		createGraphViz(filepath, "\"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot\"");
+//		String filepath = "./output/testGUI.dot";
+//		makeFile(this.classes.encodeToDot(), filepath);
+//		createGraphViz(filepath, "\"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot\"");
+		
+		// TODO: find out when you want to call this
+		showImage();
 	}
 
 	private void makeFile(String digraph, String resultPath) {
@@ -66,31 +78,38 @@ public class ResultGUI {
 
 		String command = exepath + " -Tpng " + filepath + " -o " + outPath;
 		Runtime.getRuntime().exec(command);
-		
-//		showImage();
 	}
 
-	private void showImage() {
+	public void showImage() {
 		ImageIcon image = new ImageIcon("./output/out.png");
-
-		JPanel graphPanel = new JPanel();
+		
+		this.graphPanel.removeAll();
 		JScrollPane scrollPanel = new JScrollPane(new JLabel(image), ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 		scrollPanel.setPreferredSize(new Dimension(779, 722));
 		scrollPanel.setVisible(true);
-		graphPanel.add(scrollPanel);
+		this.graphPanel.add(scrollPanel);
+		this.graphPanel.revalidate();
 		this.mainpanel.add(graphPanel, "dock east, h 790!, w 790!");
 	}
 
 	private void createCheckboxTree() {
 		JPanel treePanel = new JPanel();
-
-		JScrollPane scrollPanel = new JScrollPane(new CheckBoxTree(), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+		
+		CheckBoxTree cboxtree = new CheckBoxTree(this.api);
+		cboxtree.generate();
+		JPanel testPan = new JPanel();
+		
+		JCheckBox check = new JCheckBox("testing");
+		testPan.add(check);
+		
+		JScrollPane scrollPanel = new JScrollPane(cboxtree, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPanel.setPreferredSize(new Dimension(400, 727));
 		scrollPanel.setVisible(true);
 
+		
 		treePanel.add(scrollPanel);
 		this.mainpanel.add(treePanel, "dock west, h 801!, w 400!");
 	}
@@ -106,7 +125,11 @@ public class ResultGUI {
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				System.out.println("Load new");
+				JFileChooser fchooser = new JFileChooser();
+				fchooser.showOpenDialog(mainframe);
+				File chosen = fchooser.getSelectedFile();
+				// TODO: give api the file
+				ResultGUI.this.api.readConfigFile();
 			}
 		});
 
@@ -117,6 +140,8 @@ public class ResultGUI {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Export");
+				// TODO: save file somehow
+				
 			}
 		});
 
@@ -131,7 +156,19 @@ public class ResultGUI {
 		instMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				System.out.println("Instruction");
+				String inst = "<html>";
+				inst += "Hello!<br />"
+						+ "To use this program, you want to start by clicking a checkbox. According to whatever checkbox you click<br/>"
+						+ " you will see an image of that instance of whatever design is specified. If you would like to see<br/>"
+						+ " every instance of that design, click the checkbox next to the design's name.<br />"
+						+ "If you would like to load a new configuration file, then click File > Load new and select the<br/>"
+						+ " desired configuration file.<br/>"
+						+ "If you would like to save your current image to a specific directory, click File > Export and<br/>"
+						+ " select the desired destination."
+						+ "<br /> We hope this helps!";
+				inst += "</html>";
+				JOptionPane instop = new JOptionPane();
+				instop.showMessageDialog(ResultGUI.this.mainframe, inst, "Instructions", 1);
 			}
 		});
 
@@ -141,7 +178,19 @@ public class ResultGUI {
 		aboutMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				System.out.println("About");
+				String about = "<html>";
+				about += "Hello!<br />"
+						+ "This program is aimed to aid programers that want to know what software patterns are<br/>"
+						+ " included in asoftware package. This is especially useful for students taking a software<br/>"
+						+ " design course!<br />"
+						+ "The framework is entirely built in java and actually uses a few software patterns of<br/>"
+						+ " its own.<br/>"
+						+ "If you would like to learn more about software patterns, I emplore you to search<br/>"
+						+ " the internet and see what you can find."
+						+ "<br /> We hope this helps!";
+				about += "</html>";
+				JOptionPane instop = new JOptionPane();
+				instop.showMessageDialog(ResultGUI.this.mainframe, about, "About", 1);
 			}
 		});
 

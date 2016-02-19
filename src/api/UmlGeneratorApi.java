@@ -264,4 +264,19 @@ public class UmlGeneratorApi extends Observable implements api{
 		}
 	}
 
+	public String getInputFileName() {
+		// TODO get the name of the config file
+		return null;
+	}
+
+	public boolean hasConfigFile() {
+		// TODO check to see if there's a config file ready to go
+		return true;
+	}
+
+	public void readConfigFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
