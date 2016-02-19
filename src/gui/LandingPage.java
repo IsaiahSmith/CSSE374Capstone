@@ -33,18 +33,20 @@ public class LandingPage {
         mainPanel.setLayout(layout);
         
         JPanel buttonPanel = new JPanel();
+        JPanel progressPanel = new JPanel();
         
-        LoadConfigButton loadButton = new LoadConfigButton();
-        AnalyzeButton analyzeButton = new AnalyzeButton(mainframe, mainPanel);
+        Object api = new Object();
+        
+        LoadConfigButton loadButton = new LoadConfigButton(mainframe, api);
+        AnalyzeButton analyzeButton = new AnalyzeButton(mainframe, mainPanel ,progressPanel, loadButton, api);
         
         buttonPanel.add(loadButton);
         buttonPanel.add(new JLabel("  "));
         buttonPanel.add(analyzeButton);
         
-        JPanel progressPanel = new JPanel();
-        
-        mainPanel.add(buttonPanel, "dock north");
-        mainPanel.add(progressPanel, "dock south");
+        progressPanel.revalidate();
+        mainPanel.add(buttonPanel, "cell 1 1");
+        mainPanel.add(progressPanel, "cell 2 3");
         
         this.mainframe.getContentPane().add(mainPanel);
         this.mainframe.pack();
