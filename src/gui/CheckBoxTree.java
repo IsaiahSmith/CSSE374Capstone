@@ -13,10 +13,11 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import api.UmlGeneratorApi;
 import net.miginfocom.swing.MigLayout;
 
 public class CheckBoxTree extends JPanel {
-	
+	private UmlGeneratorApi api;
 	Map<String, List<String>> strMap;
 	Map<JCheckBox, List<JCheckBox>> cboxMap;
 	int row = 0;
@@ -28,9 +29,7 @@ public class CheckBoxTree extends JPanel {
 	
 	private JLabel spacer = new JLabel();
 
-	public CheckBoxTree() {
-		this.spacer.setSize(380, 2);
-		
+	public CheckBoxTree(UmlGeneratorApi api) {		
 		this.patterns = new ArrayList<String>();
 		this.patterns.add("Decorator");
 		this.patterns.add("Composite");
@@ -46,12 +45,16 @@ public class CheckBoxTree extends JPanel {
 		
 		this.sinstances = new ArrayList<String>();
 		this.sinstances.add("Class 3");
-		
+
 		strMap = new HashMap<String, List<String>>();
 		
 		strMap.put(this.patterns.get(0), dinstances);
 		strMap.put(this.patterns.get(1), cinstances);
 		strMap.put(this.patterns.get(2), sinstances);
+		
+		// TODO: uncomment this when you're ready to use the real thing
+//		strMap = api.getPatternRoots();
+		
 		
 		this.setPreferredSize(new Dimension(380, 710));
 		this.setLayout(new MigLayout());
@@ -72,10 +75,10 @@ public class CheckBoxTree extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						if(rootbox.isSelected()) {
 							// TODO: remove it for root
-							System.out.println("helooool");
+							CheckBoxTree.this.api.removePatternRoot(root);
 						}else {
 							// TODO: do api call for root
-							System.out.println("helooool");
+							CheckBoxTree.this.api.addPatternRoot(root);
 						}
 					}
 				});
@@ -95,11 +98,13 @@ public class CheckBoxTree extends JPanel {
 							cb.setSelected(true);
 						}
 						// TODO: do api call for pattern
+						CheckBoxTree.this.api.addPattern(pattern);
 					}else {
 						for(JCheckBox cb : cboxList) {
 							cb.setSelected(false);
 						}
 						// TODO: remove it for pattern
+						CheckBoxTree.this.api.removePattern(pattern);
 					}
 				}
 			});

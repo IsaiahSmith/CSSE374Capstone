@@ -8,10 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import api.UmlGeneratorApi;
+
 public class LoadConfigButton extends JButton {
-	private Object api;
+	private UmlGeneratorApi api;
 	
-	public LoadConfigButton(JFrame mainframe, Object api) {
+	public LoadConfigButton(JFrame mainframe, UmlGeneratorApi api) {
 		this.api = api;
 		
 		this.setText("Load Configuration");
@@ -22,6 +24,7 @@ public class LoadConfigButton extends JButton {
 				fchooser.showOpenDialog(mainframe);
 				File chosen = fchooser.getSelectedFile();
 				// TODO: give api the file
+				LoadConfigButton.this.api.readConfigFile();
 			}
 		});
 	}

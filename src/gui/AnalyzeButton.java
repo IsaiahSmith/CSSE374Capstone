@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import api.UmlGeneratorApi;
 import nodes.Model;
 
 public class AnalyzeButton extends JButton {
@@ -17,9 +18,9 @@ public class AnalyzeButton extends JButton {
 	private JPanel mainpanel;
 	private JPanel progpanel;
 	private JButton loadButton;
-	private Object api;
+	private UmlGeneratorApi api;
 	
-	public AnalyzeButton(JFrame mainframe, JPanel mainpanel, JPanel progpanel, JButton loadButton, Object api) {
+	public AnalyzeButton(JFrame mainframe, JPanel mainpanel, JPanel progpanel, JButton loadButton, UmlGeneratorApi api) {
 		this.mainframe = mainframe;
 		this.mainpanel = mainpanel;
 		this.progpanel = progpanel;
@@ -27,12 +28,13 @@ public class AnalyzeButton extends JButton {
 		this.api = api;
 		
 		this.setText("Analyze");
+		this.setEnabled(false);
 		this.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO: make sure there is a file in the directory, hint: use api
-				if(/*api.hasConfigFile() != true*/ false){
+				if(api.hasConfigFile() == false){
 					// don't do anything
 					
 				}else {
@@ -45,7 +47,11 @@ public class AnalyzeButton extends JButton {
 					AnalyzeButton.this.setEnabled(false);
 					AnalyzeButton.this.loadButton.setEnabled(false);
 					// wait for pbar to finish then go to result
-					// goToResult();					
+//					 try {
+//						 goToResult();
+//					} catch (IOException e1) {
+//						e1.printStackTrace();
+//					}					
 				}
 				
 			}

@@ -26,22 +26,26 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import api.UmlGeneratorApi;
 import nodes.Model;
 
 public class ResultGUI {
 
 	private JFrame mainframe;
 	private JPanel mainpanel;
-	private Object api;
+	private JPanel graphPanel;
+	private UmlGeneratorApi api;
 	private List<Class<? extends Model>> classes;
 
-	public ResultGUI(JFrame mainframe, JPanel mainpanel, Object api) throws IOException {
+	public ResultGUI(JFrame mainframe, JPanel mainpanel, UmlGeneratorApi api) throws IOException {
+		this.graphPanel = new JPanel();
 		this.mainframe = mainframe;
 		this.mainpanel = mainpanel;
-		this.mainframe.setTitle("Design Parser - Results");
+		this.mainframe.setTitle("Design Parser - Results for "+api.getInputFileName());
 		this.mainframe.setSize(1200, 800);
 		
 		this.api = api;
+		
 		populatePanel();
 	}
 
@@ -51,6 +55,8 @@ public class ResultGUI {
 //		String filepath = "./output/testGUI.dot";
 //		makeFile(this.classes.encodeToDot(), filepath);
 //		createGraphViz(filepath, "\"C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot\"");
+		
+		// TODO: find out when you want to call this
 		showImage();
 	}
 
@@ -72,27 +78,26 @@ public class ResultGUI {
 
 		String command = exepath + " -Tpng " + filepath + " -o " + outPath;
 		Runtime.getRuntime().exec(command);
-		
-//		showImage();
 	}
 
 	public void showImage() {
 		ImageIcon image = new ImageIcon("./output/out.png");
-
-		JPanel graphPanel = new JPanel();
+		
+		this.graphPanel.removeAll();
 		JScrollPane scrollPanel = new JScrollPane(new JLabel(image), ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 		scrollPanel.setPreferredSize(new Dimension(779, 722));
 		scrollPanel.setVisible(true);
-		graphPanel.add(scrollPanel);
+		this.graphPanel.add(scrollPanel);
+		this.graphPanel.revalidate();
 		this.mainpanel.add(graphPanel, "dock east, h 790!, w 790!");
 	}
 
 	private void createCheckboxTree() {
 		JPanel treePanel = new JPanel();
 		
-		CheckBoxTree cboxtree = new CheckBoxTree();
+		CheckBoxTree cboxtree = new CheckBoxTree(this.api);
 		cboxtree.generate();
 		JPanel testPan = new JPanel();
 		
@@ -124,6 +129,7 @@ public class ResultGUI {
 				fchooser.showOpenDialog(mainframe);
 				File chosen = fchooser.getSelectedFile();
 				// TODO: give api the file
+				ResultGUI.this.api.readConfigFile();
 			}
 		});
 
@@ -135,6 +141,7 @@ public class ResultGUI {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Export");
 				// TODO: save file somehow
+				
 			}
 		});
 
